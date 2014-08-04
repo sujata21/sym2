@@ -1,0 +1,3 @@
+{% for entityProjectAssigned in entitiesProjectsAssigned %}
+    <option value="{{ entityProjectAssigned.projectid }}" data-client-id="{{ client_id }}">{{ entityProjectAssigned.projectName }}</option>
+{% endfor %}

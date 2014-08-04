@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!--
+    <parameters>
+        <parameter key="aw_profanity.example.class">AW\ProfanityBundle\Example</parameter>
+    </parameters>
+
+    <services>
+        <service id="aw_profanity.example" class="%aw_profanity.example.class%">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+
+    <parameters>
+        <parameter key="aw_profanity.mailchecker.host">AW\ProfanityBundle\Service\MailChecker</parameter>
+    </parameters>-->
+    <services>
+    <service id="aw_profanity.mail.checker" class="AW\ProfanityBundle\Service\MailChecker">
+        <!--  <argument type="service" id="mail_checker" />
+    <argument>%aw_profanity.mailchecker_host%</argument>
+        <argument>%aw_profanity.mailchecker_class%</argument>
+        <argument>plain_value</argument>
+        <argument>%parameter_name%</argument>-->
+        </service>
+    </services>
+</container>

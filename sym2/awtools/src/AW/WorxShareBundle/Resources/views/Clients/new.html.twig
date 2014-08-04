@@ -1,0 +1,9 @@
+<h4>New Client</h4>
+
+<form id="formNewClient" action="{{ path('worxshare_clients_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <div>
+        <button id="btnNewClientSave" type="submit">Save</button>
+        <button id="btnNewEditCancel" type="button">Cancel</button>
+    </div>
+</form>

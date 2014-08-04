@@ -1,0 +1,27 @@
+{% extends "AWTestPlatformBundle::layout.html.twig" %}
+
+{% block title %}AW TestPlatform - Admin{% endblock %}
+{% block version %}v1.0{% endblock %}
+
+{% block content %}
+<div id="tabs">
+	<ul>
+		<li><a id="tabWelcome" href="welcome">Welcome</a></li>
+		<li><a id="tabTests" href="admintests">Tests</a></li>
+		<li><a id="tabStats" href="statistics">Statistics</a></li>
+		<li><a id="tabDevEmail"></a></li>
+	</ul>
+</div>
+<div>
+	<div id="divDevEmail" style="display: none;"></div>
+</div>
+<div id="divMessages" title="Message" style="display: none;"></div>
+<div id="dialogDevEmail" title="Dev email">
+	<input id="inputDevEmail" type="text" style="width: 250px;">
+	<div id="divEmailError"></div>
+</div>
+<div id="dialogDevComment" title="Dev comment" style="display: none;">
+	<div>Leave comment for testers:</div>
+	<textarea id="devCommentTxt" rows="3" style="width: 95%;"></textarea>
+</div>
+{% endblock %}

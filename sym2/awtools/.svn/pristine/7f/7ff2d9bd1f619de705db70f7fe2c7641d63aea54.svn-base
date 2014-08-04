@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Profanity and Spell Check Tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/bundles/mainassets/bootstrap3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bundles/awprofanity/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <h1></h1>
+    <div class="content">
+      {% block body %}{% endblock %}
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/bundles/mainassets/jquery/jquery-1.9.1.js"></script>
+    <script src="/bundles/awprofanity/js/jquery.spellchecker.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/bundles/mainassets/bootstrap3/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+      $('#tabs').tab();
+      $('#html').html($('#test').val());
+        $('#highlight').click(function(event) {
+        var highlight = $('.spellchecker-incorrectwords');
+        var ahref = $(highlight).find('a');
+        var htmstr = $('#html').html()
+        ahref.each(function(){
+          var redtext = '<span style="color:red">'+$(this).text()+'</span>';
+          //alert(redtext);
+          htmstr.replace($(this).text(),redtext); 
+         // alert(htmstr); 
+        })
+        //alert(htmstr);
+        $('#html').html(htmstr);
+      });
+
+      $('#spell').click(function(event) {
+
+  /* Act on the event */
+  // Creates new spellchecker instances
+(function() {
+      
+      var element = $('#test');
+
+      $('#incorrect-word-list').html('');
+      // Init the text spellchecker
+      var spellchecker = new $.SpellChecker(element, {
+        lang: 'en',
+        parser: 'text',
+        webservice: {
+          path: '/bundles/mainassets/jquery-spellchecker-master/dist/webservices/php/SpellChecker.php',
+          driver: 'pspell'
+        },
+        suggestBox: {
+          position: 'above'
+        },
+        incorrectWords: {
+          container: '#incorrect-word-list'
+        }
+      });
+
+      // Bind spellchecker handler functions
+      spellchecker.on('check.success', function() {
+        alert('There are no incorrectly spelt words.');
+      });
+
+      // Check the spelling
+     // $("#spell").click(function(e){
+        spellchecker.check();
+
+      
+      
+     // });
+    })();
+});
+
+  });
+
+</script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/addon/fold
+END
+xml-fold.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/addon/fold/xml-fold.js
+END
+indent-fold.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/addon/fold/indent-fold.js
+END
+foldcode.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/addon/fold/foldcode.js
+END
+brace-fold.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/addon/fold/brace-fold.js
+END

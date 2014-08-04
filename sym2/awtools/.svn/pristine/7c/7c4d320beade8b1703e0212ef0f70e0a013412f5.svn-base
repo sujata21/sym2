@@ -1,0 +1,39 @@
+aw_join:
+    resource: "@AWJoinBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+excel_populate:
+    resource: "@AWPopulateBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+aw_sony_script:
+    resource: "@AWSonyScriptBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+aw_trim:
+    resource: "@AWTrimBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+aw_test:
+    resource: "@AWTestBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+aw_test_platform:
+    resource: "@AWTestPlatformBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+main_assets:
+    resource: "@MainAssetsBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+aw_dynamic_text:
+    resource: "@AWDynamicTextBundle/Controller/"
+    type:     annotation
+    prefix:   /

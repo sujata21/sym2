@@ -1,0 +1,68 @@
+<?php
+
+namespace AW\TrimBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Request;
+
+/**
+ * Tests controller.
+ *
+ * @Route("/trim")
+ */
+class DefaultController extends Controller
+{
+    /**
+     * @Route("/")
+     * @Template()
+     */
+    public function indexAction()
+    {
+        $trimedText = '1';
+    	
+    	return $this->render('AWTrimBundle:Default:index.html.twig', array('trimedText' => $trimedText));
+    }
+    
+    /**
+     * 
+     * @Route("/trimed", name="trim")
+     * @Method("POST")
+     * @Template()
+     */
+    public function trimAction(Request $request)
+    {
+    	$textIn = $request->request->get('textin');
+    	//$textIn = $_POST['textin'];
+    	
+    	$textOut = self::trimHereDoc($textIn);
+    	
+    	return $this->render('AWTrimBundle:Default:trim.html.twig', array('textIn' => $textIn, 'textOut' => $textOut));
+    }
+    
+    public function trimHereDoc($txt)
+    {
+    	//how many lines
+    	$lines_arr = preg_split('/\n/',$txt);
+    	$num_lines = count($lines_arr);
+    
+    	//how many lines
+    	//$count = count(explode("\n", $_POST['textin']));
+    	//echo $count;
+    
+    	$txtbefore = "$";// text before
+    	$t3 = "";
+    
+    	for ($i = 1; $i <= $num_lines; $i++) {
+    		$t1 = preg_replace('/\s/m', '', $lines_arr[$i-1]);//remove white spaces
+    		$t2 = preg_replace('/^/', '$', $t1);//add $ at the beginning
+    		$txtafter = "[] = \$data[".$i."][\$column];\n";// text after with count $i
+    		$t3 .= preg_replace('/$/m', ''.$txtafter.'', $t2);
+    	}
+    
+    	return $t3;
+    
+    }
+}

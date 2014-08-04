@@ -1,0 +1,22 @@
+{% extends 'AWHtmlCheckerBundle::layout.html.twig' %}
+
+{% block body %}
+    ptest
+    {% for val in ptest %}
+        <li>{{ val.line }}</li>
+    {% endfor %}
+    stest
+    {% for val in stest %}
+        <li>{{ val.line }}</li>
+    {% endfor %}
+    htest
+    {% for val in htest %}
+        <li>{{ val.line }}</li>
+    {% endfor %}
+    {# for image in screenShots %}
+        <img width="100" src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ '/uploads/awhtmlchecker/' ~ image.filename }}">{{ app.request.scheme ~'://' ~ app.request.httpHost ~ '/uploads/awhtmlchecker/' ~ image.filename }}<br>
+    {% endfor #}
+    {% for image in imagesBase64 %}
+        <img width="100" src="{{ image.image }}">{{ image.url }}<br>
+    {% endfor %}
+{% endblock %}

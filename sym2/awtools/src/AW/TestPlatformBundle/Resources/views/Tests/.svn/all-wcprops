@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/awtools/!svn/ver/4/trunk/src/AW/TestPlatformBundle/Resources/views/Tests
+END
+edit.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Tests/edit.html.twig
+END
+end.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Tests/end.html.twig
+END
+email.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Tests/email.html.twig
+END
+show.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Tests/show.html.twig
+END
+admin.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Tests/admin.html.twig
+END
+new.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/awtools/!svn/ver/12/trunk/src/AW/TestPlatformBundle/Resources/views/Tests/new.html.twig
+END
+adminTests.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Tests/adminTests.html.twig
+END
+index.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Tests/index.html.twig
+END
+test.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/awtools/!svn/ver/12/trunk/src/AW/TestPlatformBundle/Resources/views/Tests/test.html.twig
+END
+welcome.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Tests/welcome.html.twig
+END
+statistics.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Tests/statistics.html.twig
+END
+searchList.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Tests/searchList.html.twig
+END
+search.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Tests/search.html.twig
+END

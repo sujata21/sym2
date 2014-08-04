@@ -1,0 +1,65 @@
+{% extends "AWSonyScriptBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>Projects</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Template</th>
+                <td>{{ entity.template }}</td>
+            </tr>
+            <tr>
+                <th>Alias</th>
+                <td>{{ entity.alias }}</td>
+            </tr>
+            <tr>
+                <th>Number</th>
+                <td>{{ entity.number }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>Spreadsheet</th>
+                <td>{{ entity.spreadsheet }}</td>
+            </tr>
+            <tr>
+                <th>Spreadsheet</th>
+                <td>{{ entity.spreadsheetCopy }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{#
+{% set i=1 %}
+<div style="float: left;">
+<table border="1">
+{% for var in varsArray %}
+  <tr><td>{{ i }}</td><td>{{ var }}</td></tr>
+  {% set i=i+1 %}
+{% endfor %}
+</table>
+</div>
+
+{% set i=1 %}
+<div style="float: left;">
+<table border="1">
+{% for row, col in data %}
+  <tr><td>{{ i }}</td>
+  {% for c in col %}
+    <td>{{ c }}</td>
+  {% endfor %}
+  </tr>
+  {% set i=i+1 %}
+{% endfor %}
+</table>
+</div>
+#}
+
+{% endblock %}

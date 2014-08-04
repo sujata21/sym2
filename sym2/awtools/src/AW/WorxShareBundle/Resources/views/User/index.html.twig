@@ -1,0 +1,57 @@
+<div class="row-fluid">
+	<div class="span12">
+		<table id="tblUsersList">
+			<thead>
+				<tr class="tblTitle">
+					<th><h4>Users list</h4></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th><button id="btnNewUser" data-href="{{ path('fos_user_registration_register') }}" class="btn btn-primary pull-right">New user</button></th>
+				</tr>
+				<tr class="tblFieldNames">
+					<th>Name</th>
+                    <th>Email [Login]</th>
+                    <th>Lastlogin</th>
+                    <th>Locked</th>
+                    <th>Role</th>
+                    <th></th>
+				</tr>
+			</thead>
+			<tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><strong>{{ entity.name }}</strong></td>
+                    <td><strong>{{ entity.email }}</strong></td>
+                    <td>{% if entity.lastLogin %}{{ entity.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td class="tblUsersListLocked">
+                        {% if entity.locked %}
+                        	<button class="btn btn-mini btnUserUnlock" data-href-list="{{ path('worxshare_user') }}" data-href-unlock="{{ path('worxshare_user_unlock', { 'id': entity.id }) }}"><i class="icon-ok"></i></button>
+                        {% else %}
+                        	<button class="btn btn-mini btnUserLock" data-href-list="{{ path('worxshare_user') }}" data-href-lock="{{ path('worxshare_user_lock', { 'id': entity.id }) }}"><i class="icon-minus"></i></button>
+                        {% endif %}
+                    </td>
+                    <td class="tdRole">
+                        {% if entity.roles[0] == 'ROLE_ADMIN' %}
+                        	Admin
+                        {% elseif entity.roles[0] == 'ROLE_CM' %}
+                        	CM
+                        {% elseif entity.roles[0] == 'ROLE_CLIENT' %}
+                        	Client
+                        {% endif %}
+                    </td>
+                    <td class="tblUsersListActions">
+                        <button class="btn btn-mini btn-warning btnUserClients" title="Assign clients" data-href="{{ path('worxshare_usersclients', { 'id': entity.id }) }}"><i class="icon-folder-open icon-white"></i></button>
+                        <button class="btn btn-mini btn-success btnUserProjects" title="Assign projects" data-href="{{ path('worxshare_usersprojects', { 'id': entity.id }) }}"><i class="icon-file icon-white"></i></button>
+                        <button class="btn btn-mini btn-info btnUserEdit" title="Edit user" data-href="{{ path('worxshare_user_edit', { 'id': entity.id }) }}"><i class="icon-pencil icon-white"></i></button>
+                        <!-- <button class="btn btn-mini btn-warning" data-href="{{ path('worxshare_user_show', { 'id': entity.id }) }}"><i class="icon-cog icon-white"></i></button> -->
+                        <button class="btn btn-mini btn-danger btnUserDelete" title="Delete user" data-href="{{ path('worxshare_user_delete', { 'id': entity.id }) }}"><i class="icon-trash icon-white"></i></button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+		</table>
+	</div>
+</div>
+

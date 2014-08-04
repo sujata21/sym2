@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/awtools/!svn/ver/2/trunk/src/AW/TrimBundle/DependencyInjection
+END
+Configuration.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/awtools/!svn/ver/2/trunk/src/AW/TrimBundle/DependencyInjection/Configuration.php
+END
+AWTrimExtension.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/awtools/!svn/ver/2/trunk/src/AW/TrimBundle/DependencyInjection/AWTrimExtension.php
+END

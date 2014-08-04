@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+
+{% form_theme form _self %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    <div id="divError">
+        {% for error in errors %}
+            <span class="label label-important">{{ error.message }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}
+
+{% block body -%}
+    <form id="formComments" action="{{ path('comments_create', { 'testId': testId }) }}" method="post" {{ form_enctype(form) }}>
+        	{{ form_errors(form) }}
+			{{ form_widget(form) }}
+        <p>
+            <input id="addComment" type="submit" value="Add comment" onclick="SaveComment()">
+        </p>
+    </form>
+    <div id="divSavedComments"></div>
+{% endblock %}

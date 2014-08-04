@@ -1,0 +1,75 @@
+{% extends 'AWInterviewBundle::layout.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+<div class="span3 bs-docs-sidebar">
+    <ul class="nav nav-list bs-docs-sidenav affix">
+        <li>
+            <a href="/interview/list">
+                <i class="icon-chevron-right"></i>
+                Interview List
+            </a>
+        </li>
+        <li>
+            <a href="/interview/admin">
+                <i class="icon-chevron-right"></i>
+                New Interview Session
+            </a>
+        </li>
+        <li>
+            <a href="/category/">
+                <i class="icon-chevron-right"></i>
+                Category
+            </a>
+        </li>
+        <li>
+            <a href="/jobtitle/">
+                <i class="icon-chevron-right"></i>
+                Job type
+            </a>
+        </li>
+        <li>
+            <a href="/question/list/all">
+                <i class="icon-chevron-right"></i>
+                Question list
+            </a>
+        </li>
+
+
+    </ul>
+</div>
+<div class="row-fluid" style="padding: 240px;">
+
+    <div class="alert alert-success" style="display:none;" id="url"></div>
+    <form method="post" id="interview_admin" >
+    <div class="alert alert-danger" style="display: none;" id="form-warning"></div>
+        <div class="row-fluid"></div>
+        <div class="row-fluid">
+            <div class="span2"> <b>Job Title :</b></div>
+            <div class="span8"><input type="text" name="jobtitle" size="100" id="jobtitle"></div>
+        </div>
+        <div class="row-fluid">
+            <p style="padding-top: 20px;"><b>Please Select the question sets to be used in the test:</b></p>
+            <div class="alert alert-danger" style="display: none;" id="form-warning1"></div>
+        </div>
+        {% for jobs in entities %}
+        <div class="row-fluid" style="margin-top:25px;">
+            <div class="span1"><input type="radio" value="{{ jobs.id }}" name="test_type" id="test_type" ></div>
+            <div class="span10 pull-left" style="">{{ jobs.name }}<br>-
+                {% for key,value in catname[jobs.id] %}
+                {{ value }},
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row-fluid" style="padding-top: 20px;">
+            <div class="span5 pull-right">
+                <button type="button" class="btn btn-primary" id="Upload">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</div>
+    </form>
+</div>
+
+{% endblock %}

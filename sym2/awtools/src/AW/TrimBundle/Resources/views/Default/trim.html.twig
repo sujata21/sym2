@@ -1,0 +1,9 @@
+{% extends "AWTrimBundle::layout.html.twig" %}
+
+{% block body %}
+    <form action="{{ path('trim') }}" method="post" name="form">
+      <textarea name="textin" cols="30" rows="30" style="border: 1px solid;">{{ textIn }}</textarea>
+      <textarea name="textout" cols="30" rows="30" style="border: 1px solid;">{{ textOut }}</textarea>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

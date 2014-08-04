@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/awtools/!svn/ver/2/trunk/src/AW/DynamicTextBundle/Tests/Controller
+END
+NamesControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/awtools/!svn/ver/2/trunk/src/AW/DynamicTextBundle/Tests/Controller/NamesControllerTest.php
+END
+ImageControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/awtools/!svn/ver/2/trunk/src/AW/DynamicTextBundle/Tests/Controller/ImageControllerTest.php
+END
+FileUploadControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/awtools/!svn/ver/2/trunk/src/AW/DynamicTextBundle/Tests/Controller/FileUploadControllerTest.php
+END
+DefaultControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/awtools/!svn/ver/2/trunk/src/AW/DynamicTextBundle/Tests/Controller/DefaultControllerTest.php
+END

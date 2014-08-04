@@ -1,0 +1,214 @@
+<?php
+
+namespace AW\DynamicTextBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
+
+
+/**
+ * FileUpload
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="AW\DynamicTextBundle\Entity\FileUploadRepository")
+ * @ORM\HasLifecycleCallbacks()
+ */
+class FileUpload
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     */
+    private $name;
+
+    /**
+     * @var string
+     * @Assert\Image()
+     * @ORM\Column(name="sourceImage", type="string", length=255, nullable=true)
+     */
+    private $sourceImage;
+    
+    /**
+     * @var string $file
+     *
+     * @Assert\Image()
+     * @Assert\NotBlank
+     */
+    public $file;
+    
+    /**
+     * @var string $file
+     *
+     * @Assert\Image()
+     */
+    public $resultImage;    
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return FileUpload
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set sourceImage
+     *
+     * @param string $sourceImage
+     * @return Image
+     */
+    public function setSourceImage($sourceImage)
+    {
+        $this->sourceImage = $sourceImage;
+    
+        return $this;
+    }
+
+    /**
+     * Get sourceImage
+     *
+     * @return string 
+     */
+    public function getSourceImage()
+    {
+        return $this->sourceImage;
+    }
+    
+    /**
+     * Set resultImage
+     *
+     * @param string $sourceImage
+     * @return Image
+     */
+    public function setResultImage($resultImage)
+    {
+    	$this->resultImage = $resultImagee;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get resultImage
+     *
+     * @return string
+     */
+    public function getResultImage()
+    {
+    	return $this->resultImage;
+    }
+	
+	public function getAbsolutePath()
+    {
+    	return null === $this->sourceImage
+    	? null
+    	: $this->getUploadRootDir().'/'.$this->sourceImage;
+    }
+    
+    public function getWebPath()
+    {
+    	return null === $this->sourceImage
+    	? null
+    	: $this->getUploadDir().'/'.$this->sourceImage;
+    }
+    
+    protected function getUploadRootDir()
+    {
+    	// the absolute directory path where uploaded
+    	// documents should be saved
+    	return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+    
+    protected function getUploadDir()
+    {
+    	// get rid of the __DIR__ so it doesn't screw up
+    	// when displaying uploaded doc/image in the view.
+    	return 'uploads/awdynamictext';
+    }
+    
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+    
+    	if($this->sourceImage && file_exists($this->getAbsolutePath())) {
+    		unlink($this->getAbsolutePath());
+    	}
+    
+    	if (null !== $this->file) {
+    		// do whatever you want to generate a unique name
+    		$this->sourceImage = uniqid().'.'.$this->file->guessExtension();
+    		$this->resultImage = 'res-'.$this->getSourceImage();
+    	}
+    
+    }
+    
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+    	if (null === $this->file) {
+    		return;
+    	}
+    
+    	// if there is an error when moving the file, an exception will
+    	// be automatically thrown by move(). This will properly prevent
+    	// the entity from being persisted to the database on error
+    	
+    	//moves original file
+    	$this->file->move($this->getUploadRootDir(), $this->sourceImage);
+    	//makes copy of original file to result file
+    	copy($this->getUploadRootDir() .'/'. $this->sourceImage, $this->getUploadRootDir() .'/'. $this->resultImage);
+    
+    }
+    
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+    	if ($file = $this->getAbsolutePath()) {
+    		unlink($file);
+    	}
+    }
+}

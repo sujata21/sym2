@@ -1,0 +1,392 @@
+$(document).ready(function() {
+	
+	//list all projects index page - status = 2
+	if (window.location.pathname == '/sonyscript/' || window.location.pathname == '/app_dev.php/sonyscript/') {
+		listAllTests(2);
+	}
+	
+	//open Prepare variables names dialog
+	$("#divNewVariables").dialog({ autoOpen: false });
+	$('#varNamesPrepare').click(function(e) {
+		$("#divNewVariables").dialog({
+			width: 550,
+			resizable: false,
+			maxHeight:600,
+			modal: true,});
+		$("#divNewVariables").dialog('option', 'position', ['middle',100]);
+		$('#divNewVariables').dialog('open');
+	});
+
+	//open Add your variable dialog
+	$("#divAddOwnVariable").dialog({ autoOpen: false });
+	$('#btnAddOwnVar').click(function(e) {
+		$("#divAddOwnVariable").dialog({
+			width: 500,
+			resizable: false,
+			maxHeight:600,
+			modal: true,
+			buttons: {
+				Close: function() {
+					$(this).dialog( "close" );
+				}
+			}
+		});
+		$("#divAddOwnVariable").dialog('option', 'position', ['middle',100]);
+		$('#divAddOwnVariable').dialog('open');
+	});
+	
+	//project link
+	$(document).on("click", ".projectLink", function(e) {
+		openSystemInfoDialog('Loading project data. Please wait...');
+	});
+
+	//back to project details link
+	$(document).on("click", "#projectsDetails", function(e) {
+		openSystemInfoDialog('Loading project data. Please wait...');
+	});
+
+	//button archive
+	$(document).on("click", "#btnListArchive", function(e) {
+		$("#projectsSearch").val('');
+		if ($(this).hasClass('active')){
+			$(this).removeClass('btn-success').addClass('btn-warning').html('Archive ON');
+			status = 1;
+		}else {
+			$(this).removeClass('btn-warning').addClass('btn-success').html('Archive OFF');
+			status = 0;
+		}
+		openSystemInfoDialog('Loading projects. Please wait...');
+		searchAllTests(status);
+	});
+
+	//button status change
+	$(document).on("click", ".statusChange", function(e) {
+		e.preventDefault();
+		openSystemInfoDialog('Changing project status. Please wait...');
+		if ($("#btnListArchive").hasClass('active')){
+			status = 1;
+		}else {
+			status = 0;
+		}
+		var url = $(this).attr("href");
+		$.post(url, function(data) {
+			searchAllTests(status);
+			closeSystemInfoDialog();
+		});
+	});
+	
+	//list all projects
+	function searchAllTests(status){
+		$.get('/sonyscript/' + status, function(data) {
+			$('#divProjectsList').html(data.html);
+			closeSystemInfoDialog()
+		});
+	}
+	
+	//list all projects for index page
+	function listAllTests (status){
+		openSystemInfoDialog('Loading projects. Please wait...');
+		$.get('/sonyscript/' + status, function(data) {
+			$('#divProjectsList').html(data.html);
+			closeSystemInfoDialog();
+		});
+	}
+	
+	function openSystemInfoDialog(infoText) {
+		$("#divSystemInfo").dialog({
+			width: 400,
+			resizable: false,
+			maxHeight:600,
+			modal: true,
+		});
+		$("#divSystemInfo").dialog('option', 'position', ['middle',100]);
+		$('#divSystemInfoText').html(infoText);
+		$('#divSystemInfo').dialog('open');
+	}
+
+	function closeSystemInfoDialog() {
+		$('#divSystemInfo').dialog('close');
+	}
+	
+	//admin tests search box
+	$(document).on("keyup", "#projectsSearch", function(e){
+		if($(this).val() !== '') {
+			searchProjects($(this).val());
+		} else {
+			if ($('#btnListArchive').hasClass('active')){
+				status = 1;//loads only archive projects
+			}else {
+				status = 0;//loads only active projects
+			}
+			listAllTests(status);
+		}
+	});
+	
+	//search box tests
+	function searchProjects (text){
+		if ($('#btnListArchive').hasClass('active')){
+			status = 1;//loads only archive projects
+		}else {
+			status = 0;//loads only active projects
+		}
+		$.get('/sonyscript/searchbox/' + status + ',' + text, function(data) {
+			//$('#progressbar').fadeIn(100);
+			$('#divProjectsList').html(data.html);
+			//$('#testsCount').html(data.testsCount);
+		    //$('#progressbar').fadeOut(100);
+		});
+	}
+	
+	//add own variable name and value
+	$(document).on("submit", "#formAddOwnVars", function(e) {
+		e.preventDefault();
+		var url = $(this).attr("action");
+		var name = $("#inputAddOwnVarsName").val();
+		var value = $("#inputAddOwnVarsValue").val();
+		$.post(url, { name: name, value: value }, function(data) {
+			$("#divOwnVarsList").html(data.html);
+			$("#listVars").prepend("<option value='{{ varsArray." + name + " | raw }}'>{{ varsArray." + name + " | raw }}</option>").val($("#listVars option:first").val());
+		});
+	});
+	
+	//delete own variable
+	$(document).on("submit", "#formDelOwnVar", function(e) {
+		e.preventDefault();
+		var confInfo = confirm("Delete variable?");
+		var value = $(this).attr("data-optionValue");
+		if (confInfo==true){
+			$(this).ajaxSubmit({
+				dataType: 'json',
+				success: function(data) {   
+					$("#divOwnVarsList").html(data.html);
+					$("#listVars option[value='" + value + "']").remove().val($("#listVars option:first").val());
+		        },
+	            target: '#divOwnVarsList'
+			});
+		} else {
+		  return false;
+		}
+	});
+	
+	//open Edit Project Info dialog
+	$("#divEditProjectInfo").dialog({ autoOpen: false });
+	$('#btnEditProjectInfo').click(function(e) {
+		$("#divEditProjectInfo").dialog({
+			width: 320,
+			resizable: false,
+			maxHeight:600,
+			modal: true,
+			buttons: {
+				"Update": function() {
+					//alert($( this ).attr("data-url"));
+					if ($("#newProjectName").val().trim() == '') {
+						alert('Please input project name.');
+						$("#newProjectName").focus();
+					} else if ($("#newProjectNumber").val().trim() == ''){
+						alert('Please input project number.');
+						$("#newProjectNumber").focus();
+					} else if ($("#newProjectAlias").val().trim() == ''){
+						alert('Please input project alias.');
+						$("#newProjectAlias").focus();
+					}
+					var url = $(this).attr("data-url"),
+						newName = $("#newProjectName").val(),
+						newNumber = $("#newProjectNumber").val(),
+						newAlias = $("#newProjectAlias").val();
+					
+					$.post(url, { newName: newName, newNumber: newNumber, newAlias: newAlias }, function(data) {
+						if (data.error == 1) {
+							alert('Project ' + newName + ' already exists.\nPlease input different project name.');
+						} else {
+							$('#divProjectName').html(newName);
+							$('#divProjectNumber').html(newNumber);
+							$('#divProjectAlias').html(newAlias);
+							$('#divProjectUpdated').html(data.updated);
+							$("#divEditProjectInfo").dialog("close");
+						}
+					});
+				},
+				Cancel: function() {
+					$(this).dialog( "close" );
+				}
+			}
+		});
+		$("#divEditProjectInfo").dialog('option', 'position', ['middle',100]);
+		$('#divEditProjectInfo').dialog('open');
+	});
+	
+	//Get new vars list
+	$(document).on("submit", "#formGetVarsNames", function(e) {
+		e.preventDefault();
+		openSystemInfoDialog('Preparing variables. Please wait.');
+		$(this).ajaxSubmit({
+			dataType: 'json',
+			success: function(data) {   
+				$("#imgLoading").css("display","none");
+				$("#divVarsList").css("text-align","left");
+				$("#divVarsList").html(data.vars);
+				closeSystemInfoDialog();
+	        },
+            target: '#divVarsList'
+		});
+	});
+	
+	//upload images on template page
+	$(document).on("submit", "#formUpldImgs", function(e) {
+		e.preventDefault();
+		var confInfo=confirm("This will override old images. Cannot be undone !!!");
+		if (confInfo==true){
+			openSystemInfoDialog('Uploading images. Please wait...');
+			$(this).ajaxSubmit({
+				dataType: 'json',
+				success: function(data) {   
+					$("#imgLoading").css("display","none");	
+					$("#divUploadedImagesCount").html('<small>' + data.imagesCount + '</small>');
+					closeSystemInfoDialog();
+				},
+	        });
+		} else {
+		  return false;
+		}
+	});
+	
+	//saves new template
+	$(document).on("click", "#btnSaveTpl", function(e) {
+		var url = $(this).attr("data-url");
+		openSystemInfoDialog('Saving template. Please wait...');
+		$.post(url, { newTemplate: editor.getValue() }, function(data) {
+			$("#divTemplateChangeCheck").html('saved');
+			$("#imgSaveTpl").css("display","none");	
+			closeSystemInfoDialog();
+		});
+		
+	});	
+	
+	//generate HTML templates
+	$(document).on("click", "#aGenHtml", function(e) {
+		
+		var checkedLang = $("input[name='language']:checked").map(function(){
+		      return $(this).val();
+		    }).get();
+		
+		var url = $(this).attr('href');
+		
+		if (checkedLang.length != 0) {
+			var isTemplateSaved = $("#divTemplateChangeCheck").html();
+			if (isTemplateSaved == 'unsaved') {
+				alert('Template has changed. Please save it first.');
+				return false;
+			} else if (isTemplateSaved == 'saved') {
+				if ($("#divUploadedImagesCount").html() != '<small>0</small>') {
+					e.preventDefault();
+					openSystemInfoDialog('Generating HTML files. Please wait...');
+					$.post(url, { 'langsArray': checkedLang }, function(data) {
+						window.location.href = '/sonyscript/show/' + data.id;
+					});
+				} else {
+					var btnClicked = confirm("You have not uploaded images. Generate HTML templates anyway?");
+					if (btnClicked == true){
+						e.preventDefault();
+						openSystemInfoDialog('Generating HTML files. Please wait...');
+						$.post(url, { 'langsArray': checkedLang }, function(data) {
+							window.location.href = '/sonyscript/show/' + data.id;
+						});
+					}else {
+						e.preventDefault();
+					} 
+				}
+			}
+		} else {
+			e.preventDefault();
+			alert('Please choose languages to generate HTML files.');
+		}
+	});
+	
+	//generate test html file checkbox
+	$(document).on("change", "#chboxTestHTMLFile", function() {
+		var href = $("#aGenHtml").attr("href").slice(0,-1);
+		if ($(this).is(':checked') == true) {
+			$("#aGenHtml").css("display", "none");
+			$("#aTestHtml").css("display", "inline-block");
+		} else {
+			$("#aGenHtml").css("display", "inline-block");
+			$("#aTestHtml").css("display", "none");
+		}
+	});
+
+	$(document).on("click", "#aCreateNew", function(e) {
+		openSystemInfoDialog('Creating new project. Please wait...');
+		
+	});	
+
+	$(document).on("click", "#btnPojectCreate", function(e) {
+		
+		var alias = $("#aw_sonyscriptbundle_projectstype_alias").val(),
+			number = $("#aw_sonyscriptbundle_projectstype_number").val(),
+			name = $("#aw_sonyscriptbundle_projectstype_name").val(),
+			spreadsheet = $("#aw_sonyscriptbundle_projectstype_spreadsheet").val(),
+			template = $("#aw_sonyscriptbundle_projectstype_template").val(),
+			templateDefault = $("#aw_sonyscriptbundle_projectstype_defaultTemplate"),
+			images = $("#images").val()
+			
+		if (template == '' && templateDefault.is(':checked') != true) {
+			e.preventDefault();
+			alert('Please choose project template or use default empty one and add your code later.');
+		}else if (alias != '' && number != '' && name != '' && spreadsheet != '') {
+			openSystemInfoDialog('Saving new project. Please wait...');
+		}
+	});	
+	
+	$(document).on("click", "#btnShowTemplate", function(e) {
+		if ($("#btnShowTemplate").html() == 'Show template') {
+			$("#btnShowTemplate").html('Hide template');
+			$("#divTemplate").css("display", "block");
+			editor.refresh();
+		} else {
+			$("#btnShowTemplate").html('Show template');
+			$("#divTemplate").css("display", "none");
+		}
+	});	
+	
+	
+    $('#checkAllLang').click(function(){
+        var checLanguages = $('input[name="language"]');
+        checLanguages.prop("checked", !checLanguages.prop("checked"));
+        $(this).toggleClass('btn-success btn-danger');
+        if ($(this).hasClass('btn-success')) {
+			$(this).html('Check all');
+		} else {
+			$(this).html('Uncheck all');
+		}
+    });
+	
+	/***********************************/
+	/*   Place any code above editor   */
+	/***********************************/
+	
+	//editor init - keep below lines at the end of this file
+	var editor = CodeMirror.fromTextArea(document.getElementById("template"), {
+	    lineNumbers: true,
+	    matchBrackets: true,
+	    mode: "application/x-httpd-php",
+	    indentUnit: 4,
+	    indentWithTabs: true,
+	    enterMode: "keep",
+		tabMode: "shift",
+		onKeyEvent: function(e , s){
+            if (s.type == "keyup")
+            {
+                $("#divTemplateChangeCheck").html('unsaved');
+            }
+        }
+	});
+	editor.setSize("100%", 700);
+	//editor add variable name
+	$(document).on("click", "#btnAddVar", function(e) {
+		editor.replaceSelection($("#listVars").val());
+	});
+	//editor delete variable name
+	$(document).on("click", "#btnDelVar", function(e) {
+		editor.replaceSelection("");
+	});
+});

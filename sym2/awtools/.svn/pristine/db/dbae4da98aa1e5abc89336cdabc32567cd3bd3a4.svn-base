@@ -1,0 +1,23 @@
+{% extends 'AWInterviewBundle::layout.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+<div class="row-fluid" style="padding: 300px;">
+    <h3>JobTitle creation</h3>
+
+    <form action="{{ path('jobtitle_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('jobtitle') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+</div>
+{% endblock %}

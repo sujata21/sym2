@@ -1,0 +1,118 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Image</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ entity.text }}</td>
+            </tr>
+            <tr>
+                <th>Fontsize</th>
+                <td>{{ entity.fontSize }}</td>
+            </tr>
+            <tr>
+                <th>Fontcolor</th>
+                <td>{{ entity.fontColor }}</td>
+            </tr>
+            <tr>
+                <th>Textx</th>
+                <td>{{ entity.textX }}</td>
+            </tr>
+            <tr>
+                <th>Texty</th>
+                <td>{{ entity.textY }}</td>
+            </tr>
+            <tr>
+                <th>Textposition</th>
+                <td>{{ entity.textPosition }}</td>
+            </tr>
+            <tr>
+                <th>Textperspective</th>
+                <td>{{ entity.textPerspective }}</td>
+            </tr>
+            <tr>
+                <th>Textperspectiveleftcorner</th>
+                <td>{{ entity.textPerspectiveLeftCorner }}</td>
+            </tr>
+            <tr>
+                <th>Textpespectiverightcorner</th>
+                <td>{{ entity.textPespectiveRightCorner }}</td>
+            </tr>
+            <tr>
+                <th>Textcircle</th>
+                <td>{{ entity.textCircle }}</td>
+            </tr>
+            <tr>
+                <th>Textcirclearcrotateangles</th>
+                <td>{{ entity.textCircleArcRotateAngles }}</td>
+            </tr>
+            <tr>
+                <th>Textwave</th>
+                <td>{{ entity.textWave }}</td>
+            </tr>
+            <tr>
+                <th>Textwaveheight</th>
+                <td>{{ entity.textWaveHeight }}</td>
+            </tr>
+            <tr>
+                <th>Textwavelength</th>
+                <td>{{ entity.textWaveLength }}</td>
+            </tr>
+            <tr>
+                <th>Sourceimage</th>
+                <td>{{ entity.sourceImage }}</td>
+            </tr>
+            <tr>
+                <th>Resultimage</th>
+                <td>{{ entity.resultImage }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Useragent</th>
+                <td>{{ entity.userAgent }}</td>
+            </tr>
+            <tr>
+                <th>Referrer</th>
+                <td>{{ entity.referrer }}</td>
+            </tr>
+            <tr>
+                <th>Ipaddress</th>
+                <td>{{ entity.ipAddress }}</td>
+            </tr>
+            <tr>
+                <th>Sessionid</th>
+                <td>{{ entity.sessionId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('image') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('image_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('image_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

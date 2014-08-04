@@ -1,0 +1,81 @@
+aw_mailing_count:
+    resource: "@AWMailingCountBundle/Controller/"
+    type:     annotation
+    prefix:   /
+aw_profanity:
+    resource: "@AWProfanityBundle/Controller/"
+    prefix:   /
+    type:     annotation
+aw_interview:
+    resource: "@AWInterviewBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+aw_join:
+    resource: "@AWJoinBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+excel_populate:
+    resource: "@AWPopulateBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+aw_sony_script:
+    resource: "@AWSonyScriptBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+aw_trim:
+    resource: "@AWTrimBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+aw_test:
+    resource: "@AWTestBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+aw_test_platform:
+    resource: "@AWTestPlatformBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+main_assets:
+    resource: "@MainAssetsBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+aw_dynamic_text:
+    resource: "@AWDynamicTextBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+# FOSUserBundle for AWWorxShareBundle
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix: /worxshare
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /worxshare/profile
+
+#fos_user_security_logout:
+#    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+#    prefix: /worxshare/login
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /worxshare/register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /worxshare/resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /worxshare/profile
+
+fos_user_group:
+    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
+    prefix: /worxshare/group

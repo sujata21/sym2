@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/bin
+END
+compress
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/bin/compress
+END
+source-highlight
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/bin/source-highlight
+END
+lint
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/bin/lint
+END

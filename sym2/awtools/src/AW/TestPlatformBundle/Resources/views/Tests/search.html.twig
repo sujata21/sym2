@@ -1,0 +1,31 @@
+    {% for entity in entities %}
+	    <div class="row-fluid">
+	    	<div id="divListRow" class="span12">
+				<div class="btn-group divListAction">
+	            	<button class="btn {% if entity.status == 0 %}btn-success{% else %}btn-warning{% endif %} dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+	                <ul class="dropdown-menu">
+	                  <li><a href="{{ path('tests_edit', { 'id': entity.id }) }}" class="adminChangeParameters" target="_blank">Change session parameters</a></li>
+	                  <li><a href="{{ path('tests_test', { 'id': entity.id }) }}" class="adminChangeParameters" target="_blank">Open test session</a></li>
+	                  <li class="divider"></li>
+	                  {% if entity.status == 0 %}
+	                  	<li><a href="{{ path('admin_archive', { 'id': entity.id, 'status': 1 }) }}" class="adminTestDevArchive">Mark as ARCHIVE</a></li>
+	                  {% else %}
+	                  	<li><a href="{{ path('admin_archive', { 'id': entity.id, 'status': 0 }) }}" class="adminTestDevArchive">Mark as ACTIVE</a></li>
+	                  {% endif %}
+	                  <li><a href="{{ path('admin_end', { 'id': entity.id, 'devEmail': 'a' }) }}" class="adminTestDevFinish">Finish</a></li>
+	                </ul>
+	            </div>
+    			{# {% set title = 'Useragent: ' ~ entity.useragent ~ 'IPaddress: ' ~ entity.ipaddress ~ 'Referrer: ' ~ entity.referrer %} #}
+				<div class="divListName">
+					<b>{{ entity.name }}</b><br>
+				</div>
+				<div class="divListDate">{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</div>
+				<div class="divListInfo">{{ entity.info }}</div>
+				<div class="divListComments">
+					<a id="btnAll_{{ entity.id }}" href="{{ path('comments_call', { 'testId': entity.id }) }}" class="buttonCommentsAll btn btn-info btn-mini">{{ comments[entity.id] }}</a>
+					<a id="btnNew_{{ entity.id }}" href="{{ path('comments_cnew', { 'testId': entity.id, 'status': '0' }) }}" class="buttonCommentsNew btn btn-danger btn-mini">{{ commentsNew[entity.id] }}</a>
+					<a id="btnDone_{{ entity.id }}" href="{{ path('comments_cdone', { 'testId': entity.id, 'status': '1' }) }}" class="buttonCommentsDone btn btn-success btn-mini">{{ commentsDone[entity.id] }}</a>
+				</div>
+	    	</div>
+	    </div>
+	{% endfor %}

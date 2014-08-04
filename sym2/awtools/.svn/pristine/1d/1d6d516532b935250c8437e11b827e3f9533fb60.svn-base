@@ -1,0 +1,24 @@
+{% extends 'AWInterviewBundle::layout.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+
+<div class="row-fluid" style="padding: 240px;">
+    <div class="span12" style="padding-left: 125px;">
+
+    <form action="{{ path('question_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Continue</button><br>
+            <a href="/app_dev.php/question/list/all"> Question List </a>
+
+        </p>
+    </form>
+
+
+    </div>
+
+
+</div>
+
+{% endblock %}

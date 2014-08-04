@@ -1,0 +1,89 @@
+{% extends 'AWInterviewBundle::layout.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+
+<div class="row-fluid" style="padding: 240px;">
+    <div class="span12" style="padding-left: 120px;">
+
+        <div class="row-fluid" style="padding-bottom: 20px;">
+           <div class="span12">
+               <h3 style="color:#df0000;">Result</h3>
+               <hr style="border-color: #000000;">
+               <div class="btn-group pull-right" >
+                   <button class="btn">Category</button>
+                   <button class="btn dropdown-toggle" data-toggle="dropdown">
+                       <span class="caret"></span>
+                   </button>
+                  
+                   <ul class="dropdown-menu">
+                       <li>
+                           <a href="/admin/review/{{user.url}}/all">All</a>
+                       </li>
+                       <li class="divider"></li>
+                       {% for key,value in cat_drp %}
+                       <li>
+                           <a href="/admin/review/{{user.url}}/{{key}}">{{value}}</a>
+                       </li>
+                       <li class="divider"></li>
+
+                       {% endfor %}
+
+                   </ul>
+               </div>
+
+           </div>
+
+            <div class="span12">
+                <div class="row-fluid">
+                    <div class="span2"><b>Name : </b></div>
+                    <div class="span9">{{user.username}}</div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span2"><b>Job Title : </b></div>
+                    <div class="span9">{{user.jobtitle}}</div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span2"><b>Final score : </b></div>
+                    <div class="span9">{{percent}}%</div>
+
+                </div>
+                <div class="row-fluid">
+                    <div class="span2"><b>Detail score : </b></div>
+                    <div class="span9"><a href="/interview/review/{{user.url}}" target="_blank">Click here</a></div>
+
+                </div>
+            </div>
+
+        </div>
+
+        {% set cnt = 0 %}
+        {% for key,value in category %}
+        {% set cnt = cnt+1 %}
+        <div class="row-fluid">*****************************************************************************************************************************************</div>
+        <div class="row-fluid" >
+            <h5>Section {{cnt}} : {{value}}</h5>
+            <div class="span12"><b>Scored:</b> {{result[key][1]}}/{{result[key][0]}}</div>
+            <div class="span12"><b>Time Taken:</b> {{time[key]}} mins</div>
+        </div>
+        {% for key1,value1 in q[key] %}
+        <div class="row-fluid">------------------------------------------------------------------------------------------------------------------------------------------</div>
+        <div class="row-fluid">
+            <div class="span9"><b>Question:</b> {{value1}}</div>
+        </div>
+        <div class="row-fluid">
+            <div class="span9"><b>Answer:</b> {{ans[key][key1]}}</div>
+            {% if(ans[key][key1] == correct[key][key1] )%}
+            <i class="icon-check-sign" style="color: green;font-size: 30px;"></i>
+            {% endif %}
+        </div>
+        <div class="row-fluid">
+            <div class="span9"><b>Correct Answer:</b> {{correct[key][key1]}}</div>
+        </div>
+            {% endfor %}
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

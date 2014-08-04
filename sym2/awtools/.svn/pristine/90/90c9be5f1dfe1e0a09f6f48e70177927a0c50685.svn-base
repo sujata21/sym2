@@ -1,0 +1,39 @@
+@CHARSET "ISO-8859-1";
+
+header{
+	font-size: 16px;
+	font-weight: bold;
+	color: red;
+}
+#container{
+	background-color: #D3E5E7;
+	width: 90%;
+	height: auto;
+	margin: 0 auto;
+	border-radius: 10px 10px 10px 10px;
+	border: 1px solid #4B88D1;
+	padding: 20px 20px 20px 20px;
+}
+#divFormText{
+	border: 0px solid #333333;
+}
+#divForm{
+	float: left;
+}
+#divFormTextPosition{
+	padding-bottom: 10px;
+}
+#divFormTextPositionGravity input[type="radio"]{
+	margin: 10px;
+}
+#divForm input[type="checkbox"]{
+	margin-left: 6px !important;
+    vertical-align: top;
+}
+#divImg{
+	float: right;
+	margin-top: -800px;
+}
+#divFormBtn{
+	
+}

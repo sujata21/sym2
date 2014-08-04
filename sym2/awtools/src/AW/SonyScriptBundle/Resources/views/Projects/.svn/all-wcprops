@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/awtools/!svn/ver/9/trunk/src/AW/SonyScriptBundle/Resources/views/Projects
+END
+template.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/awtools/!svn/ver/12/trunk/src/AW/SonyScriptBundle/Resources/views/Projects/template.html.twig
+END
+html.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/views/Projects/html.html.twig
+END
+show.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/awtools/!svn/ver/12/trunk/src/AW/SonyScriptBundle/Resources/views/Projects/show.html.twig
+END
+new.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/awtools/!svn/ver/5/trunk/src/AW/SonyScriptBundle/Resources/views/Projects/new.html.twig
+END
+index.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/awtools/!svn/ver/5/trunk/src/AW/SonyScriptBundle/Resources/views/Projects/index.html.twig
+END
+listall.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/awtools/!svn/ver/12/trunk/src/AW/SonyScriptBundle/Resources/views/Projects/listall.html.twig
+END

@@ -1,0 +1,121 @@
+{% extends "AWTestPlatformBundle::layout.html.twig" %}
+
+{% form_theme form _self %}
+
+
+{% block form_widget_simple %}
+{% spaceless %}
+    {% set type = type|default('text') %}
+    {{ form_label(form) }}
+    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{% endspaceless %}
+{% endblock form_widget_simple %}
+
+{% block textarea_widget %}
+{% spaceless %}
+    {{ form_label(form) }}
+    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+{% endspaceless %}
+{% endblock textarea_widget %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    <div id="divError">
+        {% for error in errors %}
+            <span class="label label-important">{{ error.message }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}
+
+{% block checkbox_widget %}
+{% spaceless %}
+    	<label  for="{{ id }}">{{ label|trans }}<input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} /></label>
+{% endspaceless %}
+{% endblock checkbox_widget %}
+
+{% block title %}AW TestPlatform{% endblock %}
+
+{% block content -%}
+<div id="divContainer" class="container-fluid">
+	<div class="row-fluid">
+    	<div id="divSpan" class="span12">
+			<div id="divTitle">
+				New test session
+			</div>
+			<div id="divForm">
+				<form action="{{ path('tests_create') }}" method="post" {{ form_enctype(form) }}>
+			        <div id="divFormRow">
+				        {{ form_errors(form.name) }}
+				        {{ form_widget(form.name) }}
+				    </div>
+				    <div id="divFormRow">
+				        {{ form_errors(form.email) }}
+				        {{ form_widget(form.email) }}
+				    </div>
+				    <div id="divFormRow">
+				        {{ form_errors(form.emailTo) }}
+				        {{ form_widget(form.emailTo) }}
+				    </div>
+				    <div id="divFormRow">
+				        {{ form_errors(form.link) }}
+				        {{ form_widget(form.link) }}
+				    </div>
+				    <div id="divFormRow">
+				        {{ form_errors(form.info) }}
+				        {{ form_widget(form.info) }}
+				    </div>
+				    <div id="divFormRow">
+				        {{ form_errors(form.link) }}
+				        {{ form_widget(form.link) }}
+				    </div>
+				    <div id="divIframeParameters">
+				    	<p>IFrame parameters:</p>
+				    	<div id="divFormIframeRow">
+					        {{ form_errors(form.iFrameName) }}
+					        {{ form_widget(form.iFrameName) }}
+					    </div>
+					    <div id="divFormIframeRow">
+					        {{ form_errors(form.iFrameWidth) }}
+					        {{ form_widget(form.iFrameWidth) }}
+					    </div>
+					    <div id="divFormIframeRow">
+					        {{ form_errors(form.iFrameHeight) }}
+					        {{ form_widget(form.iFrameHeight) }}
+					    </div>
+					    <div id="divFormIframeRow">
+					        {{ form_errors(form.iFrameScrolling) }}
+					        {{ form_widget(form.iFrameScrolling) }}
+					    </div>
+					    <div id="divFormIframeRow">
+					        {{ form_errors(form.iFrameFrameborder) }}
+					        {{ form_widget(form.iFrameFrameborder) }}
+					    </div>
+				    </div>
+				    <div id="divFormBtn">
+			        	<a class="btn btn-warning" href="{{ path('tests') }}">Back to the list</a>
+			        	<button type="submit" class="btn btn-success">Start new session</button>
+			        </div>
+			    </form>
+			</div>   
+    	</div>
+	</div>
+	<div class="row-fluid">
+    	<div id="divSpan" class="span12">
+			<div id="divTechInfo">
+				<div id="divTechInfoRow">
+					<strong>Useragent:</strong> {{ entity.useragent }}
+				</div>
+				<div id="divTechInfoRow">
+					<strong>IP address:</strong> {{ entity.ipaddress }}
+				</div>
+				<div id="divTechInfoRow">
+					<strong>Referrer:</strong> {{ entity.referrer }}
+				</div>
+			</div>    
+    	</div>
+	</div>
+</div>
+{% endblock %}

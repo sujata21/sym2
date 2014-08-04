@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/awtools/!svn/ver/7/trunk/src/AW/PopulateBundle/DependencyInjection
+END
+Configuration.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/awtools/!svn/ver/7/trunk/src/AW/PopulateBundle/DependencyInjection/Configuration.php
+END
+AWPopulateExtension.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/awtools/!svn/ver/7/trunk/src/AW/PopulateBundle/DependencyInjection/AWPopulateExtension.php
+END

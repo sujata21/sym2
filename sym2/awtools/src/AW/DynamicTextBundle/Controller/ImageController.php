@@ -1,0 +1,579 @@
+<?php
+
+namespace AW\DynamicTextBundle\Controller;
+
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use AW\DynamicTextBundle\Entity\Image;
+use AW\DynamicTextBundle\Form\ImageType;
+
+/**
+ * Image controller.
+ *
+ * @Route("/image")
+ */
+class ImageController extends Controller
+{
+    /**
+     * Lists all Image entities.
+     *
+     * @Route("/", name="image")
+     * @Method("GET")
+     * @Template()
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager('dynamicText');
+
+        $entities = $em->getRepository('AWDynamicTextBundle:Image')->findAll();
+
+        return array(
+            'entities' => $entities,
+        );
+    }
+    
+	/**
+     * Creates a new Image entity.
+     *
+     * @Route("/", name="image_create")
+     * @Method("POST")
+     * @Template("AWDynamicTextBundle:Image:new.html.twig")
+     */
+    public function createAction(Request $request)
+    {
+        $entity  = new Image();
+        $form = $this->createForm(new ImageType(), $entity);
+        $form->bind($request);
+		
+        if ($form->isValid()) {
+            
+        	$em = $this->getDoctrine()->getManager('dynamicText');
+            $em->persist($entity);
+            $em->flush();
+			
+            return $this->redirect($this->generateUrl('image_edit', array('id' => $entity->getId())));
+        }
+
+        return array(
+            'entity' => $entity,
+        	'form'   => $form->createView(),
+        );
+    }
+	
+    /**
+     * Displays a form to create a new Image entity.
+     *
+     * @Route("/new", name="image_new")
+     * @Method("GET")
+     * @Template()
+     */
+    public function newAction()
+    {
+        $entity = new Image();
+        $form   = $this->createForm(new ImageType(), $entity);
+        
+
+        return array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        );
+    }
+
+    /**
+     * Finds and displays a Image entity.
+     *
+     * @Route("/{id}", name="image_show")
+     * @Method("GET")
+     * @Template()
+     */
+    public function showAction($id)
+    {
+        $em = $this->getDoctrine()->getManager('dynamicText');
+
+        $entity = $em->getRepository('AWDynamicTextBundle:Image')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Image entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+
+        return array(
+            'entity'      => $entity,
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
+
+    /**
+     * Displays a form to edit an existing Image entity.
+     *
+     * @Route("/{id}/edit", name="image_edit")
+     * @Method("GET")
+     * @Template()
+     */
+    public function editAction($id)
+    {
+        $em = $this->getDoctrine()->getManager('dynamicText');
+
+        $entity = $em->getRepository('AWDynamicTextBundle:Image')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Image entity.');
+        }
+
+        $editForm = $this->createForm(new ImageType(), $entity);
+        $deleteForm = $this->createDeleteForm($id);
+        
+        return array(
+            'entity'      => $entity,
+        	'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
+
+    /**
+     * Edits an existing Image entity.
+     *
+     * @Route("/{id}", name="image_update")
+     * @Method("PUT")
+     * @Template("AWDynamicTextBundle:Image:edit.html.twig")
+     */
+    public function updateAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager('dynamicText');
+
+        $entity = $em->getRepository('AWDynamicTextBundle:Image')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Image entity.');
+        }
+
+        //$deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createForm(new ImageType(), $entity);
+        $editForm->bind($request);
+
+        if ($editForm->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+            
+            $imgArray = array(
+            		//'resImgPath' => 'http://aw2013.alchemyworx.local/uploads/awdynamictext/tmp-'.$entity->getResultImage(),
+            		//resImgSPath - source image
+            		'resImgSPath' => '/home/rstraburzynski/project/AW_2013/web/uploads/awdynamictext/'.$entity->getSourceImage(),
+            		//resImgRPath - result image
+            		'resImgRPath' => '/home/rstraburzynski/project/AW_2013/web/uploads/awdynamictext/'.$entity->getResultImage(),
+            		//resImgCWPath - circle & wave text
+            		'resImgCWPath' => '/home/rstraburzynski/project/AW_2013/web/uploads/awdynamictext/cw-'.$entity->getResultImage().'.png',
+            		//resImgPPath - perspective text
+            		'resImgPPath' => '/home/rstraburzynski/project/AW_2013/web/uploads/awdynamictext/p-'.$entity->getResultImage().'.png',
+            		'text' => $entity->getText(),
+            		'font' => '/home/rstraburzynski/project/AW_2013/web/bundles/awdynamictext/fonts/'.$entity->getFont(),
+            		'fontSize' => $entity->getFontSize(),
+            		'fontColor' => $entity->getFontColor(),
+            		'textX'	 => $entity->getTextX(),
+            		'textY'	 => $entity->getTextY(),
+            		'textPosition' => $entity->getTextPosition(),
+            		'textWaterMark' => $entity->getTextWaterMark(),
+            		'textWaterMarkBrightness' => $entity->getTextWaterMarkBrightness(),
+            		'textWaterMarkSaturation' => $entity->getTextWaterMarkSaturation(),
+            		'textPerspective' => $entity->getTextPerspective(),
+            		'textPerspectiveLeftCorner' => $entity->getTextPerspectiveLeftCorner(),
+            		'textPespectiveRightCorner' => $entity->getTextPespectiveRightCorner(),
+            		'textCircle' => $entity->getTextCircle(),
+            		'textCircleArcRotateAngles' => $entity->getTextCircleArcRotateAngles(),
+            		'textRotate' => $entity->getTextRotate(),
+            		'textWave' => $entity->getTextWave(),
+            		'textWaveHeight' => $entity->getTextWaveHeight(),
+            		'textWaveLength' => $entity->getTextWaveLength()
+            );
+            /*
+            $imgArray1 = array(
+            		//'resImgPath' => 'http://aw2013.alchemyworx.local/uploads/awdynamictext/tmp-'.$entity->getResultImage(),
+            		//resImgSPath - source image
+            		'resImgSPath' => '/home/rstraburzynski/project/AW_2013/web/uploads/awdynamictext/'.$entity->getResultImage(),
+            		//resImgRPath - result image
+            		'resImgRPath' => '/home/rstraburzynski/project/AW_2013/web/uploads/awdynamictext/'.$entity->getResultImage1(),
+            		//resImgCWPath - circle & wave text
+            		'resImgCWPath' => '/home/rstraburzynski/project/AW_2013/web/uploads/awdynamictext/cw-'.$entity->getResultImage1().'.png',
+            		//resImgPPath - perspective text
+            		'resImgPPath' => '/home/rstraburzynski/project/AW_2013/web/uploads/awdynamictext/p-'.$entity->getResultImage1().'.png',
+            		'text' => $entity->getText1(),
+            		'font' => '/home/rstraburzynski/project/AW_2013/web/bundles/awdynamictext/fonts/'.$entity->getFont1(),
+            		'fontSize' => $entity->getFontSize1(),
+            		'fontColor' => $entity->getFontColor1(),
+            		'textX'	 => $entity->getTextX1(),
+            		'textY'	 => $entity->getTextY1(),
+            		'textPosition' => $entity->getTextPosition1(),
+            		'textWaterMark' => $entity->getTextWaterMark1(),
+            		'textWaterMarkBrightness' => $entity->getTextWaterMarkBrightness1(),
+            		'textWaterMarkSaturation' => $entity->getTextWaterMarkSaturation1(),
+            		'textPerspective' => $entity->getTextPerspective1(),
+            		'textPerspectiveLeftCorner' => $entity->getTextPerspectiveLeftCorner1(),
+            		'textPespectiveRightCorner' => $entity->getTextPespectiveRightCorner1(),
+            		'textCircle' => $entity->getTextCircle1(),
+            		'textCircleArcRotateAngles' => $entity->getTextCircleArcRotateAngles1(),
+            		'textRotate' => $entity->getTextRotate1(),
+            		'textWave' => $entity->getTextWave1(),
+            		'textWaveHeight' => $entity->getTextWaveHeight1(),
+            		'textWaveLength' => $entity->getTextWaveLength1()
+            );
+            */
+            
+            //$textWidth = self::getWidth($imgArray['resImgRPath']);
+            //$textHeight = self::getWidth($imgArray['resImgRPath']);
+            
+            $em = $this->getDoctrine()->getManager('dynamicText');
+            
+            $namesEntities = $em->getRepository('AWDynamicTextBundle:Names')->findAll();
+            
+            foreach ($namesEntities as &$fname) {
+            	
+            	$imgArray['resImgRPath'] = '/home/rstraburzynski/project/AW_2013/web/uploads/awdynamictext/'.$entity->getResultImage().'-'.trim($fname->getFname())."-".trim($fname->getLname()).'.jpg';
+            	$imgArray['resImgCWPath'] = '/home/rstraburzynski/project/AW_2013/web/uploads/awdynamictext/cw-'.$entity->getResultImage().'-'.trim($fname->getFname())."-".trim($fname->getLname()).'.png';
+            	$imgArray['resImgPPath'] = '/home/rstraburzynski/project/AW_2013/web/uploads/awdynamictext/p-'.$entity->getResultImage().'-'.trim($fname->getFname())."-".trim($fname->getLname()).'.png';
+            	//$imgArray['text'] = " ".trim($fname->getFname())."  ".trim($fname->getLname());
+            	$imgArray['text'] = trim($fname->getFname());
+            	
+            	
+            	self::convertImage($imgArray);
+            }
+            
+            //self::convertImage($imgArray);
+            return $this->redirect($this->generateUrl('image_edit', array('id' => $id)));
+        }
+        
+        return array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            //'delete_form' => $deleteForm->createView(),
+        );
+    }
+    
+    public function convertImage($imgArray){
+    	
+    	$comm = "convert -font ".$imgArray['font']." -size 140x120 -gravity center -background none -fill '".$imgArray['fontColor']."' label:\"".$imgArray['text']."\" ";
+    	//$comm = "convert -font ".$imgArray['font']." -pointsize ".$imgArray['fontSize']." -background none -fill ".$imgArray['fontColor']." label:\"".$imgArray['text']."\" ";
+    	
+    	if ($imgArray['textCircle']){
+    		if ($imgArray['textRotate']) {
+    			$comm .= " -virtual-pixel background -rotate ".$imgArray['textRotate']." -distort Arc \"".$imgArray['textCircleArcRotateAngles']."\" ";
+    		}else {
+    			$comm .= " -virtual-pixel background -distort Arc \"".$imgArray['textCircleArcRotateAngles']."\" ";
+    		}
+    	}
+    	if ($imgArray['textWave']){
+    		$comm .= " -wave ".$imgArray['textWaveHeight']."x".$imgArray['textWaveLength']." ";
+    	}
+    	$comm .= " ".$imgArray['resImgCWPath'];
+    	//echo "<br/>" . $comm ."<br/>";
+    	exec($comm);
+    	
+    	//return ;
+    	/*
+    	 exec('convert images/font_circle.png -virtual-pixel tile -mattecolor DodgerBlue \
+    	 		-distort Perspective "0,0 20,60  90,0 70,63  0,90 5,83  90,90 85,88" \
+    	 		images/font.png');
+    	*/
+    	if ($imgArray['textPerspective']){
+    		//$commpersp = "convert images/font_circle.png -matte -virtual-pixel transparent -verbose -distort Perspective \"0,0,3,0 0,46,10,46 70,0,70,7 70,46,60,40\" images/font.png";
+    		$commpersp = "convert ".$imgArray['resImgCWPath']." -mattecolor transparent -matte -virtual-pixel transparent -interpolate Spline -distort BilinearForward \"0,0 ".$imgArray['textPerspectiveLeftCorner'].",0   ".self::getWidth($imgArray['resImgCWPath']).",0 ".(self::getWidth($imgArray['resImgCWPath'])-$imgArray['textPespectiveRightCorner']).",0   ".self::getWidth($imgArray['resImgCWPath']).",".self::getHeight($imgArray['resImgCWPath'])." ".self::getWidth($imgArray['resImgCWPath']).",".self::getHeight($imgArray['resImgCWPath'])."   0,".self::getHeight($imgArray['resImgCWPath'])." 0,".self::getHeight($imgArray['resImgCWPath'])."\" ".$imgArray['resImgPPath']."";
+    		exec($commpersp);
+    		//echo $commpersp."<br/>";
+    	}
+    	
+    	$commgeo = "composite ";
+    	
+    	$textWidth = self::getWidth($imgArray['resImgCWPath']);
+    	$textHeight = self::getHeight($imgArray['resImgCWPath']);
+    	
+    	//$textHalfWidth = round($textWidth/2, 0);
+    	//$textHalfHeight = round($textHeight/2, 0);
+    	
+    	$textAllWidth = $textWidth;
+    	$textAllHeight = $textHeight;
+    	
+    	//$textXNewPos = $imgArray['textX']-$textHalfWidth;
+    	//$textYNewPos = $imgArray['textY']-$textHalfHeight;
+    	
+    	$textXNewPos = $imgArray['textX'];
+    	$textYNewPos = $imgArray['textY']-$textAllHeight;
+    	
+    	/*
+    	if (strlen($imgArray['text']) >= 6) {
+    		$textYNewPos = $textYNewPos + 20;
+    	}
+    	*/
+    	
+    	switch (strlen($imgArray['text'])) {
+    		case 4:
+    			$textYNewPos = $textYNewPos + 10;
+    			break;
+    		case 5:
+    			$textYNewPos = $textYNewPos + 10;
+    			break;
+    		case 6:
+    			$textYNewPos = $textYNewPos + 15;
+    			break;
+   			case 7:
+   				$textYNewPos = $textYNewPos + 20;
+   				break;
+   			case 8:
+   				$textYNewPos = $textYNewPos + 20;
+  				break;
+			case 9:
+				$textYNewPos = $textYNewPos + 22;
+				break;
+	   	}
+    	
+    	 
+    	//var_dump(strlen($imgArray['text']));
+    	//die;
+    	
+    	if ($textXNewPos >= 0) {
+    		$textX = '+'.$textXNewPos;
+    	}else {
+    		$textX = ''.$textXNewPos;
+    	}
+    	if ($textYNewPos >= 0) {
+    		$textY = '+'.$textYNewPos;
+    	}else {
+    		$textY = ''.$textYNewPos;
+    	}
+    	
+    	if ($imgArray['textWaterMark']){
+    		$commgeo .= " -watermark ".$imgArray['textWaterMarkBrightness']."x".$imgArray['textWaterMarkSaturation']." ";
+    	}
+    	
+    	switch ($imgArray['textPosition']) {
+    		case 'TL':
+    			//$commgeo .= " -geometry +0+0 ";
+    			$commgeo .= " -gravity northwest ";
+    			break;
+    		case 'TM':
+    			//$commgeo .= " -geometry +".((getWidth("images/res.jpg")/2)-(getWidth("images/font_circle.png")/2))."+0 ";
+    			$commgeo .= " -gravity north ";
+    			break;
+    		case 'TR':
+    			//$commgeo .= " -geometry +".(getWidth("images/res.jpg")-getWidth("images/font_circle.png"))."+0 ";
+    			$commgeo .= " -gravity northeast ";
+    			break;
+    		case 'ML':
+    			//$commgeo .= " -geometry +0+".((getHeight("images/res.jpg")/2)-(getHeight("images/font_circle.png")/2))." ";
+    			$commgeo .= " -gravity west ";
+    			break;
+    		case 'MM':
+    			//$commgeo .= " -geometry +".((getWidth("images/res.jpg")/2)-(getWidth("images/font_circle.png")/2))."+".((getHeight("images/res.jpg")/2)-(getHeight("images/font_circle.png")/2))." ";
+    			$commgeo .= " -gravity center ";
+    			break;
+    		case 'MR':
+    			//$commgeo .= " +".(getWidth("images/res.jpg")-getWidth("images/font_circle.png"))."+".((getHeight("images/res.jpg")/2)-(getHeight("images/font_circle.png")/2))." ";
+    			$commgeo .= " -gravity east ";
+    			break;
+    		case 'BL':
+    			//$commgeo .= " +0+".(getHeight("images/res.jpg")-getHeight("images/font_circle.png"))." ";
+    			$commgeo .= " -gravity southwest ";
+    			break;
+    		case 'BM':
+    			//$commgeo .= " +".((getWidth("images/res.jpg")/2)-(getWidth("images/font_circle.png")/2))."+".(getHeight("images/res.jpg")-getHeight("images/font_circle.png"))." ";
+    			$commgeo .= " -gravity south ";
+    			break;
+    		case 'BR':
+    			//$commgeo .= " +".(getWidth("images/res.jpg")-getWidth("images/font_circle.png"))."+".(getHeight("images/res.jpg")-getHeight("images/font_circle.png"))." ";
+    			$commgeo .= " -gravity southeast ";
+    			break;
+    		default:
+    			$commgeo .= " -gravity northwest -geometry ".$textX."".$textY." ";
+    			break;
+    	}
+    	
+    	if ($imgArray['textPerspective']){
+    		$resImg = $imgArray['resImgPPath'];
+    	}
+    	else {
+    		$resImg = $imgArray['resImgCWPath'];
+    	}
+    	
+    	$commgeo .= " ".$resImg." ".$imgArray['resImgSPath']." ".$imgArray['resImgRPath']."";
+    	//echo $commgeo."<br/>";
+    	exec($commgeo);
+    	
+    	return $resImg;
+    	
+    	//var_dump(memory_get_usage());
+    	//die;
+    	
+    }
+    
+    public function convertImage1($imgArray1){
+    	 
+    	//var_dump($imgArray1);
+    	//die;
+    	 
+    	//$comm = "convert -font ".$imgArray1['font']." -size 80x -background none -fill ".$imgArray1['fontColor']." label:\"".$imgArray1['text']."\" ";
+    	$comm = "convert -font ".$imgArray1['font']." -pointsize ".$imgArray1['fontSize']." -background none -fill ".$imgArray1['fontColor']." label:\"".$imgArray1['text']."\" ";
+    	
+    	if ($imgArray1['textCircle']){
+    		if ($imgArray1['textRotate']) {
+    			$comm .= " -virtual-pixel background -rotate ".$imgArray1['textRotate']." -distort Arc \"".$imgArray1['textCircleArcRotateAngles']."\" ";
+    		}else {
+    			$comm .= " -virtual-pixel background -distort Arc \"".$imgArray1['textCircleArcRotateAngles']."\" ";
+    		}
+    	}
+    	if ($imgArray1['textWave']){
+    		$comm .= " -wave ".$imgArray1['textWaveHeight']."x".$imgArray1['textWaveLength']." ";
+    	}
+    	$comm .= " ".$imgArray1['resImgCWPath'];
+    	//echo "<br/>" . $comm ."<br/>";
+    	exec($comm);
+    	 
+    	//return ;
+    	/*
+    	 exec('convert images/font_circle.png -virtual-pixel tile -mattecolor DodgerBlue \
+    	 		-distort Perspective "0,0 20,60  90,0 70,63  0,90 5,83  90,90 85,88" \
+    	 		images/font.png');
+    	*/
+    	if ($imgArray1['textPerspective']){
+    		//$commpersp = "convert images/font_circle.png -matte -virtual-pixel transparent -verbose -distort Perspective \"0,0,3,0 0,46,10,46 70,0,70,7 70,46,60,40\" images/font.png";
+    		$commpersp = "convert ".$imgArray1['resImgCWPath']." -mattecolor transparent -matte -virtual-pixel transparent -interpolate Spline -distort BilinearForward \"0,0 ".$imgArray1['textPerspectiveLeftCorner'].",0   ".self::getWidth($imgArray1['resImgCWPath']).",0 ".(self::getWidth($imgArray1['resImgCWPath'])-$imgArray1['textPespectiveRightCorner']).",0   ".self::getWidth($imgArray1['resImgCWPath']).",".self::getHeight($imgArray1['resImgCWPath'])." ".self::getWidth($imgArray1['resImgCWPath']).",".self::getHeight($imgArray1['resImgCWPath'])."   0,".self::getHeight($imgArray1['resImgCWPath'])." 0,".self::getHeight($imgArray1['resImgCWPath'])."\" ".$imgArray1['resImgPPath']."";
+    		exec($commpersp);
+    		//echo $commpersp."<br/>";
+    	}
+    	 
+    	$commgeo = "composite ";
+    	 
+    	$textWidth = self::getWidth($imgArray1['resImgCWPath']);
+    	$textHeight = self::getHeight($imgArray1['resImgCWPath']);
+    	 
+    	$textHalfWidth = round($textWidth/2, 0);
+    	$textHalfHeight = round($textHeight/2, 0);
+    	 
+    	$textXNewPos = $imgArray1['textX']-$textHalfWidth;
+    	$textYNewPos = $imgArray1['textY']-$textHalfHeight;
+    	 
+    	if ($textXNewPos >= 0) {
+    		$textX = '+'.$textXNewPos;
+    	}else {
+    		$textX = ''.$textXNewPos;
+    	}
+    	if ($textYNewPos >= 0) {
+    		$textY = '+'.$textYNewPos;
+    	}else {
+    		$textY = ''.$textYNewPos;
+    	}
+    	 
+    	if ($imgArray1['textWaterMark']){
+    		$commgeo .= " -watermark ".$imgArray1['textWaterMarkBrightness']."x".$imgArray1['textWaterMarkSaturation']." ";
+    	}
+    	 
+    	switch ($imgArray1['textPosition']) {
+    		case 'TL':
+    			//$commgeo .= " -geometry +0+0 ";
+    			$commgeo .= " -gravity northwest ";
+    			break;
+    		case 'TM':
+    			//$commgeo .= " -geometry +".((getWidth("images/res.jpg")/2)-(getWidth("images/font_circle.png")/2))."+0 ";
+    			$commgeo .= " -gravity north ";
+    			break;
+    		case 'TR':
+    			//$commgeo .= " -geometry +".(getWidth("images/res.jpg")-getWidth("images/font_circle.png"))."+0 ";
+    			$commgeo .= " -gravity northeast ";
+    			break;
+    		case 'ML':
+    			//$commgeo .= " -geometry +0+".((getHeight("images/res.jpg")/2)-(getHeight("images/font_circle.png")/2))." ";
+    			$commgeo .= " -gravity west ";
+    			break;
+    		case 'MM':
+    			//$commgeo .= " -geometry +".((getWidth("images/res.jpg")/2)-(getWidth("images/font_circle.png")/2))."+".((getHeight("images/res.jpg")/2)-(getHeight("images/font_circle.png")/2))." ";
+    			$commgeo .= " -gravity center ";
+    			break;
+    		case 'MR':
+    			//$commgeo .= " +".(getWidth("images/res.jpg")-getWidth("images/font_circle.png"))."+".((getHeight("images/res.jpg")/2)-(getHeight("images/font_circle.png")/2))." ";
+    			$commgeo .= " -gravity east ";
+    			break;
+    		case 'BL':
+    			//$commgeo .= " +0+".(getHeight("images/res.jpg")-getHeight("images/font_circle.png"))." ";
+    			$commgeo .= " -gravity southwest ";
+    			break;
+    		case 'BM':
+    			//$commgeo .= " +".((getWidth("images/res.jpg")/2)-(getWidth("images/font_circle.png")/2))."+".(getHeight("images/res.jpg")-getHeight("images/font_circle.png"))." ";
+    			$commgeo .= " -gravity south ";
+    			break;
+    		case 'BR':
+    			//$commgeo .= " +".(getWidth("images/res.jpg")-getWidth("images/font_circle.png"))."+".(getHeight("images/res.jpg")-getHeight("images/font_circle.png"))." ";
+    			$commgeo .= " -gravity southeast ";
+    			break;
+    		default:
+    			$commgeo .= " -gravity northwest -geometry ".$textX."".$textY." ";
+    			break;
+    	}
+    	 
+    	if ($imgArray1['textPerspective']){
+    		$resImg = $imgArray1['resImgPPath'];
+    	}
+    	else {
+    		$resImg = $imgArray1['resImgCWPath'];
+    	}
+    	 
+    	$commgeo .= " ".$resImg." ".$imgArray1['resImgSPath']." ".$imgArray1['resImgRPath']."";
+    	//echo $commgeo."<br/>";
+    	exec($commgeo);
+    	 
+    	//var_dump(memory_get_usage());
+    	//die;
+       
+    }
+    
+    public function getWidth($imagepath){
+    	$image=new \Imagick($imagepath);
+    	return $width=$image->getImageWidth();
+    }
+    
+    public function getHeight($imagepath){
+    	$image=new \Imagick($imagepath);
+    	return $height=$image->getImageHeight();
+    }
+
+    /**
+     * Deletes a Image entity.
+     *
+     * @Route("/{id}", name="image_delete")
+     * @Method("DELETE")
+     */
+    public function deleteAction(Request $request, $id)
+    {
+        $form = $this->createDeleteForm($id);
+        $form->bind($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager('dynamicText');
+            $entity = $em->getRepository('AWDynamicTextBundle:Image')->find($id);
+
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find Image entity.');
+            }
+
+            $em->remove($entity);
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateUrl('image'));
+    }
+
+    /**
+     * Creates a form to delete a Image entity by id.
+     *
+     * @param mixed $id The entity id
+     *
+     * @return Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm($id)
+    {
+        return $this->createFormBuilder(array('id' => $id))
+            ->add('id', 'hidden')
+            ->getForm()
+        ;
+    }
+}

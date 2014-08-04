@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+
+	<title>AW Test Platform Report: {{ entity.name }}/{{ entity.created|date('Y-m-d H:i:s') }}</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<style type="text/css">
+	div, p, a, li, td { -webkit-text-size-adjust:none; -ms-text-size-adjust:none;}
+	body {margin:0; padding:0;color:#05305D;}
+	table td {border-collapse:collapse;font-family:Verdana;font-size:14px;}
+	.ExternalClass {width:100%;}
+	.ExternalClass * {line-height: 100%}
+	</style>
+
+</head>
+
+<body margintop="0" marginleft="0" marginright="0">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+		<tr><td><b>Test ID:</b> {{ entity.id }}</td></tr>
+		<tr><td><b>Test status:</b> {% if entity.status == 0 %}ACTIVE{% else %}ARCHIVE{% endif %}</td></tr>
+		<tr><td><b>Test name:</b> {{ entity.name }}</td></tr>
+		<tr><td><b>Test testers email:</b> {{ entity.email }}</td></tr>
+		<tr><td><b>Test link:</b> {{ entity.link }}</td></tr>
+		<tr><td><b>Test started at:</b> {{ entity.created|date('Y-m-d H:i:s') }}</td></tr>
+		<tr><td><b>Test ended at:</b> {{ entity.updated|date('Y-m-d H:i:s') }}</td></tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr><td><b>Test info:</b> {{ entity.info }}</td></tr>
+		<tr><td><b>Test IFrame name:</b> {{ entity.iFrameName }}</td></tr>
+		<tr><td><b>Test IFrame width:</b> {{ entity.iFrameWidth }} px</td></tr>
+		<tr><td><b>Test IFrame height:</b> {{ entity.iFrameHeight }} px</td></tr>
+		<tr><td><b>Test IFrame scroll bars:</b> {% if entity.iFrameScrolling == true %}YES{% else %}NO{% endif %}</td></tr>
+		<tr><td><b>Test IFrame border:</b> {% if entity.iFrameFrameborder == true %}YES{% else %}NO{% endif %}</td></tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr><td><b>Comments:</td></tr>
+		{% for entity in entities %}
+			<tr><td><b>ID:</b> {{ entity.id }}</td></tr>
+			<tr><td><b>Status:</b> {% if entity.status == 0 %}<span style="color:#FF0000;">NEW</span>{% else %}<span style="color:#51A351;">DONE</span>{% endif %}</td></tr>
+			<tr><td><b>Priority:</b> {% if entity.priority == 0 %}<span style="color:#FF0000;">HIGH</span>{% else %}<span style="color:#51A351;">LOW</span>{% endif %}</td></tr>
+			<tr><td><b>Device:</b> {{ entity.device }}</td></tr>
+			<tr><td><b>Testers comment:</b> {{ entity.text }}</td></tr>
+			<tr><td><b>Devs comment:</b> {{ entity.devComment }}</td></tr>
+			<tr><td><b>Created:</b> {{ entity.created|date('Y-m-d H:i:s') }}</td></tr>
+			<tr><td><b>Updated:</b> {{ entity.updated|date('Y-m-d H:i:s') }}</td></tr>
+			<tr><td><b>Test useragent:</b> {{ entity.testUseragent }}</td></tr>
+			<tr><td><b>Dev useragent:</b> {{ entity.devUseragent }}</td></tr>
+			<tr><td><b>IP address:</b> {{ entity.ipaddress }}</td></tr>
+			<tr><td><b>Referrer:</b> {{ entity.referrer }}</td></tr>
+			<tr><td><b>Window size:</b> {{ entity.wsize }}</td></tr>
+			<tr><td><b>Screen resolution:</b> {{ entity.sres }}</td></tr>
+			{% if entity.attachment != null %}
+				{% if entity.isImage == 2 %}
+					<tr>
+						<td>
+						<a href="{{ app.request.getSchemeAndHttpHost() }}/uploads/awtestplatform/{{ entity.attachment }}" target="_blank"><img border="0" src="{{ app.request.getSchemeAndHttpHost() }}/uploads/awtestplatform/{{ entity.attachment }}" style="display:block" width="300" alt="Attachment"></a>
+						</td>
+					</tr>
+				{% else %}
+					<tr><td><b>Attachment:</b> {{ entity.attachment }}</td></tr>
+				{% endif %}
+			{% endif %}
+			<tr><td><hr></td></tr>
+		{% endfor %}
+	</table>
+</body>
+
+</html>
+
+

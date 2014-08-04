@@ -1,0 +1,41 @@
+.content{
+    padding-left: 230px;
+    padding-right: 5px;
+    position: absolute;
+    top: 81px;
+    width: 85%;
+    z-index: 1;
+}
+.spellchecker-incorrectwords {
+    padding: 0.5em 0 1em;
+}
+.spellchecker-incorrectwords a {
+    display: inline-block;
+    margin-right: 0.5em;
+}
+
+.spellchecker-suggestbox {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BBBBBB;
+    box-shadow: 0 0 4px #AAAAAA;
+    display: none;
+    font: 13px arial;
+    position: absolute;
+    z-index: 9999;
+}
+.spellchecker-suggestbox .loading {
+    font-style: italic;
+    padding: 3px 6px;
+}
+.spellchecker-suggestbox a {
+    color: #333333;
+    cursor: pointer;
+    display: block;
+    outline: medium none;
+    padding: 3px 6px;
+    text-decoration: none;
+}
+.spellchecker-suggestbox a:hover {
+    background: none repeat scroll 0 0 #DDDDDD;
+    color: #000000;
+}

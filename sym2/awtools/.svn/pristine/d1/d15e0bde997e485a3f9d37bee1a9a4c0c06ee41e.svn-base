@@ -1,0 +1,90 @@
+{% extends 'AWInterviewBundle::layout.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+<div class="span3 bs-docs-sidebar">
+    <ul class="nav nav-list bs-docs-sidenav affix">
+        <li>
+            <a href="/interview/list">
+                <i class="icon-chevron-right"></i>
+                Interview List
+            </a>
+        </li>
+        <li>
+            <a href="/interview/admin">
+                <i class="icon-chevron-right"></i>
+                New Interview Session
+            </a>
+        </li>
+        <li>
+            <a href="/category/">
+                <i class="icon-chevron-right"></i>
+                Category
+            </a>
+        </li>
+        <li>
+            <a href="/jobtitle/">
+                <i class="icon-chevron-right"></i>
+                Job type
+            </a>
+        </li>
+        <li>
+            <a href="/question/list/all">
+                <i class="icon-chevron-right"></i>
+                Question list
+            </a>
+        </li>
+
+
+    </ul>
+</div>
+<div class="row-fluid" style="padding: 300px;">
+    <div class="btn-group">
+        <button class="btn">Category</button>
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="/question/list/all">All</a>
+            </li>
+            <li class="divider"></li>
+            {% for catsearch in catsearch %}
+            <li>
+                <a href="/question/list/{{catsearch.id}}">{{catsearch.name}}</a>
+            </li>
+            <li class="divider"></li>
+
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="row-fluid">
+        <div class="span8"><h3>Question List</h3></div>
+        <div class="span4">
+            <a href="{{ path('question_new') }}" style="color: red;text-decoration: none;">
+                <h3>Create a new entry</h3>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="row-fluid" style="font-weight:bold;color: #FF2300;text-transform: uppercase;background-color: #DDDDDD; padding-top: 10px;padding-left:30px;">
+        <div class="span3">Category</div>
+        <div class="span6">Question</div>
+        <div class="span2">Actions</div>
+
+
+    </div>
+
+        {% for entity in entities %}
+    <div class="row-fluid" style="font-weight:bold;padding: 30px;">
+        <div class="span3">{{ cat[entity.category] }}</div>
+        <div class="span6">{{ entity.question }}</div>
+        <div class="span2">
+            <a href="/app_dev.php/question/delete/{{entity.id }}/{{entity.category}}" style="color: red;text-decoration: none;"><i class="icon-trash" title="delete" ></i></a>
+        </div>
+
+    </div>
+        {% endfor %}
+</div>
+{% endblock %}

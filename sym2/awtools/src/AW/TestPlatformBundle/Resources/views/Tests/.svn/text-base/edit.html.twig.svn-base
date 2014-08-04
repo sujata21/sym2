@@ -1,0 +1,68 @@
+{% extends "AWTestPlatformBundle::layout.html.twig" %}
+
+{% form_theme edit_form _self %}
+
+{% block form_row %}
+{% spaceless %}
+    <div id="divFormRow">
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    <div id="divError">
+        {% for error in errors %}
+            <span class="label label-important">{{ error.message }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}
+
+{% block title %}AW TestPlatform{% endblock %}
+
+{% block content -%}
+<div id="divContainer" class="container-fluid">
+	<div class="row-fluid">
+    	<div id="divSpan" class="span12">
+			<div id="divTitle">
+				New test session
+			</div>
+			<div id="divForm">
+				<form action="{{ path('tests_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+			        <input type="hidden" name="_method" value="PUT" />
+			        {{ form_widget(edit_form) }}
+			        <div id="divFormEditBtn">
+			        	<a class="btn btn-warning" href="{{ path('tests') }}">Back to the list</a>
+			        	<button type="submit" class="btn btn-success">Save test session</button>
+			        	<a class="btn btn-primary" href="{{ path('tests_test', { 'id': entity.id }) }}">Open test session</a>
+			        </div>
+			    </form>
+			</div>
+			<div id="divFormDelete">
+				<form action="{{ path('tests_delete', { 'id': entity.id }) }}" method="post">
+		            <input type="hidden" name="_method" value="DELETE" />
+		            {{ form_widget(delete_form) }}
+		            <button type="submit" class="btn btn-danger">Delete test session</button>
+		        </form>
+			</div>
+			<div id="divTechInfo">
+				<div id="divTechInfoRow">
+					<strong>Useragent:</strong> {{ entity.useragent }}
+				</div>
+				<div id="divTechInfoRow">
+					<strong>IP address:</strong> {{ entity.ipaddress }}
+				</div>
+				<div id="divTechInfoRow">
+					<strong>Referrer:</strong> {{ entity.referrer }}
+				</div>
+			</div>    
+    	</div>
+	</div>
+</div>
+{% endblock %}

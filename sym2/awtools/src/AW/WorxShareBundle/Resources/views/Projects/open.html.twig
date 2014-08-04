@@ -1,0 +1,31 @@
+<div class="row-fluid divProjectContainer">
+	<div class="span12">
+		<div class="row-fluid">
+			<div class="span12"><h4>{{ entity.name }}</h4></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12"><i>{{ entity.info }}</i></div>
+		</div>
+		<div class="row-fluid">
+			<div id="divImagesBox">
+				{% for image in images %}
+					<div class="divImageBox">
+						<img id="{{ image.id }}" alt="" src="/uploads/awworxshare/{{ entity.folder ~ '/' ~ image.uniqueName }}">
+						{{ image.name }}
+					</div>
+					<hr class="hrImagesDivider">
+				{% endfor %}
+			</div>
+			<div id="divProjectWorkspace">
+				<div id="divCanvasPanel">
+					<!-- <button id="hideComments" class="btn btn-small pull-left"><i class="icon-eye-open"></i><i class="icon-eye-close" style="display: none;"></i></button> -->
+					<a id="btnImageOriginal" href="#" target="_blank" style="width:150px;" class="btn btn-small btn-info" disabled="disabled"><i class="icon-zoom-in"></i> View original image</a>
+					<input id="commSaveHref" type="hidden" data-href="{{ path('worxshare_comments_create', {'projectId': entity.id, 'userId': app.user.id}) }}">
+					<input id="commsLoadHref" type="hidden" data-href="{{ path('worxshare_comments_load', {'projectId': entity.id}) }}">
+				</div>
+				<div id="divCanvas"></div>
+			</div>
+			<div id="divCommentsBox"></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+{% extends "AWTestPlatformBundle::layout.html.twig" %}
+
+{% block title %}AW TestPlatform{% endblock %}
+{% block version %}v1.0{% endblock %}
+
+{% block content -%}
+<div id="divListContainer" class="container-fluid">
+	<div class="row-fluid">
+    	<div id="divListTitle" class="span12">
+    		<div id="divTestsListTitle">Test Sessions List - found: <span id="testsCount">0</span></div>
+    		<div id="progressbar"> Loading...</div>
+    		<div id="divSearchData"><input id="testSearchT" type="text" placeholder="Search tests by name"></div>
+    	</div>
+    </div>
+    <div class="row-fluid">
+    	<div id="divListTop" class="span12">
+			<div id="divCreateNew">
+    			<div id="divParamArchive">
+    				<a title="Opens in new window" style="margin-bottom:5px;" class="btn btn-success" href="{{ path('tests_new') }}" target="_blank"><b>New</b></a>
+    				<br>
+    				<button id="btnArchiveT" style="width: 80px;" type="button" class="btn btn-success" data-toggle="button-checkbox"><b>Archive OFF</b></button>
+    			</div>
+    		</div>
+			<div id="divListTopNameIndex">Name</div>
+			<div id="divListTopDate">Date</div>
+			<div id="divListTopInfo">Info</div>
+			<div id="divListTopCommentsIndex">
+				Comments <span id="spanCommentsInfo">[<span id="spanCommentsAll">All</span> / <span id="spanCommentsNew">NEW</span> / <span id="spanCommentsDone">DONE</span>]</span>
+			</div>
+    	</div>
+    </div>
+    <div id="results">
+	</div>	
+</div>
+{% endblock %}

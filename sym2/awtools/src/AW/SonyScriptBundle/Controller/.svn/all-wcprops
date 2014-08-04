@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/awtools/!svn/ver/9/trunk/src/AW/SonyScriptBundle/Controller
+END
+ProjectsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/awtools/!svn/ver/12/trunk/src/AW/SonyScriptBundle/Controller/ProjectsController.php
+END
+DefaultController.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Controller/DefaultController.php
+END
+VariablesController.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/awtools/!svn/ver/5/trunk/src/AW/SonyScriptBundle/Controller/VariablesController.php
+END

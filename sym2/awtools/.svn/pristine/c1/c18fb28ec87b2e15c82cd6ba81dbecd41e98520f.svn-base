@@ -1,0 +1,18 @@
+<h4>User edit</h4>
+
+<form id="formEditUser" action="{{ path('worxshare_user_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    <input type="hidden" name="_method" value="PUT" />
+    {{ form_widget(edit_form) }}
+    <div>
+        <label class="required" for="aw_worxsharebundle_usertype_role">Role</label>
+        <select {% if entity.id == app.user.id %}disabled="disabled"{% endif %}id="aw_worxsharebundle_usertype_role" required="required" name="aw_worxsharebundle_usertype[role]">
+            <option value="ROLE_CLIENT"{% if entity.roles[0] == 'ROLE_CLIENT' %} selected{% endif %}>Client</option>
+            <option value="ROLE_CM"{% if entity.roles[0] == 'ROLE_CM' %} selected{% endif %}>CM</option>
+            <option value="ROLE_ADMIN"{% if entity.roles[0] == 'ROLE_ADMIN' %} selected{% endif %}>Admin</option>
+        </select>
+    </div>
+    <div>
+        <button id="btnEditUserSave" type="submit">Save</button>
+        <button id="btnNewEditCancel" type="button">Cancel</button>
+    </div>
+</form>

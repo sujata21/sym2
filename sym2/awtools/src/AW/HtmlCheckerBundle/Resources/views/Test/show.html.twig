@@ -1,0 +1,239 @@
+{% extends 'AWHtmlCheckerBundle::layout.html.twig' %}
+
+{% block bottom_javascripts %}
+    <script type="text/javascript">
+        (function() {
+            var element = $('#spellCheck');
+
+            // Init the text spellchecker
+            var spellchecker = new $.SpellChecker(element, {
+                lang: 'en',
+                parser: 'text',
+                webservice: {
+                    path: '/bundles/mainassets/spellchecker/webservices/php/SpellChecker.php',
+                    driver: 'PSpell'
+                },
+                suggestBox: {
+                    position: 'above'
+                },
+                incorrectWords: {
+                    container: '#incorrect-word-list'
+                }
+            });
+            
+            //by default spellchecker sets this to true. setting this to false will enable FireFox spell chcking
+            element.attr('spellcheck', 'true');
+            
+            // Bind spellchecker handler functions
+            spellchecker.on('check.success', function() {
+                alert('There are no incorrectly spelt words.');
+            });
+
+            // Check the spelling
+            $(".btn-sl").click(function(e){
+                spellchecker.check();
+            });
+        })();
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                HTML - test info
+                <span id="test-info-btn" class="glyphicon glyphicon-plus-sign pull-right"></span>
+            </div>
+            <div class="test-info-body panel-body hidden">
+                <p>Test created at: {{ entity.createdAt|date('Y-m-d H:i:s') }}</p>
+                <p>HTML file: {{ entity.file }}</p>
+                <div class="fileContent">
+                    <pre id="fileContent">{% for key,line in file %}#{{ key + 1 }}: {{ line }}{% endfor %}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#pt" class="pt-tab" data-toggle="tab">Profanity Test</a></li>
+            <!-- <li><a href="#st" class="st-tab" data-toggle="tab">Spell checker</a></li> -->
+            <li><a href="#sl" class="sl-tab" data-toggle="tab">SL checker</a></li>
+            <li><a href="#ht" class="ht-tab" data-toggle="tab">link Checker</a></li>
+            <li><a href="#ut" class="ut-tab" data-toggle="tab">LP ScreenGrab</a></li>
+            <li><a href="#rp" class="rp-tab" data-toggle="tab">Report</a></li>
+            <li class="pull-right"><a class="btn-upload-new" href="{{ path('test_new') }}">Upload new file</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="pt">
+                <div class="panel panel-primary panel-pt">
+                    <div class="panel-body pt-content">
+                        <div class="hidden loader-pt">
+                            {% image '@MainAssetsBundle/Resources/public/images/load128.gif' %}
+                                <img src="{{ asset_url }}" alt="" />
+                            {% endimage %}
+                        </div>
+                        <table class="table table-striped pt-table hidden">
+                            <thead>
+                                <tr>
+                                    <th class="center-content">Line</th>
+                                    <th class="center-content">Column</th>
+                                    <th class="center-content">Word</th>
+                                    <th>Line content</th>
+                                </tr>
+                            </thead>
+                            <tbody class="pt-results"></tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-success btn-pt" data-url="{{ path('profanity_test', { 'id': entity.id}) }}" disabled="disabled">Run test</button>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="tab-pane fade" id="st">
+                <div class="panel panel-primary panel-st">
+                    <div class="panel-body st-content">
+                        <div class="hidden loader-st">
+                            {% image '@MainAssetsBundle/Resources/public/images/load128.gif' %}
+                                <img src="{{ asset_url }}" alt="" />
+                            {% endimage %}
+                        </div>
+                        <table class="table table-striped st-table hidden">
+                            <thead>
+                                <tr>
+                                    <th class="center-content">Line</th>
+                                    <th class="center-content">Column</th>
+                                    <th class="center-content">Word</th>
+                                    <th>Line content</th>
+                                </tr>
+                            </thead>
+                            <tbody class="st-results"></tbody>
+                        </table>
+                        <iframe id="if-spellcheck" src="{{ iframeHref }}" spellcheck="true"></iframe>
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-success btn-st" data-url="{{ path('spam_test', { 'id': entity.id}) }}" disabled="disabled">Check spelling</button>
+                    </div>
+                </div>
+            </div> -->
+            <div class="tab-pane fade" id="sl">
+                <div class="panel panel-primary panel-sl">
+                    <div class="panel-body sl-content">
+                        <textarea id="spellCheck"></textarea>
+                        <div id="incorrect-word-list">
+                            <div class="spellchecker-incorrectwords"></div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-success btn-sl" disabled="disabled">Check spelling</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="ht">
+                <div class="panel panel-primary panel-ht">
+                    <div class="panel-body ht-content">
+                        <div class="hidden loader-ht">
+                            {% image '@MainAssetsBundle/Resources/public/images/load128.gif' %}
+                                <img src="{{ asset_url }}" alt="" />
+                            {% endimage %}
+                        </div>
+                        <table class="table table-striped ht-table hidden">
+                            <thead>
+                                <tr>
+                                    <th class="center-content">Line</th>
+                                    <th class="center-content">Column</th>
+                                    <th class="center-content" style="width: 140px;">Status</th>
+                                    <th>Line content</th>
+                                </tr>
+                            </thead>
+                            <tbody class="ht-results"></tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-success btn-lt" data-url="{{ path('link_test', { 'id': entity.id}) }}" disabled="disabled">Run test</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="ut">
+                <div class="panel panel-primary panel-ut">
+                    <div class="panel-body ut-content">
+                        <div class="hidden loader-ut">
+                            {% image '@MainAssetsBundle/Resources/public/images/load128.gif' %}
+                                <img src="{{ asset_url }}" alt="" />
+                            {% endimage %}
+                        </div>
+                        {% image '@MainAssetsBundle/Resources/public/images/load32.gif' %}
+                            <img class="hidden loader-ut-32" src="{{ asset_url }}" alt="" />
+                        {% endimage %}
+                        <input id="ust-href" type="hidden" value="{{ path('test_ust') }}">
+                        <table class="table table-striped ut-table hidden">
+                            <thead>
+                                <tr>
+                                    <th class="center-content">Line</th>
+                                    <th class="center-content">Column</th>
+                                    <th class="center-content">Thumbnail</th>
+                                    <th>Line content</th>
+                                </tr>
+                            </thead>
+                            <tbody class="ut-results"></tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="col-md-2">
+                            <select id="user-agent" class="form-control">
+                                <option value="Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0">Desktop</option>
+                                <option value="Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53">Mobile</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-success btn-ut" data-url="{{ path('url_test', { 'id': entity.id}) }}" disabled="disabled">Run test</button>
+                        <span class="ut-info">Please select website version and click "Run test" button</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="rp">
+                <div class="panel panel-primary panel-rp">
+                    <div class="panel-body rp-content">
+                        <div class="hidden loader-rp">
+                            {% image '@MainAssetsBundle/Resources/public/images/load128.gif' %}
+                                <img src="{{ asset_url }}" alt="" />
+                            {% endimage %}
+                        </div>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                <a href="#" class="pt-rp">
+                                    <span id="pt-rp" class="badge pull-right">run test</span>
+                                    Profanity test results
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="st-rp">
+                                    <span id="st-rp" class="badge pull-right">run test</span>
+                                    Spam test results
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="ht-rp">
+                                    <span id="ht-rp" class="badge pull-right">run test</span>
+                                    href test results
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <a href="#" class="ut-rp">
+                                    <span id="ut-rp-neg" class="badge pull-right">run test</span>
+                                    <span id="ut-rp-pos" class="badge pull-right">run test</span>
+                                    URL test results
+                                </a>
+                            </li> -->
+                        </ul>
+                        <hr>
+                        <iframe id="if-preview" src="{{ iframeHref }}"></iframe>
+                    </div>
+                    <div class="panel-footer">
+                        <!-- <button type="button" class="btn btn-success btn-rp-preview" data-url="{# path('preview_test', { 'id': entity.id}) #}">Email preview</button> -->
+                        <!-- <a type="button" class="btn btn-success btn-rp-pdf" href="{{ path('report_test', { 'id': entity.id}) }}">Generate PDF report</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

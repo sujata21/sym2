@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/addon/edit
+END
+continuelist.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/addon/edit/continuelist.js
+END
+closebrackets.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/addon/edit/closebrackets.js
+END
+closetag.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/addon/edit/closetag.js
+END
+matchbrackets.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/addon/edit/matchbrackets.js
+END
+trailingspace.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/addon/edit/trailingspace.js
+END
+continuecomment.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Resources/public/js/addon/edit/continuecomment.js
+END

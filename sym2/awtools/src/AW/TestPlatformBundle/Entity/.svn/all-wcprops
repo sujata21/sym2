@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/awtools/!svn/ver/4/trunk/src/AW/TestPlatformBundle/Entity
+END
+TestsRepository.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Entity/TestsRepository.php
+END
+CommentsRepository.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Entity/CommentsRepository.php
+END
+Tests.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/awtools/!svn/ver/12/trunk/src/AW/TestPlatformBundle/Entity/Tests.php
+END
+Comments.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Entity/Comments.php
+END

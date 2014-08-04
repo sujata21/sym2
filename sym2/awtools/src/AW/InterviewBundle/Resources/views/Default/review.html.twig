@@ -1,0 +1,25 @@
+{% extends 'AWInterviewBundle::layout.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+
+<div class="row-fluid" style="padding: 240px;">
+    <div class="span12" style="padding-left: 120px;">
+        <div class="row-fluid" style="padding-bottom: 20px;">
+            <h3 style="color:#df0000;">Result</h3>
+            <hr style="border-color: #000000;">
+            <h2>Your final score is: {{percent}}%</h2>
+        </div>
+
+        {% set cnt = 0 %}
+        {% for key,value in category %}
+        {% set cnt = cnt+1 %}
+        <div class="row-fluid" >
+            <h5>Section {{cnt}} : {{value}}</h5>
+            <div class="span9">You scored: {{result[key][1]}}/{{result[key][0]}}</div>
+        </div>
+        {% endfor %}
+
+</div>
+
+{% endblock %}

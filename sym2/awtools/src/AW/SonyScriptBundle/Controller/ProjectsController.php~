@@ -1,0 +1,495 @@
+<?php
+
+namespace AW\SonyScriptBundle\Controller;
+
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use AW\SonyScriptBundle\Entity\Projects;
+use AW\SonyScriptBundle\Form\ProjectsType;
+
+/**
+ * Projects controller.
+ *
+ * @Route("/sonyscript")
+ */
+class ProjectsController extends Controller
+{
+    /**
+     * Lists all Projects entities.
+     *
+     * @Route("/", name="projects")
+     * @Method("GET")
+     * @Template()
+     */
+    public function indexAction()
+    {
+        /* $em = $this->getDoctrine()->getManager('sonyscript');
+
+        $entities = $em->getRepository('AWSonyScriptBundle:Projects')->findAll();
+
+        return array(
+            'entities' => $entities,
+        ); */
+
+    	/* //With the right writer (e.g. PHPExcel_Writer_Excel5) you could also write the output to a file:
+    	$excelService = $this->get('xls.service_xls5');
+    	
+    	//...create php excel object
+    	
+    	$excelService->getStreamWriter()->write( $filename ); */
+    	
+    	// ask the service for a Excel5
+    	//$excelService = $this->get('xls.service_xls5');
+    	
+    	/* // ask the service for a Excel2007
+    	$excelService = $this->get('xls.service_xls2007');
+    	// or $this->get('xls.service_pdf');
+    	// or create your own is easy just modify services.yml
+    	
+    	// create the object see http://phpexcel.codeplex.com documentation
+    	$excelService->excelObj->getProperties()->setCreator("Maarten Balliauw")
+    	->setLastModifiedBy("Maarten Balliauw")
+    	->setTitle("Office 2005 XLSX Test Document")
+    	->setSubject("Office 2005 XLSX Test Document")
+    	->setDescription("Test document for Office 2005 XLSX, generated using PHP classes.")
+    	->setKeywords("office 2005 openxml php")
+    	->setCategory("Test result file");
+    	$excelService->excelObj->setActiveSheetIndex(0)
+    	->setCellValue('A1', 'Hello')
+    	->setCellValue('B2', 'world!');
+    	$excelService->excelObj->getActiveSheet()->setTitle('Simple');
+    	// Set active sheet index to the first sheet, so Excel opens this as the first sheet
+    	$excelService->excelObj->setActiveSheetIndex(0);
+    	
+    	//create the response
+    	$response = $excelService->getResponse();
+    	$response->headers->set('Content-Type', 'text/vnd.ms-excel; charset=utf-8');
+    	//Excel5
+    	//$response->headers->set('Content-Disposition', 'attachment;filename=stdream2.xls');
+    	//Excel2007
+    	$response->headers->set('Content-Disposition', 'attachment;filename=stdream2.xlsx');
+    	
+    	// If you are using a https connection, you have to set those two headers for compatibility with IE <9
+    	$response->headers->set('Pragma', 'public');
+    	$response->headers->set('Cache-Control', 'maxage=1');
+    	return $response; */
+    	
+    	//sets iteraion for calculated values in cells
+    	//\PHPExcel_Calculation::getInstance()->cyclicFormulaCount = 1;
+    	
+    	//sets time
+    	ini_set('max_execution_time', 300);//5 minutes
+    	//reads file
+    	//$inputFileName = __DIR__.'/../../../../web/uploads/awsonyscript/ASF_Newsletter_June_Store_V4.xlsx';
+    	$inputFileName = __DIR__.'/../../../../web/uploads/awsonyscript/stdream2.xlsx';
+    	//loads Excel2007 type
+    	$objReader = \PHPExcel_IOFactory::createReader('Excel2007');
+    	$objReader->setReadDataOnly(true);
+    	$objPHPExcel = $objReader->load($inputFileName);
+    	$objWorksheet = $objPHPExcel->setActiveSheetIndex(0);
+    	
+    	//array with rows and cols from spreadsheet
+    	$data = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+    	
+    	//var names array
+    	$vars = "";
+    	
+    	//getting variable names using PHPExcel->toArray built in function ;-)
+    	$highestRow = $objWorksheet->getHighestRow();
+    	for ($row = 1; $row <= $highestRow; ++$row) {
+    		
+    		$arr[$row] = $data[$row]['A'];
+    		
+    		//check if var name cell isn't empty
+    		if (strlen(trim($objWorksheet->getCellByColumnAndRow(0,$row)->getValue())) != 0) {
+    			$var = $objWorksheet->getCellByColumnAndRow(0,$row)->getValue();
+    			 
+    			//removes all chars except A-Z, a-z, 0-9
+    			$var = preg_replace('/[^A-Za-z0-9]/', '', $var);
+    			 
+    			$t1 = preg_replace('/\s/m', '', $var);//remove white spaces
+    			$t2 = preg_replace('/^/', '$', $t1);//add $ at the beginning
+    			$txtafter = "[] = \$data[".$row."][\$column];#\n";// text after with count $i; # char is for string explode into variables names
+    			$vars .= preg_replace('/$/m', ''.$txtafter.'', $t2);
+    		}
+    	
+    	}
+    	
+    	//getting variable names using traditional way ;-)
+    	//vars array
+    	/*$highestRow = $objWorksheet->getHighestRow();
+    	$highestColumn = $objWorksheet->getHighestColumn();
+    	$highestColumnIndex = \PHPExcel_Cell::columnIndexFromString($highestColumn);
+    	for ($row = 1; $row <= $highestRow; ++$row) {
+    		//for ($col = 0; $col <= $highestColumnIndex; ++$col) {
+    			
+    				//$arr['row'.$row]['col'.$col] = $objWorksheet->getCellByColumnAndRow($col,$row)->getValue();
+    				$arr[$row] = $data[$row]['A'];
+    				//$arr['row'.$row]['col'.$col] = $objWorksheet->getCellByColumnAndRow($col,$row)->getCalculatedValue();
+    			
+    		//}
+    		
+    		//check if var name cell isn't empty
+    		if (strlen(trim($objWorksheet->getCellByColumnAndRow(0,$row)->getValue())) != 0) {
+    			//$vars['row'.$row] = $objWorksheet->getCellByColumnAndRow(2,$row)->getCalculatedValue();
+    			$var = $objWorksheet->getCellByColumnAndRow(0,$row)->getValue();
+    			
+    			//removes all chars except A-Z, a-z, 0-9
+    			$var = preg_replace('/[^A-Za-z0-9]/', '', $var);
+    			
+    			$t1 = preg_replace('/\s/m', '', $var);//remove white spaces
+    			$t2 = preg_replace('/^/', '$', $t1);//add $ at the beginning
+    			$txtafter = "[] = \$data[".$row."][\$column];#\n";// text after with count $i; # char is for string explode into variables names
+    			$vars .= preg_replace('/$/m', ''.$txtafter.'', $t2);
+    		}
+
+    	} */
+    	
+    	
+    	//create array from $vars string
+    	$varsArray = explode('#', $vars);
+    	
+    	//print_r($arr);
+    	//print_r($highestRow.' / '.$highestColumnIndex);
+    	
+    	return array(
+    			//'arr' => $arr,
+    			'data' => $data,
+    			'varsArray' => $varsArray,
+    	);
+    }
+
+    /**
+     * Creates a new Projects entity.
+     *
+     * @Route("/", name="projects_create")
+     * @Method("POST")
+     * @Template("AWSonyScriptBundle:Projects:new.html.twig")
+     */
+    public function createAction(Request $request)
+    {
+    	$entity  = new Projects();
+        $form = $this->createForm(new ProjectsType(), $entity);
+        $form->bind($request);
+
+        if ($form->isValid()) {
+            
+        	$file = $form['spreadsheet']->getData();
+        	 
+        	/* var_dump($file);
+        	die; */
+        	 
+        	if ($file) {
+        		 
+        		// compute a random name and try to guess the extension (more secure)
+        		//$extension = $file->guessExtension();
+        		$orgFileName = $file->getClientOriginalName();
+        		
+        		//removes all chars except A-Z, a-z, 0-9
+        		//$var = preg_replace('/[^A-Za-z0-9]/', '', $var);
+        		 
+        		//$fileName = $entity->getId().'-comm-att.'.$extension;
+        		$fileName = $orgFileName;
+        		 
+        		//moving file
+        		$dir = __DIR__.'/../../../../web/uploads/awsonyscript/';
+        		
+        		//create project folder
+        		mkdir($dir.$form['name']->getData(), 0755);
+        		//create output folder
+        		mkdir($dir.$form['name']->getData().'/_html', 0755);
+        		
+        		$file->move($dir.$form['name']->getData(), $fileName);
+        		 
+        		$entity -> setSpreadsheet($fileName);
+        		 
+        		//check if file is xls or xlsx type
+        		 //$fileType = self::fileType(mime_content_type($dir.'/'.$fileName));
+        		 
+        		/* if ($fileType) {
+        			$uentity->setIsImage('2');
+        		}else {
+        			$uentity->setIsImage('1');
+        		} */
+        	}
+        	
+        	$em = $this->getDoctrine()->getManager('sonyscript');
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('projects_show', array('id' => $entity->getId())));
+        }
+        
+		return array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        );
+    }
+    
+    function fileType($fileMimeType)
+    {
+    	$mimeImageType = array(
+    			'application/vnd.ms-excel',
+				'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    	);
+    	 
+    	if(in_array($fileMimeType , $mimeImageType))
+    	{
+    		//is image
+    		return true;
+    	}
+    	return false;
+    }
+
+    /**
+     * Displays a form to create a new Projects entity.
+     *
+     * @Route("/new", name="projects_new")
+     * @Method("GET")
+     * @Template()
+     */
+    public function newAction()
+    {
+        $entity = new Projects();
+        $form   = $this->createForm(new ProjectsType(), $entity);
+		
+        return array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        );
+    }
+
+    /**
+     * Finds and displays a Projects entity.
+     *
+     * @Route("/{id}", name="projects_show")
+     * @Method("GET")
+     * @Template()
+     */
+    public function showAction($id)
+    {
+        $em = $this->getDoctrine()->getManager('sonyscript');
+
+        $entity = $em->getRepository('AWSonyScriptBundle:Projects')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Projects entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+        
+        /* // get content of a template file into a string
+        $filename = __DIR__.'/../../../../web/uploads/awsonyscript/templates/template_'.strtolower($entity->getTemplate()).'.php';
+        $handle = fopen($filename, "r");
+        $content = fread($handle, filesize($filename));
+        fclose($handle); */
+
+        return array(
+        	'entity'      => $entity,
+            'delete_form' => $deleteForm->createView(),
+        	//'template' => $content,
+        );
+    }
+
+    /**
+     * Displays a form to edit an existing Projects entity.
+     *
+     * @Route("/html/{id}", name="projects_html")
+     * @Method("GET")
+     * @Template("AWSonyScriptBundle:Projects:index.html.twig")
+     */
+    public function htmlAction($id)
+    {
+    	$em = $this->getDoctrine()->getManager('sonyscript');
+
+        $entity = $em->getRepository('AWSonyScriptBundle:Projects')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Projects entity.');
+        }
+        
+        //sets time
+        ini_set('max_execution_time', 300);//5 minutes
+        //reads file
+        //$inputFileName = __DIR__.'/../../../../web/uploads/awsonyscript/ASF_Newsletter_June_Store_V4.xlsx';
+        $inputFileName = __DIR__.'/../../../../web/uploads/awsonyscript/'.$entity->getName().'/'.$entity->getSpreadsheet();
+        //loads Excel2007 type xlsx
+        $objReader = \PHPExcel_IOFactory::createReader('Excel2007');
+        //loads Excel2003 type xls
+        //$objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $objReader->setReadDataOnly(true);
+        $objPHPExcel = $objReader->load($inputFileName);
+        $objWorksheet = $objPHPExcel->setActiveSheetIndex(0);
+         
+        //array with rows and cols from spreadsheet
+        $data = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+        
+        /* //var names array
+        $vars = "";
+         
+        //getting variable names using PHPExcel->toArray built in function ;-)
+        $highestRow = $objWorksheet->getHighestRow();
+        for ($row = 1; $row <= $highestRow; ++$row) {
+        
+        	$arr[$row] = $data[$row]['A'];
+        
+        	//check if var name cell isn't empty
+        	if (strlen(trim($objWorksheet->getCellByColumnAndRow(0,$row)->getValue())) != 0) {
+        		$var = $objWorksheet->getCellByColumnAndRow(0,$row)->getValue();
+        
+        		//removes all chars except A-Z, a-z, 0-9
+        		$var = preg_replace('/[^A-Za-z0-9]/', '', $var);
+        
+        		$t1 = preg_replace('/\s/m', '', $var);//remove white spaces
+        		$t2 = preg_replace('/^/', '$', $t1);//add $ at the beginning
+        		$txtafter = "[] = \$data[".$row."][\$column];#\n";// text after with count $i; # char is for string explode into variables names
+        		$vars .= preg_replace('/$/m', ''.$txtafter.'', $t2);
+
+        		$vars .= $var.'#';
+        	}
+        
+        }
+        
+        //create array
+        $varsNameArray = explode('#', $vars); */
+        
+        $varsArray['Alias'] = $entity->getAlias();
+        
+    	for ($column = 'C'; $column != $objWorksheet->getHighestColumn(); $column++) {
+    	//for ($column = 0; $column <= $objWorksheet->getHighestColumn(); $column++) {
+        		
+    		$filename = __DIR__.'/../../../../web/uploads/awsonyscript/'.$entity->getName().'/_html/'.$entity->getName().'_'.$data[1][$column].'.htm';
+    		$fp = fopen($filename, 'w') or die("can't open file");
+    		
+    		for ($row = 1; $row <= count($data); $row++) {
+    			
+    			//$varName = $objWorksheet->getCellByColumnAndRow(0,$row)->getValue();
+    			$var = $data[$row]['A'];
+    			//removes all chars except A-Z, a-z, 0-9
+    			$varName = preg_replace('/[^A-Za-z0-9]/', '', $var);
+    			
+    			//$varsArray[$varName] = $objWorksheet->getCellByColumnAndRow($column,$row)->getValue();
+    			$varsArray[$varName] = $data[$row][$column];
+    			
+    			
+    			
+    		}	
+    		
+    		/* var_dump($varsArray);
+    		die; */
+    		
+    		$template = $this->renderView('/home/rstraburzynski/project/AW_2013/web/uploads/awsonyscript/Templates/template_'.$entity->getTemplate().'.html.twig',array('varsArray' => $varsArray));
+    		fwrite($fp, $template);
+    		fclose($fp);
+    		
+        }
+		
+        return array('varsArray' => $varsArray);
+    }
+
+    /**
+     * Displays a form to edit an existing Projects entity.
+     *
+     * @Route("/{id}/edit", name="projects_edit")
+     * @Method("GET")
+     * @Template()
+     */
+    public function editAction($id)
+    {
+        $em = $this->getDoctrine()->getManager('sonyscript');
+
+        $entity = $em->getRepository('AWSonyScriptBundle:Projects')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Projects entity.');
+        }
+
+        $editForm = $this->createForm(new ProjectsType(), $entity);
+        $deleteForm = $this->createDeleteForm($id);
+
+        return array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
+
+    /**
+     * Edits an existing Projects entity.
+     *
+     * @Route("/{id}", name="projects_update")
+     * @Method("PUT")
+     * @Template("AWSonyScriptBundle:Projects:edit.html.twig")
+     */
+    public function updateAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager('sonyscript');
+
+        $entity = $em->getRepository('AWSonyScriptBundle:Projects')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Projects entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createForm(new ProjectsType(), $entity);
+        $editForm->bind($request);
+
+        if ($editForm->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('projects_edit', array('id' => $id)));
+        }
+
+        return array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
+
+    /**
+     * Deletes a Projects entity.
+     *
+     * @Route("/{id}", name="projects_delete")
+     * @Method("DELETE")
+     */
+    public function deleteAction(Request $request, $id)
+    {
+        $form = $this->createDeleteForm($id);
+        $form->bind($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager('sonyscript');
+            $entity = $em->getRepository('AWSonyScriptBundle:Projects')->find($id);
+
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find Projects entity.');
+            }
+
+            $em->remove($entity);
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateUrl('projects'));
+    }
+
+    /**
+     * Creates a form to delete a Projects entity by id.
+     *
+     * @param mixed $id The entity id
+     *
+     * @return Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm($id)
+    {
+        return $this->createFormBuilder(array('id' => $id))
+            ->add('id', 'hidden')
+            ->getForm()
+        ;
+    }
+}

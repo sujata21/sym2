@@ -1,0 +1,254 @@
+10
+
+dir
+11
+http://svn.alchemyworx.local/svn/awtools/trunk/src/AW/SonyScriptBundle/Resources/public/js/mode
+http://svn.alchemyworx.local/svn/awtools
+
+
+
+2013-06-27T09:19:25.961514Z
+2
+rstraburzynski
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+c2343d8c-6dbb-4ce0-a2ba-d7cc8cefd963
+
+apl
+dir
+
+asterisk
+dir
+
+clike
+dir
+
+clojure
+dir
+
+cobol
+dir
+
+coffeescript
+dir
+
+commonlisp
+dir
+
+css
+dir
+
+d
+dir
+
+diff
+dir
+
+ecl
+dir
+
+erlang
+dir
+
+gas
+dir
+
+gfm
+dir
+
+go
+dir
+
+groovy
+dir
+
+haml
+dir
+
+haskell
+dir
+
+haxe
+dir
+
+htmlembedded
+dir
+
+htmlmixed
+dir
+
+http
+dir
+
+javascript
+dir
+
+jinja2
+dir
+
+less
+dir
+
+livescript
+dir
+
+lua
+dir
+
+markdown
+dir
+
+meta.js
+file
+
+
+
+
+2013-06-27T08:07:11.988000Z
+80cfdf47247cc7afcb801d617f530967
+2013-06-27T09:19:25.961514Z
+2
+rstraburzynski
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4416
+
+mirc
+dir
+
+ntriples
+dir
+
+ocaml
+dir
+
+pascal
+dir
+
+perl
+dir
+
+php
+dir
+
+pig
+dir
+
+properties
+dir
+
+python
+dir
+
+q
+dir
+
+r
+dir
+
+rpm
+dir
+
+rst
+dir
+
+ruby
+dir
+
+rust
+dir
+
+sass
+dir
+
+scheme
+dir
+
+shell
+dir
+
+sieve
+dir
+
+smalltalk
+dir
+
+smarty
+dir
+
+sparql
+dir
+
+sql
+dir
+
+stex
+dir
+
+tcl
+dir
+
+tiddlywiki
+dir
+
+tiki
+dir
+
+turtle
+dir
+
+vb
+dir
+
+vbscript
+dir
+
+velocity
+dir
+
+verilog
+dir
+
+xml
+dir
+
+xquery
+dir
+
+yaml
+dir
+
+z80
+dir
+

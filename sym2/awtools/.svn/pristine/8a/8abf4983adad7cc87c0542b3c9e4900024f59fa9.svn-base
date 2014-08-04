@@ -1,0 +1,62 @@
+<div id="divStatisticsContainer" class="container-fluid">
+	<div class="row-fluid">
+    	<div class="span12">
+    		<div>Statistics</div>
+    		<div id="progressbar"> Loading...</div>
+    	</div>
+    </div>
+    <div class="row-fluid">
+    	<div class="span12">
+    		<div><b>Tests</b></div>
+    	</div>
+    	<div class="span12">
+    		<div>All tests: {{ testsCount }}</div>
+    	</div>
+    	<div class="span12">
+    		<div><span style="color:#51A351;font-weight: bold;">ACTIVE</span> tests: {{ testsActiveCount }}</div>
+    	</div>
+    	<div class="span12">
+    		<div><span style="color:#F29106;;font-weight: bold;">ARCHIVE</span> tests: {{ testsArchiveCount }}</div>
+    	</div>
+    	<div class="span12">
+    		<di>Averge test time: {{ diffAvgTestsTimeHours }} h/test</div>
+    	</div>
+    </div>
+    <div class="row-fluid">
+    	<div class="span12">
+    		<div><b>Comments</b></div>
+    	</div>
+    	<div class="span1">
+    		<div><span style="color: #0084FF; font-weight: bold;">ALL</span>: {{ commentsAll }}</div>
+    	</div>
+    	<div class="span1">
+    		<div><span style="color: #FF0000; font-weight: bold;">NEW</span>: {{ commentsNew }}</div>
+    	</div>
+    	<div class="span1">
+    		<div><span style="color: #51A351; font-weight: bold;">DONE</span>: {{ commentsDone }}</div>
+    	</div>
+    	<div class="span12">
+    		<div>Averge respond time: {{ diffAvgCommTimeHours }} h/comment</div>
+    	</div>
+    </div>
+    <div class="row-fluid">
+    	<div class="span6 divStatisticsCommsT">
+    		<div style="padding: 10px;"><b>Testers Team</b></div>
+    		{% for commT in commsT %}
+				<div class="row-fluid"">
+					<div class="span10" style="padding-left: 10px;">{{ commT.testers_email }}</div>
+					<div class="span2" style="text-align: right;padding-right: 10px;">{{ commT.commsC }}</div>
+				</div>
+			{% endfor %}
+    	</div>
+    	<div class="span6 divStatisticsCommsD">
+    		<div style="padding: 10px;"><b>Dev Team</b></div>
+			{% for commD in commsD %}
+				<div class="row-fluid"">
+					<div class="span10" style="padding-left: 10px;">{% if commD.dev_email != null %}{{ commD.dev_email }}{% else %}<span style="color: #FF0000; font-weight: bold;">NEW</span>{% endif %}</div>
+					<div class="span2" style="text-align: right;padding-right: 10px;">{{ commD.commsD }}</div>
+				</div>
+			{% endfor %}
+    	</div>
+    </div>
+</div>

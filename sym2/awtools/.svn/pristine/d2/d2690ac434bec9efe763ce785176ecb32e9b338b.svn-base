@@ -1,0 +1,25 @@
+    {% for entity in entities %}
+	    <div class="row-fluid">
+	    	<div id="divListRow" class="span12">
+				<div class="btn-group divListAction">
+	            	<button class="btn {% if entity.status == 0 %}btn-success{% else %}btn-warning{% endif %} dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+	                <ul class="dropdown-menu">
+	                  <li><a href="{{ path('tests_edit', { 'id': entity.id }) }}">Change session parameters</a></li>
+	                  <li class="divider"></li>
+	                  <li><a href="{{ path('tests_test', { 'id': entity.id }) }}">Open test session</a></li>
+	                </ul>
+	            </div>
+    			{# {% set title = 'Useragent: ' ~ entity.useragent ~ 'IPaddress: ' ~ entity.ipaddress ~ 'Referrer: ' ~ entity.referrer %} #}
+				<div class="divListName">
+					<b>{{ entity.name }}</b><br>
+				</div>
+				<div class="divListDate">{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</div>
+				<div class="divListInfo">{{ entity.info }}</div>
+				<div class="divListComments">
+					<p class="btn btn-info btn-mini" style="cursor: default;">{{ comments[entity.id] }}</p>
+					<p class="btn btn-danger btn-mini" style="cursor: default;">{{ commentsNew[entity.id] }}</p>
+					<p class="btn btn-success btn-mini" style="cursor: default;">{{ commentsDone[entity.id] }}</p>
+				</div>
+	    	</div>
+	    </div>
+	{% endfor %}

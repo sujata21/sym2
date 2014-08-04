@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/awtools/!svn/ver/2/trunk/src/AW/DynamicTextBundle/DependencyInjection
+END
+Configuration.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/awtools/!svn/ver/2/trunk/src/AW/DynamicTextBundle/DependencyInjection/Configuration.php
+END
+AWDynamicTextExtension.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/awtools/!svn/ver/2/trunk/src/AW/DynamicTextBundle/DependencyInjection/AWDynamicTextExtension.php
+END

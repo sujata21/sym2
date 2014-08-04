@@ -1,0 +1,209 @@
+{% extends "AWDynamicTextBundle::layout.html.twig" %}
+
+{% form_theme edit_form _self %}
+
+{% block choice_widget_expanded %}
+{% spaceless %}
+    <div {{ block('widget_container_attributes') }}>
+    {% for child in form %}
+        {{ form_widget(child) }}
+        {# {{ form_label(child) }} #}
+    {% endfor %}
+    </div>
+{% endspaceless %}
+{% endblock choice_widget_expanded %}
+
+{% block _aw_dynamictextbundle_imagetype_textPosition_0_widget %}
+{% spaceless %}
+    <div id="subDivFormTextPositionGravity">
+    	<input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+    
+{% endspaceless %}
+{% endblock _aw_dynamictextbundle_imagetype_textPosition_0_widget %}
+
+{% block _aw_dynamictextbundle_imagetype_textPosition_1_widget %}
+{% spaceless %}
+    
+    	<input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+	
+{% endspaceless %}
+{% endblock _aw_dynamictextbundle_imagetype_textPosition_1_widget %}
+
+{% block _aw_dynamictextbundle_imagetype_textPosition_2_widget %}
+{% spaceless %}
+    
+    	<input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} /><br>
+	</div>
+{% endspaceless %}
+{% endblock _aw_dynamictextbundle_imagetype_textPosition_2_widget %}
+
+{% block _aw_dynamictextbundle_imagetype_textPosition_3_widget %}
+{% spaceless %}
+    <div id="subDivFormTextPositionGravity">
+    	<input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+	
+{% endspaceless %}
+{% endblock _aw_dynamictextbundle_imagetype_textPosition_3_widget %}
+
+{% block _aw_dynamictextbundle_imagetype_textPosition_4_widget %}
+{% spaceless %}
+    
+    	<input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+	
+{% endspaceless %}
+{% endblock _aw_dynamictextbundle_imagetype_textPosition_4_widget %}
+
+{% block _aw_dynamictextbundle_imagetype_textPosition_5_widget %}
+{% spaceless %}
+    
+    	<input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} /><br>
+	</div>
+{% endspaceless %}
+{% endblock _aw_dynamictextbundle_imagetype_textPosition_5_widget %}
+
+{% block _aw_dynamictextbundle_imagetype_textPosition_6_widget %}
+{% spaceless %}
+    <div id="subDivFormTextPositionGravity">
+    	<input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+	
+{% endspaceless %}
+{% endblock _aw_dynamictextbundle_imagetype_textPosition_6_widget %}
+
+{% block _aw_dynamictextbundle_imagetype_textPosition_7_widget %}
+{% spaceless %}
+    
+    	<input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+	
+{% endspaceless %}
+{% endblock _aw_dynamictextbundle_imagetype_textPosition_7_widget %}
+
+{% block _aw_dynamictextbundle_imagetype_textPosition_8_widget %}
+{% spaceless %}
+    
+    	<input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+	</div>
+{% endspaceless %}
+{% endblock _aw_dynamictextbundle_imagetype_textPosition_8_widget %}
+
+{% block checkbox_widget %}
+{% spaceless %}
+    	<label  for="{{ id }}">{{ label|trans }}<input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} /></label>
+{% endspaceless %}
+{% endblock checkbox_widget %}
+
+{% block title %}Dynamic Text{% endblock %}
+
+{% block content -%}
+<div id="container" class="container-fluid">
+	<div class="row-fluid">
+    	<div class="span12">    
+		    <header>AlchemyWorx Dynamic Text</header>
+		</div>
+	</div>
+	<div class="row-fluid">
+    	<form id="imageForm" name="pointform" action="{{ path('image_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    		<div id="divForm" class="span3">    
+		    	<input type="hidden" name="_method" value="PUT" />
+				<div id="divFormText">
+					{{ form_errors(edit_form.text) }}
+				    {{ form_widget(edit_form.text) }}
+				</div>
+				<div id="divFormText">
+					{{ form_errors(edit_form.font) }}
+				    {{ form_widget(edit_form.font) }}
+				</div>
+				<div id="divFontParams">
+					<div id="divFormFontSize">
+						{{ form_errors(edit_form.fontSize) }}
+					    {{ form_widget(edit_form.fontSize) }}
+					</div>
+					<div id="divFormFontColor">
+						{{ form_errors(edit_form.fontColor) }}
+					    {{ form_widget(edit_form.fontColor) }}
+					</div>
+				</div>
+				<div id="divFormTextPosition">
+					<div id="divFormTextPositionX">
+						{{ form_errors(edit_form.textX) }}
+					    {{ form_widget(edit_form.textX) }}
+					</div>
+					<div id="divFormTextPositionY">
+						{{ form_errors(edit_form.textY) }}
+					    {{ form_widget(edit_form.textY) }}
+					</div>
+					<div id="divFormTextPositionGravity">
+						{{ form_errors(edit_form.textPosition) }}
+					    {{ form_widget(edit_form.textPosition) }}
+					</div>
+					<button id="resetPosG" type="button" class="btn btn-primary" >Reset Gravity</button>
+				</div>
+				<div id="divFormTextWaterMark">
+					<div id="divFormTextWaterMarkBox">
+						{{ form_errors(edit_form.textWaterMark) }}
+					    {{ form_widget(edit_form.textWaterMark) }}
+					</div>
+					<div id="divFormTextWaterMarkBrightness">
+						{{ form_errors(edit_form.textWaterMarkBrightness) }}
+					    {{ form_widget(edit_form.textWaterMarkBrightness) }}
+					</div>
+					<div id="divFormTextWaterMarkSaturation">
+						{{ form_errors(edit_form.textWaterMarkSaturation) }}
+					    {{ form_widget(edit_form.textWaterMarkSaturation) }}
+					</div>
+				</div>
+				<div id="divFormTextPerspective">
+					<div id="divFormTextPerspectiveBox">
+						{{ form_errors(edit_form.textPerspective) }}
+					    {{ form_widget(edit_form.textPerspective) }}
+					</div>
+					<div id="divFormTextPerspectiveLeftCorner">
+						{{ form_errors(edit_form.textPerspectiveLeftCorner) }}
+					    {{ form_widget(edit_form.textPerspectiveLeftCorner) }}
+					</div>
+					<div id="divFormTextPerspectiveRightCorner">
+						{{ form_errors(edit_form.textPespectiveRightCorner) }}
+					    {{ form_widget(edit_form.textPespectiveRightCorner) }}
+					</div>
+				</div>
+				<div id="divFormTextCircle">
+					<div id="divFormTextCircleBox">
+						{{ form_errors(edit_form.textCircle) }}
+					    {{ form_widget(edit_form.textCircle) }}
+					</div>
+					<div id="divFormTextCircleArcRotateAngles">
+						{{ form_errors(edit_form.textCircleArcRotateAngles) }}
+					    {{ form_widget(edit_form.textCircleArcRotateAngles) }}
+					</div>
+				</div>
+				<div id="divFormTextRotate">
+					<div id="divFormTextRotate">
+						{{ form_errors(edit_form.textRotate) }}
+					    {{ form_widget(edit_form.textRotate) }}
+					</div>
+				</div>
+				<div id="divFormTextWave">
+					<div id="divFormTextWaveBox">
+						{{ form_errors(edit_form.textWave) }}
+					    {{ form_widget(edit_form.textWave) }}
+					</div>
+					<div id="divFormTextWaveHeight">
+						{{ form_errors(edit_form.textWaveHeight) }}
+					    {{ form_widget(edit_form.textWaveHeight) }}
+					</div>
+					<div id="divFormTextWaveLength">
+						{{ form_errors(edit_form.textWaveLength) }}
+					    {{ form_widget(edit_form.textWaveLength) }}
+					</div>
+				</div>
+			</div>
+				<div id="divFormBtn">
+			    	<button type="submit" class="btn btn-primary">Change</button>
+			    </div>
+			</div>
+		</form>
+		<div id="divImg" class="span6">   
+		    <img id="cross" src="{{ app.request.getSchemeAndHttpHost() }}/uploads/awdynamictext/res-518ce9109fe67.jpeg-Emerson-Mutemajiri.jpg">
+		</div>
+	</div>
+</div>
+{% endblock %}

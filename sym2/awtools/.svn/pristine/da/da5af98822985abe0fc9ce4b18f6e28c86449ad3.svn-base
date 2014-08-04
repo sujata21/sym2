@@ -1,0 +1,92 @@
+<div class="row-fluid">
+	<div class="span12">
+		<table id="tblUsersList">
+			<thead>
+				<tr class="tblTitle">
+					<th><h4>Projects list</h4></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<!-- <th></th> -->
+					<th><button id="btnNewProject" data-href="{{ path('worxshare_projects_new') }}" class="btn btn-primary pull-right">New project</button></th>
+				</tr>
+				<tr class="tblFieldNames">
+					<th>Name</th>
+                    <th>Info</th>
+                    <th>Images</th>
+                    <th>Assigned to client</th>
+                    <!-- <th>Created</th> -->
+                    <th></th>
+				</tr>
+			</thead>
+			<tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td class="tdListVertAlignTop">
+                    	<strong>
+                    		<a class="aOpenProject" href="{{ path('worxshare_projects_open', {'id': entity.id}) }}">{{ entity.name }}</a>
+                    	</strong>
+                    </td>
+                    <td class="tdListVertAlignTop"><strong>{{ entity.info }}</strong></td>
+                    <td style="width: 455px;">
+                    	{% for image in entity.images %}
+                    		<div class="divImagePreviewList">
+                    			<a class="preview" href="/uploads/awworxshare/{{ entity.folder ~ '/' ~ image.unique_name }}" data-name="{{ image.name }}" data-info="{{ image.info }}" target="_blank">
+                    				<img style="max-width: 100px;" src="/uploads/awworxshare/{{ entity.folder ~ '/' ~ image.unique_name }}">
+                    			</a>
+                    		</div>
+                    	{% endfor %}
+                    </td>
+                    <td class="tdListVertAlignTop">
+                    	{% for clientAssigned in entity.clientsAssigned %}
+                    		{{ clientAssigned }}<br>
+                    	{% endfor %}
+                    </td>
+                    <!-- <td>{{ entity.created|date('Y-m-d H:i:s') }}</td> -->
+                    <td class="tblUsersListActions tdListVertAlignTop">
+                        <button class="btn btn-mini btn-info btnProjectEdit" title="Edit project" data-href="{{ path('worxshare_projects_edit', { 'id': entity.id }) }}"><i class="icon-pencil icon-white"></i></button>
+                        <button class="btn btn-mini btn-inverse btnProjectImages" title="Add images to project" data-href="{{ path('worxshare_projectsimages_new', { 'project_id': entity.id }) }}"><i class="icon-picture icon-white"></i></button>
+                        <button class="btn btn-mini btn-danger btnProjectDelete" title="Delete project" data-href="{{ path('worxshare_projects_delete', { 'id': entity.id }) }}"><i class="icon-trash icon-white"></i></button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+		</table>
+	</div>
+</div>
+<script type="text/javascript">
+//image zoom on projects page
+/* imagePreview = function(){	
+
+	//these 2 variable determine popup's distance from the cursor
+	xOffset = 10;
+	yOffset = 30;
+		
+	$("a.preview").hover(function(e){
+		//name = $(this).attr("data-name");
+		//info = $(this).attr("data-info");
+
+		//$("body").append("<p id='preview'><b>" + name + "</b><br><img style='max-height: 300px;' src='"+ this.href +"' alt='Image preview' /><br>" + info + "</p>");								 
+		$("body").append("<p id='preview'><img style='max-height: 300px;' src='"+ $(this).attr("href") + "' alt='Image preview' /></p>");								 
+		$("#preview")
+			.css("top",(e.pageY - xOffset) + "px")
+			.css("left",(e.pageX + yOffset) + "px")
+			.fadeIn("fast");						
+    },
+	function(){
+		this.title = this.t;	
+		$("#preview").remove();
+    });	
+    
+	$("a.preview").mousemove(function(e){
+		$("#preview")
+			.css("top",(e.pageY - xOffset) + "px")
+			.css("left",(e.pageX + yOffset) + "px");
+	});			
+};
+//starting the script on page load
+$(document).ready(function(){
+	imagePreview();
+}); */
+
+</script>

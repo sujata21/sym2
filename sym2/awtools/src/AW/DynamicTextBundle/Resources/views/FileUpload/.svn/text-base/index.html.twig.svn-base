@@ -1,0 +1,46 @@
+{% extends "AWDynamicTextBundle::layout.html.twig" %}
+
+{% block title %}Dynamic Text{% endblock %}
+
+{% block content -%}
+    <h1>FileUpload list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Source Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('fileupload_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.sourceImage }}</td>
+                <td><img width="60" src="{{ app.request.getSchemeAndHttpHost() }}/uploads/awdynamictext/{{ entity.sourceImage }}"></td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('fileupload_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('fileupload_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('fileupload_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

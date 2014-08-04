@@ -1,0 +1,34 @@
+<?php
+
+namespace AW\TestBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
+/**
+ * Image controller.
+ *
+ * @Route("/test")
+ */
+class DefaultController extends Controller
+{
+    /**
+     * @Route("/hello/{source}")
+     * @Template()
+     */
+    public function indexAction($source)
+    {
+        if ($source != 'email') {
+        	$height = 600;
+        	$message = 'not from email';
+        }else {
+        	$height = 300;
+        	$message = 'from email';
+        }
+        
+        $hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
+    	
+    	return array('height' => $height, 'message' => $message, 'hostname' => $hostname);
+    }
+}

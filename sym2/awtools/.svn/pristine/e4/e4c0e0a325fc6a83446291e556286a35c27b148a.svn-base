@@ -1,0 +1,9 @@
+<?php
+
+namespace AW\InterviewBundle;
+
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+class AWInterviewBundle extends Bundle
+{
+}

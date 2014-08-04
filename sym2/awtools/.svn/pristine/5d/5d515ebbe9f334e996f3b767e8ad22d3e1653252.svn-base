@@ -1,0 +1,20 @@
+{% extends 'AWInterviewBundle::layout.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+ <div class="row-fluid" style="padding: 300px;">
+    <h3>Test Category creation</h3>
+
+    <form action="{{ path('category_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+        <a href="{{ path('category') }}" style="color: red;text-decoration: none;">
+            Back to the list
+        </a>
+
+ </div>
+{% endblock %}

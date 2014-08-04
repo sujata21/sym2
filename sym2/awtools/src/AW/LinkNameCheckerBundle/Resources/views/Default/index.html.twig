@@ -1,0 +1,24 @@
+{% extends 'AWLinkNameCheckerBundle::layout.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Link Name Checker</div>
+            <div class="panel-body">
+                <form id="testForm" action="{{ path('linknamechecker_test') }}" method="post" {{ form_enctype(form) }}>
+                    {{ form_widget(form) }}
+                    <input type="file" name="files[]" id="file" required="required">
+                </form>
+                {% if not(csvFile is null) %}
+				    <div class="alert alert-success alert-dismissable">
+				    	<button type="button" class="close btn-download-alert-close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				    	To download CSV file <a class="alert-link" href="{{ csvFile }}">click here</a>.
+				    </div>
+				{% endif %}
+            </div>
+            <div class="panel-footer">
+                <button id="analyze-file" type="submit" form="testForm" class="btn btn-success">Analyze HTML file</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+<?php
+
+namespace AW\DynamicTextBundle;
+
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+class AWDynamicTextBundle extends Bundle
+{
+}

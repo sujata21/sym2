@@ -1,0 +1,46 @@
+	{% for entity in entities %}
+	    <div id="divComment">
+		    	<div id="divCommentStatus">
+					{% if entity.status == null or entity.status == 0 %}
+						<span style="color: #FF0000; font-weight: bold;">[NEW]</span>
+						{% if entity.priority == 1 %}
+							<span style="color: #FF0000; font-weight: bold;">[HIGH]</span>
+						{% else %}
+							<span style="color: #51A351; font-weight: bold;">[LOW]</span>
+						{% endif %}
+						<font style="font-size: 10px;font-style: italic;">{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %} / {{ entity.testersEmail }}</font>
+						{% else %}
+						<span style="color: #51A351; font-weight: bold;">[DONE]</span>
+						{% if entity.priority == 1 %}
+							<span style="color: #FF0000; font-weight: bold;">[HIGH]</span>
+						{% else %}
+							<span style="color: #51A351; font-weight: bold;">[LOW]</span>
+						{% endif %}
+						<font style="font-size: 10px;font-style: italic;">{% if entity.updated %}{{ entity.updated|date('Y-m-d H:i:s') }}{% endif %} / {{ entity.devEmail }}</font>
+					{% endif %}
+		    	</div>
+		    	<div class="divCommentText"><b>T:</b> {{ entity.text }}</div>
+		    	{% if entity.devComment != 'NONE' %}
+		    		<div class="divCommentText"><b>D:</b> {{ entity.devComment }}</div>
+		    	{% endif %}
+		    	<div id="divCommentImg">
+		    		{% if entity.isImage == 2 %}
+		    			<a href="{{ app.request.getSchemeAndHttpHost() }}/uploads/awtestplatform/{{ entity.attachment }}" target="_blank"><img alt="Comment attachment" src="{{ app.request.getSchemeAndHttpHost() }}/uploads/awtestplatform/{{ entity.attachment }}"></a>
+					{% elseif entity.isImage == 1 %}
+		    			<a href="{{ app.request.getSchemeAndHttpHost() }}/uploads/awtestplatform/{{ entity.attachment }}" target="_blank" class="btn btn-mini btn-primary" title="{{ entity.attachment }}">Download</a>
+		    		{% endif %}
+		    	</div>
+		    	<div id="divCommentInfo">
+					<span style="font-size: 10px;font-style: italic;"><b>T: </b>{{ entity.testUseragent }}</span><br>
+					<span style="font-size: 10px;font-style: italic;"><b>D: </b>{{ entity.devUseragent }}</span><br>
+					<span style="font-size: 10px;font-style: italic;"><b>Device: </b>{{ entity.device }}</span>
+		    	</div>
+		    	<div id="divFormStatusUpdate">
+					{% if entity.status == null or entity.status == 0 %}
+						
+							<input id="{{ entity.id }}" data-path="{{ path('comments_supdate', { 'id': entity.id, 'testId': testId, 'status': '0', 'devEmail': 'a', 'devCommentTxt': 'a' }) }}" class="chboxStatus" type="checkbox" name="status" value="1"> <span id="spanCommentDone">Mark as DONE</span>
+						 
+					{% endif %}
+		    	</div>
+		    </div>
+    {% endfor %}

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/awtools/!svn/ver/2/trunk/src/Acme/DemoBundle/Resources/views/Secured
+END
+layout.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/awtools/!svn/ver/2/trunk/src/Acme/DemoBundle/Resources/views/Secured/layout.html.twig
+END
+helloadmin.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/awtools/!svn/ver/2/trunk/src/Acme/DemoBundle/Resources/views/Secured/helloadmin.html.twig
+END
+hello.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/awtools/!svn/ver/2/trunk/src/Acme/DemoBundle/Resources/views/Secured/hello.html.twig
+END
+login.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/awtools/!svn/ver/2/trunk/src/Acme/DemoBundle/Resources/views/Secured/login.html.twig
+END

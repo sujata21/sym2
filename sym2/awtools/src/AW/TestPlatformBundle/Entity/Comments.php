@@ -1,0 +1,592 @@
+<?php
+
+namespace AW\TestPlatformBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Comments
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="AW\TestPlatformBundle\Entity\CommentsRepository")
+ * @ORM\HasLifecycleCallbacks()
+ */
+class Comments
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="test_id", type="integer", nullable=true)
+     */
+    private $testId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="text", type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     */
+    private $text;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created", type="datetime", nullable=true)
+     */
+    private $created;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
+     */
+    private $updated;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="attachment", type="string", length=255, nullable=true)
+     */
+    private $attachment;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="device", type="string", length=255, nullable=true)
+     */
+    private $device;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="is_image", type="string", length=1, nullable=true)
+     */
+    private $isImage;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=1, nullable=true)
+     */
+    private $status = 0;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="priority", type="string", length=1, nullable=true)
+     */
+    private $priority;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dev_email", type="string", length=255, nullable=true)
+     */
+    private $dev_email;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="testers_email", type="string", length=255, nullable=true)
+     */
+    private $testers_email;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="test_useragent", type="string", length=255)
+     */
+    private $test_useragent;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dev_useragent", type="string", length=255, nullable=true)
+     */
+    private $dev_useragent;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ipaddress", type="string", length=255)
+     */
+    private $ipaddress;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="referrer", type="string", length=255, nullable=true)
+     */
+    private $referrer;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="wsize", type="string", length=255, nullable=true)
+     */
+    private $wsize;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sres", type="string", length=255, nullable=true)
+     */
+    private $sres;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dev_comment", type="string", length=255, nullable=true)
+     */
+    private $dev_comment;
+    
+	/**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set testId
+     *
+     * @param integer $testId
+     * @return Comments
+     */
+    public function setTestId($testId)
+    {
+        $this->testId = $testId;
+    
+        return $this;
+    }
+
+    /**
+     * Get testId
+     *
+     * @return integer 
+     */
+    public function getTestId()
+    {
+        return $this->testId;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return Comments
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+    
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string 
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Comments
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+    	$this->setCreated(new \DateTime());
+    }
+    
+    /**
+     * @ORM\PreUpdate
+     */
+    public function preUpdate()
+    {
+    	$this->setUpdated(new \DateTime());
+    }
+
+    /**
+     * Set attachment
+     *
+     * @param string $attachment
+     * @return Comments
+     */
+    public function setAttachment($attachment)
+    {
+        $this->attachment = $attachment;
+    
+        return $this;
+    }
+
+    /**
+     * Get attachment
+     *
+     * @return string 
+     */
+    public function getAttachment()
+    {
+        return $this->attachment;
+    }
+
+    /**
+     * Set isImage
+     *
+     * @param boolean $isImage
+     * @return Comments
+     */
+    public function setIsImage($isImage)
+    {
+        $this->isImage = $isImage;
+    
+        return $this;
+    }
+
+    /**
+     * Get isImage
+     *
+     * @return boolean 
+     */
+    public function getIsImage()
+    {
+        return $this->isImage;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return Comments
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string 
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Comments
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set dev_email
+     *
+     * @param string $devEmail
+     * @return Comments
+     */
+    public function setDevEmail($devEmail)
+    {
+        $this->dev_email = $devEmail;
+    
+        return $this;
+    }
+
+    /**
+     * Get dev_email
+     *
+     * @return string 
+     */
+    public function getDevEmail()
+    {
+        return $this->dev_email;
+    }
+
+    /**
+     * Set testers_email
+     *
+     * @param string $testersEmail
+     * @return Comments
+     */
+    public function setTestersEmail($testersEmail)
+    {
+        $this->testers_email = $testersEmail;
+
+        return $this;
+    }
+
+    /**
+     * Get testers_email
+     *
+     * @return string 
+     */
+    public function getTestersEmail()
+    {
+        return $this->testers_email;
+    }
+
+    /**
+     * Set ipaddress
+     *
+     * @param string $ipaddress
+     * @return Comments
+     */
+    public function setIpaddress($ipaddress)
+    {
+        $this->ipaddress = $ipaddress;
+
+        return $this;
+    }
+
+    /**
+     * Get ipaddress
+     *
+     * @return string 
+     */
+    public function getIpaddress()
+    {
+        return $this->ipaddress;
+    }
+
+    /**
+     * Set referrer
+     *
+     * @param string $referrer
+     * @return Comments
+     */
+    public function setReferrer($referrer)
+    {
+        $this->referrer = $referrer;
+
+        return $this;
+    }
+
+    /**
+     * Get referrer
+     *
+     * @return string 
+     */
+    public function getReferrer()
+    {
+        return $this->referrer;
+    }
+
+    /**
+     * Set test_useragent
+     *
+     * @param string $testUseragent
+     * @return Comments
+     */
+    public function setTestUseragent($testUseragent)
+    {
+        $this->test_useragent = $testUseragent;
+
+        return $this;
+    }
+
+    /**
+     * Get test_useragent
+     *
+     * @return string 
+     */
+    public function getTestUseragent()
+    {
+        return $this->test_useragent;
+    }
+
+    /**
+     * Set dev_useragent
+     *
+     * @param string $devUseragent
+     * @return Comments
+     */
+    public function setDevUseragent($devUseragent)
+    {
+        $this->dev_useragent = $devUseragent;
+
+        return $this;
+    }
+
+    /**
+     * Get dev_useragent
+     *
+     * @return string 
+     */
+    public function getDevUseragent()
+    {
+        return $this->dev_useragent;
+    }
+
+    /**
+     * Set priority
+     *
+     * @param string $priority
+     * @return Comments
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Get priority
+     *
+     * @return string 
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
+     * Set device
+     *
+     * @param string $device
+     * @return Comments
+     */
+    public function setDevice($device)
+    {
+        $this->device = $device;
+
+        return $this;
+    }
+
+    /**
+     * Get device
+     *
+     * @return string 
+     */
+    public function getDevice()
+    {
+        return $this->device;
+    }
+
+    /**
+     * Set wsize
+     *
+     * @param string $wsize
+     * @return Comments
+     */
+    public function setWsize($wsize)
+    {
+        $this->wsize = $wsize;
+
+        return $this;
+    }
+
+    /**
+     * Get wsize
+     *
+     * @return string 
+     */
+    public function getWsize()
+    {
+        return $this->wsize;
+    }
+
+    /**
+     * Set sres
+     *
+     * @param string $sres
+     * @return Comments
+     */
+    public function setSres($sres)
+    {
+        $this->sres = $sres;
+
+        return $this;
+    }
+
+    /**
+     * Get sres
+     *
+     * @return string 
+     */
+    public function getSres()
+    {
+        return $this->sres;
+    }
+
+    /**
+     * Set dev_comment
+     *
+     * @param string $devComment
+     * @return Comments
+     */
+    public function setDevComment($devComment)
+    {
+        $this->dev_comment = $devComment;
+
+        return $this;
+    }
+
+    /**
+     * Get dev_comment
+     *
+     * @return string 
+     */
+    public function getDevComment()
+    {
+        return $this->dev_comment;
+    }
+}

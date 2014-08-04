@@ -1,0 +1,30 @@
+<h4>Assign projects to user: <i>{{ user_name }}</i></h4>
+<div class="divClients">
+    <p>Clients:</p>
+    <select id="selClients" size="4">
+        {% for entityClient in entitiesClients %}
+            <option value="{{ entityClient.clientId }}" data-href="{{ path('worxshare_usersprojects_projects', {'client_id': entityClient.clientId, 'user_id': user_id}) }}">{{ entityClient.clientName }}</option>
+        {% endfor %}
+    </select>
+</div>
+<div class="divProjects">
+    <p>Projects:</p>
+    <select id="selProjects" multiple="multiple"></select>
+</div>
+<div class="divAddRemoveProjectsBtns">
+	<button type="button" class="btn btn-mini btn-success btnAssignProject"><i class="icon-mail-forward"></i></button><br>
+	<button type="button" class="btn btn-mini btn-danger btnUnassignProject"><i class="icon-mail-reply"></i></button>
+</div>
+<div class="divAssignedProjects">
+    <p>Assigned Projects:</p>
+    <select id="selProjectsAssigned" multiple="multiple"></select>
+</div>
+<div style="text-align: right;">
+	<button id="btnProjectAssignSave" type="button" data-href="{{ path('worxshare_usersprojects_create', {'user_id': user_id, 'client_id': '0'}) }}">Save</button>
+    <button id="btnNewEditCancel" type="button">Close</button>
+</div>
+<script type="text/javascript">
+<!--
+	$("#selClients").val($("#selClients option:first").val()).change();
+//-->
+</script>

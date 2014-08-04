@@ -1,0 +1,246 @@
+{% extends "AWSonyScriptBundle::layout.html.twig" %}
+
+{% block body -%}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12"><h1>Sony Solus Project</h1></div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<a class="btn btn-primary" href="{{ path('projects') }}">Back to list</a>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span2" style="text-align: right;">
+			<b>Name:</b>
+		</div>
+		<div id="divProjectName" class="span10">
+			{{ entity.name }}<br>
+			<i>(Project folder name: <b>{{ entity.folder }}</b>)</i>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span2" style="text-align: right;">
+			<b>Number:</b>
+		</div>
+		<div id="divProjectNumber" class="span10">
+			{{ entity.number }}
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span2" style="text-align: right;">
+			<b>Alias:</b>
+		</div>
+		<div id="divProjectAlias" class="span10">
+			{{ entity.alias }}
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span2" style="text-align: right;">
+			<b>ASF file:</b>
+		</div>
+		<div id="divSpreadsheet" class="span10">
+			{{ entity.spreadsheet }}
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span2" style="text-align: right;">
+			<b>Created:</b>
+		</div>
+		<div class="span10">
+			{{ entity.created|date('Y-m-d H:i:s') }}
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span2" style="text-align: right;">
+			<b>Updated:</b>
+		</div>
+		<div id="divProjectUpdated" class="span10">
+			{{ entity.updated|date('Y-m-d H:i:s') }}
+		</div>
+	</div>
+	<div class="row-fluid" style="border-bottom: 1px solid #64717E;">
+		<div class="span2"></div>
+		<div class="span10" style="padding-bottom: 10px;">
+			<button id="btnEditProjectInfo" class="btn btn-info">Edit project parameters</button>
+		</div>
+	</div>
+	<div class="row-fluid" style="border-bottom: 1px solid #64717E;padding-top: 10px;">
+		<div class="span2" style="text-align: right;">
+			<b>Upload new images:</b><br>
+			<div style="color: #ff0000;"><span id="divUploadedImagesCount"><small>{{ imagesCount }}</small></span><small> images uploaded</small></div>
+		</div>
+		<div class="span3">
+			<form id="formUpldImgs" action="{{ path('projects_uploadimages', { 'id': entity.id }) }}" method="post" enctype="multipart/form-data">
+				<input type="file" multiple="multiple" name="images[]" id="images" required="required" accept="image/*"><br><br>
+				<button type="submit" id="btnUpldImages" class="btn btn-info" style="vertical-align: top;">Upload new images</button>
+			</form>
+		</div>
+		<div class="span7">
+			<b>Generate HTML files for languages: </b><button id="checkAllLang" class="btn btn-mini btn-success" style="width: 70px;">Check all</button><br>
+				<!-- <select id="listLanguages" style="width: auto;" multiple>
+					{% for lang in langArray %}
+					 	<option value="{{ lang }}">{{ lang }}</option>
+					{% endfor %}
+				</select> -->
+				{% for lang in langArray %}
+				 	<div style="float: left;padding-right: 5px;">
+				 		<label><input type="checkbox" name="language" style="margin: 0;" value="{{ lang }}"> {{ lang }}</label>
+				 	</div>
+				{% endfor %}
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span11" style="padding:10px 10px 0px 0px;">
+			<button id="btnShowTemplate" class="btn btn-warning" style="width:120px;">Show template</button>
+			<button id="btnAddLogic" class="btn btn-info" data-url="{{ path('projects_savelogic', { 'id': entity.id }) }}">Add some logic to template</button>
+			<a id="aGenHtml" class="btn btn-success" style="width: 150px;" href="{{ path('projects_html', { 'id': entity.id, 'test': 0 }) }}">Generate HTML files</a>
+			<!-- <a id="aTestHtml" style="display: none;width: 150px;" class="btn btn-danger" href="{{ path('projects_zip', { 'id': entity.id, 'files': 'test' }) }}">Generate test HTML file</a>  <input type="checkbox" id="chboxTestHTMLFile" style="margin-top: 0px !important;margin-left: 6px !important;"> Thick this box to generate one test HTML file --><br>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<div id="divTemplate" style="display: none;padding-top:20px;">
+				<div>
+					<select class="listVars" style="width: auto;">
+						{# adding own variables to list #}
+						{% for ownVariable in ownVarables %}
+						 	<option title="{{ ownVariable.value }}" value="&#123;&#123; varsArray.{{ ownVariable.name }} | raw &#125;&#125;">&#123;&#123; varsArray.{{ ownVariable.name }} | raw &#125;&#125;</option>
+						{% endfor %}
+						{# //// adding own variables to list #}
+						<option value="" disabled="disabled">- - - Variables from Excel - - -</option>
+						{% for var in varsArray %}
+						 	<option value="{{ var }}">{{ var }}</option>
+						{% endfor %}
+					</select>
+					
+					<button id="btnCopyToClipboard" class="btn btn-success" style="vertical-align: top;" title="Click to copy variable to clipboard." data-clipboard-text="Please select variable !!!"><b>Copy</b></button>
+					<button id="btnAddVar" class="btn btn-info" style="vertical-align: top;">Add chosen variable to template</button>
+					<button id="btnDelVar" class="btn btn-danger" style="vertical-align: top;">Delete selection from template</button>
+					<button id="btnAddOwnVar" class="btn btn-warning" style="vertical-align: top;">Add / Del your variable</button>
+					<button id="btnSaveTpl" data-url="{{ path('projects_savetemplate', { 'id': entity.id }) }}" class="btn btn-success" style="vertical-align: top;">Save template</button>
+				</div>
+				<form>
+					<textarea id="template" name="template">
+						{{ template }} 
+					</textarea>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="divEditProjectInfo" title="Edit project info" style="display: none;"data-url="{{ path('projects_update', { 'id': entity.id }) }}">
+	<div class="row-fluid">
+		<div class="span3" style="text-align: right;padding-right: 5px;padding-top: 3px;">
+			<label>Name:</label>
+		</div>
+		<div>
+			<input id="newProjectName" type="text" required="required" value="{{ entity.name | trim }}">
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span3" style="text-align: right;padding-right: 5px;padding-top: 3px;">
+			<label>Number:</label>
+		</div>
+		<div>
+			<input id="newProjectNumber" type="text" required="required" value="{{ entity.number | trim }}">
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span3" style="text-align: right;padding-right: 5px;padding-top: 3px;">
+			<label>Alias:</label>
+		</div>
+		<div>
+			<input id="newProjectAlias" type="text" required="required" value="{{ entity.alias | trim }}">
+		</div>
+	</div>
+</div>
+<div id="divAddOwnVariable" title="Edit project info" style="display: none;"data-url="{{ path('projects_update', { 'id': entity.id }) }}">
+	<div class="row-fluid">
+		<form id="formAddOwnVars" action="{{ path('variables_create', { 'id': entity.id }) }}" method="post">
+        	<input id="inputAddOwnVarsName" type="text" required="required" placeholder="Name" style="width: 150px;">
+			<input id="inputAddOwnVarsValue" type="text" placeholder="Value" style="width: 150px;">
+			<button id="btnAddOwnVar" type="submit" class="btn btn-info" style="margin-bottom: 10px;">Add</button>
+		</form>
+	</div>
+	<div class="row-fluid">
+		<div id="divOwnVarsList" style="text-align:left;width:auto;height:400px;overflow:auto;border:1px solid;padding:5px;font-size:10px;">
+			{% for ownVariable in ownVarables %}
+	            <div style="padding-bottom: 2px;padding-top:2px;border-bottom: 1px solid #CBCBCB;">	
+					<form id="formDelOwnVar" data-optionValue="&#123&#123 varsArray.{{ ownVariable.name }} | raw &#125;&#125;" data-optionLogicValue="varsArray.{{ ownVariable.name }}" action="{{ path('variables_delete', { 'id': ownVariable.id, 'projectId': ownVariable.projectId }) }}" method="post" style="margin:0;">
+						<input type="hidden" name="_method" value="DELETE" />
+				    	{{ form_widget(delete_form) }}
+				    	<button type="submit" class="btn btn-danger btn-mini">x</button>
+				    	&#123;&#123; varsArray.{{ ownVariable.name }} | raw &#125;&#125; <span style="color: #6CA66C;">({{ ownVariable.name }} = {{ ownVariable.value }})</span>
+				    </form>
+				</div>
+	        {% endfor %}
+		</div>
+	</div>
+</div>
+<div id="divAddLogicDialog" title="Add some logic to template" style="display: none;">
+	<div>
+		<select class="listLogicVars" style="width: auto;">
+			{# adding own variables to list #}
+			{% for ownVariable in ownVarables %}
+			 	<option title="{{ ownVariable.value }}" value="varsArray.{{ ownVariable.name }}">varsArray.{{ ownVariable.name }}</option>
+			{% endfor %}
+			{# //// adding own variables to list #}
+			<option value="" disabled="disabled">- - - Variables from Excel - - -</option>
+			{% for varLogic in varsLogicArray %}
+			 	<option value="{{ varLogic }}">{{ varLogic }}</option>
+			{% endfor %}
+		</select>
+		<button id="btnAddVarToLogic" class="btn btn-info" style="vertical-align:top;width:40px;"><strong>+</strong></button>
+		<button id="btnDelVarToLogic" class="btn btn-danger" style="vertical-align:top;width:40px;"><strong>-</strong></button>
+		<button id="btnLogicHelp" class="btn btn-info" style="vertical-align:top;float:right;">HELP</button>
+	</div>
+				
+		<textarea id="logic" name="logic">
+			{{ templateLogic }}
+		</textarea>
+	
+</div>
+<div id="divLogicHelp" title="Logic help" style="display:none;font-size:0.8em;">
+<b>Shortcut keys:</b><br>
+Ctrl-F / Cmd-F - Start searching<br>
+Ctrl-G / Cmd-G - Find next<br>
+Shift-Ctrl-G / Shift-Cmd-G - Find previous<br>
+Shift-Ctrl-F / Cmd-Option-F - Replace<br>
+Shift-Ctrl-R / Shift-Cmd-Option-F - Replace all<br>
+<br>
+<b>Comment block:</b><br>
+&#123;# comment text #&#125;<br>
+<br>
+<b>Setting variable:</b><br>
+&#123;% set varName = 'varValue' %&#125;<br>
+<br>
+<b>Displaying variable value:</b><br>
+&#123;&#123; varName &#125;&#125;<br>
+<br>
+<b>Setting an array:</b><br>
+&#123;% set arrayName = [1, 2] %&#125;<br>
+&#123;% set arrayName = ["a", "b"] %&#125;<br>
+<br>
+<b>Displaying array values:</b><br>
+&#123;% for item in arrayName %&#125;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123; item &#125;&#125;<br>
+&#123;% endfor %&#125;<br>
+<br>
+<b>Setting variable from array:</b><br>
+&#123;% for item in arrayName %&#125;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&#123;% set varName = item %&#125;<br>
+&#123;% endfor %&#125;<br>
+<br>
+<b>If ElseIf Else statement:</b><br>
+&#123;% if varName == someValue %&#125;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;do something<br>
+&#123;% elseif varName == someValue %&#125;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;do something<br>
+&#123;% else %&#125;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;do something<br>
+&#123;% endif %&#125;
+</div>
+<div id="divTemplateChangeCheck" style="display: none;">saved</div>
+
+{% endblock %}

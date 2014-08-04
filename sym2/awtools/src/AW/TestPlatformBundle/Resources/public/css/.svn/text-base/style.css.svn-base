@@ -1,0 +1,326 @@
+body{
+	padding: 0px;
+}
+input, textarea, .uneditable-input {
+    width: 100%;
+}
+h3{
+	height: 20px;
+}
+.ui-widget {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 13px;
+}
+.ui-widget-content a {
+    color: #FFFFFF;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-tabs-loading a {
+    cursor: pointer;
+}
+a.bubble{
+  position: relative;
+  text-decoration: none;
+}
+a.bubble div {display: none;}
+a.bubble:hover div {
+  display: block;
+  position: absolute; 
+  padding: .5em;
+  content: attr(title);
+  min-width: 120px;
+  text-align: left;
+  width: 500px;
+  height: auto;
+  top: -80px;
+  background: #FFFFFF;
+  border: 1px solid;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;    
+  color: #000000;
+  font-size: .86em;
+}
+a.bubble:hover div:after {
+  position: absolute;
+  display: block;
+  content: "";  
+  border-color: rgba(0,0,0,.8) transparent transparent transparent;
+  border-style: solid;
+  border-width: 10px;
+  height:0;
+  width:0;
+  position:absolute;
+  bottom: -18px;
+  left:1em;
+}
+input[type="checkbox"] {
+    margin-left: 6px !important;
+    vertical-align: text-bottom;
+}
+#divFormRow{
+	width: 90%;
+	padding-right: 35px;
+}
+#divError{
+	padding-bottom: 5px;
+}
+#divContainer{
+	margin: 20px auto;
+	background-color: #DBEAF9;
+	padding: 0 0 0 0;
+	border: 1px solid #00BBFF;
+	border-radius: 5px 5px 5px 5px;
+}
+#divTestsContainer{
+	margin: 10px auto;
+	background-color: #DBEAF9;
+	padding: 0 0 0 0;
+	border: 1px solid #00BBFF;
+}
+#divTestInfoContainer{
+	margin: 0px auto;
+	width: 90%;
+	background-color: #DBEAF9;
+	padding: 0 0 0 0;
+	border: 1px solid #00BBFF;
+	border-radius: 0px 0px 5px 5px;
+	position: fixed;  /*I would like this div to always be fixed to the top of the browser window*/
+    top: -94px;
+    z-index: 10;
+    left: 55px;
+}
+#divTestIframeContainer{
+	text-align: center;
+	width: 96%;
+	margin-top: 60px;
+}
+#divIframeParameters{
+	float: left;
+	padding: 10px;
+	width: 80%
+}
+#divIframeParameters input{
+	width: auto;
+}
+#divFormIframeRow{
+	float: left;
+	padding-right: 10px;
+}
+#divSpan{
+	padding-top: 20px;
+	padding-left: 20px;
+}
+#divTestSpan{
+	padding: 5px 0 5px 10px;
+	font-size: 12px;
+}
+#divTestSpanOpen{
+	height: 40px;
+}
+#divTestSpanOpen a#divOpener, a#divReloadIframe{
+	float: right;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+#divTestSpanOpen a#divBackToList{
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+#divTitle{
+	color: #FF0000;
+	font-size: 20px;
+	padding-bottom: 20px;
+}
+#divTechInfo{
+	background-color: #FFFFFF;
+	padding: 10px 10px 10px 10px;
+	margin-bottom: 20px;
+	border: 1px solid #FF0000;
+	border-radius: 5px 5px 5px 5px;
+	width: 80%;
+}
+#divTechInfoRow{
+	width: 90%;
+}
+#divFormBtn{
+	float: left;
+}
+#divFormEditBtn{
+	padding-top: 10px;
+}
+#accordion{
+	margin-left: 86px;
+    margin-top: -33px;
+    position: absolute;
+    z-index: auto;
+    width: 400px;
+}
+#divFormComments input[type="text"]{
+	width: 450px;
+}
+#divComment{
+	border: 1px solid #42A2C9;
+	padding: 5px;
+	margin-bottom: 2px;
+}
+#divComment div{
+	display: inline-block;
+}
+#divSavedComments img{
+	width: 100px;
+}
+#divCommentImg{
+	width: 100px;
+	text-align: right;
+	font-size: 10px; 
+}
+.divCommentText{
+	vertical-align: top;
+	width: 76%;
+}
+#divListRow{
+	padding: 10px;
+	border-bottom: 1px solid;
+}
+#divListRow:hover{
+	padding: 10px;
+	border-bottom: 1px solid;
+	background-color: #FFFFFF;
+}
+#divListRow div{
+	padding-right: 10px;
+}
+#divListTop{
+	padding: 10px;
+	border-bottom: 1px solid;
+}
+#divListTop div{
+	font-weight: bold;
+	font-style: normal;
+	display: block;
+	float: left;
+}
+#divListTitle{
+	border-bottom: 1px solid;
+	padding: 20px;
+}
+#divParamArchive{
+	width: 84px;
+	text-align: center;
+	padding-bottom: 5px;
+}
+#divListTitle div{
+	display: inline;
+}
+.divListName{
+	width: 385px;
+	display: block;
+	float: left;
+	font-weight: none;
+}
+#divListName a{
+	color: #000000;
+}
+.divListDate{
+	width: 145px;
+	display: block;
+	float: left;
+	font-style: italic;
+}
+.divListInfo{
+	width: 350px;
+	display: block;
+	float: left;
+}
+.divListComments{
+	width: 150px;
+	display: block;
+	float: left;
+	text-align: center;
+	margin-top: 5px;
+}
+.divListAction{
+	float: left;
+	padding: 0px;
+}
+#divListTopName{
+	width: 385px;
+	margin-left: 12px;
+}
+#divListTopDate{
+	width: 145px;
+	padding-left: 10px;
+}
+#divListTopInfo{
+	width: 347px;
+	padding-left: 10px;
+}
+#divListTopComments{
+	width: 95px;
+	padding-left: 40px;
+}
+#divFormDelete{
+	height: 30px;
+    padding-top: 10px;
+}
+#spanCommentsInfo{
+	font-size: 8px;
+}
+#spanCommentsAll{
+	color: #0084FF;
+	width: 0px;
+}
+#spanCommentsNew{
+	color: #FF0000;
+	width: 0px;
+}
+#spanCommentsDone{
+	color: #51A351;
+	width: 0px;
+}
+#divSearchData{
+	float: right;
+	height: 30px;
+}
+#divSearchData input{
+	width: 300px;
+}
+#testsCount{
+	color: #FF0000;
+}
+#progressbar{
+	display: none;
+}
+#tabs{
+	margin-top: 0px;
+}
+#divListTopCommentsIndex{
+	padding-left: 10px;
+    width: 80px;
+}
+#divCreateNew{
+	margin-top: 20px;
+}
+#divListTopNameIndex{
+	margin-left: 10px;
+    width: 385px;
+}
+#divListContainer{
+	margin: 0px auto;
+	background-color: #DBEAF9;
+	padding: 0 0 0 0;
+	border: 1px solid #00BBFF;
+}
+#divEmailError{
+	color: #FF0000;
+}
+.divStatisticsCommsT{
+	background-color: #DBEAF9;
+	border: 1px solid #00BBFF;
+}
+.divStatisticsCommsD{
+	background-color: #DBEAF9;
+	border: 1px solid #00BBFF;
+}

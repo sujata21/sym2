@@ -1,0 +1,27 @@
+{% extends "AWDynamicTextBundle::layout.html.twig" %}
+
+{% block title %}Dynamic Text{% endblock %}
+
+{% block content -%}
+    <h1>Image Upload</h1>
+
+    <form id="frmSrcImgUpload" action="{{ path('image_create') }}" method="post" {{ form_enctype(form) }}>
+       
+    {{ form_label(form.file) }}
+    {{ form_errors(form.file) }}
+    {{ form_widget(form.file) }}
+
+        <p>
+            <input id="btnSrcImgUpload" type="submit" value="Upload Image">
+        </p>
+    </form>
+    
+    
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('image') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

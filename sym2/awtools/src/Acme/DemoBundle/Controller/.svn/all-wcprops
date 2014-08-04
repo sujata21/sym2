@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/awtools/!svn/ver/2/trunk/src/Acme/DemoBundle/Controller
+END
+SecuredController.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/awtools/!svn/ver/2/trunk/src/Acme/DemoBundle/Controller/SecuredController.php
+END
+WelcomeController.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/awtools/!svn/ver/2/trunk/src/Acme/DemoBundle/Controller/WelcomeController.php
+END
+DemoController.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/awtools/!svn/ver/2/trunk/src/Acme/DemoBundle/Controller/DemoController.php
+END

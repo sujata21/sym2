@@ -1,0 +1,454 @@
+<?php
+
+namespace AW\TestPlatformBundle\Controller;
+
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use AW\TestPlatformBundle\Entity\Comments;
+use AW\TestPlatformBundle\Form\CommentsType;
+use AW\TestPlatformBundle\Entity\Tests;
+
+/**
+ * Comments controller.
+ *
+ * @Route("/testplatform/comments")
+ */
+class CommentsController extends Controller
+{
+    /**
+     * Lists all Comments entities.
+     *
+     * @Route("/", name="comments")
+     * @Method("GET")
+     * @Template()
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager('testplatform');
+
+        $entities = $em->getRepository('AWTestPlatformBundle:Comments')->findAll();
+        
+        return array(
+            'entities' => $entities,
+        );
+    }
+    
+    /**
+     * Lists all Comments entities.
+     *
+     * @Route("/call/{testId}", name="comments_call")
+     * @Method("GET")
+     * @Template()
+     */
+    public function callAction($testId)
+    {
+    	$em = $this->getDoctrine()->getManager('testplatform');
+    
+    	$entities = $em->getRepository('AWTestPlatformBundle:Comments')->findBy(array('testId' => $testId ));
+    	
+    	return array(
+    			'entities' => $entities,
+    			'testId' => $testId,
+    	);
+    }
+    
+    /**
+     * Lists New Comments entities.
+     *
+     * @Route("/cnew/{testId},{status}", name="comments_cnew")
+     * @Method("GET")
+     * @Template()
+     */
+    public function cnewAction($testId, $status)
+    {
+    	$em = $this->getDoctrine()->getManager('testplatform');
+    
+    	$entities = $em->getRepository('AWTestPlatformBundle:Comments')->findBy(array('testId' => $testId, 'status' => $status ));
+    
+    	return array(
+    			'entities' => $entities,
+    			'testId' => $testId,
+    	);
+    }
+    
+    /**
+     * Lists Done Comments entities.
+     *
+     * @Route("/cdone/{testId},{status}", name="comments_cdone")
+     * @Method("GET")
+     * @Template()
+     */
+    public function cdoneAction($testId, $status)
+    {
+    	$em = $this->getDoctrine()->getManager('testplatform');
+    
+    	$entities = $em->getRepository('AWTestPlatformBundle:Comments')->findBy(array('testId' => $testId, 'status' => $status ));
+    
+    	return array(
+    			'entities' => $entities,
+    			'testId' => $testId,
+    	);
+    }
+    
+    /**
+     * Creates a new Comments entity.
+     *
+     * @Route("/{testId}", name="comments_create")
+     * @Method("POST")
+     * @Template("AWTestPlatformBundle:Comments:new.html.twig")
+     */
+    public function createAction(Request $request, $testId)
+    {
+    	$entity  = new Comments();
+    	
+    	$entity->setTestUseragent($_SERVER['HTTP_USER_AGENT']);
+    	$entity->setIpaddress($_SERVER['REMOTE_ADDR']);
+    	if (isset($_SERVER['HTTP_REFERER'])) {
+    		$entity->setReferrer($_SERVER['HTTP_REFERER']);
+    	}
+    	
+        $form = $this->createForm(new CommentsType(), $entity);
+        $form->bind($request);
+
+        $request = $this->get('request');
+        $isAjax = $request->isXmlHttpRequest();
+        
+        if ($isAjax == true) {
+            
+        	$validator = $this->container->get('validator');
+        	$errors = $validator->validate($entity);
+        
+        	if (count($errors) > 0) {
+        
+        		$jsonResponse['success'] = 0;
+        		$jsonResponse['html']=$this->renderView('AWTestPlatformBundle:Comments:new.html.twig',array(
+	        				'testId' => $testId,
+	        				'entity'=>$entity,
+	        				'form'=>$form->createView(),
+	        		));
+        		 
+        	} else {
+        		 
+        		$entity -> setTestId($testId);
+        		
+        		$em = $this->getDoctrine()->getManager('testplatform');
+        		
+        		//update testers_email in comments table
+        		$tentity = $em->getRepository('AWTestPlatformBundle:Tests')->find( $testId );
+        		$entity -> setTestersEmail($tentity->getEmail());
+        		
+        		      		
+        		$em->persist($entity);
+        		$em->flush();
+        		
+        		$file = $form['attachment']->getData();
+        		
+        		if ($file) {
+        			
+        			// compute a random name and try to guess the extension (more secure)
+        			//$extension = $file->guessExtension();
+        			$orgFileName = $file->getClientOriginalName();
+        			//var_dump($orgFileName);
+        			//die;
+        			/*if (!$extension) {
+        				// extension cannot be guessed
+        				$extension = 'bin';
+        			}*/
+        			
+        			//$fileName = $entity->getId().'-comm-att.'.$extension;
+        			$fileName = $entity->getId().'-comm-att.'.$orgFileName;
+        			
+        			//moving file
+        			$dir = __DIR__.'/../../../../web/uploads/awtestplatform';
+        			$file->move($dir, $fileName);
+        			
+        			////
+        			
+        			$uentity = $em->getRepository('AWTestPlatformBundle:Comments')->find($entity->getId());
+        			//update comment attachment name in Comments table
+        			$uentity->setAttachment($fileName);
+        			
+        			//check if file is image - link craetion
+        			$fileType = self::fileType(mime_content_type($dir.'/'.$fileName));
+        			
+        			if ($fileType) {
+        				$uentity->setIsImage('2');
+        			}else {
+        				$uentity->setIsImage('1');
+        			}
+        			
+        			$em->persist($uentity);
+        			$em->flush();
+        		}
+        		
+        		$entities = $em->getRepository('AWTestPlatformBundle:Comments')->findBy(array('testId' => $testId ));
+        		
+        		$deleteForm = $this->createDeleteForm($entity->getId());
+        		
+        		
+        		$jsonResponse['success'] = 1;
+        		$jsonResponse['html']=$this->renderView('AWTestPlatformBundle:Comments:show.html.twig',array(
+        				'entities'=>$entities,
+        				'delete_form' => $deleteForm->createView(),
+        		));
+
+        	}
+        }
+         
+        $response = new Response(json_encode($jsonResponse));
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+    }
+    
+    function fileType($fileMimeType)
+    {
+    	$mimeImageType = array(
+    			'image/png',
+		    	'image/jpeg',
+		    	'image/jpeg',
+		    	'image/jpeg',
+		    	'image/gif',
+		    	'image/bmp',
+		    	'image/vnd.microsoft.icon',
+		    	'image/tiff',
+		    	'image/tiff',
+		    	'image/svg+xml',
+		    	'image/svg+xml'
+    			);
+    	
+    	if(in_array($fileMimeType , $mimeImageType))
+    	{
+    		//is image
+    		return true;
+    	}
+    	return false;
+    }
+
+    /**
+     * Displays a form to create a new Comments entity.
+     *
+     * @Route("/new/{id}", name="comments_new")
+     * @Method("GET")
+     * @Template()
+     */
+    public function newAction($id)
+    {
+        $entity = new Comments();
+        $form   = $this->createForm(new CommentsType(), $entity);
+
+        return array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        );
+    }
+
+    /**
+     * Finds and displays a Comments entity.
+     *
+     * @Route("/{id}", name="comments_show")
+     * @Method("GET")
+     * @Template()
+     */
+    public function showAction($id)
+    {
+        $em = $this->getDoctrine()->getManager('testplatform');
+
+        $entity = $em->getRepository('AWTestPlatformBundle:Comments')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Comments entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+        
+		return array(
+            'entity' => $entity,
+        	'delete_form' => $deleteForm->createView(),
+        );
+    }
+
+    /**
+     * Displays a form to edit an existing Comments entity.
+     *
+     * @Route("/{id}/edit", name="comments_edit")
+     * @Method("GET")
+     * @Template()
+     */
+    public function editAction($id)
+    {
+        $em = $this->getDoctrine()->getManager('testplatform');
+
+        $entity = $em->getRepository('AWTestPlatformBundle:Comments')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Comments entity.');
+        }
+
+        $editForm = $this->createForm(new CommentsType(), $entity);
+        $deleteForm = $this->createDeleteForm($id);
+
+        return array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
+    
+    /**
+     * Comment status update.
+     *
+     * @Route("/supdate/{id},{testId},{status},{devEmail},{devCommentTxt}", name="comments_supdate")
+     * @Template()
+     */
+    public function supdateAction(Request $request, $id, $testId, $status, $devEmail, $devCommentTxt)
+    {
+    	$em = $this->getDoctrine()->getManager('testplatform');
+    
+    	$entity = $em->getRepository('AWTestPlatformBundle:Comments')->find($id);
+    
+    	if (!$entity) {
+    		throw $this->createNotFoundException('Unable to find Comments entity.');
+    	}
+    	
+    	$entity->setStatus('1');
+    	$entity->setDevEmail($devEmail);
+    	$entity->setDevComment($devCommentTxt);
+    	$entity->setDevUseragent($_SERVER['HTTP_USER_AGENT']);
+    	$em->persist($entity);
+    	$em->flush();
+		
+    	//all coments for test
+    	$entities = $em->getRepository('AWTestPlatformBundle:Comments')->findBy(array('testId' => $testId ));
+    	$commAll = count($entities);
+    	
+    	//count all comments with status 0 = NEW
+    	$entitiesCommentsNew = $em->getRepository('AWTestPlatformBundle:Comments')->findBy(array('testId' => $testId, 'status' => 0));
+    	$commNew = count($entitiesCommentsNew);
+    	
+    	//count all comments with status 1 = DONE
+    	$entitiesCommentsDone = $em->getRepository('AWTestPlatformBundle:Comments')->findBy(array('testId' => $testId, 'status' => 1));
+    	$commDone = count($entitiesCommentsDone);
+    	
+    	$jsonResponse['testId'] = $testId;
+    	$jsonResponse['countAll'] = $commAll;
+    	$jsonResponse['countNew'] = $commNew;
+    	$jsonResponse['countDone'] = $commDone;
+    	
+    	switch ($status) {
+    		case 0://new comments
+    			$jsonResponse['html'] = $this->renderView('AWTestPlatformBundle:Comments:cnew.html.twig',array(
+	    			'entities'=>$entitiesCommentsNew,
+	    			'testId' => $testId,
+    			));
+    			break;
+    		case 3://all comments
+    			$jsonResponse['html'] = $this->renderView('AWTestPlatformBundle:Comments:call.html.twig',array(
+	    			'entities'=>$entities,
+	    			'testId' => $testId,
+    			));
+    			break;
+    	}
+    	
+    	$response = new Response(json_encode($jsonResponse));
+    	$response->headers->set('Content-Type', 'application/json');
+    	return $response;
+    }
+
+    /**
+     * Edits an existing Comments entity.
+     *
+     * @Route("/{id}", name="comments_update")
+     * @Method("PUT")
+     * @Template("AWTestPlatformBundle:Comments:edit.html.twig")
+     */
+    public function updateAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager('testplatform');
+
+        $entity = $em->getRepository('AWTestPlatformBundle:Comments')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Comments entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createForm(new CommentsType(), $entity);
+        $editForm->bind($request);
+
+        if ($editForm->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('comments_edit', array('id' => $id)));
+        }
+
+        return array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
+
+    /**
+     * Deletes a Comments entity.
+     *
+     * @Route("/{id},{testId}", name="comments_delete")
+     * @Method("DELETE")
+     */
+    public function deleteAction(Request $request, $id, $testId)
+    {
+        $form = $this->createDeleteForm($id);
+        $form->bind($request);
+
+        //if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager('testplatform');
+            $entity = $em->getRepository('AWTestPlatformBundle:Comments')->find($id);
+
+			$em->remove($entity);
+            $em->flush();
+            
+            //delete comment attachment
+            $attachment = $entity->getAttachment();
+            
+            if ($attachment != null && file_exists(__DIR__.'/../../../../web/uploads/awtestplatform/'.$attachment)) {
+            	$attachment = __DIR__.'/../../../../web/uploads/awtestplatform/'.$entity->getAttachment();
+            	unlink($attachment);
+            }
+            
+            
+            $entities = $em->getRepository('AWTestPlatformBundle:Comments')->findBy(array('testId' => $testId ));
+            
+            $deleteForm = $this->createDeleteForm($id);
+            
+            $jsonResponse['success']=1;
+            $jsonResponse['html']=$this->renderView('AWTestPlatformBundle:Comments:show.html.twig',array(
+            		'entities'=>$entities,
+            		'delete_form' => $deleteForm->createView(),
+            ));
+        //}
+		
+        $response = new Response(json_encode($jsonResponse));
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+    }
+
+    /**
+     * Creates a form to delete a Comments entity by id.
+     *
+     * @param mixed $id The entity id
+     *
+     * @return Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm($id)
+    {
+        return $this->createFormBuilder(array('id' => $id))
+            ->add('id', 'hidden')
+            ->getForm()
+        ;
+    }
+}

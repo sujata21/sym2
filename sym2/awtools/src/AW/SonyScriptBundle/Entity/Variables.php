@@ -1,0 +1,126 @@
+<?php
+
+namespace AW\SonyScriptBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Variables
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="AW\SonyScriptBundle\Entity\ProjectsRepository")
+ * @ORM\HasLifecycleCallbacks()
+ */
+class Variables
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="project_id", type="integer")
+     */
+    private $project_id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="value", type="string", length=255, nullable=true)
+     */
+    private $value;
+
+    
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set project_id
+     *
+     * @param integer $projectId
+     * @return Variables
+     */
+    public function setProjectId($projectId)
+    {
+        $this->project_id = $projectId;
+
+        return $this;
+    }
+
+    /**
+     * Get project_id
+     *
+     * @return integer 
+     */
+    public function getProjectId()
+    {
+        return $this->project_id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Variables
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set value
+     *
+     * @param string $value
+     * @return Variables
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * Get value
+     *
+     * @return string 
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+}

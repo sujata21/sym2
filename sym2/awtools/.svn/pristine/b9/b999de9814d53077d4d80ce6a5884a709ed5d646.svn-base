@@ -1,0 +1,29 @@
+parameters:
+    database_driver_dynamicText:   pdo_mysql
+    database_host_dynamicText:     localhost
+    database_port_dynamicText:     ~
+    database_name_dynamicText:     _rs_dynamictext
+    database_user_dynamicText:     dynamictext
+    database_password_dynamicText: GJHgtf$65FfvHy
+    
+    database_driver_testplatform:   pdo_mysql
+    database_host_testplatform:     localhost
+    database_port_testplatform:     ~
+    database_name_testplatform:     _rs_testplatform
+    database_user_testplatform:     testplatform
+    database_password_testplatform: jHBhjbhjHb54hj
+    
+    database_driver_sonyscript:   pdo_mysql
+    database_host_sonyscript:     localhost
+    database_port_sonyscript:     ~
+    database_name_sonyscript:     _rs_sonyscript
+    database_user_sonyscript:     sonyscript
+    database_password_sonyscript: JNJUuH786hjgghj67G
+
+    mailer_transport:  smtp
+    mailer_host:       mail.alchemyworx.com
+    mailer_user:       rstraburzynski
+    mailer_password:   23yapheq
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt

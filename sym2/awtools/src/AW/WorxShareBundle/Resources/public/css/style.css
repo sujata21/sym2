@@ -1,0 +1,381 @@
+body{
+	
+}
+.ui-dialog-titlebar
+{
+    display:none;
+}
+.divLoginForm{
+	background: none repeat scroll 0 0 #DBEAF9;
+    border: 1px solid #007EA8;
+    /* border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px; */
+	padding: 20px;
+    width: 225px;
+    margin: 0 auto;
+    -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.divPassChange{
+	background: none repeat scroll 0 0 #DBEAF9;
+    border: 1px solid #007EA8;
+    /* border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px; */
+	padding: 20px;
+    width: 225px;
+    margin: 0 auto;
+    -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+#divSysInfo{
+	display: none;
+	z-index: 1000;
+	background: none repeat scroll 0 0 #DBEAF9;
+    border: 1px solid #007EA8;
+    /* -moz-border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 4px 4px; */
+    opacity: 0.7;
+    padding: 10px;
+    position: fixed;
+    top: 130px;
+    width: 400px;
+    text-align: center;
+    -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0px 00px 00px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+#tblUsersList{
+	margin: 0 auto;
+}
+#tblUsersList td{
+	border: 1px solid #B6B6B6;
+	padding: 10px;
+}
+#tblUsersList > tbody > tr:hover{
+	background-color: #D0E2FF;
+	cursor: pointer;
+}
+#tblUsersList th{
+	height: 30px;
+	min-width:150px;
+}
+.tblTitle tr{
+	border: 0px;
+}
+.tblTitle th{
+	text-align: left;
+}
+.tblUsersListActions,
+.tblUsersListLocked,
+.tblProjectsListClient{
+	text-align: center
+}
+.tblFieldNames th{
+	background-color: #3097B5;
+    border: 1px solid #3097B5;
+    color: #FFFFFF;
+}
+.tdRole{
+	text-align: center;
+}
+#formNewUser ul > li{
+	background-color: #FF0000;
+    color: #FFFFFF;
+    font-size: 0.6em;
+    font-weight: bold;
+    list-style: none outside none;
+    margin-bottom: 5px;
+    margin-left: -25px;
+    text-align: center;
+    -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0px 00px 00px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+#formNewClient ul > li{
+	background-color: #FF0000;
+    color: #FFFFFF;
+    font-size: 0.6em;
+    font-weight: bold;
+    list-style: none outside none;
+    margin-bottom: 5px;
+    margin-left: -25px;
+    text-align: center;
+    -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0px 00px 00px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+#formPassChange ul > li{
+	background-color: #FF0000;
+    color: #FFFFFF;
+    font-size: 0.8em;
+    font-weight: bold;
+    list-style: none outside none;
+    margin: 0 0 10px -25px;
+    text-align: center;
+    width: 220px;
+    -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0px 00px 00px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.divClients, .divProjects,
+.divAssignedClients,
+.divAssignedProjects,
+.divAddRemoveClientBtns,
+.divAddRemoveProjectsBtns{
+	display: inline-block;
+}
+.tdListVertAlignTop{
+	vertical-align: top;
+}
+.divProjectTile{
+	width: 200px;
+	text-align: center;
+	padding: 10px;
+	margin: 5px;
+	float: left;
+	border: 1px solid #0044CC;
+	-webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0px 00px 00px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.divProjectTile:hover{
+	background-color: #F0DE81;
+}
+#imageUpload{
+	display: none;
+}
+#imagePreview{
+	max-width: 220px;
+}
+.divImagePreview{
+	text-align: center;
+	padding: 10px 0;
+}
+.divImagePreviewList{
+	display: inline-block;
+	padding: 5px;
+}
+#preview{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+	max-width: 320;
+	text-align: center;
+}
+#divNewEditForm{
+	width: 500px;
+}
+#divNewEditForm > div {
+	display: inline-block;
+}
+.divSavedImages{
+	display: block;
+	padding: 5px 0;
+	border-bottom: 1px solid #B6B6B6;
+	text-align: center;
+}
+.divProjectContainer{
+	margin: 0 auto;
+	width: 1136px;
+	padding: 10px;
+	border: 1px solid #B6B6B6;
+	-webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-shadow: 0px 00px 00px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+#divImagesBox{
+	height: 100%;
+	width: 200px;
+	float: left;
+	padding: 5px;
+	overflow: auto;
+	height: 600px;
+	text-align: center;
+	border: 1px solid #B6B6B6;
+	-webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-shadow: 0px 00px 00px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.divImageBox{
+	padding: 5px;
+}
+.divImageBox img{
+	cursor: pointer;
+}
+.divImageBox:hover{
+	background-color: #2F96B4;
+	color: #ffffff;
+}
+.hrImagesDivider{
+	color: red;
+	background-color: red;
+	height: 5px;
+	margin: 5px;
+}
+#divProjectWorkspace{
+	text-align: center;
+	margin-left: 10px;
+	width: 690px;
+	padding: 5px;
+	overflow: auto;
+	float: left;
+	border: 1px solid #B6B6B6;
+	-webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-shadow: 0px 00px 00px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+#divCanvasPanel{
+	width: 100%x;
+	height: 26px;
+	padding: 5px;
+	text-align: right;
+	border: 1px solid #B6B6B6;
+	-webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-shadow: 0px 00px 00px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+	
+}
+#divCommentsBox{
+	margin-left: 10px;
+	padding: 5px;
+	width: 190px;
+	height: 578px;
+	overflow: auto;
+	float: left;
+	border: 1px solid #B6B6B6;
+	-webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-shadow: 0px 00px 00px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+#divCanvas{
+	overflow: auto;
+	width: 100%;
+	min-height: 565px;
+	margin-top: 5px;
+}
+#commentTooltip{
+	background-color: #000000;
+    border: 1px solid #2F96B4;
+    -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-shadow: 0px 00px 00px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    /*display: none;*/
+    height: auto;
+    position: absolute;
+    vertical-align: middle;
+    width: 300px;
+    z-index: 1;
+    opacity: 0.6;
+    text-align: left;
+    padding-left: 5px;
+    word-wrap: break-word;
+}
+#commentTextInput{
+	background-color: #000000;
+    border: 1px solid #2F96B4;
+    -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0px 00px 00px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    /*display: none;*/
+    height: auto;
+    position: absolute;
+    text-align: right;
+    width: auto;
+    padding: 0px;
+    z-index: 1;
+}
+#commentTextInput textarea{
+	background-color: #369CBA;
+    color: #FFFFFF;
+    margin: 0;
+}
+#commentTextInput button{
+	position: absolute;
+	top: 5px;
+}
+.btnCommAdd{
+	right: 30px;
+}
+.btnCommCancel{
+	right: 5px;
+}
+.divCommBox{
+	background-color: #FFFFAA;
+    margin-bottom: 5px;
+    padding: 5px;
+    word-wrap: break-word;
+	border: 1px solid #B6B6B6;
+	-webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-shadow: 0px 00px 00px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.divCommBox:hover {
+    cursor: pointer;
+}
+.divCommBox textarea {
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+    width: 164px;
+}
+.btnCommBoxUpdate{
+	margin: 5px 5px 0px 0px;	
+}
+.btnCommBoxCancel{
+	margin: 5px 0px 0px 0px;
+}
+#divCommEdit{
+	padding-top: 5px;
+}

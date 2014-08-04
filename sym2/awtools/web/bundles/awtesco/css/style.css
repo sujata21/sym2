@@ -1,0 +1,23 @@
+#main {
+    background-image:url("../images/background.png");
+    background-repeat: no-repeat;
+    width: 800px;
+
+
+}
+#footer {
+    bottom: 0;
+    left: 40px;
+    position: fixed;
+}
+#startbutton button {
+    background: url("../images/start2.png") repeat scroll center center transparent;
+    border-color: #DF0000;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+    color: #DF0000;
+    cursor: pointer;
+    height: 40px;
+    text-decoration: none;
+    width: 195px;
+}

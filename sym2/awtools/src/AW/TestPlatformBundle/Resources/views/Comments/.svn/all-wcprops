@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Comments
+END
+edit.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Comments/edit.html.twig
+END
+cnew.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Comments/cnew.html.twig
+END
+show.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Comments/show.html.twig
+END
+call.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Comments/call.html.twig
+END
+new.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Comments/new.html.twig
+END
+index.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Comments/index.html.twig
+END
+cdone.html.twig
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Resources/views/Comments/cdone.html.twig
+END

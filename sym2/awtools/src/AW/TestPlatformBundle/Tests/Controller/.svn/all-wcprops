@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Tests/Controller
+END
+DevsControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Tests/Controller/DevsControllerTest.php
+END
+DefaultControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Tests/Controller/DefaultControllerTest.php
+END
+TestsControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Tests/Controller/TestsControllerTest.php
+END
+CommentsControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/awtools/!svn/ver/2/trunk/src/AW/TestPlatformBundle/Tests/Controller/CommentsControllerTest.php
+END

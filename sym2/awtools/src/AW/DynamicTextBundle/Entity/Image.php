@@ -1,0 +1,1571 @@
+<?php
+
+namespace AW\DynamicTextBundle\Entity;
+
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Image
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="AW\DynamicTextBundle\Entity\ImageRepository")
+ * @ORM\HasLifecycleCallbacks()
+ */
+class Image
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+// Image No 1
+    /**
+     * @var string
+     * @ORM\Column(name="text", type="string", length=255, nullable=true)
+     */
+    private $text;
+
+    /**
+     * @var string
+     * @ORM\Column(name="font", type="string", length=255, nullable=true)
+     */
+    private $font;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fontSize", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     */
+    private $fontSize;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fontColor", type="string", length=255, nullable=true)
+     */
+    private $fontColor;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textX", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     */
+    private $textX;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textY", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     */
+    private $textY;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="textPosition", type="string", length=255, nullable=true)
+     */
+    private $textPosition;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textRotate", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     * @Assert\Max(360)
+     */
+    private $textRotate;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="textPerspective", type="boolean", nullable=true)
+     */
+    private $textPerspective;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textPerspectiveLeftCorner", type="integer", nullable=true)
+     */
+    private $textPerspectiveLeftCorner;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textPespectiveRightCorner", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     */
+    private $textPespectiveRightCorner;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="textWaterMark", type="boolean", nullable=true)
+     */
+    private $textWaterMark;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textWaterMarkBrightness", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     */
+    private $textWaterMarkBrightness;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textWaterMarkSaturation", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     */
+    private $textWaterMarkSaturation;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="textCircle", type="boolean", nullable=true)
+     */
+    private $textCircle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="textCircleArcRotateAngles", type="string", length=255, nullable=true)
+     */
+    private $textCircleArcRotateAngles;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="textWave", type="boolean", nullable=true)
+     */
+    private $textWave;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textWaveHeight", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     */
+    private $textWaveHeight;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textWaveLength", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     */
+    private $textWaveLength;
+    
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="sourceImage", type="string", length=255, nullable=true)
+     */
+    private $sourceImage;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resultImage", type="string", length=255, nullable=true)
+     */
+    private $resultImage;
+////
+// Image No 2
+    /**
+     * @var string
+     * @ORM\Column(name="text1", type="string", length=255, nullable=true)
+     */
+    private $text1;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="font1", type="string", length=255, nullable=true)
+     */
+    private $font1;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fontSize1", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     */
+    private $fontSize1;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fontColor1", type="string", length=255, nullable=true)
+     */
+    private $fontColor1;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textX1", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     */
+    private $textX1;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textY1", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     */
+    private $textY1;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="textPosition1", type="string", length=255, nullable=true)
+     */
+    private $textPosition1;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textRotate1", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     * @Assert\Max(360)
+     */
+    private $textRotate1;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="textPerspective1", type="boolean", nullable=true)
+     */
+    private $textPerspective1;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textPerspectiveLeftCorner1", type="integer", nullable=true)
+     */
+    private $textPerspectiveLeftCorner1;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textPespectiveRightCorner1", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     */
+    private $textPespectiveRightCorner1;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="textWaterMark1", type="boolean", nullable=true)
+     */
+    private $textWaterMark1;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textWaterMarkBrightness1", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     */
+    private $textWaterMarkBrightness1;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textWaterMarkSaturation1", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     */
+    private $textWaterMarkSaturation1;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="textCircle1", type="boolean", nullable=true)
+     */
+    private $textCircle1;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="textCircleArcRotateAngles1", type="string", length=255, nullable=true)
+     */
+    private $textCircleArcRotateAngles1;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="textWave1", type="boolean", nullable=true)
+     */
+    private $textWave1;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textWaveHeight1", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     */
+    private $textWaveHeight1;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="textWaveLength1", type="integer", nullable=true)
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     */
+    private $textWaveLength1;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sourceImage1", type="string", length=255, nullable=true)
+     */
+    private $sourceImage1;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resultImage1", type="string", length=255, nullable=true)
+     */
+    private $resultImage1;    
+////    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created", type="datetime", nullable=true)
+     */
+    private $created;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
+     */
+    private $updated;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="userAgent", type="string", length=255, nullable=true)
+     */
+    private $userAgent;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="referrer", type="string", length=255, nullable=true)
+     */
+    private $referrer;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ipAddress", type="string", length=255, nullable=true)
+     */
+    private $ipAddress;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sessionId", type="string", length=255, nullable=true)
+     */
+    private $sessionId;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return Image
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+    
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string 
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Set fontSize
+     *
+     * @param integer $fontSize
+     * @return Image
+     */
+    public function setFontSize($fontSize)
+    {
+        $this->fontSize = $fontSize;
+    
+        return $this;
+    }
+
+    /**
+     * Get fontSize
+     *
+     * @return integer 
+     */
+    public function getFontSize()
+    {
+        return $this->fontSize;
+    }
+
+    /**
+     * Set fontColor
+     *
+     * @param string $fontColor
+     * @return Image
+     */
+    public function setFontColor($fontColor)
+    {
+        $this->fontColor = $fontColor;
+    
+        return $this;
+    }
+
+    /**
+     * Get fontColor
+     *
+     * @return string 
+     */
+    public function getFontColor()
+    {
+        return $this->fontColor;
+    }
+
+    /**
+     * Set textX
+     *
+     * @param integer $textX
+     * @return Image
+     */
+    public function setTextX($textX)
+    {
+        $this->textX = $textX;
+    
+        return $this;
+    }
+
+    /**
+     * Get textX
+     *
+     * @return integer 
+     */
+    public function getTextX()
+    {
+        return $this->textX;
+    }
+
+    /**
+     * Set textY
+     *
+     * @param integer $textY
+     * @return Image
+     */
+    public function setTextY($textY)
+    {
+        $this->textY = $textY;
+    
+        return $this;
+    }
+
+    /**
+     * Get textY
+     *
+     * @return integer 
+     */
+    public function getTextY()
+    {
+        return $this->textY;
+    }
+
+    /**
+     * Set textPosition
+     *
+     * @param string $textPosition
+     * @return Image
+     */
+    public function setTextPosition($textPosition)
+    {
+        $this->textPosition = $textPosition;
+    
+        return $this;
+    }
+
+    /**
+     * Get textPosition
+     *
+     * @return string 
+     */
+    public function getTextPosition()
+    {
+        return $this->textPosition;
+    }
+
+    /**
+     * Set textPerspective
+     *
+     * @param boolean $textPerspective
+     * @return Image
+     */
+    public function setTextPerspective($textPerspective)
+    {
+        $this->textPerspective = $textPerspective;
+    
+        return $this;
+    }
+
+    /**
+     * Get textPerspective
+     *
+     * @return boolean 
+     */
+    public function getTextPerspective()
+    {
+        return $this->textPerspective;
+    }
+
+    /**
+     * Set textPerspectiveLeftCorner
+     *
+     * @param integer $textPerspectiveLeftCorner
+     * @return Image
+     */
+    public function setTextPerspectiveLeftCorner($textPerspectiveLeftCorner)
+    {
+        $this->textPerspectiveLeftCorner = $textPerspectiveLeftCorner;
+    
+        return $this;
+    }
+
+    /**
+     * Get textPerspectiveLeftCorner
+     *
+     * @return integer 
+     */
+    public function getTextPerspectiveLeftCorner()
+    {
+        return $this->textPerspectiveLeftCorner;
+    }
+
+    /**
+     * Set textPespectiveRightCorner
+     *
+     * @param integer $textPespectiveRightCorner
+     * @return Image
+     */
+    public function setTextPespectiveRightCorner($textPespectiveRightCorner)
+    {
+        $this->textPespectiveRightCorner = $textPespectiveRightCorner;
+    
+        return $this;
+    }
+
+    /**
+     * Get textPespectiveRightCorner
+     *
+     * @return integer 
+     */
+    public function getTextPespectiveRightCorner()
+    {
+        return $this->textPespectiveRightCorner;
+    }
+
+    /**
+     * Set textCircle
+     *
+     * @param boolean $textCircle
+     * @return Image
+     */
+    public function setTextCircle($textCircle)
+    {
+        $this->textCircle = $textCircle;
+    
+        return $this;
+    }
+
+    /**
+     * Get textCircle
+     *
+     * @return boolean 
+     */
+    public function getTextCircle()
+    {
+        return $this->textCircle;
+    }
+
+    /**
+     * Set textCircleArcRotateAngles
+     *
+     * @param string $textCircleArcRotateAngles
+     * @return Image
+     */
+    public function setTextCircleArcRotateAngles($textCircleArcRotateAngles)
+    {
+        $this->textCircleArcRotateAngles = $textCircleArcRotateAngles;
+    
+        return $this;
+    }
+
+    /**
+     * Get textCircleArcRotateAngles
+     *
+     * @return string 
+     */
+    public function getTextCircleArcRotateAngles()
+    {
+        return $this->textCircleArcRotateAngles;
+    }
+
+    /**
+     * Set textWave
+     *
+     * @param boolean $textWave
+     * @return Image
+     */
+    public function setTextWave($textWave)
+    {
+        $this->textWave = $textWave;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWave
+     *
+     * @return boolean 
+     */
+    public function getTextWave()
+    {
+        return $this->textWave;
+    }
+
+    /**
+     * Set textWaveHeight
+     *
+     * @param integer $textWaveHeight
+     * @return Image
+     */
+    public function setTextWaveHeight($textWaveHeight)
+    {
+        $this->textWaveHeight = $textWaveHeight;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWaveHeight
+     *
+     * @return integer 
+     */
+    public function getTextWaveHeight()
+    {
+        return $this->textWaveHeight;
+    }
+
+    /**
+     * Set textWaveLength
+     *
+     * @param integer $textWaveLength
+     * @return Image
+     */
+    public function setTextWaveLength($textWaveLength)
+    {
+        $this->textWaveLength = $textWaveLength;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWaveLength
+     *
+     * @return integer 
+     */
+    public function getTextWaveLength()
+    {
+        return $this->textWaveLength;
+    }
+
+    /**
+     * Set sourceImage
+     *
+     * @param string $sourceImage
+     * @return Image
+     */
+    public function setSourceImage($sourceImage)
+    {
+        $this->sourceImage = $sourceImage;
+    
+        return $this;
+    }
+
+    /**
+     * Get sourceImage
+     *
+     * @return string 
+     */
+    public function getSourceImage()
+    {
+        return $this->sourceImage;
+    }
+
+    /**
+     * Set resultImage
+     *
+     * @param string $resultImage
+     * @return Image
+     */
+    public function setResultImage($resultImage)
+    {
+        $this->resultImage = $resultImage;
+    
+        return $this;
+    }
+
+    /**
+     * Get resultImage
+     *
+     * @return string 
+     */
+    public function getResultImage()
+    {
+        return $this->resultImage;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Image
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set userAgent
+     *
+     * @param string $userAgent
+     * @return Image
+     */
+    public function setUserAgent($userAgent)
+    {
+        $this->userAgent = $userAgent;
+    
+        return $this;
+    }
+
+    /**
+     * Get userAgent
+     *
+     * @return string 
+     */
+    public function getUserAgent()
+    {
+        return $this->userAgent;
+    }
+
+    /**
+     * Set referrer
+     *
+     * @param string $referrer
+     * @return Image
+     */
+    public function setReferrer($referrer)
+    {
+        $this->referrer = $referrer;
+    
+        return $this;
+    }
+
+    /**
+     * Get referrer
+     *
+     * @return string 
+     */
+    public function getReferrer()
+    {
+        return $this->referrer;
+    }
+
+    /**
+     * Set ipAddress
+     *
+     * @param string $ipAddress
+     * @return Image
+     */
+    public function setIpAddress($ipAddress)
+    {
+        $this->ipAddress = $ipAddress;
+    
+        return $this;
+    }
+
+    /**
+     * Get ipAddress
+     *
+     * @return string 
+     */
+    public function getIpAddress()
+    {
+        return $this->ipAddress;
+    }
+
+    /**
+     * Set sessionId
+     *
+     * @param string $sessionId
+     * @return Image
+     */
+    public function setSessionId($sessionId)
+    {
+        $this->sessionId = $sessionId;
+    
+        return $this;
+    }
+
+    /**
+     * Get sessionId
+     *
+     * @return string 
+     */
+    public function getSessionId()
+    {
+        return $this->sessionId;
+    }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+    	$this->setCreated(new \DateTime());
+    }
+    
+    /**
+     * @ORM\PreUpdate
+     */
+    public function preUpdate()
+    {
+    	$this->setUpdated(new \DateTime());
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Image
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set font
+     *
+     * @param string $font
+     * @return Image
+     */
+    public function setFont($font)
+    {
+        $this->font = $font;
+    
+        return $this;
+    }
+
+    /**
+     * Get font
+     *
+     * @return string 
+     */
+    public function getFont()
+    {
+        return $this->font;
+    }
+
+    /**
+     * Set textWaterMark
+     *
+     * @param boolean $textWaterMark
+     * @return Image
+     */
+    public function setTextWaterMark($textWaterMark)
+    {
+        $this->textWaterMark = $textWaterMark;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWaterMark
+     *
+     * @return boolean 
+     */
+    public function getTextWaterMark()
+    {
+        return $this->textWaterMark;
+    }
+
+    /**
+     * Set textWaterMarkAlpha
+     *
+     * @param integer $textWaterMarkAlpha
+     * @return Image
+     */
+    public function setTextWaterMarkAlpha($textWaterMarkAlpha)
+    {
+        $this->textWaterMarkAlpha = $textWaterMarkAlpha;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWaterMarkAlpha
+     *
+     * @return integer 
+     */
+    public function getTextWaterMarkAlpha()
+    {
+        return $this->textWaterMarkAlpha;
+    }
+
+    /**
+     * Set textWaterMarkBrightness
+     *
+     * @param integer $textWaterMarkBrightness
+     * @return Image
+     */
+    public function setTextWaterMarkBrightness($textWaterMarkBrightness)
+    {
+        $this->textWaterMarkBrightness = $textWaterMarkBrightness;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWaterMarkBrightness
+     *
+     * @return integer 
+     */
+    public function getTextWaterMarkBrightness()
+    {
+        return $this->textWaterMarkBrightness;
+    }
+
+    /**
+     * Set textWaterMarkSaturation
+     *
+     * @param integer $textWaterMarkSaturation
+     * @return Image
+     */
+    public function setTextWaterMarkSaturation($textWaterMarkSaturation)
+    {
+        $this->textWaterMarkSaturation = $textWaterMarkSaturation;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWaterMarkSaturation
+     *
+     * @return integer 
+     */
+    public function getTextWaterMarkSaturation()
+    {
+        return $this->textWaterMarkSaturation;
+    }
+
+    /**
+     * Set textRotate
+     *
+     * @param integer $textRotate
+     * @return Image
+     */
+    public function setTextRotate($textRotate)
+    {
+        $this->textRotate = $textRotate;
+    
+        return $this;
+    }
+
+    /**
+     * Get textRotate
+     *
+     * @return integer 
+     */
+    public function getTextRotate()
+    {
+        return $this->textRotate;
+    }
+
+    /**
+     * Set text1
+     *
+     * @param string $text1
+     * @return Image
+     */
+    public function setText1($text1)
+    {
+        $this->text1 = $text1;
+    
+        return $this;
+    }
+
+    /**
+     * Get text1
+     *
+     * @return string 
+     */
+    public function getText1()
+    {
+        return $this->text1;
+    }
+
+    /**
+     * Set font1
+     *
+     * @param string $font1
+     * @return Image
+     */
+    public function setFont1($font1)
+    {
+        $this->font1 = $font1;
+    
+        return $this;
+    }
+
+    /**
+     * Get font1
+     *
+     * @return string 
+     */
+    public function getFont1()
+    {
+        return $this->font1;
+    }
+
+    /**
+     * Set fontSize1
+     *
+     * @param integer $fontSize1
+     * @return Image
+     */
+    public function setFontSize1($fontSize1)
+    {
+        $this->fontSize1 = $fontSize1;
+    
+        return $this;
+    }
+
+    /**
+     * Get fontSize1
+     *
+     * @return integer 
+     */
+    public function getFontSize1()
+    {
+        return $this->fontSize1;
+    }
+
+    /**
+     * Set fontColor1
+     *
+     * @param string $fontColor1
+     * @return Image
+     */
+    public function setFontColor1($fontColor1)
+    {
+        $this->fontColor1 = $fontColor1;
+    
+        return $this;
+    }
+
+    /**
+     * Get fontColor1
+     *
+     * @return string 
+     */
+    public function getFontColor1()
+    {
+        return $this->fontColor1;
+    }
+
+    /**
+     * Set textX1
+     *
+     * @param integer $textX1
+     * @return Image
+     */
+    public function setTextX1($textX1)
+    {
+        $this->textX1 = $textX1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textX1
+     *
+     * @return integer 
+     */
+    public function getTextX1()
+    {
+        return $this->textX1;
+    }
+
+    /**
+     * Set textY1
+     *
+     * @param integer $textY1
+     * @return Image
+     */
+    public function setTextY1($textY1)
+    {
+        $this->textY1 = $textY1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textY1
+     *
+     * @return integer 
+     */
+    public function getTextY1()
+    {
+        return $this->textY1;
+    }
+
+    /**
+     * Set textPosition1
+     *
+     * @param string $textPosition1
+     * @return Image
+     */
+    public function setTextPosition1($textPosition1)
+    {
+        $this->textPosition1 = $textPosition1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textPosition1
+     *
+     * @return string 
+     */
+    public function getTextPosition1()
+    {
+        return $this->textPosition1;
+    }
+
+    /**
+     * Set textRotate1
+     *
+     * @param integer $textRotate1
+     * @return Image
+     */
+    public function setTextRotate1($textRotate1)
+    {
+        $this->textRotate1 = $textRotate1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textRotate1
+     *
+     * @return integer 
+     */
+    public function getTextRotate1()
+    {
+        return $this->textRotate1;
+    }
+
+    /**
+     * Set textPerspective1
+     *
+     * @param boolean $textPerspective1
+     * @return Image
+     */
+    public function setTextPerspective1($textPerspective1)
+    {
+        $this->textPerspective1 = $textPerspective1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textPerspective1
+     *
+     * @return boolean 
+     */
+    public function getTextPerspective1()
+    {
+        return $this->textPerspective1;
+    }
+
+    /**
+     * Set textPerspectiveLeftCorner1
+     *
+     * @param integer $textPerspectiveLeftCorner1
+     * @return Image
+     */
+    public function setTextPerspectiveLeftCorner1($textPerspectiveLeftCorner1)
+    {
+        $this->textPerspectiveLeftCorner1 = $textPerspectiveLeftCorner1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textPerspectiveLeftCorner1
+     *
+     * @return integer 
+     */
+    public function getTextPerspectiveLeftCorner1()
+    {
+        return $this->textPerspectiveLeftCorner1;
+    }
+
+    /**
+     * Set textPespectiveRightCorner1
+     *
+     * @param integer $textPespectiveRightCorner1
+     * @return Image
+     */
+    public function setTextPespectiveRightCorner1($textPespectiveRightCorner1)
+    {
+        $this->textPespectiveRightCorner1 = $textPespectiveRightCorner1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textPespectiveRightCorner1
+     *
+     * @return integer 
+     */
+    public function getTextPespectiveRightCorner1()
+    {
+        return $this->textPespectiveRightCorner1;
+    }
+
+    /**
+     * Set textWaterMark1
+     *
+     * @param boolean $textWaterMark1
+     * @return Image
+     */
+    public function setTextWaterMark1($textWaterMark1)
+    {
+        $this->textWaterMark1 = $textWaterMark1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWaterMark1
+     *
+     * @return boolean 
+     */
+    public function getTextWaterMark1()
+    {
+        return $this->textWaterMark1;
+    }
+
+    /**
+     * Set textWaterMarkBrightness1
+     *
+     * @param integer $textWaterMarkBrightness1
+     * @return Image
+     */
+    public function setTextWaterMarkBrightness1($textWaterMarkBrightness1)
+    {
+        $this->textWaterMarkBrightness1 = $textWaterMarkBrightness1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWaterMarkBrightness1
+     *
+     * @return integer 
+     */
+    public function getTextWaterMarkBrightness1()
+    {
+        return $this->textWaterMarkBrightness1;
+    }
+
+    /**
+     * Set textWaterMarkSaturation1
+     *
+     * @param integer $textWaterMarkSaturation1
+     * @return Image
+     */
+    public function setTextWaterMarkSaturation1($textWaterMarkSaturation1)
+    {
+        $this->textWaterMarkSaturation1 = $textWaterMarkSaturation1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWaterMarkSaturation1
+     *
+     * @return integer 
+     */
+    public function getTextWaterMarkSaturation1()
+    {
+        return $this->textWaterMarkSaturation1;
+    }
+
+    /**
+     * Set textCircle1
+     *
+     * @param boolean $textCircle1
+     * @return Image
+     */
+    public function setTextCircle1($textCircle1)
+    {
+        $this->textCircle1 = $textCircle1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textCircle1
+     *
+     * @return boolean 
+     */
+    public function getTextCircle1()
+    {
+        return $this->textCircle1;
+    }
+
+    /**
+     * Set textCircleArcRotateAngles1
+     *
+     * @param string $textCircleArcRotateAngles1
+     * @return Image
+     */
+    public function setTextCircleArcRotateAngles1($textCircleArcRotateAngles1)
+    {
+        $this->textCircleArcRotateAngles1 = $textCircleArcRotateAngles1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textCircleArcRotateAngles1
+     *
+     * @return string 
+     */
+    public function getTextCircleArcRotateAngles1()
+    {
+        return $this->textCircleArcRotateAngles1;
+    }
+
+    /**
+     * Set textWav1e
+     *
+     * @param boolean $textWav1e
+     * @return Image
+     */
+    public function setTextWav1e($textWav1e)
+    {
+        $this->textWav1e = $textWav1e;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWav1e
+     *
+     * @return boolean 
+     */
+    public function getTextWav1e()
+    {
+        return $this->textWav1e;
+    }
+
+    /**
+     * Set textWaveHeight1
+     *
+     * @param integer $textWaveHeight1
+     * @return Image
+     */
+    public function setTextWaveHeight1($textWaveHeight1)
+    {
+        $this->textWaveHeight1 = $textWaveHeight1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWaveHeight1
+     *
+     * @return integer 
+     */
+    public function getTextWaveHeight1()
+    {
+        return $this->textWaveHeight1;
+    }
+
+    /**
+     * Set textWaveLength1
+     *
+     * @param integer $textWaveLength1
+     * @return Image
+     */
+    public function setTextWaveLength1($textWaveLength1)
+    {
+        $this->textWaveLength1 = $textWaveLength1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWaveLength1
+     *
+     * @return integer 
+     */
+    public function getTextWaveLength1()
+    {
+        return $this->textWaveLength1;
+    }
+
+    /**
+     * Set sourceImage1
+     *
+     * @param string $sourceImage1
+     * @return Image
+     */
+    public function setSourceImage1($sourceImage1)
+    {
+        $this->sourceImage1 = $sourceImage1;
+    
+        return $this;
+    }
+
+    /**
+     * Get sourceImage1
+     *
+     * @return string 
+     */
+    public function getSourceImage1()
+    {
+        return $this->sourceImage1;
+    }
+
+    /**
+     * Set resultImage1
+     *
+     * @param string $resultImage1
+     * @return Image
+     */
+    public function setResultImage1($resultImage1)
+    {
+        $this->resultImage1 = $resultImage1;
+    
+        return $this;
+    }
+
+    /**
+     * Get resultImage1
+     *
+     * @return string 
+     */
+    public function getResultImage1()
+    {
+        return $this->resultImage1;
+    }
+
+    /**
+     * Set textWave1
+     *
+     * @param boolean $textWave1
+     * @return Image
+     */
+    public function setTextWave1($textWave1)
+    {
+        $this->textWave1 = $textWave1;
+    
+        return $this;
+    }
+
+    /**
+     * Get textWave1
+     *
+     * @return boolean 
+     */
+    public function getTextWave1()
+    {
+        return $this->textWave1;
+    }
+}

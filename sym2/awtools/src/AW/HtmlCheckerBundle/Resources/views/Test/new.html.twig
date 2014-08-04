@@ -1,0 +1,32 @@
+{% extends 'AWHtmlCheckerBundle::layout.html.twig' %}
+
+{% form_theme form _self %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+        {% for error in errors %}
+            <p><span class="label label-danger">{{ error.message }}</span></p>
+        {% endfor %}
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}
+
+{% block body %}
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">HTML Profanity & Spam Checker</div>
+            <div class="panel-body">
+                <form id="testForm" action="{{ path('test_create') }}" method="post" {{ form_enctype(form) }}>
+                    {{ form_widget(form) }}
+                </form>
+            </div>
+            <div class="panel-footer">
+                <button type="submit" form="testForm" class="btn btn-success">Upload file</button>
+                {% image '@MainAssetsBundle/Resources/public/images/load32.gif' %}
+                    <img id="loader" class="hidden" src="{{ asset_url }}" alt="" />
+                {% endimage %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends "AWTestPlatformBundle::layout.html.twig" %}
+
+{% form_theme form _self %}
+
+{% block _aw_testplatformbundle_commentstype_priority_widget %}
+	<div style="padding-bottom: 10px;">
+    	<label  for="{{ id }}"><span style="color: #FF0000; font-weight: bold;">HIGH PRIORITY:</span> <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} /></label>
+    </div>
+{% endblock %}
+
+{% block title %}AW TestPlatform{% endblock %}
+{% block version %}v1.0{% endblock %}
+
+{% block content -%}
+<div id="divTestInfoContainer" class="container-fluid">
+	<div class="row-fluid">
+    	<div id="divTestSpan" class="span6">
+			<div>
+				<strong>Test session name / date:</strong> {{ entity.name }} / {{ entity.created|date('Y-m-d H:i:s') }}
+			</div>  
+			<div>
+				<strong>Info:</strong> {{ entity.info }}
+			</div>
+			<div>
+				<strong>IFrame Link:</strong> <span id="spIframeLink">{{ entity.link }}</span>
+			</div>  
+			<div>
+				<strong>Name</strong> = {{ entity.iFrameName }}; 
+				<strong>W x H</strong> = {{ entity.iFrameWidth }}x{{ entity.iFrameHeight }}; 
+				<strong>Scrollbars</strong> = {% if entity.iFrameScrolling == true %}ON; {% else %}OFF; {% endif %}
+				<strong>Frame border</strong> = {% if entity.iFrameFrameborder == true %}ON; {% else %}OFF; {% endif %}
+				{# {% if entity.iFrameSeamless == true %}Seamless = ON{% endif %} #}
+			</div>
+    	</div>
+    	<div id="divTestSpan" class="span6">
+			<div>
+				<strong>Useragent:</strong> {{ app.request.server.get('HTTP_USER_AGENT') }}
+			</div>
+			<div class="btn-group">
+            	<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="{{ path('tests_edit', { 'id': entity.id }) }}">Change session parameters</a></li>
+                  <li><a id="openCommDialog" href="#">Comments</a></li>
+                  <li><a id="openiFrameLinkDialog" href="#">Add/change parameters in IFrame link</a></li>
+                  <li class="divider"></li>
+                  <li><a id="endSession" href="{{ path('tests_end', { 'id': entity.id }) }}">End test session</a></li>
+                </ul>
+            </div>
+    	</div>
+	</div>
+	<div class="row-fluid">
+    	<div id="divTestSpanOpen" class="span12">
+    		<a id="divOpener" href="#divTestInfoContainer" class="btn btn-primary btn-mini">Open</a>
+    		<a id="divReloadIframe" href="#divTestInfoContainer" class="btn btn-success btn-mini">Reload IFrame</a>
+    		<a id="divBackToList" href="{{ path('tests') }}" class="btn btn-warning btn-mini">Back to list</a>
+    	</div>
+    </div>
+</div>
+
+<!-- IFrame link Dialog -->
+
+<!-- //IFrame link Dialog -->
+<div id="diviFrameLinkDialog" title="Add/change parameters in IFrame link">
+	<div style="padding-top:10px;">
+		<input id="newIframeLink" type="text" style="width:97%;">
+	</div>
+</div>
+<!-- Comments dialog -->
+<div id="divFormComments" title="Comments">
+	<form id="formComments" action="{{ path('comments_create', { 'testId': entity.id }) }}" method="post"  {{ form_enctype(form) }}>
+        	{{ form_widget(form) }}
+        <p>
+            <input id="addComment" class="btn btn-success" type="submit" value="Add comment"">
+        </p>
+    </form>
+    <div>
+    	<small>To save comment attachment right-mouse click the image/download button and save the file to your hard drive.</small>
+    </div>
+    <div id="divSavedComments">
+    	{% for entity in entities %}
+		    <div id="divComment">
+		    	<div id="divCommentText">
+					{% if entity.status == null or entity.status == 0 %}
+						<span style="color: #FF0000; font-weight: bold;">[NEW]</span>
+						{% if entity.priority == 1 %}
+							<span style="color: #FF0000; font-weight: bold;">[HIGH]</span>
+						{% else %}
+							<span style="color: #51A351; font-weight: bold;">[LOW]</span>
+						{% endif %}
+						<font style="font-size: 10px;font-style: italic;">{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %} / {{ entity.testersEmail }}</font>
+						{% else %}
+						<span style="color: #51A351; font-weight: bold;">[DONE]</span>
+						{% if entity.priority == 1 %}
+							<span style="color: #FF0000; font-weight: bold;">[HIGH]</span>
+						{% else %}
+							<span style="color: #51A351; font-weight: bold;">[LOW]</span>
+						{% endif %}
+						<font style="font-size: 10px;font-style: italic;">{% if entity.updated %}{{ entity.updated|date('Y-m-d H:i:s') }}{% endif %} / {{ entity.device }}</font>
+					{% endif %}
+		    	</div>
+		    	<div class="divCommentText"><b>T:</b> {{ entity.text }}</div>
+		    	<div class="divCommentText"><b>D:</b> {{ entity.devComment }}</div>
+		    	<div id="divCommentImg">
+		    		{% if entity.isImage == 2 %}
+		    			<a href="{{ app.request.getSchemeAndHttpHost() }}/uploads/awtestplatform/{{ entity.attachment }}" target="_blank"><img alt="Comment attachment" src="{{ app.request.getSchemeAndHttpHost() }}/uploads/awtestplatform/{{ entity.attachment }}"></a>
+					{% elseif entity.isImage == 1 %}
+		    			<a href="{{ app.request.getSchemeAndHttpHost() }}/uploads/awtestplatform/{{ entity.attachment }}" target="_blank" class="btn btn-mini btn-primary" title="{{ entity.attachment }}">Download</a>
+		    		{% endif %}
+		    	</div>
+		    	<div id="divFormDelete">
+		    		<form class="formDelComment" action="{{ path('comments_delete', { 'id': entity.id, 'testId': entity.testId }) }}" method="post">
+			            <input type="hidden" name="_method" value="DELETE" />
+			            {{ form_widget(delete_form) }}
+			            <input class="btn btn-danger btn-small" type="submit" value="Delete">
+			        </form>
+		    	</div>
+		    	<div id="divCommentInfo">
+					<span style="font-size: 10px;font-style: italic;"><b>T: </b>{{ entity.testUseragent }}</span><br>
+					<span style="font-size: 10px;font-style: italic;"><b>D: </b>{{ entity.devUseragent }}</span>
+		    	</div>
+		    </div>
+	    {% endfor %}
+    </div>
+</div>
+<!-- //Comments dialog -->
+<!-- 
+<div id="divEndSession" title="End test Session">
+	End test session?
+</div>
+ -->
+<div id="divTestIframeContainer" class="container-fluid">
+	{% if entity.cpwManu %}
+    	<div class="row-fluid">
+    		<div class="span12">
+    			<img alt="" src="{{ asset('bundles/awtestplatform/images/cpw_manu.png') }}">
+    		</div>
+    	</div>
+	{% endif %}
+	<div class="row-fluid">
+    	<div id="divIframeSpan" class="span12">
+			<iframe id="Iframe" src="{{ entity.link }}" name="{{ entity.iFrameName }}" width="{{ entity.iFrameWidth }}" height="{{ entity.iFrameHeight }}" {% if entity.iFrameScrolling == true %}scrolling="yes"{% else %}scrolling="no"{% endif %} {% if entity.iFrameFrameborder == true %}frameborder="1"{% else %}frameborder="0"{% endif %}></iframe>
+    	</div>
+	</div>
+</div>
+<div id="divMessages" title="Message" style="display: none;"></div>
+{% endblock %}

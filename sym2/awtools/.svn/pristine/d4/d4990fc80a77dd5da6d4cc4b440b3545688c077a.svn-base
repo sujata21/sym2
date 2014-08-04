@@ -1,0 +1,25 @@
+<h4>Assign clients to user: <i>{{ user_name }}</i></h4>
+<div class="divClients">
+    <p>Clients:</p>
+    <select multiple="multiple" id="selClientsNotAssigned">
+        {% for entity in entities %}
+            <option value="{{ entity.id }}" data-href="{{ path('worxshare_usersclients_usercheck', {'id': entity.id, 'user_id': user_id}) }}">{{ entity.name }}</option>
+        {% endfor %}
+    </select>
+</div>
+<div class="divAddRemoveClientBtns">
+	<button type="button" class="btn btn-mini btn-success btnAssignClient"><i class="icon-mail-forward"></i></button><br>
+	<button type="button" class="btn btn-mini btn-danger btnUnassignClient"><i class="icon-mail-reply"></i></button>
+</div>
+<div class="divAssignedClients">
+    <p>Assigned clients:</p>
+    <select size="4" id="selClientsAssigned">
+    	{% for entityAssigned in entitiesAssigned %}
+            <option value="{{ entityAssigned.clientId }}" data-href="{{ path('worxshare_usersclients_usercheck', {'id': entityAssigned.clientId, 'user_id': user_id}) }}">{{ entityAssigned.clientName }}</option>
+        {% endfor %}
+    </select>
+</div>
+<div style="text-align: right;">
+	<button id="btnClientAssignSave" type="button" data-href="{{ path('worxshare_usersclients_create', {'user_id': user_id}) }}">Save</button>
+    <button id="btnNewEditCancel" type="button">Cancel</button>
+</div>

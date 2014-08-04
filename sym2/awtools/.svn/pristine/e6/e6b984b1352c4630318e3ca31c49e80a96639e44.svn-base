@@ -1,0 +1,446 @@
+/*
+* docs form ajaxSubmit plugin http://jquery.malsup.com/form/#ajaxSubmit
+*/
+$(document).ready(function() {
+	
+	//list all test on tests index page
+	listAllTests();
+	
+	//reload iframe
+	$('#divReloadIframe').click(function(){
+		$( '#Iframe' ).attr( 'src', function ( i, val ) { return val; });
+	    return false;
+	});
+	
+	//open/close divTestInfoContainer
+	$('#divOpener').click(function(){
+	    if($("#divTestInfoContainer").css("top") == "-94px") {
+	      $("#divTestInfoContainer").animate({top: "0px"}, 300);
+	      $('#divOpener').html('Close');
+	    } else {
+	      $("#divTestInfoContainer").animate({top: "-94px"}, 300);
+	      $('#divOpener').html('Open');
+	    }
+	    return false;
+	});
+	
+	//open Comments form dialog
+	$("#divFormComments").dialog({ autoOpen: false });
+	$('#openCommDialog').click(function() {
+		$("#divFormComments").dialog({
+			width: 520,
+			resizable: false,
+			maxHeight:600,
+			close: $('#formComments').trigger( "reset" ),
+			modal: true,});
+		$("#divAdminSavedComments").dialog('option', 'position', ['middle',100]);
+		$('#divFormComments').dialog('open');
+	});
+	
+	//submit comment
+	$('#formComments').trigger( "reset" );
+	$('#formComments').on('submit', function(e) {
+        e.preventDefault();
+        if ($('#aw_testplatformbundle_commentstype_text').val().trim() == ''){
+        	$('#aw_testplatformbundle_commentstype_text').val('').focus();
+        	return false;
+        }else {
+        	wSize = $(window).width() + ' x ' + $(window).height();
+        	sRes = screen.width + ' x ' + screen.height;
+        	$('input#aw_testplatformbundle_commentstype_wsize').val(wSize);
+        	$('input#aw_testplatformbundle_commentstype_sres').val(sRes);
+        	$(this).ajaxSubmit({
+    			dataType: 'json',
+    			clearForm: true,
+    			success: function(data) {   
+    	            $("#divSavedComments").html(data.html);
+    	        },
+                target: '#divSavedComments'
+            });
+        	$('#aw_testplatformbundle_commentstype_text').focus();
+        }
+	});
+	
+	//binds this to all delete forms in DOM
+	$(document).on("submit", ".formDelComment", function(e) {
+		e.preventDefault();
+        $(this).ajaxSubmit({
+			dataType: 'json',
+			success: function(data) {   
+	            $("#divSavedComments").html(data.html);
+	        },
+            target: '#divSavedComments'
+        });
+	});	
+	
+	//open devEmail dialog when change parameters link clicked and no dev email
+	$(document).on("click", ".adminChangeParameters", function(e) {
+		if ($('#tabDevEmail').html().trim().length == 0){
+			e.preventDefault();
+			devEmailCheck($('#divDevEmail').html());
+		}
+	});
+	
+	//open devEmail dialog when finish link clicked and no dev email
+	$(document).on("click", ".adminTestDevFinish", function(e) {
+		if ($('#tabDevEmail').html().trim().length == 0){
+			e.preventDefault();
+			devEmailCheck($('#divDevEmail').html());
+		}
+	});
+	
+	//open CommentsAll dialog
+	$("#divAdminSavedComments").dialog({ autoOpen: false });
+	$(document).on("click", ".buttonCommentsAll", function(e) {
+		e.preventDefault();
+		if ($('#tabDevEmail').html().trim().length !== 0){
+			var url = $(this).attr('href');
+			$.get(url, function(data) {
+				$('#divAdminSavedComments').html(data);
+			});
+			$("#divAdminSavedComments").dialog({
+				width: 500,
+				resizable: false,
+				close: $('#divAdminSavedComments').html(''),
+				maxHeight:600,
+				modal: true,});
+			$("#divAdminSavedComments").dialog('option', 'position', ['middle',100]);
+			$('#divAdminSavedComments').dialog('open');
+		}else {
+			devEmailCheck($('#divDevEmail').html());
+		}
+	});
+	
+	//open CommentsNew dialog
+	$("#divAdminSavedComments").dialog({ autoOpen: false });
+	$(document).on("click", ".buttonCommentsNew", function(e) {
+		e.preventDefault();
+		if ($('#tabDevEmail').html().trim().length !== 0){
+			var url = $(this).attr('href');
+			$.get(url, function(data) {
+				$('#divAdminSavedComments').html(data);
+			});
+			$("#divAdminSavedComments").dialog({
+				width: 500,
+				resizable: false,
+				close: $('#divAdminSavedComments').html(''),
+				maxHeight:600,
+				modal: true,});
+				//modal: true,}).dialog('widget').position({ my: 'left', at: 'right', of: $(this) });
+			$("#divAdminSavedComments").dialog('option', 'position', ['middle',100]);
+			$('#divAdminSavedComments').dialog('open');
+		}else {
+			devEmailCheck($('#divDevEmail').html());
+		}		
+	});
+	
+	//open CommentsDone dialog
+	$("#divAdminSavedComments").dialog({ autoOpen: false });
+	$(document).on("click", ".buttonCommentsDone", function(e) {
+		e.preventDefault();
+		if ($('#tabDevEmail').html().trim().length !== 0){
+			var url = $(this).attr('href');
+			$.get(url, function(data) {
+				$('#divAdminSavedComments').html(data);
+			});
+			$("#divAdminSavedComments").dialog({
+				width: 500,
+				resizable: false,
+				close: $('#divAdminSavedComments').html(''),
+				maxHeight:600,
+				modal: true,});
+			$("#divAdminSavedComments").dialog('option', 'position', ['middle',100]);
+			$('#divAdminSavedComments').dialog('open');
+		}else {
+			devEmailCheck($('#divDevEmail').html());
+		}		
+	});
+	
+	//dev finish click
+	$("#divMessages").dialog({ autoOpen: false });
+	$(document).on("click", ".adminTestDevFinish", function(e) {
+		e.preventDefault();
+		if ($('#tabDevEmail').html().trim().length !== 0){
+			devEmail =  $("#divDevEmail").html();
+			var path = $(this).attr('href').slice(0,-1) + devEmail;
+			$("#divMessages").html('Please wait. Finishing dev session and sending email...');
+			$("#divMessages").dialog({
+				width: 300,
+				resizable: false,
+				height:100,
+				modal: true,});
+			$('#divMessages').dialog('open');
+			$.get(path, function(data) {
+				if (data.success == 1) {
+					$('#divMessages').dialog('close');
+				}
+			});
+		}else {
+			devEmailCheck($('#divDevEmail').html());
+		}		
+	});
+	
+	//admin test session status update - 0=Active; 1=Archive
+	$("#divMessages").dialog({ autoOpen: false });
+	$(document).on("click", ".adminTestDevArchive", function(e) {
+		e.preventDefault();
+		if ($('#tabDevEmail').html().trim().length !== 0){
+			devEmail =  $("#divDevEmail").html();
+			var path = $(this).attr('href');
+			$("#divMessages").html('Please wait. Marking test session as archive...');
+			$("#divMessages").dialog({
+				width: 300,
+				resizable: false,
+				height:100,
+				modal: true,});
+			$('#divMessages').dialog('open');
+			$.get(path, function(data) {
+				if (data.success == 1) {
+					$('#divMessages').dialog('close');
+					//searchAllTests();
+					if($('#testSearch').val() !== '') {
+						searchTests($('#testSearch').val());
+					} else {
+						searchAllTests('admin');
+					}
+				}
+			});
+		}else {
+			devEmailCheck($('#divDevEmail').html());
+		}		
+	});
+	
+	//admin btnArchive click shows or hides archived tests sessions
+	$(document).on("click", "#btnArchive", function(e) {
+	//$("#btnArchive").click(function(e) {
+		if ($(this).hasClass('active')){
+			$(this).removeClass('btn-success').addClass('btn-warning').html('Archive ON');
+		}else {
+			$(this).removeClass('btn-warning').addClass('btn-success').html('Archive OFF');
+		}
+		$("#testSearch").val('');
+		searchAllTests('admin');
+	});
+
+	//testers btnArchiveT click shows or hides archived tests sessions
+	$(document).on("click", "#btnArchiveT", function(e) {
+	//$("#btnArchiveT").click(function(e) {
+		if ($(this).hasClass('active')){
+			$(this).removeClass('btn-success').addClass('btn-warning').html('Archive ON');
+		}else {
+			$(this).removeClass('btn-warning').addClass('btn-success').html('Archive OFF');
+		}
+		$("#testSearchT").val('');
+		searchAllTests('tester');
+	});
+	
+	//test finish click
+	$("#divMessages").dialog({ autoOpen: false });
+	$(document).on("click", "#endSession", function(e) {
+		e.preventDefault();
+		var path = $(this).attr('href');
+		$("#divMessages").html('Please wait. Finishing test session and sending email...');
+		$("#divMessages").dialog({
+			width: 300,
+			resizable: false,
+			height:100,
+			modal: true,});
+		$('#divMessages').dialog('open');
+		$.get(path, function(data) {
+			if (data.success == 1) {
+				$('#divMessages').dialog('close');
+				window.location.replace("/testplatform");
+			}
+		});	
+	});
+	
+	//comment status update
+	$(document).on("change", ".chboxStatus", function(e){
+		//opens devs comment input
+		var inputId = $(this).attr('id');//id of checkbox
+		$("#dialogDevComment").dialog({
+			width: 350,
+			resizable: false,
+			height:230,
+			modal: true,
+			buttons: {
+				"OK": function() {
+					var devEmail =  $("#divDevEmail").html();
+					var devCommentTxt = $("#devCommentTxt").val();
+					if ($("#devCommentTxt").val().trim().length == 0) {
+						devCommentTxt = 'NONE';
+					}
+					var path = $("#"+inputId).attr('data-path').slice(0,-3) + devEmail + ',' + devCommentTxt;
+					$("#"+inputId).attr('disabled', 'disabled');
+					$("#"+inputId).ajaxSubmit({
+						dataType: 'json',
+						url: path,
+						success: function(data) {   
+				            $("#divAdminSavedComments").html(data.html);
+							$('#btnAll_'+data.testId).html(data.countAll);
+							$('#btnNew_'+data.testId).html(data.countNew);
+							$('#btnDone_'+data.testId).html(data.countDone);
+				        },
+			            target: '#divAdminSavedComments'
+			        });
+					$("#devCommentTxt").val('');
+					$(this).dialog('close');
+				},
+				Cancel: function() {
+					$("#"+inputId).removeAttr('checked');
+					$("#devCommentTxt").val('');
+					$(this).dialog('close');
+				}
+			}
+		});
+	});
+	
+	//admin tabs
+	$(function() {
+		$( "#tabs" ).tabs();
+	});
+	
+	//admin search tests
+	function searchAllTests (who){
+		if (who == 'admin'){
+			if ($("#btnArchive").hasClass('active')){
+				sstatus = 1;//loads only archive tests sessions
+			}else {
+				sstatus = 0;//loads only active status tests sessions
+			}
+			//alert(status);
+		}else {
+			if ($("#btnArchiveT").hasClass('active')){
+				sstatus = 1;//loads only archive tests sessions
+			}else {
+				sstatus = 0;//loads only active status tests sessions
+			}
+			//alert(status);
+		}
+		$.get('searchall/' + sstatus + ',' + who, function(data) {
+			$('#progressbar').fadeIn(100);
+			$('#results').html(data.html);
+		    $('#testsCount').html(data.testsCount);
+		    $('#progressbar').fadeOut(100);
+		});
+	}
+	
+	//search all tests for index tests page - testers part
+	function listAllTests (){
+		$.get('list/', function(data) {
+			$('#progressbar').fadeIn(100);
+			$('#results').html(data.html);
+		    $('#testsCount').html(data.testsCount);
+		    $('#progressbar').fadeOut(100);
+		});
+	}
+	
+	//search box tests
+	function searchTests (text,who){
+		if (who == 'admin'){
+			if ($('#btnArchive').hasClass('active')){
+				sstatus = 1;//loads only archive tests sessions
+			}else {
+				sstatus = 0;//loads only active status tests sessions
+			}
+		}else {
+			if ($('#btnArchiveT').hasClass('active')){
+				sstatus = 1;//loads only archive tests sessions
+			}else {
+				sstatus = 0;//loads only active status tests sessions
+			}
+		}
+		$.get('searchbox/'+sstatus+','+text+','+who, function(data) {
+			$('#progressbar').fadeIn(100);
+			$('#results').html(data.html);
+			$('#testsCount').html(data.testsCount);
+		    $('#progressbar').fadeOut(100);
+		});
+	}
+	
+	//admin tests search box
+	$(document).on("keyup", "#testSearch", function(e){
+		if($(this).val() !== '') {
+			searchTests($(this).val(),'admin');
+		} else {
+			searchAllTests('admin');
+		}
+	});
+	
+	//testers tests search box
+	$(document).on("keyup", "#testSearchT", function(e){
+		if($(this).val() !== '') {
+			searchTests($(this).val(),'tester');
+		} else {
+			searchAllTests('tester');
+		}
+	});
+	
+	//load dev email
+	devEmailCheck($('#divDevEmail').html());
+	$('#tabDevEmail').html($('#divDevEmail').html());
+	
+	//email check admin page
+	function devEmailCheck(email){
+		if (!validateEmail(email) || email.length == 0){
+			$("#dialogDevEmail").dialog({
+				width: 290,
+				resizable: false,
+				height:145,
+				modal: true,
+				buttons: {
+					"OK": function() {
+						if ($('#inputDevEmail').val().trim() != ''){
+							if (!validateEmail($('#inputDevEmail').val())){
+								$('#inputDevEmail').focus();
+								$( this ).dialog({height:170,});
+								$('#divEmailError').html('Invalid email address !!!');
+							}else {
+								$('#divDevEmail').html($('#inputDevEmail').val());
+								$('#tabDevEmail').html($('#inputDevEmail').val());
+								$( this ).dialog( "close" );
+							}
+						}else {
+							$('#inputDevEmail').focus();
+							return false;
+						}
+					},
+					Cancel: function() {
+						$( this ).dialog( "close" );
+						$('#divEmailError').html('');
+					}
+				}
+			});
+			$('#inputDevEmail').val(email);
+			$("#dialogDevEmail").dialog('option', 'position', ['middle',200]);
+			$('#dialogDevEmail').dialog('open');
+		}else {
+			$('#tabDevEmail').html($('#divDevEmail').html());
+		}
+	}
+	
+	//email validation
+	function validateEmail($email) {
+		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		if( !emailReg.test( $email ) ) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	//admin load all (active) tests on Tests tab load
+	$("#dialogDevEmail").dialog({ autoOpen: false });
+	$(document).on("click", "#tabTests", function(e){
+		$('#testSearch').val('');
+		devEmailCheck($("#divDevEmail").html());
+		searchAllTests('admin');
+	});
+	
+	//capture Enter key press in dev email dialog
+	$("#inputDevEmail").keydown(function(e) {
+		if (e.keyCode == 13) {
+			$(".ui-dialog-buttonset").find(":button:contains('OK')").focus();
+		}
+	});
+});

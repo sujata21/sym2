@@ -1,0 +1,9 @@
+<?php
+
+namespace AW\PopulateBundle;
+
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+class AWPopulateBundle extends Bundle
+{
+}

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/awtools/!svn/ver/5/trunk/src/AW/SonyScriptBundle/Tests/Controller
+END
+DefaultControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/awtools/!svn/ver/2/trunk/src/AW/SonyScriptBundle/Tests/Controller/DefaultControllerTest.php
+END
+VariablesControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/awtools/!svn/ver/5/trunk/src/AW/SonyScriptBundle/Tests/Controller/VariablesControllerTest.php
+END

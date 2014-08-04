@@ -1,0 +1,156 @@
+pre {
+	height: 200px;
+}
+.rp-content .badge {
+	color: #000000;
+	background-color: #ffffff;
+}
+.center-content {
+	text-align: center;
+}
+table pre {
+	height: auto;
+	white-space: pre-wrap;
+	margin: 0px;
+}
+.container {
+	margin-top: 20px;
+}
+.pt-content,
+.st-content,
+.sl-content,
+.ht-content,
+.ut-content {
+	height: 500px;
+    overflow: auto;
+}
+.rp-content,
+.st-content {
+	height: 1000px;
+    overflow: auto;
+}
+.loader-pt,
+.loader-st,
+.loader-ht,
+.loader-ut,
+.loader-rp {
+	text-align: center;
+	padding-top: 80px;
+}
+.pword {
+	background-color: #ff0000;
+	color: #ffffff;
+}
+.sword {
+	background-color: #FF9000;
+	color: #ffffff;
+}
+.hmatch {
+	background-color: #0001FF;
+	color: #ffffff;
+}
+.umatch {
+	background-color: #00A100;
+	color: #ffffff;
+}
+#pt,
+#st,
+#ht,
+#ut,
+#rp {
+    border-bottom: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    padding: 10px;
+}
+.panel-pt,
+.panel-st,
+.panel-sl,
+.panel-ht,
+.panel-ut,
+.panel-rp {
+	margin: 0;
+}
+.nav-tabs > li.active > a.pt-tab,
+.nav-tabs > li.active > a.pt-tab:hover,
+.nav-tabs > li.active > a.pt-tab:focus {
+	background-color: #ff0000;
+    color: #FFFFFF;
+}
+.nav-tabs > li.active > a.st-tab,
+.nav-tabs > li.active > a.st-tab:hover,
+.nav-tabs > li.active > a.st-tab:focus {
+	background-color: #FF9000;
+    color: #FFFFFF;
+}
+.nav-tabs > li.active > a.ht-tab,
+.nav-tabs > li.active > a.ht-tab:hover,
+.nav-tabs > li.active > a.ht-tab:focus {
+	background-color: #0001FF;
+    color: #FFFFFF;
+}
+.nav-tabs > li.active > a.ut-tab,
+.nav-tabs > li.active > a.ut-tab:hover,
+.nav-tabs > li.active > a.ut-tab:focus {
+	background-color: #00A100;
+    color: #FFFFFF;
+}
+.nav > li > a.btn-upload-new,
+.nav > li > a.btn-upload-new:hover,
+.nav > li > a.btn-upload-new:focus {
+    background-color: #419641;
+    color: #FFFFFF;
+    border: 1px solid #419641;
+}
+.status-code-icon {
+	font-size: 1.5em;
+}
+.status-code-icon-red {
+	color: #ff0000;
+	cursor: pointer;
+}
+.status-code-icon-green {
+	color: #00A100;
+	cursor: pointer;
+}
+#test-info-btn {
+	cursor: pointer;	
+}
+#if-preview,
+#if-spellcheck {
+	width: 100%;
+	border: none;
+	height: 100%;
+}
+.pt-rp {
+	background-color: #ff0000;
+	color: #ffffff;
+}
+.st-rp {
+	background-color: #FF9000;
+	color: #ffffff;
+}
+.ht-rp {
+	background-color: #0001FF;
+	color: #ffffff;
+}
+.ut-rp {
+	background-color: #00A100;
+	color: #ffffff;
+}
+.ut-info {
+	display: none;
+	color: #ff0000;
+}
+table.ht-table .status-code-icon-green {
+    font-size: 30px;
+}
+textarea#spellCheck {
+    height: 90%;
+    width: 100%;
+}
+.spellchecker-incorrectwords {
+    background-color: #FFE0E0;
+    border: 1px solid #DDDDDD;
+    padding: 5px;
+}

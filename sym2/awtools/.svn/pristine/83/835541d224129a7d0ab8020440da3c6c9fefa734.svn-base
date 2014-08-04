@@ -1,0 +1,47 @@
+{% extends 'AWInterviewBundle::layout.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+
+<div class="row-fluid" style="padding: 240px;">
+    <div class="span12" style="padding-left: 120px;">
+        <div class="row-fluid">
+            <h3 style="color:#df0000;">{{category.name}}</h3>
+            <hr style="border-color: #000000;">
+        </div>
+        <form id="question-list">
+            <input type="hidden" name="user_id" id="user_id"  value="{{uid}}">
+            <input type="hidden" name="catid" id="catid"  value="{{category.id}}">
+
+        {% set cnt = 0 %}
+        {% for questions in questions %}
+        {% set cnt = cnt+1 %}
+        <div class="row-fluid">
+
+            <input type="hidden" name="{{ 'question'~ cnt }}" id="{{ 'question'~ cnt }}"  value="{{questions.id}}">
+            <input type="hidden" name="{{ 'optioncnt'~ cnt }}" id="{{ 'optioncnt'~ cnt }}"  value="{{questions.optionCnt}}">
+            <div class="span2"><b>Question{{cnt}} :  </b></div>
+            <div class="span9">{{questions.question}}</div>
+        </div>
+
+    {% if questions.optionCnt > 1 %}
+        {% for i in 0..questions.optionCnt-1 %}
+        <div class="row-fluid">
+            <div class="span2"><input type="radio" value="{{options[questions.id][i]}}" id="{{ questions.id ~ 'option'}}" name="{{ questions.id ~ 'option'}}" ></div>
+            <div class="span9">{{options[questions.id][i]}}</div>
+        </div>
+        {% endfor %}
+    {% else %}
+            <div class="row-fluid">
+                <div class="span2"><b>Answer :</b></div>
+                <div class="span9"><input type="text" id="{{ questions.id ~ 'option'}}" name="{{ questions.id ~ 'option'}}"></div>
+            </div>
+    {% endif %}
+        {% endfor %}
+            <input type="hidden" name="question_cnt" id="question_cnt"  value="{{cnt}}">
+            <div class="row-fluid"> <button type="button" id="user_answer">Next</button></div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

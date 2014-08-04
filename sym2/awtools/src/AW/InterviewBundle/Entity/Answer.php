@@ -1,0 +1,281 @@
+<?php
+
+namespace AW\InterviewBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Answer
+ *
+ * @ORM\Table(name="answer")
+ * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
+ */
+class Answer
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="uid", type="string", length=255)
+     */
+    private $uid;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="catid", type="integer")
+     */
+    private $catid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="question", type="string", length=255)
+     */
+    private $question;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="correct", type="string", length=255)
+     */
+    private $correct;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="question_id", type="integer")
+     */
+    private $questionId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="answer", type="string", length=255)
+     */
+    private $answer;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ip_address", type="string", length=255)
+     */
+    private $ipAddress;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set uid
+     *
+     * @param string $uid
+     * @return Answer
+     */
+    public function setUid($uid)
+    {
+        $this->uid = $uid;
+
+        return $this;
+    }
+
+    /**
+     * Get catid
+     *
+     * @return string 
+     */
+    public function getCatid()
+    {
+        return $this->catid;
+    }
+    /**
+     * Set uid
+     *
+     * @param string $catid
+     * @return Answer
+     */
+    public function setCatid($catid)
+    {
+        $this->catid = $catid;
+
+        return $this;
+    }
+
+    /**
+     * Get uid
+     *
+     * @return string
+     */
+    public function getUid()
+    {
+        return $this->uid;
+    }
+
+    /**
+     * Set question
+     *
+     * @param string $question
+     * @return Answer
+     */
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+
+        return $this;
+    }
+
+    /**
+     * Get question
+     *
+     * @return string 
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+    /**
+     * Set correct
+     *
+     * @param string $correct
+     * @return Answer
+     */
+    public function setCorrect($correct)
+    {
+        $this->correct = $correct;
+
+        return $this;
+    }
+
+    /**
+     * Get correct
+     *
+     * @return string
+     */
+    public function getCorrect()
+    {
+        return $this->correct;
+    }
+    /**
+     * Set questionId
+     *
+     * @param integer $questionId
+     * @return Answer
+     */
+    public function setQuestionId($questionId)
+    {
+        $this->questionId = $questionId;
+
+        return $this;
+    }
+
+    /**
+     * Get questionId
+     *
+     * @return integer 
+     */
+    public function getQuestionId()
+    {
+        return $this->questionId;
+    }
+
+    /**
+     * Set answer
+     *
+     * @param string $answer
+     * @return Answer
+     */
+    public function setAnswer($answer)
+    {
+        $this->answer = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Get answer
+     *
+     * @return string 
+     */
+    public function getAnswer()
+    {
+        return $this->answer;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Answer
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set ipAddress
+     *
+     * @param string $ipAddress
+     * @return Answer
+     */
+    public function setIpAddress($ipAddress)
+    {
+        $this->ipAddress = $ipAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get ipAddress
+     *
+     * @return string 
+     */
+    public function getIpAddress()
+    {
+        return $this->ipAddress;
+    }
+    /**
+     * @ORM\PrePersist()
+     */
+    public function setCreatedAtValue()
+    {
+        // Add your code here
+        if(!$this->getCreatedAt())
+        {
+            $this->createdAt = new \DateTime();
+        }
+    }
+}

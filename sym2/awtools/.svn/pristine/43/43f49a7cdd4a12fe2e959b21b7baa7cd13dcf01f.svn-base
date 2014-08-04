@@ -1,0 +1,75 @@
+{% extends 'AWInterviewBundle::layout.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+<div class="span3 bs-docs-sidebar">
+    <ul class="nav nav-list bs-docs-sidenav affix">
+        <li>
+            <a href="/interview/list">
+                <i class="icon-chevron-right"></i>
+                Interview List
+            </a>
+        </li>
+        <li>
+            <a href="/interview/admin">
+                <i class="icon-chevron-right"></i>
+                New Interview Session
+            </a>
+        </li>
+        <li>
+            <a href="/category/">
+                <i class="icon-chevron-right"></i>
+                Category
+            </a>
+        </li>
+        <li>
+            <a href="/jobtitle/">
+                <i class="icon-chevron-right"></i>
+                Job type
+            </a>
+        </li>
+        <li>
+            <a href="/question/list/all">
+                <i class="icon-chevron-right"></i>
+                Question list
+            </a>
+        </li>
+
+
+    </ul>
+</div>
+<div class="row-fluid" style="padding: 240px;" xmlns="http://www.w3.org/1999/html">
+    <div class="row-fluid">
+        <div class="span8"><h3>Interview List</h3></div>
+        <div class="span4">
+
+        </div>
+
+    </div>
+
+    <div class="row-fluid" style="font-weight:bold;color: #FF2300;text-transform: uppercase;background-color: #DDDDDD; padding-top: 10px;padding-left:30px;">
+        <div class="span3">Username</div>
+        <div class="span6">Job Title</div>
+        <div class="span2">Date</div>
+    </div>
+
+    <div class="row-fluid" style="font-weight:bold;padding: 30px;">
+        {% for entity in int %}
+        <div class="row-fluid" style="font-weight:bold;padding: 30px;">
+            {% if flag[entity.url] == 'true'  %}
+            <div class="span2"><a href="/admin/review/{{entity.url}}/all">{{ entity.username }}</a></div>
+            {% else %}
+            <div class="span2">{{ entity.username }}</div>
+            {% endif %}
+            <div class="span6">{{ entity.jobtitle }}</div>
+            <div class="span2">{% if entity.createdAt %}{{ entity.createdat|date('Y-m-d H:i:s') }}{% endif %}</div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

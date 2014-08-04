@@ -1,0 +1,41 @@
+<div class="row-fluid">
+	<div class="span12">
+		<table id="tblUsersList">
+			<thead>
+				<tr class="tblTitle">
+					<th><h4>Clients list</h4></th>
+					<th></th>
+					<th></th>
+					<!-- <th></th> -->
+					<th><button id="btnNewClient" data-href="{{ path('worxshare_clients_new') }}" class="btn btn-primary pull-right">New client</button></th>
+				</tr>
+				<tr class="tblFieldNames">
+					<th>Name</th>
+                    <th>Info</th>
+                    <th>Projects assigned</th>
+                    <!-- <th>Created</th> -->
+                    <th></th>
+				</tr>
+			</thead>
+			<tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td class="tdListVertAlignTop"><strong>{{ entity.name }}</strong></td>
+                    <td class=""><strong>{{ entity.info }}</strong></td>
+                    <td>
+                    	{% for projectAssigned in entity.projectsAssigned %}
+                    		{{ projectAssigned }}<br>
+                    	{% endfor %}
+                    </td>
+                    <!-- <td>{{ entity.created|date('Y-m-d H:i:s') }}</td> -->
+                    <td class="tblUsersListActions tdListVertAlignTop">
+                        <button class="btn btn-mini btn-success btnClientProjects" title="Assign projects" data-href="{{ path('worxshare_clientsprojects', { 'id': entity.id }) }}"><i class="icon-file icon-white"></i></button>
+                        <button class="btn btn-mini btn-info btnClientEdit" title="Edit client" data-href="{{ path('worxshare_clients_edit', { 'id': entity.id }) }}"><i class="icon-pencil icon-white"></i></button>
+                        <button class="btn btn-mini btn-danger btnClientDelete" title="Delete project" data-href="{{ path('worxshare_clients_delete', { 'id': entity.id }) }}"><i class="icon-trash icon-white"></i></button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+		</table>
+	</div>
+</div>

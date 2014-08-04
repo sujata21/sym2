@@ -1,0 +1,620 @@
+<?php
+
+namespace AW\TestPlatformBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Tests
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="AW\TestPlatformBundle\Entity\TestsRepository")
+ * @ORM\HasLifecycleCallbacks()
+ */
+class Tests
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link", type="string", length=255)
+     * @Assert\NotBlank
+     */
+    private $link;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="iframe_name", type="string", length=255)
+     * @Assert\NotBlank
+     */
+    private $iFrameName = "alchemy";
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="iframe_width", type="integer")
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     * @Assert\NotBlank
+     */
+    private $iFrameWidth = "1000";
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="iframe_height", type="integer")
+     * @Assert\Type(type="integer")
+     * @Assert\Min(0)
+     * @Assert\NotBlank
+     */
+    private $iFrameHeight = "800";
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="iframe_scrolling", type="boolean", nullable=true)
+     */
+    private $iFrameScrolling = false;//default value
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="iframe_frameborder", type="boolean", nullable=true)
+     */
+    private $iFrameFrameborder = false;//default value
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="cpw_manu", type="boolean", nullable=true)
+     */
+    private $cpwManu = false;//default value
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="iframe_seamless", type="boolean", nullable=true)
+     */
+    private $iFrameSeamless = false;//default value
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created", type="datetime", nullable=true)
+     */
+    private $created;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
+     */
+    private $updated;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="useragent", type="string", length=255)
+     */
+    private $useragent;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ipaddress", type="string", length=255)
+     */
+    private $ipaddress;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="referrer", type="string", length=255, nullable=true)
+     */
+    private $referrer;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="info", type="string", length=255)
+     * @Assert\NotBlank
+     */
+    private $info;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="testers_email", type="string", length=255)
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
+     * @Assert\NotBlank(message="Please enter a valid email")
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_to", type="string", length=255, nullable=true)
+     */
+    private $emailTo;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=1)
+     */
+    private $status = 0;//0 = active, 1=archive
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Tests
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set link
+     *
+     * @param string $link
+     * @return Tests
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+    
+        return $this;
+    }
+
+    /**
+     * Get link
+     *
+     * @return string 
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Tests
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Tests
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set useragent
+     *
+     * @param string $useragent
+     * @return Tests
+     */
+    public function setUseragent($useragent)
+    {
+        $this->useragent = $useragent;
+    
+        return $this;
+    }
+
+    /**
+     * Get useragent
+     *
+     * @return string 
+     */
+    public function getUseragent()
+    {
+        return $this->useragent;
+    }
+
+    /**
+     * Set ipaddress
+     *
+     * @param string $ipaddress
+     * @return Tests
+     */
+    public function setIpaddress($ipaddress)
+    {
+        $this->ipaddress = $ipaddress;
+    
+        return $this;
+    }
+
+    /**
+     * Get ipaddress
+     *
+     * @return string 
+     */
+    public function getIpaddress()
+    {
+        return $this->ipaddress;
+    }
+
+    /**
+     * Set referrer
+     *
+     * @param string $referrer
+     * @return Tests
+     */
+    public function setReferrer($referrer)
+    {
+        $this->referrer = $referrer;
+    
+        return $this;
+    }
+
+    /**
+     * Get referrer
+     *
+     * @return string 
+     */
+    public function getReferrer()
+    {
+        return $this->referrer;
+    }
+
+    /**
+     * Set info
+     *
+     * @param string $info
+     * @return Tests
+     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
+    
+        return $this;
+    }
+
+    /**
+     * Get info
+     *
+     * @return string 
+     */
+    public function getInfo()
+    {
+        return $this->info;
+    }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+    	$this->setCreated(new \DateTime());
+    }
+    
+    /**
+     * @ORM\PreUpdate
+     */
+    public function preUpdate()
+    {
+    	$this->setUpdated(new \DateTime());
+    }
+    
+
+    /**
+     * Set iFrameName
+     *
+     * @param string $iFrameName
+     * @return Tests
+     */
+    public function setIFrameName($iFrameName)
+    {
+        $this->iFrameName = $iFrameName;
+    
+        return $this;
+    }
+
+    /**
+     * Get iFrameName
+     *
+     * @return string 
+     */
+    public function getIFrameName()
+    {
+        return $this->iFrameName;
+    }
+
+    /**
+     * Set iFrameWidth
+     *
+     * @param integer $iFrameWidth
+     * @return Tests
+     */
+    public function setIFrameWidth($iFrameWidth)
+    {
+        $this->iFrameWidth = $iFrameWidth;
+    
+        return $this;
+    }
+
+    /**
+     * Get iFrameWidth
+     *
+     * @return integer 
+     */
+    public function getIFrameWidth()
+    {
+        return $this->iFrameWidth;
+    }
+
+    /**
+     * Set iFrameHeight
+     *
+     * @param integer $iFrameHeight
+     * @return Tests
+     */
+    public function setIFrameHeight($iFrameHeight)
+    {
+        $this->iFrameHeight = $iFrameHeight;
+    
+        return $this;
+    }
+
+    /**
+     * Get iFrameHeight
+     *
+     * @return integer 
+     */
+    public function getIFrameHeight()
+    {
+        return $this->iFrameHeight;
+    }
+
+    /**
+     * Set iFrameScrolling
+     *
+     * @param boolean $iFrameScrolling
+     * @return Tests
+     */
+    public function setIFrameScrolling($iFrameScrolling)
+    {
+        $this->iFrameScrolling = $iFrameScrolling;
+    
+        return $this;
+    }
+
+    /**
+     * Get iFrameScrolling
+     *
+     * @return boolean 
+     */
+    public function getIFrameScrolling()
+    {
+        return $this->iFrameScrolling;
+    }
+
+    /**
+     * Set iFrameFrameborder
+     *
+     * @param boolean $iFrameFrameborder
+     * @return Tests
+     */
+    public function setIFrameFrameborder($iFrameFrameborder)
+    {
+        $this->iFrameFrameborder = $iFrameFrameborder;
+    
+        return $this;
+    }
+
+    /**
+     * Get iFrameFrameborder
+     *
+     * @return boolean 
+     */
+    public function getIFrameFrameborder()
+    {
+        return $this->iFrameFrameborder;
+    }
+
+    /**
+     * Set iFrameSeamless
+     *
+     * @param boolean $iFrameSeamless
+     * @return Tests
+     */
+    public function setIFrameSeamless($iFrameSeamless)
+    {
+        $this->iFrameSeamless = $iFrameSeamless;
+    
+        return $this;
+    }
+
+    /**
+     * Get iFrameSeamless
+     *
+     * @return boolean 
+     */
+    public function getIFrameSeamless()
+    {
+        return $this->iFrameSeamless;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \AW\TestPlatformBundle\Entity\Comments $comments
+     * @return Tests
+     */
+    public function addComment(\AW\TestPlatformBundle\Entity\Comments $comments)
+    {
+        $this->comments[] = $comments;
+    
+        return $this;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Tests
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return Tests
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string 
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set emailTo
+     *
+     * @param string $emailTo
+     * @return Tests
+     */
+    public function setEmailTo($emailTo)
+    {
+        $this->emailTo = $emailTo;
+
+        return $this;
+    }
+
+    /**
+     * Get emailTo
+     *
+     * @return string 
+     */
+    public function getEmailTo()
+    {
+        return $this->emailTo;
+    }
+
+    /**
+     * Set cpwManu
+     *
+     * @param boolean $cpwManu
+     * @return Tests
+     */
+    public function setCpwManu($cpwManu)
+    {
+        $this->cpwManu = $cpwManu;
+
+        return $this;
+    }
+
+    /**
+     * Get cpwManu
+     *
+     * @return boolean 
+     */
+    public function getCpwManu()
+    {
+        return $this->cpwManu;
+    }
+}

@@ -1,0 +1,147 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+framework:
+    #esi:             ~
+    translator:      { fallback: %locale% }
+    secret:          %secret%
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: %kernel.debug%
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_proxies: ~
+    session:         ~
+    fragments:       ~
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    bundles:        [ ]
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        #closure:
+        #    jar: %kernel.root_dir%/Resources/java/compiler.jar
+        #yui_css:
+        #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        default_connection:   dynamicText
+        connections:
+            dynamicText:
+                driver:   %database_driver_dynamicText%
+                host:     %database_host_dynamicText%
+                port:     %database_port_dynamicText%
+                dbname:   %database_name_dynamicText%
+                user:     %database_user_dynamicText%
+                password: %database_password_dynamicText%
+                charset:  UTF8
+            
+            testplatform:
+                driver:   %database_driver_testplatform%
+                host:     %database_host_testplatform%
+                port:     %database_port_testplatform%
+                dbname:   %database_name_testplatform%
+                user:     %database_user_testplatform%
+                password: %database_password_testplatform%
+                charset:  UTF8
+            
+            sonyscript:
+                driver:   %database_driver_sonyscript%
+                host:     %database_host_sonyscript%
+                port:     %database_port_sonyscript%
+                dbname:   %database_name_sonyscript%
+                user:     %database_user_sonyscript%
+                password: %database_password_sonyscript%
+                charset:  UTF8
+            
+            worxshare:
+                driver:   %database_driver_worxshare%
+                host:     %database_host_worxshare%
+                port:     %database_port_worxshare%
+                dbname:   %database_name_worxshare%
+                user:     %database_user_worxshare%
+                password: %database_password_worxshare%
+                charset:  UTF8
+            interview:
+                driver:   %database_driver_interview%
+                host:     %database_host_interview%
+                port:     %database_port_interview%
+                dbname:   %database_name_interview%
+                user:     %database_user_interview%
+                password: %database_password_interview%
+                charset:  UTF8
+            profanity:
+                driver:   %database_driver_profanity%
+                host:     %database_host_profanity%
+                port:     %database_port_profanity%
+                dbname:   %database_name_profanity%
+                user:     %database_user_profanity%
+                password: %database_password_profanity%
+                charset:  UTF8
+
+
+    orm:
+        default_entity_manager:   dynamicText
+        entity_managers:
+            dynamicText:
+                connection:       dynamicText
+                mappings:
+                    AWDynamicTextBundle: ~
+            testplatform:
+                connection:       testplatform
+                mappings:
+                    AWTestPlatformBundle: ~
+            sonyscript:
+                connection:       sonyscript
+                mappings:
+                    AWSonyScriptBundle: ~
+            interview:
+                connection:       interview
+                mappings:
+                    AWInterviewBundle: ~
+            profanity:
+                connection:       profanity
+                mappings:
+                    AWProfanityBundle: ~
+            worxshare:
+                connection:       worxshare
+                mappings:
+                    FOSUserBundle: ~
+                    AWWorxShareBundle: ~
+
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    spool:     { type: memory }
+
+# FOSUserBundle
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: AW\WorxShareBundle\Entity\User
+    model_manager_name: worxshare    
+    group:
+        group_class: AW\WorxShareBundle\Entity\Group
+    registration:
+        form:
+            type: aw_worx_share_registration

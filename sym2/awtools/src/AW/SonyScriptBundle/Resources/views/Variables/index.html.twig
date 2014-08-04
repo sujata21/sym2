@@ -1,0 +1,10 @@
+{% for entity in entities %}
+<div style="padding-bottom: 2px;padding-top:2px;border-bottom: 1px solid #CBCBCB;">	
+	<form id="formDelOwnVar" data-optionValue="&#123&#123 varsArray.{{ entity.name }} | raw &#125;&#125;" data-optionLogicValue="varsArray.{{ entity.name }}" action="{{ path('variables_delete', { 'id': entity.id, 'projectId': entity.projectId }) }}" method="post" style="margin:0;">
+		<input type="hidden" name="_method" value="DELETE" />
+    	{{ form_widget(delete_form) }}
+    	<button type="submit" class="btn btn-danger btn-mini">x</button>
+    	&#123&#123 varsArray.{{ entity.name }} | raw &#125;&#125; <span style="color: #6CA66C;">({{ entity.name }} = {{ entity.value }})</span>
+    </form>
+</div>
+{% endfor %}

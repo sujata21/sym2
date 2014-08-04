@@ -1,0 +1,9 @@
+<?php
+
+namespace AW\TestPlatformBundle;
+
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+class AWTestPlatformBundle extends Bundle
+{
+}

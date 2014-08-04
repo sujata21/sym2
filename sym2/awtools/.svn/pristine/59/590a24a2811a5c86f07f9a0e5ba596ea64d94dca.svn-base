@@ -1,0 +1,9 @@
+<h4>New Project</h4>
+
+<form id="formNewProject" action="{{ path('worxshare_projects_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <div>
+        <button id="btnNewProjectSave" type="submit">Save</button>
+        <button id="btnNewEditCancel" type="button">Cancel</button>
+    </div>
+</form>

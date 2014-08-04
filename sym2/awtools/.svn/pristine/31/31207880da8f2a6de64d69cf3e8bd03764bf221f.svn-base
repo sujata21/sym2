@@ -1,0 +1,25 @@
+<h4>Assign projects to client</h4>
+<div class="divClients">
+    <p>Projects:</p>
+    <select multiple="multiple"" id="selClientProjects">
+        {% for entity in entities %}
+            <option value="{{ entity.id }}" data-href="{{ path('worxshare_clientsprojects_usercheck', {'id': entity.id, 'client_id': client_id}) }}">{{ entity.name }}</option>
+        {% endfor %}
+    </select>
+</div>
+<div class="divAddRemoveClientBtns">
+	<button type="button" class="btn btn-mini btn-success btnAssignProjectClient"><i class="icon-mail-forward"></i></button><br>
+	<button type="button" class="btn btn-mini btn-danger btnUnassignProjectClient"><i class="icon-mail-reply"></i></button>
+</div>
+<div class="divAssignedClients">
+    <p>Assigned projects:</p>
+    <select id="selClientProjectsAssigned" size="4">
+    	{% for entityAssigned in entitiesAssigned %}
+            <option value="{{ entityAssigned.projectId }}" data-href="{{ path('worxshare_clientsprojects_usercheck', {'id': entityAssigned.projectId, 'client_id': client_id}) }}">{{ entityAssigned.projectName }}</option>
+        {% endfor %}
+    </select>
+</div>
+<div style="text-align: right;">
+	<button id="btnClientProjectsAssignSave" type="button" data-href="{{ path('worxshare_clientsprojects_create', {'client_id': client_id}) }}">Save</button>
+    <button id="btnNewEditCancel" type="button">Cancel</button>
+</div>

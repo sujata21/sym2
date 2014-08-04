@@ -1,0 +1,193 @@
+<?php
+
+namespace AW\PopulateBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\DomCrawler\Crawler;
+
+
+
+/**
+ * Projects controller.
+ *
+ * @Route("/populate")
+ */
+class DefaultController extends Controller
+{
+    /**
+     * @Route("/" , name="populate_main")
+     * @Template()
+     */
+    public function indexAction()
+    {
+       // $excel_reader = $this->get('xls.load_xls5')->load('http://spandey-sony.alchemyworx.local/bundles/excelpopulate/js/ASF_W3_Full.xls');
+
+       // var_dump($excel_reader); die();
+
+
+        return array('name' => 'test');
+
+    }
+    /**
+     * @Route("/save")
+     * @Template()
+     */
+    public function saveAction()
+    {
+        //var_dump($_POST);
+       //var_dump($_FILES);
+        if ( $_FILES['file']['tmp_name'] )
+        {
+        $excel_reader = $this->get('xls.load_xls5');
+
+        // echo date('H:i:s') . " Write to Excel5 format\n";
+        $objReader = \PHPExcel_IOFactory::createReader('Excel2007');
+        $objReader->setReadDataOnly(true);
+        $objReader->setLoadSheetsOnly('Locale versions');
+        $objPHPExcel = $objReader->load($_FILES['file']['tmp_name']);
+
+
+        $sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+            $dontshowflag = 0;
+        //echo count($sheetData);
+      // echo '<pre>';
+    //var_dump($sheetData);
+     //  echo '</pre>';
+           echo '%%['; echo "\n";
+           if($_POST['subject'] == 'a'){
+               $var = 'VAR @subjectlineA';
+           }else if($_POST['subject'] == 'b'){
+               $var = 'VAR @subjectlineB';
+           }else{
+               $var = 'VAR @subjectlineA,@subjectlineB';
+           }
+           echo $var; echo "\n\n";
+          // echo 'Set @country = v(country)'; echo "\n";
+           //echo 'Set @lang = v(language)'; echo "\n\n";
+
+            $loopcnt = 0;
+            if($_POST['client'] == 'Snee'){
+                $loopcnt = 16;
+            }else{
+                $loopcnt = 34;
+            }
+$flag1=0 ;
+        for($i=2;$i<= $loopcnt;$i++){
+            //var_dump($sheetData[$i]);
+            $count_cols =  count($sheetData[$i]);
+            if($count_cols == 6){
+                $cond_F = "$sheetData[$i]['E']!= '' && ($sheetData[$i]['F']== '' || $sheetData[$i]['F']!= '') ";
+            }if($count_cols == 5){
+                $cond_F = "$sheetData[$i]['E']!= '' ";
+                $sheetData[$i]['F'] = '';
+            }
+            
+            //echo $cond_F;
+            if( $cond_F ){
+            if($i== 2){
+                $cond = 'if ';
+            }else{
+                $cond = 'elseif ';
+            }
+        }
+                if($sheetData[$i]['B'] == 'United Kingdom'){
+                    $default_subA = $sheetData[$i]['E'];
+                    $default_subB = $sheetData[$i]['F'];
+                }
+
+            if($_POST['subject'] == 'a'){
+
+                $subjectline = 'Set @subjectlineA = "'.trim($sheetData[$i]['E']).'"';
+                $subjectlineA = 'Set @subjectlineA = "'.trim($sheetData[$i]['E']).'"';
+                $subjectlineB ='';
+                if($sheetData[$i]['E'] == ''){
+                    $dontshowflag = 1;
+                }
+                if($sheetData[$i]['B'] == 'United Kingdom'){
+                    $default_subjectline = 'Set @subjectlineA = "'.trim($default_subA).'"';
+                    $default_subjectlineA = 'Set @subjectlineA = "'.trim($default_subA).'"';
+                    $default_subjectlineB = '';
+                }
+
+            }else if($_POST['subject'] == 'b'){
+               // $subjectline = 'Set @subjectlineB = "'.trim($sheetData[$i]['F']).'"';echo "\n";
+                 $subjectlineB = 'Set @subjectlineB = "'.trim($sheetData[$i]['F']).'"';
+                 $subjectlineA='';
+                if($sheetData[$i]['F'] == ''){
+                    $dontshowflag = 1;
+                   // echo 'sujata';
+                }
+                if($sheetData[$i]['B'] == 'United Kingdom'){
+                    $default_subjectlineB = 'Set @subjectlineB = "'.trim($default_subB).'"';
+                    $default_subjectlineA = '';
+
+                }
+
+
+            }else{
+                $subjectline = 'Set @subjectlineA = "'.trim($sheetData[$i]['E']).'\n" Set @subjectlineB = "'.trim($sheetData[$i]['F']).'"';
+                $subjectlineA = 'Set @subjectlineA = "'.trim($sheetData[$i]['E']).'"';
+                $subjectlineB = 'Set @subjectlineB = "'.trim($sheetData[$i]['F']).'"';
+                if($sheetData[$i]['F'] == '' && $sheetData[$i]['E'] == ''){
+                    $dontshowflag = 1;
+                }
+
+                if($sheetData[$i]['B'] == 'United Kingdom'){
+                    $default_subjectline = 'Set @subjectlineA = "'.trim($default_subA).'"\nSet @subjectlineB = "'.trim($default_subB).'"';
+
+                    $default_subjectlineA = 'Set @subjectlineA = "'.trim($default_subA).'"'; echo "\n";
+                    $default_subjectlineB = 'Set @subjectlineB = "'.trim($default_subB).'"';
+                }
+            }
+
+            if($dontshowflag == 0){
+               // echo 'dontshow';
+            $flag1 = $flag1 + 1;
+                if( $cond_F ){
+                    if($flag1== 1){
+                        $cond = 'if ';
+                }else{
+                        $cond = 'elseif ';
+                }
+
+            if($sheetData[$i]['D'] == 'Country'){
+                echo '/*    '.$sheetData[$i]['B'].'  */';echo "\n";
+                echo $cond.'Lowercase(country) == "'.$sheetData[$i]['B'].'" then'; echo "\n";
+            }
+            if($sheetData[$i]['D'] == 'Country + Language'){
+                echo '/*    '.$sheetData[$i]['B'].' - '.$sheetData[$i]['C'].'  */'; echo "\n";
+                echo $cond.'Lowercase(country) == "'.$sheetData[$i]['B'].'" AND Lowercase(language) == "'.$sheetData[$i]['C'].'" then'; echo "\n";
+            }
+          /*  echo 'Set @subjectlineA = "'.trim($sheetData[$i]['E']).'"';echo '<br>';
+                if($sheetData[$i]['F'] != ''){
+              echo 'Set @subjectlineB = "'.trim($sheetData[$i]['F']).'"';echo '<br>';
+          }*/
+                //echo $subjectline;
+                if($subjectlineA != ''){
+                    //echo 'sujata';
+                    echo $subjectlineA; echo "\n";
+                }
+
+                if($subjectlineB != ''){
+                    echo $subjectlineB;
+                    echo "\n";echo "\n";
+                }else{
+                    echo "\n";
+                }
+           }
+
+        }
+            $dontshowflag = 0;
+       }
+            echo "\n";
+        echo 'Else';echo "\n";
+        echo $default_subjectlineA;echo "\n";echo $default_subjectlineB;echo "\n";
+        echo 'EndIf';echo "\n";
+        echo ']%%';echo "\n\n";
+        exit;
+        }
+       // return array();
+    }
+}

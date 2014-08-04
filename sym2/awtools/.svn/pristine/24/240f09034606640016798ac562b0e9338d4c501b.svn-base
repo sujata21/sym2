@@ -1,0 +1,30 @@
+{% extends 'AWInterviewBundle::layout.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+<div class="row-fluid" style="padding: 174px 295px 2px"> <h2>{{jobtitle}}</h2></div>
+<div class="row-fluid" style="padding: 45px 240px 240px 240px;">
+
+<div class="span7" style="border:2px solid;border-radius:25px;margin-left:42px;">
+
+    <form id="user-form" method="post">
+        <input id="uid" type="hidden" value="{{uid}}">
+    <div class="row-fluid">
+        <div class="span10" style="padding-left: 108px;font-weight: bold;padding-top: 20px;padding-bottom: 20px;font-size: 18px;"><p>Please enter your name below</p></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span9" style="padding-left: 120px;">
+            <input id="username" type="text">
+            <div class="alert alert-danger" style="display: none;" id="form-warning"></div>
+        </div>
+    </div>
+    <div class="row-fluid" style="padding-top: 30px;padding-bottom: 30px;padding-left: 10px;">
+        <div id="startbutton" class="span9 pull-right" >
+            <button type="button" id="user_submit"></button>
+        </div>
+    </div>
+    </form>
+</div>
+</div>
+
+{% endblock %}
