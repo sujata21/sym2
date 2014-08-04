@@ -1,0 +1,38 @@
+<script src="/bundles/applicationmain/js/jquery.js"></script>
+<script src="/bundles/applicationmain/js/ZeroClipboard/ZeroClipboard.js"></script>
+        
+        <script>
+        
+jQuery(document).ready(function() {
+
+   
+    var client  = new ZeroClipboard($("#my-button"), {
+        moviePath: "http://" + window.location.host + "/bundles/applicationmain/js/ZeroClipboard/ZeroClipboard.swf",
+        //trustedDomains:    undefined,                  // Domains that we should trust (single string or array of strings)
+        //hoverClass:        "zeroclipboard-is-hover",   // The class used to hover over the object
+        //activeClass:       "zeroclipboard-is-active",  // The class used to set object active
+        //allowScriptAccess: "sameDomain",               // SWF outbound scripting policy
+        //useNoCache:        true,                       // Include a nocache query parameter on requests for the SWF
+        forceHandCursor:   false                       // Forcibly set the hand cursor ("pointer") for all glued elements
+    });
+    
+    
+
+});
+
+</script>
+{% set body = event %}
+<!--<a href="mailto:spandey@alchemyworx.com?Subject=subject here&Body={{body}}">
+    Link display text
+</a>-->
+
+   
+<div id="message"></div>
+<a id="my-button" data-clipboard-target="source-text" style="color:blue;cursor:pointer;"><button id="copy-btn" >Copy To Clipboard</button></a>
+
+  <div id="source-text" ><pre>{{event}}</pre></div>
+    
+
+
+
+

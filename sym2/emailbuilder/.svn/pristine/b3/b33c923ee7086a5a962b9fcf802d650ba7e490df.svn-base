@@ -1,0 +1,60 @@
+<type typeof="schema:ZslEmail" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:sioc="http://rdfs.org/sioc/ns#">
+    <children>
+        <property property="dcterms:title" identifier="title" tag-name="h1"/>
+         <property property="dcterms:template" identifier="template" />
+        <property property="sioc:banner1" identifier="banner1" />
+        <property property="sioc:banner2" identifier="banner2" />
+                
+        <property property="dcterms:title1" identifier="title1" />
+        <property property="dcterms:summary1" identifier="summary1" />
+        <property property="dcterms:image1" identifier="image1" />
+        <property property="dcterms:cta1" identifier="cta1" />
+
+        <property property="dcterms:title2" identifier="title2" />
+        <property property="dcterms:summary2" identifier="summary2" />
+        <property property="dcterms:image2" identifier="image2" />
+        <property property="dcterms:cta2" identifier="cta2" />
+
+        <property property="dcterms:title3" identifier="title3" />
+        <property property="dcterms:summary3" identifier="summary3" />
+        <property property="dcterms:image3" identifier="image3" />
+        <property property="dcterms:cta3" identifier="cta3" />
+
+        <property property="dcterms:title4" identifier="title4" />
+        <property property="dcterms:summary4" identifier="summary4" />
+        <property property="dcterms:image4" identifier="image4" />
+        <property property="dcterms:cta4" identifier="cta4" />
+
+        <property property="dcterms:title5" identifier="title5" />
+        <property property="dcterms:summary5" identifier="summary5" />
+        <property property="dcterms:image5" identifier="image5" />
+        <property property="dcterms:cta5" identifier="cta5" />
+
+        <property property="dcterms:title6" identifier="title6" />
+        <property property="dcterms:summary6" identifier="summary6" />
+        <property property="dcterms:image6" identifier="image6" />
+        <property property="dcterms:cta6" identifier="cta6" />
+
+        <property property="dcterms:title7" identifier="title7" />
+        <property property="dcterms:summary7" identifier="summary7" />
+        <property property="dcterms:image7" identifier="image7" />
+        <property property="dcterms:cta7" identifier="cta7" />
+
+         <property property="dcterms:title8" identifier="title8" />
+        <property property="dcterms:summary8" identifier="summary8" />
+        <property property="dcterms:image8" identifier="image8" />
+        <property property="dcterms:cta8" identifier="cta8" />
+
+        <property property="dcterms:title9" identifier="title9" />
+        <property property="dcterms:summary9" identifier="summary9" />
+        <property property="dcterms:image9" identifier="image9" />
+        <property property="dcterms:cta9" identifier="cta9" />
+
+        <property property="dcterms:image_block1" identifier="image_block1" />
+        <property property="dcterms:image_block2" identifier="image_block2" />
+        <property property="dcterms:image_block3" identifier="image_block3" />
+        <property property="dcterms:image_block4" identifier="image_block4" />
+        <property property="dcterms:image_block5" identifier="image_block5" />
+        <property property="dcterms:image_block6" identifier="image_block6" />
+    </children>
+</type>

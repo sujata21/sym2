@@ -1,0 +1,31 @@
+{% extends 'ApplicationMainBundle::skeleton.html.twig' %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+<div class="row" >
+  <div class="col-lg-3" ><!--a onclick="email_logs('{{email}}')">log</a><a onclick="getemail_logs('{{email}}')">getlog</a>--></div>
+
+  <div id="subject" class="col-lg-4" > <!--style="background-color: #588AA3;color:#FFFFFF;" -->
+    
+  </div>
+</div>
+{% for event in decendants %}
+<div style="margin-top:20px;">
+{% createphp event as="rdf" %}
+
+	<a href="{{ baseUrl }}download_email/{{ event.getUrlBase }}" target="_blank"><b>Subject Line :</b> {{ event.title1 }}</a> 
+	<br>
+	<a href="{{ baseUrl }}download_email/{{ event.getUrlBase }}" target="_blank">{{ event.title}}</a> <br>
+	{{ createphp_content( rdf.template ) }}  |
+	<a style="text-decoration:underline;" href="{{ baseUrl }}download_email/{{ event.getUrlBase }}" >preview</a> 
+	<a style="text-decoration:underline;" href="{{ baseUrl }}newemail/{{event.template}}/{{ event.getUrlBase }}" >edit</a> 
+	<hr>
+{% endcreatephp %}	
+	
+
+
+{% endfor %} 
+</div>
+    {% endblock %}

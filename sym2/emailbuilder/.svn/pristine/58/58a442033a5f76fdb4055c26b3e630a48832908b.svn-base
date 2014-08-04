@@ -1,0 +1,84 @@
+{% extends 'ApplicationMainBundle::skeleton.html.twig' %}
+
+{% block content %}
+ 
+<div id="search" class="span10" style="background-color:white;"  >
+	<div class="row" style="color:#588AA3;padding-left:55px;padding-top:20px;" >
+    <b><font size="3px;">Final Email List</font></b>
+  </div>
+ <div class="" style="padding-left: 94px;background-color: #FBFBFB;color:#588AA3;font-size:12px;" >
+      <div id="container2" class="ut-results">
+     {% for event in decendants %}
+              <div class="grid">
+                  <div class="imgholder">
+                    
+                    {% set thumbnail = '/uploads/archive/'~event.title~'.jpg' %}
+                    
+                      <a href="{{ baseUrl }}show/{{ event.title }}/{{ event.template }}" style="text-decoration: none;text-decoration-style: none;"><img style="" src="{{ thumbnail }}"></a>
+                  </div>
+
+                  <div id="headline"> <a href="{{ baseUrl }}show/{{ event.title }}/{{ event.template }}" style="text-decoration: none;color:#588AA3;">{{ event.title|length > 16 ? event.title|slice(0, 16) ~ '...' : event.title  }}</a></div>
+                  <div id="headline">{{ event.created_at }}</div>
+                  
+              </div>
+              <!--<div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <a href="{{ baseUrl }}show/{{ event.getUrlBase }}"><img src="/uploads/archive/{{  event.title }}.jpg" alt="{{  event.title }}"></a>
+                </div>
+              </div>-->
+         
+      {% endfor %} 
+         </div> 
+         </div> 
+ </div>
+
+<div class="span2 panel panel-default"  id="search-rhs">
+  <input type="hidden" id="search-template" value="bbc"> 
+  <input type="hidden" id="type" value="archive"> 
+  <div class="panel-heading" id="search-rhs-heading3" style="" ><img src="/bundles/applicationmain/images/filter.png"></div>
+  <div class="panel-heading search-template active-template"  id="bbc-temp" style="" >BBC</div>
+  <div class="panel-heading"  id="zsl-temp" >ZSL</div>
+	 <div class="panel-heading" id="search-rhs-heading" ><img src="/bundles/applicationmain/images/search.png"></div>
+  
+  	<div class="panel-body" >
+      <input type="text" class="form-control" id="search-archieve" placeholder="Type to search subject or name">
+      <!--<input type="text" name="id-holder" id="id-holder" size="10" disabled>-->
+     	
+  	</div>
+    <div class="panel-heading" id="search-rhs-heading2"><img src="/bundles/applicationmain/images/period.png" ></div>
+  
+    <div class="panel-body" >
+     <div class="row" style="padding-left:28px;">
+        <div class="span2">From</div>
+        <div class="span10"><input id="fromdate" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="todate"  type="text"></div>
+      </div>
+      <div class="row" style="padding-left:28px;">
+        <div class="span2">To</div>
+        <div class="span10"><input id="todate" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="todate"  type="text"></div>
+      </div>
+      <script>
+        $(function(){
+          $('#fromdate').combodate({
+            firstItem: 'name'
+          });
+          $('#todate').combodate({
+            firstItem: 'name'
+          });
+        });
+      </script>
+      
+    </div>
+    <div class="panel-body">
+        <div class="row" style="padding-left:54px;">
+          <a href="/archive"><button type="button" class="btn btn-default btn-md">Refresh</button></a>
+          <img id="search-archieve-btn" src="/bundles/applicationmain/images/search_btn.png"></div>
+    </div>
+<div >
+
+ 
+
+
+  
+
+</div>
+{% endblock %}

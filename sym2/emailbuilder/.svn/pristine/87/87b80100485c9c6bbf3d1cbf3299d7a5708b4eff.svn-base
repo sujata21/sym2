@@ -1,0 +1,28 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: emailbuilder
+    database_user: alchemy
+    database_password: sf@w0rx
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: ThisTokenIsNotSoSecretChangeIt
+    locales:
+        - en
+        - fr
+        - de
+    user_class:   Application\Sonata\UserBundle\Entity\User
+    email_doc : "/cms/content/generic/email/"
+    template_doc : "/cms/content/generic/template/"
+    archive_doc : "/cms/content/generic/archive/"
+    zsl_template_doc : "/cms/content/generic/template/zsl/"
+    bbc_template_doc : "/cms/content/generic/template/bbc/"
+    zsl_email_doc : "/cms/content/generic/email/zsl/"
+    bbc_email_doc : "/cms/content/generic/email/bbc/"
+    zsl_archive_doc : "/cms/content/generic/archive/zsl"
+    bbc_archive_doc : "/cms/content/generic/archive/bbc"

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content=" minimum-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>BBC - Radio2 Tool</title>
+
+        {% block includes %}
+            {% stylesheets
+                '@ApplicationMainBundle/Resources/public/bootstrap/css/bootstrap.min.css'
+                '@ApplicationMainBundle/Resources/public/bootstrap/css/bootstrap-responsive.min.css'
+                '@ApplicationMainBundle/Resources/public/css/style.css'
+                filter='cssrewrite'
+            %}
+
+            <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+            <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->
+
+
+            <link rel="stylesheet" href="{{ asset_url }}" media="screen" type="text/css"/>
+            {% endstylesheets %}
+            
+       {% endblock %}
+
+
+    
+    </head>
+    <body style="background-color: #F1F1F1;padding:20px;">
+<table class="table table-striped ut-table show">
+    <thead>
+        <tr>
+            <th class="center-content">Pods</th>
+            <th class="center-content">URL</th>
+            <th class="center-content">Status</th>
+            <!--<th class="center-content">Thumbnail</th>-->
+            
+        </tr>
+    </thead>
+        <tbody class="ut-results">
+          {% set i = 0 %}
+            {% for link in link['info'] %}
+            {% set i = i + 1 %}
+            <tr>
+                <td>Pod{{i}}</td>
+                <td class="center-content"><a href="{{ link['url'] }}" target="_blank">{{ link['url'] }}</a></td>
+                {% if (link['http_code'] == 200) or (link['http_code'] == 302) %}
+                    <td class="center-content" style="color:green;">VALID</td>
+                    <!-- <td class="center-content ">
+                    <span class="glyphicon glyphicon-heart"></span>
+                </td>-->
+                {% else %}
+                    <td class="center-content" style="color:red;">INVALID</td>
+                    <!-- <td class="center-content">
+                    <span  class="glyphicon glyphicon-pencil"></span>
+                </td>-->
+                {% endif %}
+               
+                <td class="center-content"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+</body>
+</html>

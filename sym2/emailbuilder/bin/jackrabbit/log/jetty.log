@@ -1,0 +1,151 @@
+2014-03-24 09:17:23.239 INFO  [main] Slf4jLog.java:67                  Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2014-03-24 09:17:23.257 INFO  [main] Slf4jLog.java:67                  jetty-6.1.x
+2014-03-24 09:18:12.946 INFO  [main] Slf4jLog.java:67                  Opened /home/spandey/sujata/sym2/bbc2/bin/jackrabbit/log/access.log.2014-03-24
+2014-03-24 09:18:12.971 INFO  [main] Slf4jLog.java:67                  Started SocketConnector@0.0.0.0:8080
+2014-03-24 09:47:58.821 INFO  [main] Slf4jLog.java:67                  Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2014-03-24 09:47:58.838 INFO  [main] Slf4jLog.java:67                  jetty-6.1.x
+2014-03-24 09:48:13.675 INFO  [main] Slf4jLog.java:67                  Opened /home/spandey/sujata/sym2/bbc2/bin/jackrabbit/log/access.log.2014-03-24
+2014-03-24 09:48:13.697 INFO  [main] Slf4jLog.java:67                  Started SocketConnector@0.0.0.0:8080
+2014-03-25 11:23:26.132 ERROR [1213589142@qtp-767987142-123] Slf4jLog.java:87 /server/website/jcr:root/.0.json
+java.lang.IllegalStateException: WRITER
+	at org.mortbay.jetty.Response.getOutputStream(Response.java:594) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.apache.jackrabbit.webdav.WebdavResponseImpl.sendXmlResponse(WebdavResponseImpl.java:151) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.apache.jackrabbit.webdav.WebdavResponseImpl.sendError(WebdavResponseImpl.java:95) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.apache.jackrabbit.webdav.server.AbstractWebdavServlet.service(AbstractWebdavServlet.java:299) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:390) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:418) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.RequestLogHandler.handle(RequestLogHandler.java:49) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.Server.handle(Server.java:326) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:938) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:755) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:218) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.bio.SocketConnector$Connection.run(SocketConnector.java:228) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582) [jackrabbit-standalone-2.6.5.jar:na]
+2014-03-25 11:23:26.187 ERROR [1213589142@qtp-767987142-123] Slf4jLog.java:87 /server/website/jcr:root/.0.json
+java.lang.IllegalStateException: WRITER
+	at org.mortbay.jetty.Response.getOutputStream(Response.java:594) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.apache.jackrabbit.webdav.WebdavResponseImpl.sendXmlResponse(WebdavResponseImpl.java:151) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.apache.jackrabbit.webdav.WebdavResponseImpl.sendError(WebdavResponseImpl.java:95) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.apache.jackrabbit.webdav.server.AbstractWebdavServlet.service(AbstractWebdavServlet.java:299) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:390) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:418) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.RequestLogHandler.handle(RequestLogHandler.java:49) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.Server.handle(Server.java:326) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:938) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:755) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:218) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.bio.SocketConnector$Connection.run(SocketConnector.java:228) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582) [jackrabbit-standalone-2.6.5.jar:na]
+2014-04-07 14:15:02.584 INFO  [main] Slf4jLog.java:67                  Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2014-04-07 14:15:02.610 INFO  [main] Slf4jLog.java:67                  jetty-6.1.x
+2014-04-07 14:15:16.787 INFO  [main] Slf4jLog.java:67                  Opened /home/spandey/sujata/sym2/bbc2/bin/jackrabbit/log/access.log.2014-04-07
+2014-04-07 14:15:16.814 INFO  [main] Slf4jLog.java:67                  Started SocketConnector@0.0.0.0:8080
+2014-04-22 09:05:27.390 INFO  [main] Slf4jLog.java:67                  Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2014-04-22 09:05:27.430 INFO  [main] Slf4jLog.java:67                  jetty-6.1.x
+2014-04-22 09:05:42.391 INFO  [main] Slf4jLog.java:67                  Opened /home/spandey/sujata/sym2/bbc2/bin/jackrabbit/log/access.log.2014-04-22
+2014-04-22 09:05:42.422 INFO  [main] Slf4jLog.java:67                  Started SocketConnector@0.0.0.0:8080
+2014-05-06 09:22:43.228 INFO  [main] Slf4jLog.java:67                  Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2014-05-06 09:22:43.254 INFO  [main] Slf4jLog.java:67                  jetty-6.1.x
+2014-05-06 09:22:58.011 INFO  [main] Slf4jLog.java:67                  Opened /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/log/access.log.2014-05-06
+2014-05-06 09:22:58.030 WARN  [main] Slf4jLog.java:76                  failed SocketConnector@0.0.0.0:8080: java.net.BindException: Address already in use
+2014-05-06 09:22:58.031 WARN  [main] Slf4jLog.java:76                  failed Server@1c7068ab: java.net.BindException: Address already in use
+2014-05-06 09:23:25.853 INFO  [main] Slf4jLog.java:67                  Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2014-05-06 09:23:25.870 INFO  [main] Slf4jLog.java:67                  jetty-6.1.x
+2014-05-06 09:23:37.652 INFO  [main] Slf4jLog.java:67                  Opened /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/log/access.log.2014-05-06
+2014-05-06 09:23:37.664 WARN  [main] Slf4jLog.java:76                  failed SocketConnector@0.0.0.0:8080: java.net.BindException: Address already in use
+2014-05-06 09:23:37.665 WARN  [main] Slf4jLog.java:76                  failed Server@36783858: java.net.BindException: Address already in use
+2014-05-06 09:42:24.255 INFO  [main] Slf4jLog.java:67                  Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2014-05-06 09:42:24.272 INFO  [main] Slf4jLog.java:67                  jetty-6.1.x
+2014-05-06 09:42:36.239 INFO  [main] Slf4jLog.java:67                  Opened /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/log/access.log.2014-05-06
+2014-05-06 09:42:36.265 INFO  [main] Slf4jLog.java:67                  Started SocketConnector@0.0.0.0:8080
+2014-05-06 09:44:20.761 INFO  [main] Slf4jLog.java:67                  Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2014-05-06 09:44:20.778 INFO  [main] Slf4jLog.java:67                  jetty-6.1.x
+2014-05-06 09:44:25.086 INFO  [main] Slf4jLog.java:67                  Opened /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/log/access.log.2014-05-06
+2014-05-06 09:44:25.097 WARN  [main] Slf4jLog.java:76                  failed SocketConnector@0.0.0.0:8080: java.net.BindException: Address already in use
+2014-05-06 09:44:25.098 WARN  [main] Slf4jLog.java:76                  failed Server@5b6876ea: java.net.BindException: Address already in use
+2014-05-06 09:45:49.503 INFO  [main] Slf4jLog.java:67                  Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2014-05-06 09:45:49.520 INFO  [main] Slf4jLog.java:67                  jetty-6.1.x
+2014-05-06 09:46:24.033 INFO  [main] Slf4jLog.java:67                  Opened /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/log/access.log.2014-05-06
+2014-05-06 09:46:24.051 INFO  [main] Slf4jLog.java:67                  Started SocketConnector@0.0.0.0:8080
+2014-05-07 13:11:52.565 ERROR [1589969633@qtp-653891498-84] Slf4jLog.java:87 /server/emailbuilder/jcr:root/.0.json
+java.lang.IllegalStateException: WRITER
+	at org.mortbay.jetty.Response.getOutputStream(Response.java:594) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.apache.jackrabbit.webdav.WebdavResponseImpl.sendXmlResponse(WebdavResponseImpl.java:151) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.apache.jackrabbit.webdav.WebdavResponseImpl.sendError(WebdavResponseImpl.java:95) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.apache.jackrabbit.webdav.server.AbstractWebdavServlet.service(AbstractWebdavServlet.java:299) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:390) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:418) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.RequestLogHandler.handle(RequestLogHandler.java:49) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.Server.handle(Server.java:326) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:938) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:755) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:218) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.bio.SocketConnector$Connection.run(SocketConnector.java:228) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582) [jackrabbit-standalone-2.6.5.jar:na]
+2014-05-07 13:11:52.673 ERROR [1589969633@qtp-653891498-84] Slf4jLog.java:87 /server/emailbuilder/jcr:root/.0.json
+java.lang.IllegalStateException: WRITER
+	at org.mortbay.jetty.Response.getOutputStream(Response.java:594) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.apache.jackrabbit.webdav.WebdavResponseImpl.sendXmlResponse(WebdavResponseImpl.java:151) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.apache.jackrabbit.webdav.WebdavResponseImpl.sendError(WebdavResponseImpl.java:95) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.apache.jackrabbit.webdav.server.AbstractWebdavServlet.service(AbstractWebdavServlet.java:299) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:390) ~[jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:418) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.RequestLogHandler.handle(RequestLogHandler.java:49) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.Server.handle(Server.java:326) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:938) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:755) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:218) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.jetty.bio.SocketConnector$Connection.run(SocketConnector.java:228) [jackrabbit-standalone-2.6.5.jar:na]
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582) [jackrabbit-standalone-2.6.5.jar:na]
+2014-05-19 13:26:53.035 INFO  [main] Slf4jLog.java:67                  Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2014-05-19 13:26:53.059 INFO  [main] Slf4jLog.java:67                  jetty-6.1.x
+2014-05-19 13:27:07.439 INFO  [main] Slf4jLog.java:67                  Opened /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/log/access.log.2014-05-19
+2014-05-19 13:27:07.466 INFO  [main] Slf4jLog.java:67                  Started SocketConnector@0.0.0.0:8080
+2014-06-03 10:04:34.256 INFO  [main] Slf4jLog.java:67                  Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2014-06-03 10:04:34.324 INFO  [main] Slf4jLog.java:67                  jetty-6.1.x
+2014-06-03 10:05:06.502 INFO  [main] Slf4jLog.java:67                  Opened /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/log/access.log.2014-06-03
+2014-06-03 10:05:06.533 INFO  [main] Slf4jLog.java:67                  Started SocketConnector@0.0.0.0:8080
+2014-07-09 09:20:11.142 INFO  [main] Slf4jLog.java:67                  Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2014-07-09 09:20:11.199 INFO  [main] Slf4jLog.java:67                  jetty-6.1.x
+2014-07-09 09:20:25.335 INFO  [main] Slf4jLog.java:67                  Opened /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/log/access.log.2014-07-09
+2014-07-09 09:20:25.369 INFO  [main] Slf4jLog.java:67                  Started SocketConnector@0.0.0.0:8080
+2014-07-21 09:20:29.609 INFO  [main] Slf4jLog.java:67                  Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2014-07-21 09:20:29.677 INFO  [main] Slf4jLog.java:67                  jetty-6.1.x
+2014-07-21 09:20:45.108 INFO  [main] Slf4jLog.java:67                  Opened /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/log/access.log.2014-07-21
+2014-07-21 09:20:45.125 INFO  [main] Slf4jLog.java:67                  Started SocketConnector@0.0.0.0:8080

@@ -1,0 +1,1244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>
+ZSL
+</title>
+<style type="text/css">
+
+div, p, a, li, td { -webkit-text-size-adjust:none;-ms-text-size-adjust:none;}   
+body {margin:0;padding:0;}      
+table td {border-collapse:collapse;}    
+.externalclass {width:100%;}    
+.externalclass * {line-height: 100%}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+  a[href^="tel"], a[href^="sms"], a {
+   color: inherit !important;
+   cursor: default !important;
+   text-decoration:none !important;
+  }
+ 
+}
+
+@media only screen and (max-width: 420px) {
+
+table[class="hide"], img[class="hide"], td[class="hide"], br[class="hide"], span[class="hide"] {
+	display:none !important;
+}
+
+*[class].show {
+  	display:block !important; 
+  	overflow:visible !important; 
+  	float:none !important;  
+  	width:100%; 
+  	height:auto !important; 
+}
+
+table[class="fluid"], td[class="fluid"], img[class="fluid"] {
+  width:100% !important;
+  height:auto !important;
+  display:table !important; 
+} 
+
+
+table .block {
+	display: block !important;
+}
+
+table .tbl100 {
+	width: 100% !important;
+}
+
+table[class=w320], td[class=w320], div[class=w320], img[class=w320]{
+  	width:320px !important;
+  	height:auto !important;
+} 
+
+table[id=w320],img[id=w320] {
+	width:320px !important;
+  	height:auto !important;
+}
+
+table[class=w300], td[class=w300], div[class=w300], img[class=w300]{
+  	width:300px !important;
+  	height:auto !important;
+} 
+
+table[id=w300],img[id=w300] {
+	width:300px !important;
+  	height:auto !important;
+}
+
+table[class=w275], td[class=w275], div[class=w275], img[class=w275]{
+  	width:275px !important;
+  	height:auto !important;
+} 
+
+table[id=w275],img[id=w275] {
+	width:275px !important;
+  	height:auto !important;
+}
+
+table[class=w25], td[class=w25], div[class=w25], img[class=w25]{
+  	width:25px !important;
+} 
+
+table[id=w25],img[id=w25] {
+	width:25px !important;
+}
+
+table[class=w15], td[class=w15], div[class=w15], img[class=w15]{
+  	width:15px !important;
+} 
+
+table[id=w15],img[id=w15] {
+	width:15px !important;
+}
+
+table[class=w10], td[class=w10], div[class=w10], img[class=w10]{
+  	width:10px !important;
+} 
+
+table[id=w10],img[id=w10] {
+	width:10px !important;
+}
+
+table[class=w5], td[class=w5], div[class=w5], img[class=w5]{
+  	width:5px !important;
+} 
+
+table[id=w5],img[id=w5] {
+	width:5px !important;
+}
+
+table[class=h50], td[class=h50], div[class=h50], img[class=h50]{
+  	height:50px !important;
+}
+
+table[id=h50],img[id=h50] {
+  	height:50 !important;
+}
+
+table[class=fs20], td[class=fs20], div[class=fs20], img[class=fs20]{
+  	font-size:20px !important;
+  	line-height:23px !important;
+}
+
+table[fs20],img[id=fs20] {
+  	font-size:20px !important;
+  	line-height:23px !important;
+}
+
+table[class=m130], td[class=m130], div[class=m130], img[class=m130]{
+  	min-width:130px !important;
+}
+
+table[id=m130],img[id=m130] {
+  	min-width:130px !important;
+}
+
+
+}
+             
+</style>
+  
+<!--[if gte mso 15]>
+<style type="text/css" media="all">
+tr { font-size:1px; mso-line-height-alt:0; mso-margin-top-alt:1px; }
+</style>
+<![endif]-->
+
+<style type="text/css" media="all">
+.bg_topnav:hover {background-color:#3b3b3b !important; color:#ffffff !important;}
+.bg_ctagrey:hover {background-color:#3b3b3b !important; color:#ffffff !important;}
+.op75{opacity:.75}
+img:hover#fadeout{opacity:0.5;transition: opacity .5s ease;}
+img:hover#fadein{opacity:1;transition: opacity .5s ease;}
+span:hover#blue {color:#296ca0 !important;}
+a:hover#blueu {color:#296ca0 !important; text-decoration:underline !important;}
+a:hover#underline {text-decoration:underline !important;}
+img:hover#rotate270 {-webkit-transform:rotate(270deg); /* Safari */transform:rotate(270deg);}
+</style>
+
+</head>
+
+<body margintop="0" marginleft="0" marginright="0" bgcolor="#e8e8e8">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#e8e8e8">  
+
+<!-- central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8">    
+    <!-- top section --> 
+    <table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="30" class="hide" valign="top"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_mainimage_left.jpg" style="display:block" width="30" height="400" border="0" /></td>
+        <td width="620" class="w320" valign="top">            
+        <!-- nav bar --> 
+        <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="114" class="w320" valign="top" bgcolor="#3b3b3b">
+            <table width="114" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr>
+                <td width="114" class="h50"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_logo_top.jpg" style="display:block" width="114" height="36" border="0" alt="ZSL" title="ZSL" id="fadeout" class="fadeout" /></a></td>
+              </tr>
+            </table>
+            </td>
+            <td width="140" class="hide" valign="top">
+            <table width="140" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="140" height="36" valign="top" bgcolor="#5a970b" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:15px; line-height:18px; color:#ffffff; text-align:center;" class="bg_topnav">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="9"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff">ZSL London Zoo</a>
+                </td>
+              </tr>
+            </table>
+            </td>
+            <td width="167" class="hide" valign="top">
+            <table width="167" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="167" height="36" valign="top" bgcolor="#a91339" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:15px; line-height:18px; color:#ffffff; text-align:center;" class="bg_topnav">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="9"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff">ZSL Whipsnade Zoo</a>
+                </td>
+              </tr>
+            </table>
+            </td>
+            <td width="82" class="hide" valign="top">
+            <table width="82" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="82" height="36" valign="top" bgcolor="#954385" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:15px; line-height:18px; color:#ffffff; text-align:center;" class="bg_topnav">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="9"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff">Science</a>
+                </td>
+              </tr>
+            </table>
+            </td>
+            <td width="117" class="hide" valign="top">
+            <table width="117" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="117" height="36" valign="top" bgcolor="#0d9787" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:15px; line-height:18px; color:#ffffff; text-align:center;" class="bg_topnav">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="9"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff">Conservation</a>
+                </td>
+              </tr>
+            </table>
+            </td>
+          </tr>
+        </table>
+        <!-- nav bar -->               
+        <!-- main image -->
+        <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" id="w320" class="w320" valign="top"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_mainimage.jpg" style="display:block" class="w320" id="w320" width="620" height="208" border="0" /></a></td>
+          </tr>
+        </table>
+        <!-- main image -->                 
+        <!-- intro title -->
+        <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w320" valign="top" bgcolor="#3b3b3b">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="9"></td></tr></table>
+            <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="15" class="w25"></td>
+                <td class="fs20" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:22px; line-height:25px; color:#f3f3f3; font-weight:bold; text-align:left;">
+                {{ event.title1 | raw }}
+                </td>
+                <td width="15" class="w10"></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="9"></td></tr></table>
+            </td>
+          </tr>
+        </table>
+        <!-- intro title -->                
+        <!-- intro para and cta -->
+        <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w320" valign="top" bgcolor="#ffffff">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="18"></td></tr></table>
+            <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="15" class="w25"></td>
+                <td style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:14px; line-height:17px; color:#565656; text-align:left;">
+                {{ event.summary1 | raw }}
+                </td>
+                <td width="35" class="w25"></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="18"></td></tr></table>
+            <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="15" class="w25"></td>
+                <td>
+                <table id="bg_ctagrey" class="bg_ctagrey" border="0" cellspacing="0" cellpadding="0" bgcolor="#5a970b">
+                  <tr>
+                    <td width="10"></td>
+                    <td class="m130" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#ffffff; text-align:center; min-width:130px;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                    <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff">{{ event.cta1 | raw }}</a>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                    </td>
+                    <td width="10"></td>
+                  </tr>
+                </table> 
+                </td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+            </td>
+          </tr>
+        </table>
+        <!-- intro para and cta -->               
+        </td>
+        <td width="30" class="hide" valign="top"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_mainimage_right.jpg" style="display:block" width="30" height="400" border="0" /></td>
+      </tr>
+    </table>
+    <!-- top section -->      
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->       
+    </td>
+  </tr>
+</table>
+<!-- central holding table end -->
+
+    
+<!-- 2 pod central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" id="w320" class="w320" bgcolor="#e8e8e8">        
+    <!-- 2 pod start -->
+    <table width="680" id="tbl100" cellspacing="0" cellpadding="0" border="0" align="center" class="tbl100">
+      <tr>
+        <td width="30" class="hide"></td>
+        <td width="620" class="w320">
+        <table width="620" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+          <tr>
+            <td valign="top" align="left" class="tbl100" bgcolor="#e8e8e8">
+            <!--[if gte mso 9]>
+            <table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+            <![endif]-->
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="300" class="w320" valign="top" align="left" bgcolor="#e8e8e8">                 
+                <!-- left pod content start -->
+                <table width="300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="300" bgcolor="#f3f3f3" valign="top">
+                    <table width="300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="300" valign="top"><a href="{{ image['image2']['link']}}" target="_blank"><img src="{{ image['image2']['src']}}" style="display:block" width="300" height="169" border="0" alt="{{ image['image2']['alt']}}" title="{{ image['image2']['alt']}}" id="fadeout" class="fadeout" /></a></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="260" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                        {{ event.title2 | raw }}
+                        </td>
+                        <td width="25"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="260" height="75" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                        {{ event.summary2 | raw }}
+                        </td>
+                        <td width="25"></td>
+                      </tr>
+                    </table>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td>
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#a91339; font-weight:bold; text-align:left;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7"></td></tr></table>
+                            <a href="{{ image['image2']['link']}}" target="_blank" style="text-decoration:none;color:#a91339" class="underline">FIND OUT MORE</a>
+                            </td>
+                            <td width="10"></td>
+                            <td><a href="{{ image['image2']['link']}}" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_cta_red.gif" style="display:block" width="27" height="27" border="0" id="rotate270" class="rotate270" /></a></td>
+                          </tr>
+                        </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    </td>
+                  </tr>
+                </table>
+                <!-- left pod content end -->                        
+                </td>
+                <td width="10" class="hide"></td>
+              </tr>                  
+            </table>                           
+            <!--[if gte mso 9]>
+            </td><td valign="top">
+            <![endif]-->                             
+            <!-- mobile only spacer start -->
+            <!--[if !mso]><!-->
+            <table width="300" id="w300" class="w300" border="0" cellpadding="0" cellspacing="0">
+            	<tr style="width:0; overflow:hidden; float:left; display:none; max-height:0px; mso-hide:all;" class="show">
+                <td>  
+                 <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+                </td>
+              </tr>
+            </table>
+            <!--<![endif]-->
+            <!-- mobile only spacer end -->                   
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="10" class="hide"></td>
+                <td width="300" class="w320" valign="top" align="left" bgcolor="#e8e8e8">                
+                <!-- right pod content start -->
+                <table width="300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="300" bgcolor="#f3f3f3" valign="top">
+                    <table width="300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="300" valign="top"><a href="{{ image['image3']['src']}}" target="_blank"><img src="{{ image['image3']['src']}}" style="display:block" width="300" height="169" border="0" alt="{{ image['image3']['alt']}}" title="{{ image['image3']['alt']}}" id="fadeout" class="fadeout" /></a></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="260" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                        {{ event.title3 | raw }}
+                        </td>
+                        <td width="25"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="260" height="75" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                        {{ event.summary3 | raw }}
+                        </td>
+                        <td width="25"></td>
+                      </tr>
+                    </table>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td>
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#954385; font-weight:bold; text-align:left;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7"></td></tr></table>
+                            <a href="{{ image['image3']['link']}}" target="_blank" style="text-decoration:none;color:#954385" class="underline">FIND OUT MORE</a>
+                            </td>
+                            <td width="10"></td>
+                            <td><a href="{{ image['image3']['link']}}" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_cta_purple.gif" style="display:block" width="27" height="27" border="0" id="rotate270" class="rotate270" /></a></td>
+                          </tr>
+                        </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    </td>
+                  </tr>
+                </table>
+                <!-- right pod content end -->                    
+                </td>
+              </tr>
+            </table>
+            <!--[if gte mso 9]>
+            </td></tr></table>
+            <![endif]-->
+            </td>
+          </tr>
+        </table>
+        </td>
+        <td width="30" class="hide"></td>
+      </tr>
+    </table>
+    <!-- 2 pod end -->             
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->                  
+    </td>
+  </tr>
+</table>
+<!-- 2 pod central holding table end -->
+
+    
+<!-- banner central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8"> 
+    <!-- banner start -->
+    <table width="680" cellspacing="0" cellpadding="0" border="0" align="center" ID="tbl100" class="tbl100">
+      <tr>
+        <td width="30" class="w10"></td>
+        <td width="620" class="w300">
+        <!-- banner image -->
+        <table width="620" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w300" valign="top"><a href="{{ image['banner1']['link'] }}" target="_blank"><img src="{{ image['banner1']['src'] }}" style="display:block" id="w320" class="w300" width="620" height="79" border="0" alt="{{ image['banner1']['alt'] }}" title="{{ image['banner1']['alt'] }}" /></a></td>
+          </tr>
+        </table>
+        <!-- banner image -->
+        </td>
+        <td width="30" class="w10"></td>
+      </tr>
+    </table>
+    <!-- banner start -->           
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->                
+    </td>
+  </tr>
+</table>
+<!-- banner central holding table end -->
+
+    
+<!-- 4 pods central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8">     
+    
+    <table width="680" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+      <tr>
+        <td width="30" class="hide"></td>
+        <td width="620" class="w320">
+        <table width="620" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+          <tr>
+            <td valign="top" align="left" class="tbl100" bgcolor="#e8e8e8">
+            <!--[if gte mso 9]>
+            <table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+            <![endif]-->
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="300" class="w320" valign="top" align="left" bgcolor="#e8e8e8">
+                <table width="300" cellspacing="0" cellpadding="0" border="0" align="center">
+                  <tr>
+                    <td width="140" valign="top" bgcolor="#f3f3f3">
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="140" valign="top"><a href="{{ image['image4']['link']}}" target="_blank"><img src="{{ image['image4']['src']}}" style="display:block" width="140" height="78" border="0" alt="{{ image['image4']['alt']}}" title="{{ image['image4']['alt']}}" id="fadeout" class="fadeout" /></a></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                        {{ event.title4 | raw }}
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" height="105" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                        {{ event.summary4 | raw }}
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table> 
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>                                                
+                    <table class="bg_ctagrey" id="bg_ctagrey" width="140" border="0" cellspacing="0" cellpadding="0" bgcolor="#5a970b">
+                      <tr>
+                        <td width="10"></td>
+                        <td width="120" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#ffffff; text-align:center; min-width:130px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        <a href="{{ image['image4']['link']}}" target="_blank" style="text-decoration:none;color:#ffffff">{{ event.cta4 | raw }}</a>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table> 
+                    </td>
+                    <td width="20"></td>
+                    <td width="140" valign="top" bgcolor="#f3f3f3">
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="140" valign="top"><a href="{{ image['image5']['link']}}" target="_blank"><img src="{{ image['image5']['src']}}" style="display:block" width="140" height="78" border="0" alt="{{ image['image5']['alt']}}" title="{{ image['image4']['alt']}}" id="fadeout" class="fadeout" /></a></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                        {{ event.title5 | raw }}
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" height="105" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                        {{ event.summary5 | raw }}
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table> 
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>                      
+                    <table class="bg_ctagrey" id="bg_ctagrey" width="140" border="0" cellspacing="0" cellpadding="0" bgcolor="#a91339">
+                      <tr>
+                        <td width="10"></td>
+                        <td width="120" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#ffffff; text-align:center; min-width:130px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        <a href="{{ image['image5']['link']}}" target="_blank" style="text-decoration:none;color:#ffffff">{{ event.cta5 | raw }}</a>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>
+                    </td>
+                  </tr>
+                </table>
+                </td>                    
+                <td width="10" class="hide"></td>
+              </tr>
+            </table>                               
+            <!--[if gte mso 9]>
+            </td><td valign="top">
+            <![endif]-->          
+            <!-- mobile only spacer start -->
+            <!--[if !mso]><!-->
+            <table width="300" id="w320" class="w300" border="0" cellpadding="0" cellspacing="0">
+            	<tr style="width:0; overflow:hidden; float:left; display:none; max-height:0px; mso-hide:all;" class="show">
+                <td>  
+                 <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+                </td>
+              </tr>
+            </table>
+            <!--<![endif]-->
+            <!-- mobile only spacer end -->                 
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="10" class="hide"></td>
+                <td width="300" class="w320" valign="top" align="left" bgcolor="#e8e8e8">
+                <table width="300" cellspacing="0" cellpadding="0" border="0" align="center">
+                  <tr>
+                    <td width="140" valign="top" bgcolor="#f3f3f3">
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="140" valign="top"><a href="{{ image['image6']['link']}}" target="_blank"><img src="{{ image['image6']['src']}}" style="display:block" width="140" height="78" border="0" alt="{{ image['image6']['alt']}}" title="{{ image['image6']['alt']}}" id="fadeout" class="fadeout" /></a></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                        {{ event.title6 | raw }}
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" height="105" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                        {{ event.summary6 | raw }}
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table> 
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>                      
+                    <table class="bg_ctagrey" id="bg_ctagrey" width="140" border="0" cellspacing="0" cellpadding="0" bgcolor="#954385">
+                      <tr>
+                        <td width="10"></td>
+                        <td width="120" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#ffffff; text-align:center; min-width:130px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        <a href="{{ image['image6']['link']}}" target="_blank" style="text-decoration:none;color:#ffffff">{{ event.summary6 | raw }}</a>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table> 
+                    </td>
+                    <td width="20"></td>
+                    <td width="140" valign="top" bgcolor="#f3f3f3">
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="140" valign="top"><a href="{{ image['image7']['link']}}" target="_blank"><img src="{{ image['image7']['src']}}" style="display:block" width="140" height="78" border="0" alt="{{ image['image7']['alt']}}" title="TBC" id="fadeout" class="fadeout" /></a></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                        {{ event.title7 | raw }}
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" height="105" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                        {{ event.summary7 | raw }}
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table> 
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>                      
+                    <table class="bg_ctagrey" id="bg_ctagrey" width="140" border="0" cellspacing="0" cellpadding="0" bgcolor="#0d9787">
+                      <tr>
+                        <td width="10"></td>
+                        <td width="120" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#ffffff; text-align:center; min-width:130px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        <a href="{{ image['image7']['link']}}" target="_blank" style="text-decoration:none;color:#ffffff">{{ event.cta7 | raw }}</a>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table> 
+                    </td>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>                              
+            <!--[if gte mso 9]>
+            </td></tr></table>
+            <![endif]-->
+            </td>
+          </tr>
+        </table>
+        </td>
+        <td width="30" class="hide"></td>
+      </tr>
+    </table>
+    <!-- 2 pod end -->          
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->          
+    </td>   
+  </tr>
+</table>  
+<!-- 4 pods central holding table end -->
+
+
+<!-- 2 + 4 images central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8">     
+    <!-- pod start -->
+    <table width="680" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+      <tr>
+        <td width="30" class="hide"></td>
+        <td width="620" class="w320">
+        <table width="620" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+          <tr>
+            <td valign="top" align="left" class="tbl100" bgcolor="#e8e8e8">
+            <!--[if gte mso 9]>
+            <table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+            <![endif]-->
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="300" class="w320" valign="top" align="left" bgcolor="#e8e8e8">
+                <!-- large image -->
+                <table width="300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="300" valign="top"><a href="{{image['image_block1']['link']}}" target="_blank"><img src="{{image['image_block1']['src']}}" style="display:block" width="300" height="167" border="0" alt="{{image['image_block1']['alt']}}" title="{{image['image_block1']['alt']}}" id="fadeout" class="fadeout" /></a></td>
+                  </tr>
+                </table>
+                <!-- large image -->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td height="20"></td></tr></table>
+                <!-- 2 small images -->
+                <table width="300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="140" valign="top"><a href="{{image['image_block2']['link']}}" target="_blank"><img src="{{image['image_block2']['src']}}" style="display:block" width="140" height="78" border="0" alt="{{image['image_block2']['alt']}}" title="{{image['image_block2']['alt']}}" id="fadeout" class="fadeout" /></a></td>
+                    <td width="20"></td>
+                    <td width="140" valign="top"><a href="{{image['image_block3']['link']}}" target="_blank"><img src="{{image['image_block3']['src']}}" style="display:block" width="140" height="78" border="0" alt="{{image['image_block3']['alt']}}" title="{{image['image_block3']['alt']}}" id="fadeout" class="fadeout" /></a></td>
+                  </tr>
+                </table>               
+                <!-- 2 small images -->    
+                </td>
+                <td width="10" class="hide"></td>
+              </tr>
+            </table>                               
+            <!--[if gte mso 9]>
+            </td><td valign="top">
+            <![endif]-->                         
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="10" class="hide"></td>
+                <td width="300" class="hide" valign="top" align="left" bgcolor="#e8e8e8">
+                <!-- large image -->
+                <table width="300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="300" valign="top"><a href="{{image['image_block4']['link']}}" target="_blank"><img src="{{image['image_block4']['src']}}" style="display:block" width="300" height="167" border="0" alt="{{image['image_block4']['alt']}}" title="{{image['image_block4']['alt']}}" id="fadeout" class="fadeout" /></a></td>
+                  </tr>
+                </table>
+                <!-- large image -->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td height="20"></td></tr></table>
+                <!-- 2 small images -->
+                <table width="300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="140" valign="top"><a href="{{image['image_block5']['link']}}" target="_blank"><img src="{{image['image_block5']['src']}}" style="display:block" width="140" height="78" border="0" alt="{{image['image_block5']['alt']}}" title="{{image['image_block5']['alt']}}" id="fadeout" class="fadeout" /></a></td>
+                    <td width="20"></td>
+                    <td width="140" valign="top"><a href="{{image['image_block6']['link']}}" target="_blank"><img src="{{image['image_block6']['src']}}" style="display:block" width="140" height="78" border="0" alt="{{image['image_block6']['alt']}}" title="{{image['image_block6']['alt']}}" id="fadeout" class="fadeout" /></a></td>
+                  </tr>
+                </table>               
+                <!-- 2 small images -->                    
+                </td>
+              </tr>
+            </table>                              
+            <!--[if gte mso 9]>
+            </td></tr></table>
+            <![endif]-->
+            </td>
+          </tr>
+        </table>
+        </td>
+        <td width="30" class="hide"></td>
+      </tr>
+    </table>
+    <!-- 2 pod end -->          
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->               
+    </td>   
+  </tr>
+</table>  
+<!-- 2 + 4 images central holding table end -->
+
+
+<!-- left image central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8">
+    <!-- pod start -->     
+    <table width="680" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+      <tr>
+        <td width="30" class="hide"></td>
+        <td width="620" class="w320">
+        <table width="620" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+          <tr>
+            <td width="620" class="w320" valign="top" align="left" bgcolor="#f3f3f3">
+            <!--[if gte mso 9]>
+            <table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+            <![endif]-->
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="310" class="w320" valign="top" align="left" bgcolor="#e8e8e8">
+                <table border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td valign="top"><a href="{{ image['image8']['link']}}" target="_blank"><img src="{{ image['image8']['src']}}" style="display:block;" id="w300 fadeout" class="w300 fadeout" width="310" height="173" border="0" alt="{{ image['image8']['alt']}}" title="{{ image['image8']['alt']}}" /></a></td>
+                  </tr>
+                </table>                 
+                </td>
+              </tr>
+            </table>                               
+            <!--[if gte mso 9]>
+            </td><td valign="top">
+            <![endif]-->                         
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="310" class="w320" valign="top" align="left" bgcolor="#e8e8e8">
+                <table width="310" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#f3f3f3">
+                  <tr>
+                    <td width="10" class="hide"></td>
+                    <td width="290" class="w300">
+                    <table width="290" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="10" class="w15"></td>
+                        <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                        <table width="280" class="w275" id="w275" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="280" class="w275" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                            {{ event.title8 | raw }}
+                            </td>
+                          </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                        <table width="280" id="w275" class="w275" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="280" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                            {{ event.summary8 | raw }}
+                            </td>
+                          </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#5a970b; font-weight:bold; text-align:left;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7"></td></tr></table>
+                            <a href="{{ image['image8']['link']}}" target="_blank" style="text-decoration:none;color:#5a970b" class="underline">FIND OUT MORE</a>
+                            </td>
+                            <td width="10"></td>
+                            <td><a href="{{ image['image8']['link']}}" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_cta_green.gif" style="display:block" width="27" height="27" border="0" id="rotate270" class="rotate270" /></a></td>
+                          </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                        </td>
+                      </tr>
+                    </table>
+                    </td>
+                    <td width="10" class="hide"></td>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>                                      
+            <!--[if gte mso 9]>
+            </td></tr></table>
+            <![endif]-->
+            </td>
+          </tr>
+        </table>
+        </td>
+        <td width="30" class="hide"></td>
+      </tr>
+    </table>
+    <!-- pod end -->     
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->           
+    </td>   
+  </tr>
+</table>  
+<!-- left image central holding table end -->
+
+
+<!-- right image central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#F3F3F3">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8">
+    <!-- pod start -->     
+    <table width="680" id="w320" class="w320" cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#F3F3F3">
+      <tr>
+        <td width="30" class="hide" bgcolor="#e8e8e8"></td>
+        <td width="620" class="w320" align="left" bgcolor="#F3F3F3">
+        <!-- left reverse stack -->
+			  <table width="320" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="right" style="border:none; mso-border-right-alt:solid #F3F3F3 .5pt; border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;">
+          <tr>
+            <td width="320" class="w320" bgcolor="#e8e8e8">
+            <!-- left image -->              
+            <table width="320" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr>
+                <td width="10" bgcolor="#F3F3F3" class="hide"></td>
+                <td width="310" class="w320" valign="top">
+                <table width="310" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="310"><a href="{{ image['image9']['link']}}" target="_blank"><img src="{{ image['image9']['src']}}" style="display:block" id="w300 fadeout" class="w300 fadeout" width="310" height="173" border="0" alt="{{ image['image9']['alt']}}" title="{{ image['image9']['alt']}}" /></a></td>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>     
+            <!-- left image -->                                                
+            </td>
+          </tr>
+        </table>
+        <!-- left reverse stack -->           
+        <!-- right reverse stack -->
+        <table width="290" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" style="border:none; mso-border-right-alt:solid #F3F3F3 .5pt; border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;">
+          <tr>     
+            <td width="290" class="w320" bgcolor="#e8e8e8">                
+            <!-- right text -->             
+            <table width="290" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#F3F3F3">
+              <tr>
+                <td width="10" class="hide"></td>
+                <td width="280" class="w300" height="173" valign="top">
+                <table width="280" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="10" class="w15"></td>
+                    <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="270" id="w275" class="w275" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="270" class="w275" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                        {{ event.title9 | raw }}
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="270" id="w275" class="w275" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="270" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                        {{ event.summary9 | raw }}
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#5a970b; font-weight:bold; text-align:left;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7"></td></tr></table>
+                        <a href="{{ image['image9']['link']}}" target="_blank" style="text-decoration:none;color:#954385" class="underline">FIND OUT MORE</a>
+                        </td>
+                        <td width="10"></td>
+                        <td><a href="{{ image['image9']['link']}}" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_cta_purple.gif" style="display:block" width="27" height="27" border="0" id="rotate270" class="rotate270" /></a></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    </td>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>
+            <!-- right text -->               
+            </td>
+          </tr>
+        </table>                  
+        <!-- right reverse stack -->
+        </td> 
+        <td width="30" class="hide" bgcolor="#e8e8e8"></td>
+      </tr>
+    </table>
+    <!-- pod start -->
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer --> 
+    </td>
+  </tr>
+</table>
+<!-- right image central holding table -->
+
+
+<!-- footer central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8">
+    <!-- banner start -->
+    <table width="680" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+      <tr>
+        <td width="30" class="w10"></td>
+        <td width="620" class="w300">
+        <!-- image -->
+        <table width="620" class="w300" id="w300" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w300" id="w300" valign="top"><a href="{{ image['banner2']['link'] }}" target="_blank"><img src="{{ image['banner2']['src'] }}" style="display:block" id="w300" class="w300" width="620" height="79" border="0" alt="{{ image['banner2']['alt'] }}" title="{{ image['banner2']['alt'] }}" /></a></td>
+          </tr>
+        </table>
+        <!-- image -->
+        <!-- text -->
+        <table width="620" class="w300" id="w300" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w300" id="w300" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:13px; line-height:16px; color:#565656; font-weight:bold; text-align:center;">
+            ZSL is a charity devoted to the worldwide conservation of animals and their habitats.
+            </td>
+          </tr>
+        </table>
+        <!-- text -->
+        <!-- spacer -->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+        <!-- spacer -->       
+        <!-- blue cta's -->
+        <table border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr>
+            <td valign="top">
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:14px; line-height:17px; color:#296ca0; text-align:left;">
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#296ca0" class="underline">Donate to ZSL</a></td>
+                <td width="3"></td>
+                <td valign="top"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_cta_blue_arrow.gif" style="display:block" width="12" height="17" border="0" /></a></td>
+              </tr>
+            </table>              
+            </td>
+            <td width="45" class="w25"></td>
+            <td valign="top">
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:14px; line-height:17px; color:#296ca0; text-align:left;">
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#296ca0" class="underline">Where do we work?</a></td>
+                <td width="3"></td>
+                <td valign="top"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_cta_blue_arrow.gif" style="display:block" width="12" height="17" border="0" /></a></td>
+              </tr>
+            </table>
+            </td>
+          </tr>
+        </table>           
+        <!-- blue cta's -->
+        <!-- spacer -->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+        <!-- spacer --> 
+        
+        <!-- mobile only menu start -->
+        <!--[if !mso]><!-->
+        <table width="280" id="w300" class="w300" border="0" cellpadding="0" cellspacing="0">
+        	<tr style="width:0; overflow:hidden; float:left; display:none; max-height:0px; mso-hide:all;" class="show">
+            <td>  
+             <table width="300" cellspacing="0" cellpadding="0" border="0" bgcolor="#5a970b">
+              <tr>
+                <td width="15"></td>
+                <td width="250" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:16px; line-height:19px; color:#ffffff; text-align:left;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="8"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff" class="underline">ZSL London Zoo</a></td>
+                <td width="35"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_cta_whitegreen_arrow.gif" style="display:block" width="35" height="35" border="0" /></a></td>
+              </tr>
+            </table>
+            <table width="300" cellspacing="0" cellpadding="0" border="0" bgcolor="#a91339">
+              <tr>
+                <td width="15"></td>
+                <td width="250" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:16px; line-height:19px; color:#ffffff; text-align:left;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="8"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff" class="underline">ZSL Whipsnade Zoo</a></td>
+                <td width="35"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_cta_whitered_arrow.gif" style="display:block" width="35" height="35" border="0" /></a></td>
+              </tr>
+            </table>
+            <table width="300" cellspacing="0" cellpadding="0" border="0" bgcolor="#954385">
+              <tr>
+                <td width="15"></td>
+                <td width="250" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:16px; line-height:19px; color:#ffffff; text-align:left;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="8"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff" class="underline">Science</a></td>
+                <td width="35"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_cta_whitepurple_arrow.gif" style="display:block" width="35" height="35" border="0" /></a></td>
+              </tr>
+            </table>
+            <table width="300" cellspacing="0" cellpadding="0" border="0" bgcolor="#0d9787">
+              <tr>
+                <td width="15"></td>
+                <td width="250" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:16px; line-height:19px; color:#ffffff; text-align:left;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="8"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff" class="underline">Conservation</a></td>
+                <td width="35"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_cta_whitecyan_arrow.gif" style="display:block" width="35" height="35" border="0" /></a></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+            </td>
+          </tr>
+        </table>
+        <!--<![endif]-->
+        <!-- mobile only menu end -->   
+        
+        <!-- icons and social media --> 
+        <table width="620" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+          <tr>
+            <td width="30" class="hide"></td>
+            <td width="590" class="w300" valign="top" align="left">
+            <!--[if gte mso 9]>
+            <table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+            <![endif]-->
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="310" class="w300" valign="top" align="left">
+                <table border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td valign="top">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td valign="top"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_icon_phone.gif" style="display:block" width="28" height="27" border="0" id="fadeout" class="fadeout" /></td>
+                        <td width="9"></td>
+                        <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#3b3b3b; font-weight:bold; text-align:left;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="6"></td></tr></table>
+                        <span class="blue">0844 225 1826</span></td>                        
+                      </tr>
+                    </table> 
+                    </td>
+                    <td width="5"></td>
+                    <td valign="top">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td valign="top"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_icon_email.gif" style="display:block" width="28" height="27" border="0" id="fadeout" class="fadeout" /></a></td>
+                        <td width="9"></td>
+                        <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#3b3b3b; font-weight:bold; text-align:left;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="6"></td></tr></table>
+                        <a href="mailto:info@zsl.org" style="text-decoration:underline;color:#3b3b3b" class="blueu">info@zsl.org</a></td>                        
+                      </tr>
+                    </table> 
+                    </td>
+                  </tr>
+                </table>                
+                </td>
+              </tr>
+            </table>                                
+            <!--[if gte mso 9]>
+            </td><td valign="top">
+            <![endif]-->         
+            <!-- mobile only spacer start -->
+            <!--[if !mso]><!-->
+            <table width="280" id="w300" class="w300" border="0" cellpadding="0" cellspacing="0">
+            	<tr style="width:0; overflow:hidden; float:left; display:none; max-height:0px; mso-hide:all;" class="show">
+                <td>  
+                 <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+                </td>
+              </tr>
+            </table>
+            <!--<![endif]-->
+            <!-- mobile only spacer end -->         
+            <table width="280" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="280" class="w300" valign="top" align="left" bgcolor="#e8e8e8">
+                <table border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td valign="top"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_icon_facebook.gif" style="display:block" width="29" height="28" border="0" alt="Facebook" title="Facebook" id="fadeout" class="fadeout" /></a></td>
+                    <td width="10"></td>
+                    <td valign="top"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_icon_twitter.gif" style="display:block" width="29" height="28" border="0" alt="Twitter" title="Twitter" id="fadeout" class="fadeout" /></a></td>
+                    <td width="10"></td>
+                    <td valign="top"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_icon_youtube.gif" style="display:block" width="29" height="28" border="0" alt="YouTube" title="YouTube" id="fadeout" class="fadeout" /></a></td>
+                    <td width="10"></td>
+                    <td valign="top"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_icon_google.gif" style="display:block" width="29" height="28" border="0" alt="Google+" title="Google+" id="fadeout" class="fadeout" /></a></td>
+                    <td width="10"></td>
+                    <td valign="top"><a href="TBC" target="_blank"><img src="http://emailbuilder.alchemyworx.local/bundles/applicationtemplate/images/zsl/p13561_icon_instagram.gif" style="display:block" width="29" height="28" border="0" alt="Instagram" title="Instagram" id="fadeout" class="fadeout" /></a></td>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>                          
+            <!--[if gte mso 9]>
+            </td></tr></table>
+            <![endif]-->
+            </td>
+          </tr>
+        </table>  
+        <!-- icons and social media -->              
+        <!-- spacer -->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+        <!-- spacer -->  
+        <!-- address text -->
+        <table width="620" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w300" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:10px; line-height:13px; color:#565656; text-align:center;">
+            The Zoological Society of London is incorporated by Royal Charter - Registered Charity in England and Wales no. 208728. Principal Office England - Company Number RC000749 - Registered address Regent's Park, London, England NW1 4RY
+            </td>
+          </tr>
+        </table>
+        <!-- address text -->   
+        <!-- spacer -->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+        <!-- spacer -->  
+        <!-- unsub etc text -->
+        <table width="620" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w300" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:10px; line-height:13px; color:#525252; text-align:center;">
+            Received this email from a friend? <a href="TBC" target="_blank" style="text-decoration:underline;color:#525252" class="blueu">Sign up to ZSL emails today!</a> | <a href="TBC" target="_blank" style="text-decoration:underline;color:#525252" class="blueu">Unsubscribe from all ZSL email communications</a>
+            </td>
+          </tr>
+        </table>
+        <!-- unsub etc text -->
+        </td>
+        <td width="30" class="w10"></td>
+      </tr>
+    </table>
+    <!-- banner start -->           
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->          
+    </td>   
+  </tr>
+</table>  
+<!-- footer central holding table end -->
+
+
+</td></tr></table>
+</body>
+</html>

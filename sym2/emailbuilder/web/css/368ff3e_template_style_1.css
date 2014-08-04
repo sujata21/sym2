@@ -1,0 +1,96 @@
+div, p, a, li, td { -webkit-text-size-adjust:none;-ms-text-size-adjust:none;}   
+body {margin:0;padding:0;}      
+table td {border-collapse:collapse;}    
+.externalclass {width:100%;}    
+.externalclass * {line-height: 100%}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+  a[href^="tel"], a[href^="sms"], a {
+   color: inherit !important;
+   cursor: default !important;
+   text-decoration:none !important;
+  }
+  
+  a[class=linkunderline] {
+	  text-decoration:underline !important;
+  }
+
+}
+
+@media only screen and (max-width: 420px) {
+
+table[class="hide"], img[class="hide"], td[class="hide"], br[class="hide"], span[class="hide"] {
+	display:none !important;
+}
+
+*[class].show {
+  	display:block !important; 
+  	overflow:visible !important; 
+  	float:none !important;  
+  	width:100%; 
+  	height:auto !important; 
+}
+
+table[class="fluid"], td[class="fluid"], img[class="fluid"] {
+  width:100% !important;
+  height:auto !important;
+  display:table !important; 
+} 
+
+table[class=w320], td[class=w320], div[class=w320], img[class=w320]{
+  	width:320px !important;
+  	height:auto !important;
+} 
+
+table[class=w300], td[class=w300], div[class=w300], img[class=w300]{
+  	width:300px !important;
+  	height:auto !important;
+}
+
+table[class=w280l], td[class=w280l], div[class=w280l], img[class=w280l]{
+  	width:280px !important;
+  	height:1px !important;
+}
+
+table[class=w280], td[class=w280], div[class=w280], img[class=w280]{
+  	width:280px !important;
+  	height:auto !important;
+}
+
+table[class=w278], td[class=w278], div[class=w278], img[class=w278]{
+  	width:278px !important;
+  	height:auto !important;
+}
+
+table[class=w226], td[class=w226], div[class=w226], img[class=w226]{
+  	width:226px !important;
+}
+
+table[class=w278t], td[class=w278t], div[class=w278t], img[class=w278t]{
+  	width:278px !important;
+}
+
+table[class=w260t], td[class=w260t], div[class=w260t], img[class=w260t]{
+  	width:260px !important;
+}
+
+
+table[class=w260th], td[class=w260th], div[class=w260th], img[class=w260th]{
+  	width:260px !important;
+  	font-size:21px !important;
+    line-height:24px !important;
+}                                                                           
+
+table[class=w260tt], td[class=w260tt], div[class=w260tt], img[class=w260tt]{
+  	width:260px !important;
+  	font-size:15px !important;
+    line-height:18px !important;
+    
+         
+}        
+
+a[class=linkunderline] {
+	text-decoration:underline !important;
+}
+
+}

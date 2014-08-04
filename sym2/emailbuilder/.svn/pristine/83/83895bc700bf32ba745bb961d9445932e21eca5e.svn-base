@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>
+BBC - Radio2 Tool
+</title>
+{% block includes %}
+            {% stylesheets
+              '@ApplicationMainBundle/Resources/public/css/template_style.css'
+            %}
+
+            <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+            <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->
+
+            <link rel="stylesheet" href="{{ asset_url }}" media="screen" type="text/css"/>
+            {% endstylesheets %}
+
+            {% if is_granted("IS_AUTHENTICATED_ANONYMOUSLY") %}
+                {% include "CmfCreateBundle::includecssfiles.html.twig" %}
+            {% endif %}
+        {% endblock %}
+        <script type="text/javascript">
+            
+
+        </script>
+
+<!--[if gte mso 15]>     
+<style type="text/css" media="all">     
+tr { font-size:1px; mso-line-height-alt:0; mso-margin-top-alt:1px; }     
+</style>    
+<![endif]-->
+
+</head>
+<body  id="email-skeleton" margintop="0" marginleft="0" marginright="0" bgcolor="#fefefe" >
+  {% block content %}
+  {% endblock %}
+             
+{% javascripts
+        '@ApplicationMainBundle/Resources/public/js/jquery.js'
+        '@ApplicationMainBundle/Resources/public/js/jquery-ui.min.js'
+        '@ApplicationMainBundle/Resources/public/js/script.js'
+          %}
+        <script src="{{ asset_url }}"></script>
+
+{% endjavascripts %}
+        {% block bottom_scripts %}
+            {% render(controller("cmf_create.jsloader.controller:includeJSFilesAction", { "editor": "ckeditor", "_locale": app.request.locale })) %}
+            
+        {% endblock %}
+        <script>
+jQuery(document).ready(function() {
+  
+  window.CKEDITOR.config.customConfig = '/bundles/applicationmain/ckeditor/config.js';
+   
+  $('.create-ui-logo').hide();
+  $('.create-ui-toolbar-wrapper').css("background" , "none repeat scroll 0 0");
+  $('.create-ui-toolbar-wrapper').css("right", '');
+  $('.create-ui-toolbar-statustoolarea').css('float','left')
+  $('.create-ui-btn').css("background" , "none repeat scroll 0 0");
+  $('.create-ui-btn').css("background-color" ,'#4C8DA0');
+  $('.create-ui-statustools').css("marginLeft" ,'-165px');
+  
+  $('#midgardcreate-edit').show();
+  //$('.midgardNotifications-item-outer').css("left" ,'11px');
+  //$('.midgardNotifications-item-outer').css("top" ,'65px');
+  
+  
+  $('div.title').keyup(function(event) {
+    var ckvalue = $(this).text();
+  
+  if(ckvalue.length > 45){
+    $(this).css("border","red solid 1px");
+    var excess = ckvalue.length - 45;
+   // alert('You have exceeded the max limit by '+excess)
+   $('#alert').remove();
+   $(this).after("<div id='alert'>You have exceeded the max limit by "+excess+"</div>");
+   $('#alert').css('font-size',"11px");
+   $('#alert').css('color',"red");
+  }else{
+    $('#alert').remove();
+    $(this).css("border","#90EE90 solid 1px");
+  }
+
+  });
+  $('div.summary').keyup(function(event) {
+    var ckvalue = $(this).text();
+  //alert();
+  if($(this).attr('id') == 'summary_body4'){
+    maxlength = 133
+  }else if($(this).attr('id') == 'summary_body1'){
+    maxlength = 500
+  }else{
+    maxlength = 257
+  }
+  
+  if(ckvalue.length > maxlength){
+    $(this).css("border","red solid 1px");
+    var excess = ckvalue.length - maxlength;
+    $('#alert').remove();
+   $(this).after("<div id='alert'>You have exceeded the max limit by "+excess+"</div>");
+   $('#alert').css('font-size',"11px");
+   $('#alert').css('color',"red");
+  }else{
+    $('#alert').remove();
+    $(this).css("border","#90EE90 solid 1px");
+  }
+
+  });
+  $('div.cta').keyup(function(event) {
+    var ckvalue = $(this).text();
+  
+  if(ckvalue.length > 32){
+    var excess = ckvalue.length - 32;
+    $(this).css("border","red solid 1px");
+   $('#alert').remove();
+   $('#cta_tab').after("<div id='alert'>You have exceeded the max limit by "+excess+"</div>");
+   $('#alert').css('font-size',"11px");
+   $('#alert').css('color',"red");
+  }else{
+    $('#alert').remove();
+    $(this).css("border","#90EE90 solid 1px");
+  }
+
+  });
+  
+ // $(html).text();
+ 
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+    "name": "symfony-cmf/create-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony Bundle for createphp and create.js. The easiest way to make any site editable and have semantic annotations with RDFa.",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Liip AG",
+            "homepage": "http://www.liip.ch/"
+        },
+        {
+            "name": "Symfony CMF Community",
+            "homepage": "https://github.com/symfony-cmf/CreateBundle/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.1",
+        "symfony/assetic-bundle": "~2.1",
+        "friendsofsymfony/rest-bundle": "~1.0",
+        "jms/serializer-bundle": ">=0.12,<0.14",
+        "midgard/createphp": "0.9.*"
+    },
+    "suggest": {
+        "symfony-cmf/media-bundle": "When using the default image support, 1.0.*"
+    },
+    "autoload": {
+        "psr-0": { "Symfony\\Cmf\\Bundle\\CreateBundle": "" }
+    },
+    "target-dir": "Symfony/Cmf/Bundle/CreateBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

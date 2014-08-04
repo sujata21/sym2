@@ -1,0 +1,172 @@
+{% extends 'ApplicationMainBundle::skeleton.html.twig' %}
+
+{% block content %}
+<script type="text/javascript">
+$(document).ready(function(){
+  getemail_logs('{{email}}');
+});
+</script>
+<div class="row" >
+  <div class="col-lg-2" ><!--a onclick="email_logs('{{email}}')">log</a><a onclick="getemail_logs('{{email}}')">getlog</a>--></div>
+  <div id="subject" class="col-lg-5"> <!--style="background-color: #588AA3;color:#FFFFFF;" --></div>
+</div>
+<div class="col-lg-10" id="tabs"  style="width:779px;">
+	<ul id="myTab">
+        <li><a href='#tab0'>Main Email HTML</a> </li>
+    </ul>
+    
+    <div id='tab0'>
+      {% set iframeHeight = '1820'%}
+      {% if template == 'touchstone' %}
+        {% set iframeHeight = '700'%}
+      {% endif %}
+      <iframe src="{{iframe_path}}" id="iframe" width="100%" height="{{iframeHeight}}" name="alchemy" scrolling="yes" frameborder="0"></iframe>
+      <script type="text/javascript">
+        setInterval(function() {
+         email_logs('{{email}}')
+              
+        }, 5000);
+      </script>
+	</div>
+</div>
+
+<div class="col-lg-2 panel panel-default"  id="email-rhs" style="width:245px;">
+	<div class="panel-heading" id="email-rhs-heading" >
+    <img src="/bundles/applicationmain/images/tool.png">
+  </div>
+  <div class="panel-body">
+   	<ul class="list-group" >
+      <li class="list-group-item">
+        <div  style="cursor:pointer"  style="cursor:pointer" onclick="openTab('{{email}}','preview','{{template}}')" id="preview-link">
+          <div >Preview in browser</div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div  style="cursor:pointer"  style="cursor:pointer" onclick="preview()" id="preview-link">
+          <div >Preview in Devices <img src="/bundles/applicationmain/images/down-arrow.png"></div>
+        </div>
+      </li>
+      <li class="list-group-item" style="display:none;" id="iphone">
+        <div  style="cursor:pointer"  style="cursor:pointer" onclick="openTab('{{email}}','iPhone5','{{template}}')" id="preview-link">
+          <div >320X568 (iPhone5)</div>
+        </div>
+      </li>
+      <li class="list-group-item" style="display:none;" id="ipad">
+        <div  style="cursor:pointer"  style="cursor:pointer" onclick="openTab('{{email}}','iPad','{{template}}')" id="preview-link">
+          <div >768X1024 (Apple iPad 2-3rd , mini)</div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div  style="cursor:pointer"  style="cursor:pointer" onclick="openTab('{{email}}','linkchecker','{{template}}')" id="linkchecker-link">
+          <div >Link Checker</div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div  style="cursor:pointer"  style="cursor:pointer" onclick="snapshot('{{email}}','{{template}}')" id="snapshot-link">
+          <div >Download Email Snapshot</div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div  style="cursor:pointer"  style="cursor:pointer" onclick="openTab('{{email}}','download','{{template}}')" id="download-link">
+          <div >Download HTML</div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div  style="cursor:pointer"  style="cursor:pointer" onclick="openTab('{{email}}','source','{{template}}')" id="source-link">
+          <div >View HTML</div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div  style="cursor:pointer"  style="cursor:pointer" onclick="archieve('{{email}}','{{template}}')" id="archieve-link">
+          <div >Save to Archive</div>
+        </div>
+      </li>         
+      <li class="list-group-item" >
+        <div  style="cursor:pointer"  onclick="checkpoint('{{email}}','{{template}}')">
+          <div >Create New Version</div>
+        </div>
+      </li>
+      {% if imageupdate == 1 %}
+      <li class="list-group-item">
+        <div  style="cursor:pointer" >
+          <div id="modal-div" ><a href="#myModal" data-toggle="modal">Update Images</a></div>
+        </div>
+      </li>
+      {% endif %}
+	</ul>
+</div>
+<div class="panel-heading" id="email-rhs-heading2" onclick="checkpoint('{{email}}','{{template}}')"><img src="/bundles/applicationmain/images/version.png" ></div>
+  <div class="panel-body" >
+    <ul class="list-group" id="versions">
+    {% for version in version %}
+        {% if version != 'jcr:rootVersion' %}
+        <li class="list-group-item">Version : {{version}} 
+          <a class="version-link"  onclick="getVersion('{{email}}','{{ version|replace('.', '_') }}','email','{{template}}')" >view</a> |
+          <a class="version-link" onclick="restore('{{email}}','{{ version|replace('.', '_') }}','{{template}}')" id="restore-link" >restore</a>
+        </li>
+    
+  
+      {% endif %}
+      {% endfor %}
+    </ul>
+</div>
+    <!-- Modal -->
+<!-- Modal -->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:545px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button id="close-modal" type="button" class="close" >&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Email Image Update</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form" id="image-form">
+          <input type="hidden" value="{{email}}" id="email-name">
+          <div class="form-group">
+            <label for="signature-image">Signature</label>
+            <input type="text" class="form-control" id="signature-image" placeholder="PID">
+          </div>
+          <div class="form-group">
+            <label for="hero-image">Header (Hero) Image</label>
+            <input type="text" class="form-control" id="hero-image" placeholder="PID">
+          </div>
+          <div class="form-group">
+            <label for="pod1-image">POD1 Image</label>
+            <input type="text" class="form-control" id="pod1-image" placeholder="PID">
+          </div>
+          <div class="form-group">
+            <label for="pod2-image">POD2 Image</label>
+            <input type="text" class="form-control" id="pod2-image" placeholder="PID">
+          </div>
+          <div class="form-group">
+            <label for="pod3-image">POD3 Image</label>
+            <input type="text" class="form-control" id="pod3-image" placeholder="PID">
+          </div>
+          <div class="form-group">
+            <label for="pod4-image">POD4 Image</label>
+            <input type="text" class="form-control" id="pod4-image" placeholder="PID">
+          </div>
+          <div class="form-group">
+            <label for="pod5-image">POD5 Image</label>
+            <input type="text" class="form-control" id="pod5-image" placeholder="PID">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Banner</label>
+            <input type="text" class="form-control" id="banner-image" placeholder="PID">
+          </div>
+        <button type="button" class="btn btn-default" id="image-update">Submit</button>
+        <button type="button" class="btn btn-default" id="close-modal-btn">Close</button>
+        </form>
+      </div>
+  
+    </div>
+  </div>
+</div>
+    
+<!-- Modal--> 
+
+
+  
+
+</div>
+{% endblock %}

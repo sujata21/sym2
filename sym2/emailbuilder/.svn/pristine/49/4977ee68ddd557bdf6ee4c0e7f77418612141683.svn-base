@@ -1,0 +1,430 @@
+{% extends 'ApplicationTemplateBundle::touchstone.html.twig' %}
+{% block content %}
+{% createphp event as="rdf" %}
+<!--------------- Header and Nav --------------->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;" bgcolor="#ebebeb">
+	<tr>
+		<td>
+		<div align="center">
+		
+			<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+			<table width="650" border="0" cellspacing="0" cellpadding="0" class="w320">
+				<tr>
+					<td width="20" class="w10"></td>
+					<td width="610" class="w300" bgcolor="#FFFFFF">
+						
+						<!--[if gte mso 9]>
+						<table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+						<![endif]-->
+						
+						<!-- LOGO -->
+						<table width="305" border="0" align="left" cellpadding="0" cellspacing="0" class="tbl100">
+							<tr>
+								<td width="20" class="w10"></td>
+								<td width="193" class="w162">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+									<a href="TBC" target="_blank"><img style="display:block" border="0" src="http://spandey.alchemyworx.local/alchemyworx-website/touchstone2/images/touchstone_logo.jpg" alt="Touchstone - Subject Line Gold" title="Touchstone - Subject Line Gold" width="193" height="56" class="w162" /></a>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hide"><tr><td height="20"></td></tr></table>
+								</td>
+								<td width="92" class="w129"></td>
+							</tr>
+						</table>
+						
+						<!--[if gte mso 9]>
+						</td><td valign="top">
+						<![endif]-->
+						
+						<!-- NAVIGATION -->
+						<table width="305" border="0" cellpadding="0" cellspacing="0" class="tbl100">
+							<tr>
+								<td width="1" class="w10"></td>
+								<td width="193" height="96" align="center" class="w280" style="font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:16px; color:#373736;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+									<div style="width:284px;color:black;">
+										<div style="width:80px;float:left" {{ createphp_attributes( rdf.menu_text1 ) }}>{{ createphp_content( rdf.menu_text1 ) }}</div><div style="width:22px;float:left">&nbsp;|&nbsp;</div>
+										<div style="width:80px;float:left" {{ createphp_attributes( rdf.menu_text2 ) }}>{{ createphp_content( rdf.menu_text2 ) }}</div><div style="width:22px;float:left">&nbsp;|&nbsp;</div>
+										<div style="width:80px;float:left" {{ createphp_attributes( rdf.menu_text3 ) }}>{{ createphp_content( rdf.menu_text3 ) }}</div>
+									</div>
+									<!--<a href="TBC" target="_blank" style="color:#373736; text-decoration:none">Lorem Ipsum</a> <span style="color:#7c9c53">&nbsp;|&nbsp;</span> <a href="TBC" target="_blank" style="color:#373736; text-decoration:none">Lorem Ipsum</a> <span style="color:#7c9c53">&nbsp;|&nbsp;</span> <a href="TBC" target="_blank" style="color:#373736; text-decoration:none">Lorem Ipsum</a>-->
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20" class="h15"></td></tr></table>
+								</td>
+								<td width="20" class="w10"></td>
+							</tr>
+						</table>
+						
+						<!--[if gte mso 9]>
+						</td></tr></table>
+						<![endif]-->
+						
+					</td>
+					<td width="20" class="w10"></td>
+				</tr>
+			</table>
+			
+		</div>
+		</td>
+	</tr>
+</table>
+
+<!--------------- Headline Banner --------------->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;" bgcolor="#ebebeb">
+	<tr>
+		<td>
+		<div align="center">
+		
+			<table width="650" border="0" cellspacing="0" cellpadding="0" class="w320">
+				<tr>
+					<td width="10" class="w5"></td>
+					<td width="10" class="w5" bgcolor="#7c9c53"></td>
+					<td width="20" class="w10" bgcolor="#7c9c53"></td>
+					<td width="570" align="center" bgcolor="#7c9c53" class="w280fs20" style="font-family:Arial, Helvetica, sans-serif; font-size:24px; line-height:29px; color:#ffffff; font-weight:bold">
+						
+						<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20" class="h10"></td></tr></table>
+						<div {{ createphp_attributes( rdf.header ) }}>{{ createphp_content( rdf.header ) }}</div>
+						<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20" class="h10"></td></tr></table>
+						
+					</td>
+					<td width="20" class="w10" bgcolor="#7c9c53"></td>
+					<td width="10" class="w5" bgcolor="#7c9c53"></td>
+					<td width="10" class="w5"></td>
+				</tr>
+			</table>
+			<table width="650" border="0" cellspacing="0" cellpadding="0" class="w320">
+				<tr>
+					<td width="10" class="w5"></td>
+					<td width="10" class="w5" valign="top">
+						<table width="10" border="0" cellspacing="0" cellpadding="0" class="w5">
+							<tr>
+								<td width="5"><img style="display:block" border="0" src="http://spandey.alchemyworx.local/alchemyworx-website/touchstone2/images/border_left1.gif" width="5" height="10" /></td>
+								<td width="5" class="hide"><img style="display:block" border="0" src="http://spandey.alchemyworx.local/alchemyworx-website/touchstone2/images/border_left2.gif" width="5" height="10" /></td>
+							</tr>
+						</table>
+					</td>
+					<td width="610" bgcolor="#ffffff" class="w300"></td>
+					<td width="10" class="w5" valign="top">
+						<table width="10" border="0" cellspacing="0" cellpadding="0" class="w5">
+							<tr>
+								<td width="5" class="hide"><img style="display:block" border="0" src="http://spandey.alchemyworx.local/alchemyworx-website/touchstone2/images/border_right2.gif" width="5" height="10" /></td>
+								<td width="5"><img style="display:block" border="0" src="http://spandey.alchemyworx.local/alchemyworx-website/touchstone2/images/border_right1.gif" width="5" height="10" /></td>
+							</tr>
+						</table>
+					</td>
+					<td width="10" class="w5"></td>
+				</tr>
+			</table>
+			
+		</div>
+		</td>
+	</tr>
+</table>
+
+<!--------------- Body Content 1 --------------->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;" bgcolor="#ebebeb">
+	<tr>
+		<td>
+		<div align="center">
+		
+			<table width="650" border="0" cellspacing="0" cellpadding="0" class="w320">
+				<tr>
+					<td width="20" class="w10"></td>
+					<td width="610" class="w300" bgcolor="#FFFFFF">
+						
+						<!-- CONTENT -->
+						<table width="610" border="0" align="left" cellpadding="0" cellspacing="0" class="tbl100">
+							<tr>
+								<td width="20" class="w10"></td>
+								<td width="570" class="w280" style="font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:16px; color:#373736;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+									<strong><div {{ createphp_attributes( rdf.title1 ) }}>{{ createphp_content( rdf.title1 ) }}</div></strong>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+									<div {{ createphp_attributes( rdf.summary1 ) }}>{{ createphp_content( rdf.summary1 ) }}</div>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+									<!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean posuere sem et nisi semper, non auctor turpis eleifend. Vestibulum dapibus eros tortor, vel viverra neque scelerisque vel. Sed gravida mattis odio. -->
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+									<table width="270" border="0" cellspacing="0" cellpadding="0" bgcolor="#fab02b" class="w280">
+										<tr>
+											<td width="10">&nbsp;</td>
+											<td align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:24px; line-height:28px; color:#ffffff; font-weight:bold">
+												<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="5"></td></tr></table>
+												<a  target="_blank" style="color:#ffffff; text-decoration:none;"><div {{ createphp_attributes( rdf.cta1 ) }}>{{ createphp_content( rdf.cta1 ) }}</div></a>
+												<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="5"></td></tr></table>
+											</td>
+                      <td width="10"></td>
+                      <td width="12" valign="top"><div {{ createphp_attributes( rdf.cta1_link ) }}>{{ createphp_content( rdf.cta1_link ) }}</div></td>
+											<td width="40">&nbsp;</td>
+										</tr>
+									</table>
+								</td>
+								<td width="15" class="w10"></td>
+							</tr>
+						</table>
+						
+					</td>
+					<td width="20" class="w10"></td>
+				</tr>
+			</table>
+			
+		</div>
+		</td>
+	</tr>
+</table>
+
+
+<!--------------- Body Content 2 --------------->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;" bgcolor="#ebebeb">
+	<tr>
+		<td>
+		<div align="center">
+		
+			<table width="650" border="0" cellspacing="0" cellpadding="0" class="w320">
+				<tr>
+					<td width="20" class="w10"></td>
+					<td width="610" class="w300" bgcolor="#FFFFFF">
+						
+						<!--[if gte mso 9]>
+						<table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+						<![endif]-->
+						
+						<!-- CONTENT -->
+						<table width="305" border="0" align="left" cellpadding="0" cellspacing="0" class="tbl100">
+							<tr>
+								<td width="20" class="w10"></td>
+								<td width="270" class="w280" style="font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:16px; color:#373736;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+									<strong><div {{ createphp_attributes( rdf.title2 ) }}>{{ createphp_content( rdf.title2 ) }}</div></strong>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+									<div {{ createphp_attributes( rdf.summary2 ) }}>{{ createphp_content( rdf.summary2 ) }}</div> 
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+									<!--Vestibulum dapibus eros tortor, vel viverra neque scelerisque vel. Sed gravida mattis odio.--> 
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+									<table width="270" border="0" cellspacing="0" cellpadding="0" bgcolor="#fab02b" class="w280">
+										<tr>
+											<td width="10">&nbsp;</td>
+											<td align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:24px; line-height:28px; color:#ffffff; font-weight:bold">
+												<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="5"></td></tr></table>
+												<a  target="_blank" style="color:#ffffff; text-decoration:none;"><div {{ createphp_attributes( rdf.cta2 ) }}>{{ createphp_content( rdf.cta2 ) }}</div></a>
+												<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="5"></td></tr></table>
+											</td>
+                      <td width="10"></td>
+                      <td width="12" valign="top"><div {{ createphp_attributes( rdf.cta2_link ) }}>{{ createphp_content( rdf.cta2_link ) }}</div></td>
+											<td width="40">&nbsp;</td>
+										</tr>
+									</table>
+
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hide"><tr><td height="20"></td></tr></table>
+								</td>
+								<td width="15" class="w10"></td>
+							</tr>
+						</table>
+						
+						<!--[if gte mso 9]>
+						</td><td valign="top">
+						<![endif]-->
+						
+						<!-- PHOTO -->
+						<table width="305" border="0" cellpadding="0" cellspacing="0" class="tbl100">
+							<tr>
+								<td width="15" class="w10"></td>
+								<td width="270" height="96" align="center" class="w280">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+									<!--<img style="display:block" border="0" src="http://placehold.it/270x200" />-->
+									<div {{ createphp_attributes( rdf.hero ) }}>{{ createphp_content( rdf.hero ) }}</div>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+								</td>
+								<td width="20" class="w10"></td>
+							</tr>
+						</table>
+						
+						<!--[if gte mso 9]>
+						</td></tr></table>
+						<![endif]-->
+						
+					</td>
+					<td width="20" class="w10"></td>
+				</tr>
+			</table>
+			
+		</div>
+		</td>
+	</tr>
+</table>
+
+
+<!--------------- Body Content 3 --------------->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;" bgcolor="#ebebeb">
+	<tr>
+		<td>
+		<div align="center">
+		
+			<table width="650" border="0" cellspacing="0" cellpadding="0" class="w320">
+				<tr>
+					<td width="20" class="w10"></td>
+					<td width="610" class="w300" bgcolor="#FFFFFF">
+						
+						<!--[if gte mso 9]>
+						<table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+						<![endif]-->
+						
+						<!-- CONTENT -->
+						<table width="395" border="0" align="left" cellpadding="0" cellspacing="0" class="tbl100">
+							<tr>
+								<td width="20" class="w10"></td>
+								<td width="360" class="w280" style="font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:16px; color:#373736;">
+									<strong><div {{ createphp_attributes( rdf.title3 ) }}>{{ createphp_content( rdf.title3 ) }}</div></strong>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+									<div {{ createphp_attributes( rdf.summary3 ) }}>{{ createphp_content( rdf.summary3 ) }}</div> 
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hide">
+										<tr><td height="20"></td></tr></table>
+								</td>
+								<td width="15" class="w10"></td>
+							</tr>
+						</table>
+						
+						<!--[if gte mso 9]>
+						</td><td valign="top">
+						<![endif]-->
+						
+						<!-- PHOTO -->
+						<table width="215" border="0" cellpadding="0" cellspacing="0" class="tbl100">
+							<tr>
+								<td width="12" class="w10"></td>
+								<td width="183" align="center" class="w280" style="font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:16px; color:#373736;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="40" class="h20"></td></tr></table>
+									<table width="183" border="0" cellspacing="0" cellpadding="0" bgcolor="#fab02b" class="w280">
+										<tr>
+											<td width="10">&nbsp;</td>
+											<td align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:24px; line-height:28px; color:#ffffff; font-weight:bold">
+												<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="5"></td></tr></table>
+												<a  target="_blank" style="color:#ffffff; text-decoration:none;"><div {{ createphp_attributes( rdf.cta2 ) }}>{{ createphp_content( rdf.cta2 ) }}</div></a>
+												<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="5"></td></tr></table>
+											</td>
+											<td width="10"></td>
+                      <td width="12" valign="top"><div {{ createphp_attributes( rdf.cta2_link ) }}>{{ createphp_content( rdf.cta2_link ) }}</div></td>
+											<td width="40">&nbsp;</td>
+										</tr>
+									</table>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20" class="h15"></td></tr></table>
+								</td>
+								<td width="20" class="w10"></td>
+							</tr>
+						</table>
+						
+						<!--[if gte mso 9]>
+						</td></tr></table>
+						<![endif]-->
+						
+					</td>
+					<td width="20" class="w10"></td>
+				</tr>
+			</table>
+			<table width="650" border="0" cellspacing="0" cellpadding="0" class="w320">
+				<tr>
+					<td width="20" class="w10"></td>
+					<td width="20" bgcolor="#FFFFFF" class="w10"></td>
+					<td width="570" bgcolor="#FFFFFF" class="w280">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="1" style="font-size:1px; line-height:1px;" bgcolor="#3c3c3b">&nbsp;</td></tr></table>
+					</td>
+					<td width="20" bgcolor="#FFFFFF" class="w10"></td>
+					<td width="20" class="w10"></td>
+				</tr>
+			</table>
+			
+		</div>
+		</td>
+	</tr>
+</table>
+
+
+<!--------------- Signup Pod --------------->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;" bgcolor="#ebebeb">
+	<tr>
+		<td>
+		<div align="center">
+		
+			<table width="650" border="0" cellspacing="0" cellpadding="0" class="w320">
+				<tr>
+					<td width="20" class="w10"></td>
+					<td width="610" class="w300" bgcolor="#FFFFFF">
+						
+						<!--[if gte mso 9]>
+						<table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+						<![endif]-->
+						
+						<!-- CONTENT -->
+						<table width="395" border="0" align="left" cellpadding="0" cellspacing="0" class="tbl100">
+							<tr>
+								<td width="20" class="w10"></td>
+								<td width="360" class="w280" style="font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:16px; color:#373736;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+									<strong>Naked Email Panel</strong>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+									Thanks to email marketing agency Alchemy Worx, every Touchstone email is a live experiment. Sign up below and we'll share our insight with you and demonstrate how we respond to your interactions 
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+									<a href="TBC" target="_blank" style="color:#7c9c53">Sign up now ></a>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="hide">
+										<tr><td height="20"></td></tr></table>
+								</td>
+								<td width="15" class="w10"></td>
+							</tr>
+						</table>
+						
+						<!--[if gte mso 9]>
+						</td><td valign="top">
+						<![endif]-->
+						
+						<!-- PHOTO -->
+						<table width="215" border="0" cellpadding="0" cellspacing="0" class="tbl100">
+							<tr>
+								<td width="12" class="w10"></td>
+								<td width="183" align="center" class="w280" style="font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:16px; color:#373736;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+									<img style="display:block" border="0" src="http://spandey.alchemyworx.local/alchemyworx-website/touchstone2/images/strategy_emblem.jpg" alt="Strategy Powered by Alchemy Worx" title="Strategy Powered by Alchemy Worx" width="133" height="133" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20" class="h15"></td></tr></table>
+								</td>
+								<td width="20" class="w10"></td>
+							</tr>
+						</table>
+						
+						<!--[if gte mso 9]>
+						</td></tr></table>
+						<![endif]-->
+						
+					</td>
+					<td width="20" class="w10"></td>
+				</tr>
+			</table>
+			
+		</div>
+		</td>
+	</tr>
+</table>
+
+
+<!--------------- Footer --------------->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;" bgcolor="#ebebeb">
+	<tr>
+		<td>
+		<div align="center">
+		
+			<table width="650" border="0" cellspacing="0" cellpadding="0" class="w320">
+				<tr>
+					<td width="20" class="w10"></td>
+					<td width="20" class="w10"></td>
+					<td width="570" class="w280" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:15px; color:#646464; text-align:center;">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+						Alchemy Worx Ltd, 4th floor, 1 New Oxford Street <span class="hide">|</span> London | WC1A 1LW <br />
+						&copy; Alchemy Worx 2014 
+						<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+					</td>
+					<td width="20" class="w10"></td>
+					<td width="20" class="w10"></td>
+				</tr>
+			</table>
+			
+		</div>
+		</td>
+	</tr>
+</table>
+
+{% endcreatephp %}
+ {% endblock %}

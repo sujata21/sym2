@@ -1,0 +1,1079 @@
+{% extends 'ApplicationTemplateBundle::zsl.html.twig' %}
+{% block content %}
+{% createphp template as="rdf" %}
+<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#e8e8e8">  
+
+<!-- central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8">    
+    <!-- top section --> 
+    <table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="30" class="hide" valign="top"><img src="/bundles/applicationtemplate/images/zsl/p13561_mainimage_left.jpg" style="display:block" width="30" height="400" border="0" /></td>
+        <td width="620" class="w320" valign="top">            
+        <!-- nav bar --> 
+        <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="114" class="w320" valign="top" bgcolor="#3b3b3b">
+            <table width="114" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr>
+                <td width="114" class="h50"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_logo_top.jpg" style="display:block" width="114" height="36" border="0" alt="ZSL" title="ZSL" id="fadeout" class="fadeout" /></a></td>
+              </tr>
+            </table>
+            </td>
+            <td width="140" class="hide" valign="top">
+            <table width="140" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="140" height="36" valign="top" bgcolor="#5a970b" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:15px; line-height:18px; color:#ffffff; text-align:center;" class="bg_topnav">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="9"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff">ZSL London Zoo</a>
+                </td>
+              </tr>
+            </table>
+            </td>
+            <td width="167" class="hide" valign="top">
+            <table width="167" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="167" height="36" valign="top" bgcolor="#a91339" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:15px; line-height:18px; color:#ffffff; text-align:center;" class="bg_topnav">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="9"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff">ZSL Whipsnade Zoo</a>
+                </td>
+              </tr>
+            </table>
+            </td>
+            <td width="82" class="hide" valign="top">
+            <table width="82" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="82" height="36" valign="top" bgcolor="#954385" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:15px; line-height:18px; color:#ffffff; text-align:center;" class="bg_topnav">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="9"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff">Science</a>
+                </td>
+              </tr>
+            </table>
+            </td>
+            <td width="117" class="hide" valign="top">
+            <table width="117" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="117" height="36" valign="top" bgcolor="#0d9787" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:15px; line-height:18px; color:#ffffff; text-align:center;" class="bg_topnav">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="9"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff">Conservation</a>
+                </td>
+              </tr>
+            </table>
+            </td>
+          </tr>
+        </table>
+        <!-- nav bar -->               
+        <!-- main image -->
+        <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" id="w320" class="w320" valign="top"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_mainimage.jpg" style="display:block" class="w320" id="w320" width="620" height="208" border="0" /></a></td>
+          </tr>
+        </table>
+        <!-- main image -->                 
+        <!-- intro title -->
+        <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w320" valign="top" bgcolor="#3b3b3b">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="9"></td></tr></table>
+            <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="15" class="w25"></td>
+                <td class="fs20" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:22px; line-height:25px; color:#f3f3f3; font-weight:bold; text-align:left;">
+                <div {{ createphp_attributes( rdf.title1 ) }}>{{ createphp_content( rdf.title1 ) }}</div>
+                </td>
+                <td width="15" class="w10"></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="9"></td></tr></table>
+            </td>
+          </tr>
+        </table>
+        <!-- intro title -->                
+        <!-- intro para and cta -->
+        <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w320" valign="top" bgcolor="#ffffff">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="18"></td></tr></table>
+            <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="15" class="w25"></td>
+                <td style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:14px; line-height:17px; color:#565656; text-align:left;">
+                <div {{ createphp_attributes( rdf.summary1 ) }}>{{ createphp_content( rdf.summary1 ) }}</div>
+                </td>
+                <td width="35" class="w25"></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="18"></td></tr></table>
+            <table width="620" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="15" class="w25"></td>
+                <td>
+                <table id="bg_ctagrey" class="bg_ctagrey" border="0" cellspacing="0" cellpadding="0" bgcolor="#5a970b">
+                  <tr>
+                    <td width="10"></td>
+                    <td class="m130" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#ffffff; text-align:center; min-width:130px;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                    <a  style="text-decoration:none;color:#ffffff"><div {{ createphp_attributes( rdf.cta1 ) }}>{{ createphp_content( rdf.cta1 ) }}</div></a>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                    </td>
+                    <td width="10"></td>
+                  </tr>
+                </table> 
+                </td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+            </td>
+          </tr>
+        </table>
+        <!-- intro para and cta -->               
+        </td>
+        <td width="30" class="hide" valign="top"><img src="/bundles/applicationtemplate/images/zsl/p13561_mainimage_right.jpg" style="display:block" width="30" height="400" border="0" /></td>
+      </tr>
+    </table>
+    <!-- top section -->      
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->       
+    </td>
+  </tr>
+</table>
+<!-- central holding table end -->
+
+    
+<!-- 2 pod central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" id="w320" class="w320" bgcolor="#e8e8e8">        
+    <!-- 2 pod start -->
+    <table width="680" id="tbl100" cellspacing="0" cellpadding="0" border="0" align="center" class="tbl100">
+      <tr>
+        <td width="30" class="hide"></td>
+        <td width="620" class="w320">
+        <table width="620" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+          <tr>
+            <td valign="top" align="left" class="tbl100" bgcolor="#e8e8e8">
+            <!--[if gte mso 9]>
+            <table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+            <![endif]-->
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="300" class="w320" valign="top" align="left" bgcolor="#e8e8e8">                 
+                <!-- left pod content start -->
+                <table width="300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="300" bgcolor="#f3f3f3" valign="top">
+                    <table width="300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="300" valign="top"><div {{ createphp_attributes( rdf.image2 ) }}>{{ createphp_content( rdf.image2 ) }}</div></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="260" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                        <div {{ createphp_attributes( rdf.title2 ) }}>{{ createphp_content( rdf.title2 ) }}</div>
+                        </td>
+                        <td width="25"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="260" height="75" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                        <div {{ createphp_attributes( rdf.summary2 ) }}>{{ createphp_content( rdf.summary2 ) }}</div>
+                        </td>
+                        <td width="25"></td>
+                      </tr>
+                    </table>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td>
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#a91339; font-weight:bold; text-align:left;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7"></td></tr></table>
+                            <a href="TBC" target="_blank" style="text-decoration:none;color:#a91339" class="underline">FIND OUT MORE</a>
+                            </td>
+                            <td width="10"></td>
+                            <td><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_cta_red.gif" style="display:block" width="27" height="27" border="0" id="rotate270" class="rotate270" /></a></td>
+                          </tr>
+                        </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    </td>
+                  </tr>
+                </table>
+                <!-- left pod content end -->                        
+                </td>
+                <td width="10" class="hide"></td>
+              </tr>                  
+            </table>                           
+            <!--[if gte mso 9]>
+            </td><td valign="top">
+            <![endif]-->                             
+            <!-- mobile only spacer start -->
+            <!--[if !mso]><!-->
+            <table width="300" id="w300" class="w300" border="0" cellpadding="0" cellspacing="0">
+              <tr style="width:0; overflow:hidden; float:left; display:none; max-height:0px; mso-hide:all;" class="show">
+                <td>  
+                 <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+                </td>
+              </tr>
+            </table>
+            <!--<![endif]-->
+            <!-- mobile only spacer end -->                   
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="10" class="hide"></td>
+                <td width="300" class="w320" valign="top" align="left" bgcolor="#e8e8e8">                
+                <!-- right pod content start -->
+                <table width="300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="300" bgcolor="#f3f3f3" valign="top">
+                    <table width="300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="300" valign="top"><div {{ createphp_attributes( rdf.image3 ) }}>{{ createphp_content( rdf.image3 ) }}</div></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="260" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                        <div {{ createphp_attributes( rdf.title3 ) }}>{{ createphp_content( rdf.title3 ) }}</div>
+                        </td>
+                        <td width="25"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="260" height="75" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                        <div {{ createphp_attributes( rdf.summary3 ) }}>{{ createphp_content( rdf.summary3 ) }}</div>
+                        </td>
+                        <td width="25"></td>
+                      </tr>
+                    </table>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td>
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#954385; font-weight:bold; text-align:left;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7"></td></tr></table>
+                            <a href="TBC" target="_blank" style="text-decoration:none;color:#954385" class="underline">FIND OUT MORE</a>
+                            </td>
+                            <td width="10"></td>
+                            <td><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_cta_purple.gif" style="display:block" width="27" height="27" border="0" id="rotate270" class="rotate270" /></a></td>
+                          </tr>
+                        </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    </td>
+                  </tr>
+                </table>
+                <!-- right pod content end -->                    
+                </td>
+              </tr>
+            </table>
+            <!--[if gte mso 9]>
+            </td></tr></table>
+            <![endif]-->
+            </td>
+          </tr>
+        </table>
+        </td>
+        <td width="30" class="hide"></td>
+      </tr>
+    </table>
+    <!-- 2 pod end -->             
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->                  
+    </td>
+  </tr>
+</table>
+<!-- 2 pod central holding table end -->
+
+    
+<!-- banner central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8"> 
+    <!-- banner start -->
+    <table width="680" cellspacing="0" cellpadding="0" border="0" align="center" ID="tbl100" class="tbl100">
+      <tr>
+        <td width="30" class="w10"></td>
+        <td width="620" class="w300">
+        <!-- banner image -->
+        <table width="620" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w300" valign="top"><div  {{ createphp_attributes( rdf.banner1 ) }}>{{ createphp_content( rdf.banner1 ) }}</div></td>
+          </tr>
+        </table>
+        <!-- banner image -->
+        </td>
+        <td width="30" class="w10"></td>
+      </tr>
+    </table>
+    <!-- banner start -->           
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->                
+    </td>
+  </tr>
+</table>
+<!-- banner central holding table end -->
+
+    
+<!-- 4 pods central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8">     
+    
+    <table width="680" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+      <tr>
+        <td width="30" class="hide"></td>
+        <td width="620" class="w320">
+        <table width="620" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+          <tr>
+            <td valign="top" align="left" class="tbl100" bgcolor="#e8e8e8">
+            <!--[if gte mso 9]>
+            <table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+            <![endif]-->
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="300" class="w320" valign="top" align="left" bgcolor="#e8e8e8">
+                <table width="300" cellspacing="0" cellpadding="0" border="0" align="center">
+                  <tr>
+                    <td width="140" valign="top" bgcolor="#f3f3f3">
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="140" valign="top"><div {{ createphp_attributes( rdf.image4 ) }}>{{ createphp_content( rdf.image4 ) }}</div></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                        <div {{ createphp_attributes( rdf.title4 ) }}>{{ createphp_content( rdf.title4 ) }}</div>
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" height="105" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                        <div {{ createphp_attributes( rdf.summary4 ) }}>{{ createphp_content( rdf.summary4 ) }}</div>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table> 
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>                                                
+                    <table class="bg_ctagrey" id="bg_ctagrey" width="140" border="0" cellspacing="0" cellpadding="0" bgcolor="#5a970b">
+                      <tr>
+                        <td width="10"></td>
+                        <td width="120" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#ffffff; text-align:center; min-width:130px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        <a  style="text-decoration:none;color:#ffffff"><div {{ createphp_attributes( rdf.cta4 ) }}>{{ createphp_content( rdf.cta4 ) }}</div></a>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table> 
+                    </td>
+                    <td width="20"></td>
+                    <td width="140" valign="top" bgcolor="#f3f3f3">
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="140" valign="top"><div {{ createphp_attributes( rdf.image5 ) }}>{{ createphp_content( rdf.image5 ) }}</div></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                        <div {{ createphp_attributes( rdf.title5 ) }}>{{ createphp_content( rdf.title5 ) }}</div>
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" height="105" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                        <div {{ createphp_attributes( rdf.summary5 ) }}>{{ createphp_content( rdf.summary5 ) }}</div>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table> 
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>                      
+                    <table class="bg_ctagrey" id="bg_ctagrey" width="140" border="0" cellspacing="0" cellpadding="0" bgcolor="#a91339">
+                      <tr>
+                        <td width="10"></td>
+                        <td width="120" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#ffffff; text-align:center; min-width:130px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        <a style="text-decoration:none;color:#ffffff"> <div {{ createphp_attributes( rdf.cta5 ) }}>{{ createphp_content( rdf.cta5 ) }}</div></a>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>
+                    </td>
+                  </tr>
+                </table>
+                </td>                    
+                <td width="10" class="hide"></td>
+              </tr>
+            </table>                               
+            <!--[if gte mso 9]>
+            </td><td valign="top">
+            <![endif]-->          
+            <!-- mobile only spacer start -->
+            <!--[if !mso]><!-->
+            <table width="300" id="w320" class="w300" border="0" cellpadding="0" cellspacing="0">
+              <tr style="width:0; overflow:hidden; float:left; display:none; max-height:0px; mso-hide:all;" class="show">
+                <td>  
+                 <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+                </td>
+              </tr>
+            </table>
+            <!--<![endif]-->
+            <!-- mobile only spacer end -->                 
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="10" class="hide"></td>
+                <td width="300" class="w320" valign="top" align="left" bgcolor="#e8e8e8">
+                <table width="300" cellspacing="0" cellpadding="0" border="0" align="center">
+                  <tr>
+                    <td width="140" valign="top" bgcolor="#f3f3f3">
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="140" valign="top"> <div {{ createphp_attributes( rdf.image6 ) }}>{{ createphp_content( rdf.image6 ) }}</div></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                         <div {{ createphp_attributes( rdf.title6 ) }}>{{ createphp_content( rdf.title6 ) }}</div>
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" height="105" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                         <div {{ createphp_attributes( rdf.summary6 ) }}>{{ createphp_content( rdf.summary6 ) }}</div>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table> 
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>                      
+                    <table class="bg_ctagrey" id="bg_ctagrey" width="140" border="0" cellspacing="0" cellpadding="0" bgcolor="#954385">
+                      <tr>
+                        <td width="10"></td>
+                        <td width="120" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#ffffff; text-align:center; min-width:130px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        <a style="text-decoration:none;color:#ffffff"><div {{ createphp_attributes( rdf.cta6 ) }}>{{ createphp_content( rdf.cta6 ) }}</div></a>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table> 
+                    </td>
+                    <td width="20"></td>
+                    <td width="140" valign="top" bgcolor="#f3f3f3">
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="140" valign="top"><div {{ createphp_attributes( rdf.image7 ) }}>{{ createphp_content( rdf.image7 ) }}</div></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                         <div {{ createphp_attributes( rdf.title7 ) }}>{{ createphp_content( rdf.title7 ) }}</div>
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="140" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="15"></td>
+                        <td width="115" height="105" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                        <div {{ createphp_attributes( rdf.summary7 ) }}>{{ createphp_content( rdf.summary7 ) }}</div>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table> 
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table>                      
+                    <table class="bg_ctagrey" id="bg_ctagrey" width="140" border="0" cellspacing="0" cellpadding="0" bgcolor="#0d9787">
+                      <tr>
+                        <td width="10"></td>
+                        <td width="120" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#ffffff; text-align:center; min-width:130px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        <a style="text-decoration:none;color:#ffffff"><div {{ createphp_attributes( rdf.cta7 ) }}>{{ createphp_content( rdf.cta7 ) }}</div></a>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7" style="font-size:1px;line-height:1px">&nbsp;</td></tr></table>
+                        </td>
+                        <td width="10"></td>
+                      </tr>
+                    </table> 
+                    </td>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>                              
+            <!--[if gte mso 9]>
+            </td></tr></table>
+            <![endif]-->
+            </td>
+          </tr>
+        </table>
+        </td>
+        <td width="30" class="hide"></td>
+      </tr>
+    </table>
+    <!-- 2 pod end -->          
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->          
+    </td>   
+  </tr>
+</table>  
+<!-- 4 pods central holding table end -->
+
+
+<!-- 2 + 4 images central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8">     
+    <!-- pod start -->
+    <table width="680" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+      <tr>
+        <td width="30" class="hide"></td>
+        <td width="620" class="w320">
+        <table width="620" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+          <tr>
+            <td valign="top" align="left" class="tbl100" bgcolor="#e8e8e8">
+            <!--[if gte mso 9]>
+            <table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+            <![endif]-->
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="300" class="w320" valign="top" align="left" bgcolor="#e8e8e8">
+                <!-- large image -->
+                <table width="300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="300" valign="top"><div {{ createphp_attributes( rdf.image_block1 ) }}>{{ createphp_content( rdf.image_block1 ) }}</div></td>
+                  </tr>
+                </table>
+                <!-- large image -->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td height="20"></td></tr></table>
+                <!-- 2 small images -->
+                <table width="300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="140" valign="top"><div {{ createphp_attributes( rdf.image_block2 ) }}>{{ createphp_content( rdf.image_block2 ) }}</div></td>
+                    <td width="20"></td>
+                    <td width="140" valign="top"><div {{ createphp_attributes( rdf.image_block3 ) }}>{{ createphp_content( rdf.image_block3 ) }}</div></td>
+                  </tr>
+                </table>               
+                <!-- 2 small images -->    
+                </td>
+                <td width="10" class="hide"></td>
+              </tr>
+            </table>                               
+            <!--[if gte mso 9]>
+            </td><td valign="top">
+            <![endif]-->                         
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="10" class="hide"></td>
+                <td width="300" class="hide" valign="top" align="left" bgcolor="#e8e8e8">
+                <!-- large image -->
+                <table width="300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="300" valign="top"><div {{ createphp_attributes( rdf.image_block4 ) }}>{{ createphp_content( rdf.image_block4 ) }}</div></td>
+                  </tr>
+                </table>
+                <!-- large image -->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td height="20"></td></tr></table>
+                <!-- 2 small images -->
+                <table width="300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="140" valign="top"><div {{ createphp_attributes( rdf.image_block5 ) }}>{{ createphp_content( rdf.image_block5 ) }}</div></td>
+                    <td width="20"></td>
+                    <td width="140" valign="top"><div {{ createphp_attributes( rdf.image_block6 ) }}>{{ createphp_content( rdf.image_block6 ) }}</div></td>
+                  </tr>
+                </table>               
+                <!-- 2 small images -->                    
+                </td>
+              </tr>
+            </table>                              
+            <!--[if gte mso 9]>
+            </td></tr></table>
+            <![endif]-->
+            </td>
+          </tr>
+        </table>
+        </td>
+        <td width="30" class="hide"></td>
+      </tr>
+    </table>
+    <!-- 2 pod end -->          
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->               
+    </td>   
+  </tr>
+</table>  
+<!-- 2 + 4 images central holding table end -->
+
+
+<!-- left image central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8">
+    <!-- pod start -->     
+    <table width="680" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+      <tr>
+        <td width="30" class="hide"></td>
+        <td width="620" class="w320">
+        <table width="620" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+          <tr>
+            <td width="620" class="w320" valign="top" align="left" bgcolor="#f3f3f3">
+            <!--[if gte mso 9]>
+            <table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+            <![endif]-->
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="310" class="w320" valign="top" align="left" bgcolor="#e8e8e8">
+                <table border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td valign="top"><div {{ createphp_attributes( rdf.image8 ) }}>{{ createphp_content( rdf.image8 ) }}</div></td>
+                  </tr>
+                </table>                 
+                </td>
+              </tr>
+            </table>                               
+            <!--[if gte mso 9]>
+            </td><td valign="top">
+            <![endif]-->                         
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="310" class="w320" valign="top" align="left" bgcolor="#e8e8e8">
+                <table width="310" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#f3f3f3">
+                  <tr>
+                    <td width="10" class="hide"></td>
+                    <td width="290" class="w300">
+                    <table width="290" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="10" class="w15"></td>
+                        <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                        <table width="280" class="w275" id="w275" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="280" class="w275" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                            <div {{ createphp_attributes( rdf.title8 ) }}>{{ createphp_content( rdf.title8 ) }}</div>
+                            </td>
+                          </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                        <table width="280" id="w275" class="w275" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="280" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                            <div {{ createphp_attributes( rdf.summary8 ) }}>{{ createphp_content( rdf.summary8 ) }}</div>
+                            </td>
+                          </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#5a970b; font-weight:bold; text-align:left;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7"></td></tr></table>
+                            <a href="TBC" target="_blank" style="text-decoration:none;color:#5a970b" class="underline">FIND OUT MORE</a>
+                            </td>
+                            <td width="10"></td>
+                            <td><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_cta_green.gif" style="display:block" width="27" height="27" border="0" id="rotate270" class="rotate270" /></a></td>
+                          </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                        </td>
+                      </tr>
+                    </table>
+                    </td>
+                    <td width="10" class="hide"></td>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>                                      
+            <!--[if gte mso 9]>
+            </td></tr></table>
+            <![endif]-->
+            </td>
+          </tr>
+        </table>
+        </td>
+        <td width="30" class="hide"></td>
+      </tr>
+    </table>
+    <!-- pod end -->     
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->           
+    </td>   
+  </tr>
+</table>  
+<!-- left image central holding table end -->
+
+
+<!-- right image central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#F3F3F3">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8">
+    <!-- pod start -->     
+    <table width="680" id="w320" class="w320" cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#F3F3F3">
+      <tr>
+        <td width="30" class="hide" bgcolor="#e8e8e8"></td>
+        <td width="620" class="w320" align="left" bgcolor="#F3F3F3">
+        <!-- left reverse stack -->
+        <table width="320" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="right" style="border:none; mso-border-right-alt:solid #F3F3F3 .5pt; border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;">
+          <tr>
+            <td width="320" class="w320" bgcolor="#e8e8e8">
+            <!-- left image -->              
+            <table width="320" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr>
+                <td width="10" bgcolor="#F3F3F3" class="hide"></td>
+                <td width="310" class="w320" valign="top">
+                <table width="310" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td width="310"><div {{ createphp_attributes( rdf.image9 ) }}>{{ createphp_content( rdf.image9 ) }}</div></td>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>     
+            <!-- left image -->                                                
+            </td>
+          </tr>
+        </table>
+        <!-- left reverse stack -->           
+        <!-- right reverse stack -->
+        <table width="290" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" style="border:none; mso-border-right-alt:solid #F3F3F3 .5pt; border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;">
+          <tr>     
+            <td width="290" class="w320" bgcolor="#e8e8e8">                
+            <!-- right text -->             
+            <table width="290" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#F3F3F3">
+              <tr>
+                <td width="10" class="hide"></td>
+                <td width="280" class="w300" height="173" valign="top">
+                <table width="280" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="10" class="w15"></td>
+                    <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="270" id="w275" class="w275" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="270" class="w275" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; font-weight:bold; text-align:left;">
+                        <div {{ createphp_attributes( rdf.title9 ) }}>{{ createphp_content( rdf.title9 ) }}</div>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table width="270" id="w275" class="w275" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="270" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#565656; text-align:left;">
+                        <div {{ createphp_attributes( rdf.summary9 ) }}>{{ createphp_content( rdf.summary9 ) }}</div>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#5a970b; font-weight:bold; text-align:left;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="7"></td></tr></table>
+                        <a href="TBC" target="_blank" style="text-decoration:none;color:#954385" class="underline">FIND OUT MORE</a>
+                        </td>
+                        <td width="10"></td>
+                        <td><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_cta_purple.gif" style="display:block" width="27" height="27" border="0" id="rotate270" class="rotate270" /></a></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="15"></td></tr></table>
+                    </td>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>
+            <!-- right text -->               
+            </td>
+          </tr>
+        </table>                  
+        <!-- right reverse stack -->
+        </td> 
+        <td width="30" class="hide" bgcolor="#e8e8e8"></td>
+      </tr>
+    </table>
+    <!-- pod start -->
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer --> 
+    </td>
+  </tr>
+</table>
+<!-- right image central holding table -->
+
+
+<!-- footer central holding table -->
+<table width="680" id="w320" class="w320" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="680" class="w320" bgcolor="#e8e8e8">
+    <!-- banner start -->
+    <table width="680" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+      <tr>
+        <td width="30" class="w10"></td>
+        <td width="620" class="w300">
+        <!-- image -->
+        <table width="620" class="w300" id="w300" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w300" id="w300" valign="top"><div {{ createphp_attributes( rdf.banner2 ) }}>{{ createphp_content( rdf.banner2 ) }}</div></td>
+          </tr>
+        </table>
+        <!-- image -->
+        <!-- text -->
+        <table width="620" class="w300" id="w300" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w300" id="w300" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:13px; line-height:16px; color:#565656; font-weight:bold; text-align:center;">
+            ZSL is a charity devoted to the worldwide conservation of animals and their habitats.
+            </td>
+          </tr>
+        </table>
+        <!-- text -->
+        <!-- spacer -->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+        <!-- spacer -->       
+        <!-- blue cta's -->
+        <table border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr>
+            <td valign="top">
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:14px; line-height:17px; color:#296ca0; text-align:left;">
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#296ca0" class="underline">Donate to ZSL</a></td>
+                <td width="3"></td>
+                <td valign="top"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_cta_blue_arrow.gif" style="display:block" width="12" height="17" border="0" /></a></td>
+              </tr>
+            </table>              
+            </td>
+            <td width="45" class="w25"></td>
+            <td valign="top">
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:14px; line-height:17px; color:#296ca0; text-align:left;">
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#296ca0" class="underline">Where do we work?</a></td>
+                <td width="3"></td>
+                <td valign="top"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_cta_blue_arrow.gif" style="display:block" width="12" height="17" border="0" /></a></td>
+              </tr>
+            </table>
+            </td>
+          </tr>
+        </table>           
+        <!-- blue cta's -->
+        <!-- spacer -->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+        <!-- spacer --> 
+        
+        <!-- mobile only menu start -->
+        <!--[if !mso]><!-->
+        <table width="280" id="w300" class="w300" border="0" cellpadding="0" cellspacing="0">
+          <tr style="width:0; overflow:hidden; float:left; display:none; max-height:0px; mso-hide:all;" class="show">
+            <td>  
+             <table width="300" cellspacing="0" cellpadding="0" border="0" bgcolor="#5a970b">
+              <tr>
+                <td width="15"></td>
+                <td width="250" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:16px; line-height:19px; color:#ffffff; text-align:left;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="8"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff" class="underline">ZSL London Zoo</a></td>
+                <td width="35"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_cta_whitegreen_arrow.gif" style="display:block" width="35" height="35" border="0" /></a></td>
+              </tr>
+            </table>
+            <table width="300" cellspacing="0" cellpadding="0" border="0" bgcolor="#a91339">
+              <tr>
+                <td width="15"></td>
+                <td width="250" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:16px; line-height:19px; color:#ffffff; text-align:left;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="8"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff" class="underline">ZSL Whipsnade Zoo</a></td>
+                <td width="35"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_cta_whitered_arrow.gif" style="display:block" width="35" height="35" border="0" /></a></td>
+              </tr>
+            </table>
+            <table width="300" cellspacing="0" cellpadding="0" border="0" bgcolor="#954385">
+              <tr>
+                <td width="15"></td>
+                <td width="250" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:16px; line-height:19px; color:#ffffff; text-align:left;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="8"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff" class="underline">Science</a></td>
+                <td width="35"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_cta_whitepurple_arrow.gif" style="display:block" width="35" height="35" border="0" /></a></td>
+              </tr>
+            </table>
+            <table width="300" cellspacing="0" cellpadding="0" border="0" bgcolor="#0d9787">
+              <tr>
+                <td width="15"></td>
+                <td width="250" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:16px; line-height:19px; color:#ffffff; text-align:left;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="8"></td></tr></table>
+                <a href="TBC" target="_blank" style="text-decoration:none;color:#ffffff" class="underline">Conservation</a></td>
+                <td width="35"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_cta_whitecyan_arrow.gif" style="display:block" width="35" height="35" border="0" /></a></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+            </td>
+          </tr>
+        </table>
+        <!--<![endif]-->
+        <!-- mobile only menu end -->   
+        
+        <!-- icons and social media --> 
+        <table width="620" cellspacing="0" cellpadding="0" border="0" align="center" id="tbl100" class="tbl100">
+          <tr>
+            <td width="30" class="hide"></td>
+            <td width="590" class="w300" valign="top" align="left">
+            <!--[if gte mso 9]>
+            <table cellpadding="0" cellspacing="0" border="0"><tr><td valign="top">
+            <![endif]-->
+            <table width="310" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="310" class="w300" valign="top" align="left">
+                <table border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td valign="top">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td valign="top"><img src="/bundles/applicationtemplate/images/zsl/p13561_icon_phone.gif" style="display:block" width="28" height="27" border="0" id="fadeout" class="fadeout" /></td>
+                        <td width="9"></td>
+                        <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#3b3b3b; font-weight:bold; text-align:left;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="6"></td></tr></table>
+                        <span class="blue">0844 225 1826</span></td>                        
+                      </tr>
+                    </table> 
+                    </td>
+                    <td width="5"></td>
+                    <td valign="top">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td valign="top"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_icon_email.gif" style="display:block" width="28" height="27" border="0" id="fadeout" class="fadeout" /></a></td>
+                        <td width="9"></td>
+                        <td valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:12px; line-height:15px; color:#3b3b3b; font-weight:bold; text-align:left;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="6"></td></tr></table>
+                        <a href="mailto:info@zsl.org" style="text-decoration:underline;color:#3b3b3b" class="blueu">info@zsl.org</a></td>                        
+                      </tr>
+                    </table> 
+                    </td>
+                  </tr>
+                </table>                
+                </td>
+              </tr>
+            </table>                                
+            <!--[if gte mso 9]>
+            </td><td valign="top">
+            <![endif]-->         
+            <!-- mobile only spacer start -->
+            <!--[if !mso]><!-->
+            <table width="280" id="w300" class="w300" border="0" cellpadding="0" cellspacing="0">
+              <tr style="width:0; overflow:hidden; float:left; display:none; max-height:0px; mso-hide:all;" class="show">
+                <td>  
+                 <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+                </td>
+              </tr>
+            </table>
+            <!--<![endif]-->
+            <!-- mobile only spacer end -->         
+            <table width="280" cellspacing="0" cellpadding="0" border="0" align="left" style="display:inline-block" id="block tbl100" class="block tbl100">
+              <tr>
+                <td width="280" class="w300" valign="top" align="left" bgcolor="#e8e8e8">
+                <table border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td valign="top"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_icon_facebook.gif" style="display:block" width="29" height="28" border="0" alt="Facebook" title="Facebook" id="fadeout" class="fadeout" /></a></td>
+                    <td width="10"></td>
+                    <td valign="top"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_icon_twitter.gif" style="display:block" width="29" height="28" border="0" alt="Twitter" title="Twitter" id="fadeout" class="fadeout" /></a></td>
+                    <td width="10"></td>
+                    <td valign="top"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_icon_youtube.gif" style="display:block" width="29" height="28" border="0" alt="YouTube" title="YouTube" id="fadeout" class="fadeout" /></a></td>
+                    <td width="10"></td>
+                    <td valign="top"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_icon_google.gif" style="display:block" width="29" height="28" border="0" alt="Google+" title="Google+" id="fadeout" class="fadeout" /></a></td>
+                    <td width="10"></td>
+                    <td valign="top"><a href="TBC" target="_blank"><img src="/bundles/applicationtemplate/images/zsl/p13561_icon_instagram.gif" style="display:block" width="29" height="28" border="0" alt="Instagram" title="Instagram" id="fadeout" class="fadeout" /></a></td>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>                          
+            <!--[if gte mso 9]>
+            </td></tr></table>
+            <![endif]-->
+            </td>
+          </tr>
+        </table>  
+        <!-- icons and social media -->              
+        <!-- spacer -->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+        <!-- spacer -->  
+        <!-- address text -->
+        <table width="620" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w300" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:10px; line-height:13px; color:#565656; text-align:center;">
+            The Zoological Society of London is incorporated by Royal Charter - Registered Charity in England and Wales no. 208728. Principal Office England - Company Number RC000749 - Registered address Regent's Park, London, England NW1 4RY
+            </td>
+          </tr>
+        </table>
+        <!-- address text -->   
+        <!-- spacer -->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+        <!-- spacer -->  
+        <!-- unsub etc text -->
+        <table width="620" id="w300" class="w300" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="620" class="w300" valign="top" style="font-family:arial,helvetica,verdana,freesans,sans-serif; font-size:10px; line-height:13px; color:#525252; text-align:center;">
+            Received this email from a friend? <a href="TBC" target="_blank" style="text-decoration:underline;color:#525252" class="blueu">Sign up to ZSL emails today!</a> | <a href="TBC" target="_blank" style="text-decoration:underline;color:#525252" class="blueu">Unsubscribe from all ZSL email communications</a>
+            </td>
+          </tr>
+        </table>
+        <!-- unsub etc text -->
+        </td>
+        <td width="30" class="w10"></td>
+      </tr>
+    </table>
+    <!-- banner start -->           
+    <!-- spacer -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+    <!-- spacer -->          
+    </td>   
+  </tr>
+</table>  
+<!-- footer central holding table end -->
+
+
+</td></tr></table>
+{% endcreatephp %}
+ {% endblock %}

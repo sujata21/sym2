@@ -1,0 +1,27 @@
+<type typeof="schema:Template" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:sioc="http://rdfs.org/sioc/ns#">
+    <children>
+    	<property property="dcterms:menu_text1" identifier="menu_text1" />
+    	<property property="dcterms:menu_text2" identifier="menu_text2" />
+    	<property property="dcterms:menu_text3" identifier="menu_text3" />
+    	<property property="dcterms:title" identifier="title" />
+          <property property="dcterms:header" identifier="header" />
+    	<property property="dcterms:hero" identifier="hero" />
+        <property property="dcterms:title1" identifier="title1" />
+        <property property="dcterms:summary1" identifier="summary1" />
+        <property property="dcterms:cta1" identifier="cta1" />
+        <property property="dcterms:cta1_link" identifier="cta1_link" />
+        <property property="dcterms:title2" identifier="title2" />
+         <property property="dcterms:summary2" identifier="summary2" />
+        <property property="dcterms:cta2" identifier="cta2" />
+        <property property="dcterms:cta2_link" identifier="cta2_link" />
+        <property property="dcterms:title3" identifier="title3" />
+         <property property="dcterms:summary3" identifier="summary3" />
+        <property property="dcterms:cta3" identifier="cta3" />
+        <property property="dcterms:cta3_link" identifier="cta3_link" />
+        <property property="dcterms:title4" identifier="title4" />
+         <property property="dcterms:summary4" identifier="summary4" />
+        <property property="dcterms:cta4" identifier="cta4" />
+        <property property="dcterms:cta4_link" identifier="cta4_link" />
+        
+    </children>
+</type>

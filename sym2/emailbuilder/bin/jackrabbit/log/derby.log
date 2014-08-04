@@ -1,0 +1,30 @@
+----------------------------------------------------------------
+2014-07-21 08:20:37.851 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance a816c00e-0147-5802-14b6-0000045b8240
+on database directory /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/version/db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2014-07-21 08:20:39.991 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 888c4022-0147-5802-14b6-0000045b8240
+on database directory /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/workspaces/default/db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2014-07-21 08:20:43.392 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 6965c036-0147-5802-14b6-0000045b8240
+on database directory /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/workspaces/security/db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2014-07-21 08:21:00.027 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 4aa3404a-0147-5802-14b6-0000045b8240
+on database directory /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/workspaces/emailbuilder/db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2014-07-24 14:49:27.143 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 4fe880b5-0147-5802-14b6-0000045b8240
+on database directory /home/spandey/sujata/sym2/emailbuilder/bin/jackrabbit/workspaces/cmfdemo/db  
+
+Database Class Loader started - derby.database.classpath=''

@@ -1,0 +1,73 @@
+{% extends 'ApplicationMainBundle::skeleton.html.twig' %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+<div  id="template-body" >
+<div class="row" id="template-heading"  >
+	<b><font size="3px;">SELECT TEMPLATE TO CREATE NEW EMAIL </font><font size="2px;">(CLICK THUMBNAIL TO SELECT)</font></b>
+</div>
+<div class="row"  id="template-block" >
+{% for event in zsl %}
+  <div class="col-sm-6 col-md-2">
+    <div class="thumbnail">
+      <a href="/email/add/{{event.title}}"><img src="/bundles/applicationmain/images/{{  event.title }}.png" alt="{{  event.title }}"></a>
+    </div>
+  </div>
+{% endfor %} 
+{% for event in bbc %}
+  <div class="col-sm-6 col-md-2">
+    <div class="thumbnail">
+      <a href="/email/add/{{event.title}}"><img src="/bundles/applicationmain/images/{{  event.title }}.png" alt="{{  event.title }}"></a>
+    </div>
+  </div>
+{% endfor %} 
+{% for event in touchstone %}
+  <div class="col-sm-6 col-md-2">
+    <div class="thumbnail">
+      <a href="/email/add/{{event.title}}"><img src="/bundles/applicationmain/images/{{  event.title }}.png" alt="{{  event.title }}"></a>
+    </div>
+  </div>
+{% endfor %} 
+{% for event in touchstone2 %}
+  <div class="col-sm-6 col-md-2">
+    <div class="thumbnail">
+      <a href="/email/add/{{event.title}}"><img width="250px;" src="/bundles/applicationmain/images/{{  event.title }}.png" alt="{{  event.title }}"></a>
+    </div>
+  </div>
+{% endfor %} 
+</div>
+
+<div class="table-responsive" style="padding:20px;">
+	<div class="span12"  >
+	<b>LATEST CREATED EMAILS : </b></div>
+  <table class="table table-bordered">
+   	<tbody>
+   		{% for email in bbcemails %}
+   		<tr>
+			<td>{{email.template}}</td>
+			<td>{{email.title}} - {{ email.created_at }}</td>
+			<td>
+				<a style="text-decoration:underline;" href="{{ baseUrl_bbcemail }}newemail/{{ email.template }}/{{ email.title }}">Edit</a> | 
+				<a style="text-decoration:underline;" href="{{ baseUrl_bbcemail }}delete/{{ email.title }}/{{ email.template }}">Delete</a>
+			</td>
+		</tr>
+		{% endfor %} 
+    {% for email in zslemails %}
+      <tr>
+      <td>{{email.template}}</td>
+      <td>{{email.title}} - {{ email.created_at }}</td>
+      <td>
+        <a style="text-decoration:underline;" href="{{ baseUrl_zslemail }}newemail/{{ email.template }}/{{ email.title }}">Edit</a> | 
+        <a style="text-decoration:underline;" href="{{ baseUrl_zslemail }}delete/{{ email.title }}/{{ email.template }}">Delete</a>
+      </td>
+    </tr>
+    {% endfor %} 
+	</tbody>
+ </table>
+</div>
+
+
+</div>
+{% endblock %}

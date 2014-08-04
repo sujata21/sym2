@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>
+Touchstone - template
+</title>
+{% block includes %}
+            {% stylesheets
+              '@ApplicationTemplateBundle/Resources/public/css/touchstone.css'
+            %}
+
+            <!--[if gte mso 15]>
+<style type="text/css" media="all">
+tr { font-size:1px; mso-line-height-alt:0; mso-margin-top-alt:1px; }
+</style>
+<![endif]-->
+
+            <link rel="stylesheet" href="{{ asset_url }}" media="screen" type="text/css"/>
+            {% endstylesheets %}
+            {% if is_granted("IS_AUTHENTICATED_ANONYMOUSLY") %}
+                {% include "CmfCreateBundle::includecssfiles.html.twig" %}
+            {% endif %}
+        {% endblock %}
+</head>
+<body  id="email-skeleton" margintop="0" marginleft="0" marginright="0" bgcolor="#ebebeb" >
+  {% block content %}
+  {% endblock %}
+             
+{% javascripts
+        '@ApplicationMainBundle/Resources/public/js/jquery.js'
+        '@ApplicationMainBundle/Resources/public/js/jquery-ui.min.js'
+        '@ApplicationMainBundle/Resources/public/js/script.js'
+          %}
+        <script src="{{ asset_url }}"></script>
+
+{% endjavascripts %}
+        {% block bottom_scripts %}
+            {% render(controller("cmf_create.jsloader.controller:includeJSFilesAction", { "editor": "ckeditor", "_locale": app.request.locale })) %}
+            
+        {% endblock %}
+        <script>
+jQuery(document).ready(function() {
+  
+  window.CKEDITOR.config.customConfig = '/bundles/applicationmain/ckeditor/config.js';
+   
+  $('.create-ui-logo').hide();
+  $('.create-ui-toolbar-wrapper').css("background" , "none repeat scroll 0 0");
+  $('.create-ui-toolbar-wrapper').css("right", '');
+  $('.create-ui-toolbar-statustoolarea').css('float','left')
+  $('.create-ui-btn').css("background" , "none repeat scroll 0 0");
+  $('.create-ui-btn').css("background-color" ,'#4C8DA0');
+  $('.create-ui-statustools').css("marginLeft" ,'-165px');
+  
+  $('#midgardcreate-edit').show();
+  //$('.midgardNotifications-item-outer').css("left" ,'11px');
+  //$('.midgardNotifications-item-outer').css("top" ,'65px');
+  
+  
+   
+
+});
+</script>
+</body>
+</html>

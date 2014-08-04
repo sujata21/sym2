@@ -1,0 +1,11 @@
+<type typeof="schema:Template" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:sioc="http://rdfs.org/sioc/ns#">
+    <children>
+        <property property="dcterms:title1" identifier="title1" />
+        <property property="dcterms:title2" identifier="title2" />
+        <property property="dcterms:title3" identifier="title3" />
+        <property property="dcterms:title4" identifier="title4" />
+        <property property="dcterms:cta4" identifier="cta4" />
+
+        
+    </children>
+</type>

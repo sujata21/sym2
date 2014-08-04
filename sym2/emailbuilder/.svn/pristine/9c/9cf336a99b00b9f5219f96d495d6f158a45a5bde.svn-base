@@ -1,0 +1,105 @@
+{% extends 'ApplicationMainBundle::skeleton.html.twig' %}
+
+{% block content %}
+ 
+<div class="span10"  id="search" style="">
+  <div class="row" id="search-heading" >
+    <b>Email List</b>
+  </div>
+  <div class="row table-responsive" id="search-div">
+
+    <table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th class="center-content" >TEMPLATE</th>
+            <th class="center-content">NAME</th>
+            <!--<th class="center-content">SUBJECT</th>-->
+            <th class="center-content">DATE</th>
+            <th class="center-content">ACTION</th>
+            
+        </tr>
+    </thead>
+        <tbody class="ut-results" >
+          {% for event in decendants %}
+            <tr>
+                <td class="center-content">{{ event.template|replace({'template_': ''}) }}</td>
+                <td class="center-content"><a target="_blank" href="{{ baseUrl }}download_email/{{ event.getUrlBase }}/{{ event.template }}" >{{ event.title }}</a></td> <!--onclick="tooltip('{{ event.title }}')"-->
+                <!--<td class="center-content"><a target="_blank" href="{{ baseUrl }}download_email/{{ event.getUrlBase }}" >{{ event.title1 | raw }}</a></td>-->
+                <td class="center-content">{{ event.created_at }}</td>
+                <td class="center-content"><a target="_blank" style="text-decoration:underline;" href="{{ baseUrl }}download_email/{{ event.getUrlBase }}/{{ event.template }}" >Preview</a> | <a style="text-decoration:underline;" href="{{ baseUrl }}newemail/{{ event.template }}/{{ event.getUrlBase }}">Edit</a> | <a style="text-decoration:underline;" href="{{ baseUrl }}delete/{{ event.getUrlBase }}/{{ event.template }}">Delete</a></td>
+            </tr>
+          {% endfor %} 
+
+        </tbody>
+</table>
+  </div>
+</div>
+
+<div class="span2 panel panel-default"  id="search-rhs" >
+  <input type="hidden" id="type" value="email"> 
+  <input type="hidden" id="search-template" value="bbc"> 
+  <div class="panel-heading" id="search-rhs-heading3" style="" ><img src="/bundles/applicationmain/images/filter.png"></div>
+  <div class="panel-heading search-template active-template"  id="bbc-temp" style="" >BBC</div>
+  <div class="panel-heading"  id="zsl-temp" >ZSL</div>
+    
+   <div class="panel-heading" id="search-rhs-heading" style="" ><img src="/bundles/applicationmain/images/search.png"></div>
+  
+    <div class="panel-body" >
+      <input type="text" class="form-control" id="searchemail" placeholder="Type to search subject or name">
+      <!--<input type="text" name="id-holder" id="id-holder" size="10" disabled>-->
+      
+    </div>
+    <div class="panel-heading" id="search-rhs-heading2" style="" ><img src="/bundles/applicationmain/images/period.png" ></div>
+  
+    <div class="panel-body" >
+      <div class="row" style="padding-left:28px;">
+        <div class="span2">From</div>
+        <div class="span10"><input id="fromdate" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="todate"  type="text"></div>
+      </div>
+      <div class="row" style="padding-left:28px;">
+        <div class="span2">To</div>
+        <div class="span10"><input id="todate" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="todate"  type="text"></div>
+      </div>
+      <script>
+        $(function(){
+          $('#fromdate').combodate({
+            firstItem: 'name'
+          });
+          $('#todate').combodate({
+            firstItem: 'name'
+          });
+        });
+      </script>
+      
+    </div>
+    <div class="panel-body">
+        <div class="row" style="padding-left:40px;">
+         <a href="/email"><button type="button" class="btn btn-default btn-md">Refresh</button></a>
+
+          <img id="search-btn" src="/bundles/applicationmain/images/search_btn.png"></div>
+    </div>
+<div >
+    
+ <!-- Modal -->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:545px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button id="close-modal" type="button" class="close" >&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Email Image Update</h4>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+  
+    </div>
+  </div>
+</div>
+    
+<!-- Modal--> 
+
+
+  
+
+</div>
+{% endblock %}

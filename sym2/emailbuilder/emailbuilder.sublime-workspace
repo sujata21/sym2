@@ -1,0 +1,496 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"touchstone",
+				"touchstone3"
+			],
+			[
+				"templ",
+				"template"
+			],
+			[
+				"Tou",
+				"TouchstoneEmail"
+			],
+			[
+				"app",
+				"app_dev"
+			],
+			[
+				"in",
+				"info"
+			],
+			[
+				"seac",
+				"search-template"
+			],
+			[
+				"mo",
+				"mouseout	mouseout"
+			],
+			[
+				"re",
+				"remove	.remove()"
+			],
+			[
+				"m",
+				"mouseover	mouseover"
+			],
+			[
+				"ba",
+				"banner1"
+			],
+			[
+				"strt",
+				"strtoupper  (function)"
+			],
+			[
+				"down",
+				"download_email"
+			],
+			[
+				"tem",
+				"template"
+			],
+			[
+				"te",
+				"template"
+			],
+			[
+				"template",
+				"templatename"
+			],
+			[
+				"fo",
+				"foreach	foreach …"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"sfre",
+				"sfrender	Symfony2 / Controller / Render"
+			],
+			[
+				"sfr",
+				"sfrender	Symfony2 / Controller / Render"
+			],
+			[
+				"str_r",
+				"str_replace"
+			],
+			[
+				"inp",
+				"input-listsize"
+			],
+			[
+				"va",
+				"var_dump"
+			],
+			[
+				"th",
+				"this	$(this)"
+			],
+			[
+				"htm",
+				"html	.html"
+			],
+			[
+				"explo",
+				"explode"
+			],
+			[
+				"res",
+				"res_str  (variable)"
+			],
+			[
+				"get",
+				"getName  (function)"
+			],
+			[
+				"set",
+				"setSource  (function)"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 536.0
+	},
+	"console":
+	{
+		"height": 146.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/touchstone2_view.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/touchstone3_preview.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/touchstone4_preview.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/touchstone4_view.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/touchstone3_view.html.twig",
+		"/C/Users/spandey/AppData/Local/Temp/scp20120/home/alchemy/emailbuilder/src/Application/TemplateBundle/Admin/Touchstone2EmailAdmin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/Touchstone2Admin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/Touchstone2EmailAdmin.php",
+		"/C/Users/spandey/AppData/Local/Temp/scp11264/home/alchemy/emailbuilder/src/Application/TemplateBundle/Admin/Touchstone2EmailAdmin.php",
+		"/C/Users/spandey/AppData/Local/Temp/scp11840/home/alchemy/emailbuilder/src/Application/TemplateBundle/Admin/Touchstone2Admin.php",
+		"/X/sujata/sym2/emailbuilder/composer.json",
+		"/X/sujata/sym2/emailbuilder/app/config/phpcr.yml",
+		"/X/sujata/sym2/emailbuilder/app/phpunit.xml.dist",
+		"/X/sujata/sym2/emailbuilder/composer.phar",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/touchstone_preview.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/Touchstone2Archive.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/touchstone2_preview.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/Touchstone2Email.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Controller/EmailController.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Utils/EmailUtils.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Controller/ArchieveController.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Utils/ArchieveUtils.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Archieve/index.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/MainBundle/Resources/public/js/search.js",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/search.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/index.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/linkchecker.html.twig",
+		"/C/Users/spandey/AppData/Local/Temp/Email_Editor_1872014_144703_pm.html",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/Touchstone2.php",
+		"/C/Users/spandey/AppData/Local/Temp/scp06712/var/www/intranet.alchemyworx.local/lib/model/bannerPeer.php",
+		"/C/Users/spandey/AppData/Local/Temp/scp04192/var/www/intranet.alchemyworx.local/apps/frontend/modules/user_profile/actions/actions.class.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Controller/TemplateController.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/MainBundle/Resources/public/js/script.js",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Template/touchstone3_template.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Template/touchstone4_template.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Template/touchstone2_template.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/newemail.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/touchstone2.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/Touchstone2ArchiveAdmin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/rdf-mappings/Application.TemplateBundle.Document.Touchstone2Email.xml",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/rdf-mappings/Application.TemplateBundle.Document.Touchstone2.xml",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/touchstone_view.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/rdf-mappings/Application.TemplateBundle.Document.Touchstone.xml",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/config/services.xml",
+		"/X/sujata/sym2/emailbuilder/app/config/config.yml",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Template/index.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/MainBundle/Resources/views/skeleton.html.twig",
+		"/X/sujata/sym2/emailbuilder/app/config/parameters.yml",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/TouchstoneEmail.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Template/touchstone_template.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/rdf-mappings/Application.TemplateBundle.Document.TouchstoneEmail.xml",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/TouchstoneAdmin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/Touchstone.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/touchstone.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/public/css/touchstone2.css",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/DependencyInjection/Configuration.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/DependencyInjection/ApplicationTemplateExtension.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Form/TemplateType.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/BBC.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/BBCAdmin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/zsl_view.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/zsl_preview.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/ZslEmail.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/TouchstoneArchive.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/TouchstoneArchiveAdmin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/ZslArchiveAdmin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/TouchstoneEmailAdmin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/ZslArchive.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Form/EmailType.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Entity/Emaillog.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Template/zsl_template.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/ZslEmailAdmin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/rdf-mappings/Application.TemplateBundle.Document.ZslEmail.xml",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/ZslAdmin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/rdf-mappings/Application.TemplateBundle.Document.Zsl.xml",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/rdf-mappings/Application.TemplateBundle.Document.BBC.xml",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/Zsl.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/touchstone.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/public/css/zsl.css",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/public/css/touchstone.css",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/zsl.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/bbc.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Template/bbc_template.html.twig",
+		"/C/Users/spandey/AppData/Local/Temp/scp05321/home/alchemy/clients/alchemyworx/robots.txt",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/source.html.twig",
+		"/X/sujata/sym2/emailbuilder/app/config/parameters.yml.dist",
+		"/X/sujata/sym2/emailbuilder/web/app_dev.php",
+		"/X/sujata/sym2/emailbuilder/composer.lock",
+		"/X/sujata/sym2/emailbuilder/src/Application/MainBundle/Resources/public/ckeditor/config.js",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/bbc_view.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/previewframe.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Archieve/view.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Default/index.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/download_email.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/preview.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/viewVersion.html.twig",
+		"/X/sujata/sym2/emailbuilder/vendor/symfony-cmf/media-bundle/Symfony/Cmf/Bundle/MediaBundle/Adapter/ElFinder/PhpcrDriver.php",
+		"/X/sujata/sym2/emailbuilder/app/Resources/FOSUserBundle/views/Security/login.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/search_bk.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/add.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/BBCEmail.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Archieve/show.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/BBCArchiveAdmin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/BBCArchive.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/MainBundle/Resources/public/css/style.css",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/preview_zsl.html.twig",
+		"/X/sujata/sym2/emailbuilder/bin/jackrabbit/workspaces/website/workspace.xml",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/rdf-mappings/Application.TemplateBundle.Document.BBCEmail.xml",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Email/view.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/BBCArchieve.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/ZslArchieve.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/ZSLArchieve.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/BBCEmailAdmin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/ArchieveAdmin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/rdf-mappings/Application.TemplateBundle.Document.Email.xml",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Template/view.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/rdf-mappings/Application.TemplateBundle.Document.Template.xml",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/Template.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Template/zslview.hmtl.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/template1.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Template/index1.hmtl.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Template/generic/zsl.hmtl.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/TemplateAdmin.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Template/generic/bbc.html.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Document/Email.php",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Resources/views/Template/generic/asl.hmtl.twig",
+		"/X/sujata/sym2/emailbuilder/src/Application/MainBundle/Resources/public/css/archive_style.css",
+		"/X/sujata/sym2/emailbuilder/src/Application/TemplateBundle/Admin/EmailAdmin.php"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"<project>,X:\\sujata\\sym2\\aw-website\\src\\Application\\ServicesBundle",
+			"<project>,X:\\sujata\\sym2\\aw-website\\src\\Application\\PortfolioBundle"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\"images",
+			"-->\n",
+			"getI",
+			"img",
+			"place",
+			"menu",
+			"getLin",
+			"info",
+			"http://placehold.it",
+			"									<",
+			"cta",
+			"270",
+			"img",
+			"270",
+			"Suspendisse feu",
+			"		$",
+			"$pos_touchstone =  stristr($path,'touchstone'); ",
+			"createEmail",
+			"arch",
+			"load",
+			"pdf",
+			"FileLocator",
+			"fileloca",
+			"download_email",
+			"alchemyworx\n",
+			".local\n",
+			"         \n",
+			".local",
+			"preview",
+			"tmbURL",
+			"cta",
+			"/images/template",
+			"{%",
+			"\"/bundles/",
+			"bbc2.alchemyworx.com",
+			"images/",
+			"\"/bundles/",
+			"/bundles/",
+			"bundles/",
+			"search-btn",
+			"search",
+			"template",
+			"$info['create']",
+			"images/template",
+			"alt",
+			"images/",
+			"{{background}}",
+			"backg",
+			"event",
+			"p13561",
+			"p13561_mainimage",
+			"cta2",
+			"cta",
+			"image7",
+			"image1",
+			"summary_body",
+			"headlin",
+			"/{{",
+			"search",
+			"EMAILs",
+			"search",
+			"/cms/content",
+			"/cms/content/te",
+			"/cms/content/email/",
+			"template",
+			"login",
+			"title[",
+			"304",
+			"alert",
+			"        '@",
+			"rdf",
+			"list",
+			"website",
+			"\\PortfolioBundle\\Controller\\PortfolioBundle",
+			"buy direct",
+			"word",
+			"==",
+			"here",
+			"BadWordFilter",
+			"//$",
+			"main",
+			"                                <",
+			"container",
+			"color",
+			"a3",
+			"{color",
+			"pdfDir",
+			"#$",
+			"Redirect",
+			"echo",
+			"pic8_40.jpg",
+			"Acq",
+			"Redirect",
+			"Competitio",
+			"music",
+			"18px",
+			"m",
+			"for",
+			"report",
+			"m21_report",
+			"#row",
+			".ie7",
+			"192",
+			".js",
+			"treats",
+			"m21",
+			"192"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			".com",
+			"/images/bbc",
+			"\"http://emailbuilder.alchemyworx.local/bundles/",
+			"emailbuilder.alchemyworx.local",
+			"\"http://emailbuilder.alchemyworx.local/bundles/",
+			"http://emailbuilder.alchemyworx.local/bundles/",
+			"images/bbc",
+			"/bundles/applicationtemplate/images/zsl/",
+			"{{event.background}}",
+			"template",
+			"summary"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 473.0,
+	"status_bar_visible": true
+}

@@ -1,0 +1,53 @@
+{% extends 'ApplicationMainBundle::skeleton.html.twig' %}
+
+{% block content %}
+
+<div class="row" >
+  <div class="col-lg-2" ><!--a onclick="email_logs('{{email}}')">log</a><a onclick="getemail_logs('{{email}}')">getlog</a>--></div>
+
+  <div id="subject" class="col-lg-5"> <!--style="background-color: #588AA3;color:#FFFFFF;" -->
+    
+  </div>
+</div>
+
+<div class="col-lg-10" id="tabs" >
+	<ul id="myTab">
+        <li><a href='#tab0'>Archive Email</a> </li>
+    </ul>
+   
+    <div id='tab0'>
+      <iframe src="{{iframe_path}}" id="iframe2" width="100%" height="1820" name="alchemy" scrolling="yes" frameborder="0"></iframe>
+      
+	</div>
+</div>
+
+<div class="col-lg-2 panel panel-default"  id="email-form" style="margin-top:37px;padding:0px;background-color:#F1F1F1;">
+	 
+    <div class="panel-heading" style="padding:2px 0px 0px 0px;cursor:pointer;background-image:url('/bundles/applicationmain/images/version_bk.png');background-position: 0px 41px;"><img src="/bundles/applicationmain/images/version.png" ></div>
+  
+    <div class="panel-body" >
+      
+        <ul class="list-group" id="versions">
+    {% for version in version %}
+        {% if version != 'jcr:rootVersion' %}
+        <li class="list-group-item">Version : {{version}} 
+          <a style="padding-left:3px;cursor:pointer" onclick="getVersion('{{email}}','{{ version|replace('.', '_') }}','archieve','{{template}}')" >view</a>
+          
+        </li>
+ 
+      {% endif %}
+      {% endfor %}
+      </ul>
+      
+    </div>
+
+
+</div>
+    
+ 
+
+
+  
+
+</div>
+{% endblock %}

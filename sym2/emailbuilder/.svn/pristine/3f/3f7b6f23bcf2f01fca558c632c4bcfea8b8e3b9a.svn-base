@@ -1,0 +1,6 @@
+{% extends "ApplicationMainBundle::skeleton.html.twig" %}
+
+{% block content %}
+    
+{% endblock %}
+

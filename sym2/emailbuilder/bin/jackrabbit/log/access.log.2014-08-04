@@ -1,0 +1,3 @@
+127.0.0.1 -  -  [04/Aug/2014:08:30:58 +0000] "SEARCH /server/emailbuilder/jcr:root/ HTTP/1.1" 207 7323 "-" "jackalope-php/1.0"
+127.0.0.1 -  -  [04/Aug/2014:08:30:59 +0000] "POST /server/emailbuilder/jcr:root/.0.json HTTP/1.1" 200 19818 "-" "jackalope-php/1.0"
+127.0.0.1 -  -  [04/Aug/2014:08:30:59 +0000] "GET /server/emailbuilder/jcr:root/cms/content/generic/email/bbc.0.json HTTP/1.1" 200 905 "-" "jackalope-php/1.0"

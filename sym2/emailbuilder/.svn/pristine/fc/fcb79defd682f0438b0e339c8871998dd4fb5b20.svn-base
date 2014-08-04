@@ -1,0 +1,104 @@
+div, p, a, li, td {
+	-webkit-text-size-adjust:none;
+	-ms-text-size-adjust:none;
+}
+body {
+	margin:0;
+	padding:0;
+}
+table td {
+	border-collapse:collapse;
+}
+.ExternalClass {
+	width:100%;
+}
+.ExternalClass * {
+	line-height: 100%
+}
+.ExternalClass img[class^=Emoji] {
+	width: 15px !important;
+	height: 15px !important;
+	display: inline !important;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+a[href^="tel"], a[href^="sms"], a {
+color: inherit !important;
+cursor: default !important;
+text-decoration:none !important;
+}
+}
+
+@media only screen and (max-width: 420px)   {
+
+div, p, a, li, td {
+	-webkit-text-size-adjust:100%;
+	-ms-text-size-adjust: 100%;
+}
+
+table[class="hide"], img[class="hide"], td[class="hide"], br[class="hide"], span[class="hide"] {
+display:none !important;
+}
+
+*[class].show {
+display:block !important;
+overflow:visible !important;
+float:none !important;
+width:100%;
+height:auto !important;
+}
+
+table[class="fluid"], td[class="fluid"], img[class="fluid"] {
+width:100% !important;
+height:auto !important;
+display:table !important;
+}
+
+body .block {
+	display: block !important;
+}
+
+body .tbl100 {
+	width: 100% !important;
+}
+
+table[class="w320"], td[class="w320"], div[class="w320"], img[class="w320"] {
+	width:320px !important;
+	height:auto !important;
+}
+
+table[class="w310"], td[class="w310"], div[class="w310"], img[class="w310"] {
+	width:310px !important;
+	height:auto !important;
+} 
+
+table[class="w300"], td[class="w300"], div[class="w300"], img[class="w300"] {
+	width:300px !important;
+	height:auto !important;
+} 
+
+table[class="w280"], td[class="w280"], div[class="w280"], img[class="w280"] {
+	width:280px !important;
+	height:auto !important;
+} 
+
+table[class="w250"], td[class="w250"], div[class="w250"], img[class="w250"] {
+	width:250px !important;
+	height:auto !important;
+} 
+
+table[class="w240"], td[class="w240"], div[class="w240"], img[class="w240"] {
+	width:240px !important;
+	height:auto !important;
+}
+
+table[class="w10"], td[class="w10"], div[class="w10"], img[class="w10"] {
+	width:10px !important;
+	height:auto !important;
+} 
+
+table[class="h9"], td[class="h9"], div[class="h9"], img[class="h9"] {
+	height:9px !important;
+} 
+
+}

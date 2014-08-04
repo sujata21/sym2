@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+<parameters>
+        <parameter key="application_template.template_admin_class"></parameter>
+        <parameter key="application_template.template_class"></parameter>
+        <parameter key="application_template.email_admin_class"></parameter>
+        <parameter key="application_template.email_class"></parameter>
+        
+        
+    </parameters>
+    <!--
+    <parameters>
+        <parameter key="application_template.example.class">Application\TemplateBundle\Example</parameter>
+    </parameters>
+
+    <services>
+        <service id="application_template.example" class="%application_template.example.class%">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+    <services>
+        <service id="application.template.admin.zsl" class="Application\TemplateBundle\Admin\ZslAdmin">
+            <tag name="sonata.admin" manager_type="doctrine_phpcr" group="zsl" label="zsl"/>
+            <argument />
+            <argument>Application\TemplateBundle\Document\Zsl</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setRouteBuilder">
+                <argument type="service" id="sonata.admin.route.path_info_slashes" />
+            </call>
+        </service>
+        <service id="application.template.admin.bbc" class="Application\TemplateBundle\Admin\BBCAdmin">
+            <tag name="sonata.admin" manager_type="doctrine_phpcr" group="bbc" label="bbc"/>
+            <argument />
+            <argument>Application\TemplateBundle\Document\BBC</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setRouteBuilder">
+                <argument type="service" id="sonata.admin.route.path_info_slashes" />
+            </call>
+        </service>
+        <service id="application.template.admin.zslemail" class="Application\TemplateBundle\Admin\ZslEmailAdmin">
+            <tag name="sonata.admin" manager_type="doctrine_phpcr" group="zsl" label="zsl"/>
+            <argument />
+            <argument>Application\TemplateBundle\Document\ZslEmail</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setRouteBuilder">
+                <argument type="service" id="sonata.admin.route.path_info_slashes" />
+            </call>
+        </service>
+        <service id="application.template.admin.bbcemail" class="Application\TemplateBundle\Admin\BBCEmailAdmin">
+            <tag name="sonata.admin" manager_type="doctrine_phpcr" group="bbc" label="bbc"/>
+            <argument />
+            <argument>Application\TemplateBundle\Document\BBCEmail</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setRouteBuilder">
+                <argument type="service" id="sonata.admin.route.path_info_slashes" />
+            </call>
+        </service>
+              
+        <service id="application.template.admin.bbcarchive" class="Application\TemplateBundle\Admin\BBCArchiveAdmin">
+            <tag name="sonata.admin" manager_type="doctrine_phpcr" group="bbc" label="bbc"/>
+            <argument />
+            <argument>Application\TemplateBundle\Document\BBCArchive</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setRouteBuilder">
+                <argument type="service" id="sonata.admin.route.path_info_slashes" />
+            </call>
+        </service>
+        <service id="application.template.admin.zslarchive" class="Application\TemplateBundle\Admin\ZslArchiveAdmin">
+            <tag name="sonata.admin" manager_type="doctrine_phpcr" group="zsl" label="zsl"/>
+            <argument />
+            <argument>Application\TemplateBundle\Document\ZslArchive</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setRouteBuilder">
+                <argument type="service" id="sonata.admin.route.path_info_slashes" />
+            </call>
+        </service>
+    </services>
+</container>

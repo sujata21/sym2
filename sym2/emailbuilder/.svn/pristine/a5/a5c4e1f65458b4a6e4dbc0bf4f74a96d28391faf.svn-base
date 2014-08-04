@@ -1,0 +1,18 @@
+{% extends 'ApplicationMainBundle::skeleton.html.twig' %}
+
+{% block content %}
+
+<div class="col-lg-12"  id="email-form">
+	<div class="input-group">
+		<input type="hidden" value="{{template}}" id="template">
+		
+		<input class="form-control" type="text" value="{{email}}" id="email">
+		<div class="input-group-btn">
+			<button id="email_create" class="btn btn-default" tabindex="-1" type="button">Create</button>
+		</div>
+	</div>
+</div>
+
+</div>
+
+{% endblock %}
