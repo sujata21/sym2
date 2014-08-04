@@ -1,0 +1,67 @@
+{% extends "::layout.html.twig" %}
+
+{% form_theme form _self %}
+
+{% block form_widget_simple %}
+{% spaceless %}
+    {% set type = type|default('text') %}
+    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %} class="form-control" />
+{% endspaceless %}
+{% endblock form_widget_simple %}
+
+{% block form_label %}
+{% spaceless %}
+    {% if label is not sameas(false) %}
+        {% if not compound %}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {% endif %}
+        {% if required %}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {% endif %}
+        {% if label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %} class="col-sm-2 control-label">{{ label|trans({}, translation_domain) }}</label>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block _fos_user_change_password_form_current_password_row %}
+    <div class="form-group">
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+    </div>
+{% endblock %}	
+
+{% block _fos_user_change_password_form_new_first_row %}
+    <div class="form-group">
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+    </div>
+{% endblock %}
+
+{% block _fos_user_change_password_form_new_second_row %}
+    <div class="form-group">
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+    </div>
+{% endblock %}
+
+
+{% block body %}
+
+<div class="row">  
+	<div id="login" class="container">
+		<div class="panel panel-default">
+  			<div class="panel-heading">Change Password</div>
+  				<div class="panel-body">
+					{% include "FOSUserBundle:ChangePassword:changePassword_content.html.twig" %}
+				</div>	
+			</div>
+		</div>	
+	</div>
+ </div>
+{% endblock body %}

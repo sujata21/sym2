@@ -1,0 +1,913 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"get",
+				"getUsername  (function)"
+			],
+			[
+				"setLda",
+				"setLdapMailAlias"
+			],
+			[
+				"is_a",
+				"is_array"
+			],
+			[
+				"getUse",
+				"getUsername"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"va",
+				"var_dump"
+			],
+			[
+				"LDA",
+				"LDAPServer"
+			],
+			[
+				"exp",
+				"explode"
+			],
+			[
+				"u",
+				"updateGroup  (function)"
+			],
+			[
+				"LDAPMail",
+				"LDAPMailAlias"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"ROLE",
+				"ROLE_USER"
+			],
+			[
+				"setU",
+				"setUserId  (function)"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"User",
+				"UserManagerInterface  (namespace)"
+			],
+			[
+				"U",
+				"User"
+			],
+			[
+				"ROL",
+				"ROLE_USER"
+			],
+			[
+				"paddi",
+				"padding-bottom"
+			],
+			[
+				"use",
+				"user"
+			],
+			[
+				"passwor",
+				"passwordChange  (function)"
+			],
+			[
+				"vard",
+				"var_dump"
+			],
+			[
+				"curren",
+				"current_password"
+			],
+			[
+				"curr",
+				"current"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/Resources/FOSUserBundle/views/Security/login.html.twig",
+			"settings":
+			{
+				"buffer_size": 1984,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Resources/FOSUserBundle/views/layout.html.twig",
+			"settings":
+			{
+				"buffer_size": 1031,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Resources/views/layout.html.twig",
+			"settings":
+			{
+				"buffer_size": 12245,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Application/LDAPBundle/Controller/LDAPUserController.php",
+			"settings":
+			{
+				"buffer_size": 15557,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/config/routing.yml",
+			"settings":
+			{
+				"buffer_size": 2557,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/config/config.yml",
+			"settings":
+			{
+				"buffer_size": 22090,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/Application/UserBundle/Component/Authentication/Handler/LoginSuccessHandler.php",
+			"settings":
+			{
+				"buffer_size": 1597,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Application/UserBundle/Resources/config/services.xml",
+			"settings":
+			{
+				"buffer_size": 2592,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/config/security.yml",
+			"settings":
+			{
+				"buffer_size": 4943,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/Application/MainBundle/Resources/views/Default/index.html.twig",
+			"settings":
+			{
+				"buffer_size": 1208,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Resources/views/header.html.twig",
+			"settings":
+			{
+				"buffer_size": 6651,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Resources/views/sidebar.html.twig",
+			"settings":
+			{
+				"buffer_size": 3741,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Application/UserBundle/Component/Authentication/Handler/LogoutSuccessHandler.php",
+			"settings":
+			{
+				"buffer_size": 1198,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: rem",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 58.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/DefaultController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/MainBundle/Controller/DefaultController.php",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/views/sidebar_default.html.twig",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/ContentController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/MainBundle/Resources/views/Default/login.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Controller/ResettingController.php",
+		"/X/sujata/sym2/sf2_intranet/app/config/config.yml",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Controller/ChangePasswordController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Controller/DefaultController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/Sonata/UserBundle/Controller/ProfileController.php",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/ApplicationUserBundle/views/Security/login.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Service/LDAPGroup.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/LDAPMailAliasController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/script/ldap-group-mod.sh",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Service/LDAPMailAlias.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Service/LDAPServer.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPMailAlias/show.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Tests/Service/LDAPGroupTest.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Tests/Service/LDAPMailAliasTest.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/LDAPUserGroupController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Command/LDAPGroupImportCommand.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/LDAPMailAliasUser.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/LDAPUserGroup.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/LDAPGroupController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/LDAPGroup.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/LDAPUserGroup.php~",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/script/ldap-group-add.sh",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPMailAlias/index.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPGroup/index.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPGroup/subscribe.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/DependencyInjection/ApplicationLDAPExtension.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/DependencyInjection/Configuration.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/config/services.xml",
+		"/X/sujata/sym2/sf2_intranet/src/Application/MainBundle/Resources/public/js/script.js",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Service/LDAPUser.php",
+		"/X/sujata/sym2/sf2_intranet/app/config/parameters.yml",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Tests/Service/LDAPUserTest.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/LDAPMailAlias.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Service/Service.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Command/LDAPGroupAddCommand.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/HelpDeskBundle/Resources/config/services.xml",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Admin/DepartmentAdmin.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/HelpDeskBundle/Utils/ArticleUtils.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/HelpDeskBundle/ApplicationHelpDeskBundle.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/HelpDeskBundle/Document/Article.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/HelpDeskBundle/Resources/rdf-mappings/Application.HelpDeskBundle.Document.Article.xml",
+		"/X/sujata/sym2/sf2_intranet/src/Application/HelpDeskBundle/Admin/StatusTypeAdmin.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Resources/config/services.xml",
+		"/X/sujata/sym2/sf2_intranet/vendor/sonata-project/doctrine-orm-admin-bundle/Sonata/DoctrineORMAdminBundle/DependencyInjection/Configuration.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/ApplicationUserBundle.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/HelpDeskBundle/DependencyInjection/Configuration.php",
+		"/X/sujata/sym2/sf2_intranet/sf2_intranet.sublime-workspace",
+		"/X/sujata/sym2/sf2_intranet/sf2_intranet.sublime-project",
+		"/X/sujata/sym2/sf2_intranet/vi",
+		"/X/sujata/sym2/sf2_intranet/app/config/routing.yml",
+		"/X/sujata/sym2/sf2_intranet/app/AppKernel.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/Sonata/UserBundle/ApplicationSonataUserBundle.php",
+		"/X/sujata/sym2/sf2_intranet/app/config/security.yml",
+		"/X/sujata/sym2/sf2_intranet/composer.json",
+		"/X/sujata/sym2/sf2_intranet/src/Application/Sonata/UserBundle/Entity/BaseUser.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/Sonata/UserBundle/Entity/User.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Command/LDAPUserImportCommand.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Command/RoleCommand.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/LDAPUser.php",
+		"/X/sujata/sym2/sf2_intranet/app/cache/prod/doctrine/orm/Proxies/__CG__ApplicationLDAPBundleEntityLDAPUser.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Form/Handler/ChangePasswordFormHandler.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/ResettingController.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Command/PromoteUserCommand.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Command/ActivateUserCommand.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/LDAPUserController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Form/Handler/ResettingFormHandler.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPGroup/new.html.twig",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/DependencyInjection/Configuration.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Form/Type/ChangePasswordFormType.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Form/Type/ResettingFormType.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/DependencyInjection/ApplicationUserExtension.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/DependencyInjection/Configuration.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Form/Filter/LDAPUserType.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Form/Handler/ResettingFormHandler.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/DepartmentController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Form/LDAPUserType.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Admin/BannerAdmin.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/HelpDeskBundle/Admin/CategoryAdmin.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/Banner.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/Department.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Admin/CategoryAdmin.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/HelpDeskBundle/Admin/ArticleCategoryAdmin.php",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/views/layout.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Component/Authentication/Handler/LoginSuccessHandler.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Resources/views/Default/login.html.twig",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/ApplicationUserBundle/views/ChangePassword/changePassword_content.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Resources/views/ChangePassword/changePassword.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Resources/views/ChangePassword/changePassword_content.html.twig",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/views/Form/fields.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPMailAccount/show.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUserGroup/show.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/MainBundle/Resources/views/Default/index.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/LDAPMailAccountController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Component/Authentication/Handler/LogoutSuccessHandler.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUser/index.html.twig",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/FOSUserBundle/views/Security/login.html.twig",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/views/sidebar.html.twig",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/SecurityController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/Default/index.html.twig",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/views/base.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUser/signature.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUser/show.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUser/edit.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Form/BannerType.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/Department.php~",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUser/new.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/public/js/script.js",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Form/ChangePasswordFormType.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Form/Handler/ChangePasswordFormHandler.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Entity/UserRepository.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Form/Type/RegistrationFormType.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/BannerController.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Util/UserManipulator.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Command/CreateUserCommand.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Model/UserManager.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/registration.xml",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/security.xml",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Command/DeactivateUserCommand.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Entity/UserManager.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Doctrine/UserManager.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Entity/User.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/BannerRepository.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"X:\\sujata\\sym2\\sf2_intranet",
+			"<project>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"_homepage",
+			"fos",
+			"login",
+			"            $",
+			"deleteMailAlias",
+			"createFormBuilder",
+			"application_ldap_service_server",
+			"'user', 'user2', ",
+			";\n",
+			"		$",
+			"orm",
+			"doctrine",
+			"manager",
+			"sonata",
+			"sonata.admin.manager.orm",
+			"fos",
+			"SonataUserBundle",
+			"sonata",
+			"fos_user",
+			"friendsofsymfony/user-bundle",
+			"user_class",
+			"%user_class%",
+			"$mailalias",
+			"mailalias",
+			"addGroup",
+			"getGroups",
+			"fos",
+			"imports",
+			"sonata.admin",
+			"SESSION_EMAIL",
+			"fos_user_send_resetting_email",
+			"authenticateUser",
+			"fos_user_profile_show",
+			"checkaction",
+			"username",
+			"ldapuser_profile",
+			"ROLE_ALLOWED_TO_SWITCH",
+			"role_hierarchy:",
+			"admin",
+			"role",
+			"getLdapserverUser",
+			"changePa",
+			"The password for this user has already been requested within the last 24 hours",
+			"application_user.server",
+			"user_class",
+			"application_user_service_server",
+			"LDAPServer",
+			"                ",
+			"ldapser",
+			"ApplicationUserBundle",
+			"sidebar_filter",
+			"                                <",
+			"container",
+			"color",
+			"a3",
+			"{color",
+			"pdfDir",
+			"#$",
+			"Redirect",
+			"echo",
+			"pic8_40.jpg",
+			"Acq",
+			"Redirect",
+			"Competitio",
+			"music",
+			"18px",
+			"m",
+			"for",
+			"report",
+			"m21_report",
+			"#row",
+			".ie7",
+			"192",
+			".js",
+			"treats",
+			"m21",
+			"192"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/Resources/FOSUserBundle/views/Security/login.html.twig",
+					"settings":
+					{
+						"buffer_size": 1984,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Resources/FOSUserBundle/views/layout.html.twig",
+					"settings":
+					{
+						"buffer_size": 1031,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								426,
+								426
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Resources/views/layout.html.twig",
+					"settings":
+					{
+						"buffer_size": 12245,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3711,
+								3779
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 702.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/Application/LDAPBundle/Controller/LDAPUserController.php",
+					"settings":
+					{
+						"buffer_size": 15557,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12964,
+								12964
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 6861.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/config/routing.yml",
+					"settings":
+					{
+						"buffer_size": 2557,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								130,
+								130
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/config/config.yml",
+					"settings":
+					{
+						"buffer_size": 22090,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2514,
+								2517
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1011.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/Application/UserBundle/Component/Authentication/Handler/LoginSuccessHandler.php",
+					"settings":
+					{
+						"buffer_size": 1597,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1501,
+								1510
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 378.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/Application/UserBundle/Resources/config/services.xml",
+					"settings":
+					{
+						"buffer_size": 2592,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2179,
+								2179
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/config/security.yml",
+					"settings":
+					{
+						"buffer_size": 4943,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2075,
+								2087
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/Application/MainBundle/Resources/views/Default/index.html.twig",
+					"settings":
+					{
+						"buffer_size": 1208,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								481,
+								481
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/Resources/views/header.html.twig",
+					"settings":
+					{
+						"buffer_size": 6651,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1674.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/Resources/views/sidebar.html.twig",
+					"settings":
+					{
+						"buffer_size": 3741,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1134.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/Application/UserBundle/Component/Authentication/Handler/LogoutSuccessHandler.php",
+					"settings":
+					{
+						"buffer_size": 1198,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 430.0,
+	"status_bar_visible": true
+}

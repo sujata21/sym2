@@ -1,0 +1,33 @@
+{% extends '::layout.html.twig' %}
+
+{% form_theme edit_form ':Form:fields.html.twig' %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-show">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            LDAPUserGroup - Edit page
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="LDAPUserGroup" title="LDAPUserGroup edit page help" data-toggle="modal" data-target="#Test3"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+		<form id="editForm" role="form" class="form-horizontal" action="{{ path('ldapusergroup_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+		    {{ form_widget(edit_form) }}
+		</form>
+	</div>
+    <div class="panel-footer">
+        <a class="btn btn-success" href="{{ path('ldapusergroup') }}" class="btn"><span class="glyphicon glyphicon-list"></span> Back to list</a>
+        <button type="submit" form="editForm" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> Save</button>
+        <a class="btn btn-danger btn-delete pull-right" href="{{ path('ldapusergroup_delete', { 'id': entity.id }) }}" class="btn"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+    </div>
+</div>
+<!-- help content div -->
+<div id="LDAPUserGroup-div-help-content" class="help-content">
+    LDAPUserGroup edit page help content
+</div>
+<!-- // help content div -->
+
+
+{% endblock %}

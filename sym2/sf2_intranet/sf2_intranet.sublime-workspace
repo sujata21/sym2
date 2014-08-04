@@ -1,0 +1,518 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"set",
+				"setSubscribe  (function)"
+			],
+			[
+				"getMai",
+				"getldapMailAlias"
+			],
+			[
+				"getLda",
+				"getLdapUser"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"arr",
+				"array_push"
+			],
+			[
+				"re",
+				"ret	return"
+			],
+			[
+				"LDAPMail",
+				"LDAPMailAliasUser  (class)"
+			],
+			[
+				"getS",
+				"getStatus"
+			],
+			[
+				"findOn",
+				"findOneBy"
+			],
+			[
+				"get",
+				"getId  (function)"
+			],
+			[
+				"ali",
+				"alias_user  (variable)"
+			],
+			[
+				"Lda",
+				"LDAPMailAlias  (namespace)"
+			],
+			[
+				"day",
+				"days_to_expire"
+			],
+			[
+				"setLda",
+				"setLdapMailAlias"
+			],
+			[
+				"is_a",
+				"is_array"
+			],
+			[
+				"getUse",
+				"getUsername"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"va",
+				"var_dump"
+			],
+			[
+				"LDA",
+				"LDAPServer"
+			],
+			[
+				"exp",
+				"explode"
+			],
+			[
+				"u",
+				"updateGroup  (function)"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"ROLE",
+				"ROLE_USER"
+			],
+			[
+				"setU",
+				"setUserId  (function)"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"User",
+				"UserManagerInterface  (namespace)"
+			],
+			[
+				"U",
+				"User"
+			],
+			[
+				"ROL",
+				"ROLE_USER"
+			],
+			[
+				"paddi",
+				"padding-bottom"
+			],
+			[
+				"use",
+				"user"
+			],
+			[
+				"passwor",
+				"passwordChange  (function)"
+			],
+			[
+				"vard",
+				"var_dump"
+			],
+			[
+				"curren",
+				"current_password"
+			],
+			[
+				"curr",
+				"current"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: rem",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 58.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Form/Filter/LDAPMailAliasUserType.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Form/Filter/LDAPUserGroupType.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Form/LDAPMailAliasUserType.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Form/LDAPUserGroupType.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/LDAPUserGroupController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPMailAliasUser/show.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Service/LDAPMailAlias.php",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/views/layout.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/LDAPMailAliasUserController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUserGroup/show.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Form/Filter/LDAPMailAliasType.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Form/LDAPUserType.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/MainBundle/Resources/views/Default/index.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/LDAPUserController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/MainBundle/Resources/public/js/script.js",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPMailAliasUser/index.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUser/index.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUserGroup/index.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/MainBundle/Resources/views/Default/login.html.twig",
+		"/C/Users/spandey/AppData/Local/Temp/scp10277/var/www/www.alchemyworx.local/careers.html",
+		"/C/Users/spandey/AppData/Local/Temp/scp03833/var/www/www.alchemyworx.local/senior-campaign-manager-london.html",
+		"/C/Users/spandey/AppData/Local/Temp/scp19864/home/alchemy/clients/alchemyworx/senior-campaign-manager-london.html",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Command/LDAPMailAliasUpdateCommand.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/LDAPGroupController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Service/LDAPServer.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Service/Service.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Tests/Service/LDAPMailAliasTest.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Command/LDAPGroupImportCommand.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Command/LDAPGroupAddCommand.php",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/views/sidebar_default.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Form/Filter/LDAPUserType.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Command/LDAPMailAliasImportCommand.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUser/edit.html.twig",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/views/Form/fields.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/LDAPUser.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/LDAPUserRepository.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/Sonata/UserBundle/Entity/User.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/Sonata/UserBundle/Model/User.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/Sonata/UserBundle/Model/UserInterface.php",
+		"/X/sujata/sym2/sf2_intranet/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Model/UserInterface.php",
+		"/X/sujata/sym2/sf2_intranet/app/config/parameters.yml",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Command/LDAPUserImportCommand.php",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/SensioGeneratorBundle/skeleton/crud/views/edit.html.twig.twig",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/SensioGeneratorBundle/skeleton/crud/views/new.html.twig.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUser/new.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Command/LDAPMailAliasUpdate.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/LDAPMailAliasUser.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/LDAPUserGroup.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/LDAPUserGroup.php~",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/public/js/script.js",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPGroup/index.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPGroup/subscribe.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Command/PasswordAlertCommand.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/MainBundle/Controller/DefaultController.php",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/ContentController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Form/Filter/LDAPGroupType.php",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/KnpPaginatorBundle/views/Pagination/twitter_bootstrap_v3_pagination.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUser/show.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/LDAPMailAliasController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/LDAPMailAccountController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPGroup/show.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Command/LDAPUserProfileImportCommand.php",
+		"/C/Users/spandey/AppData/Local/Temp/scp05538/var/www/www.alchemyworx.local/success.php",
+		"/C/Users/spandey/AppData/Local/Temp/scp00718/var/www/www.alchemyworx.local/training-success.php",
+		"/C/Users/spandey/AppData/Local/Temp/scp58497/var/www/www.alchemyworx.local/training.html",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/DefaultController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUser/signature.html.twig",
+		"/C/Users/spandey/AppData/Local/Temp/scp07301/home/alchemy/sites/intranet/app/config/parameters.yml",
+		"/C/Users/spandey/AppData/Local/Temp/scp30452/home/alchemy/sites/intranet/src/Application/LDAPBundle/Service/LDAPMailAlias.php",
+		"/C/Users/spandey/AppData/Local/Temp/scp11091/home/alchemy/sites/intranet/src/Application/LDAPBundle/Controller/LDAPGroupController.php",
+		"/X/sujata/sym2/sf2_intranet/app/phpunit.xml.dist",
+		"/C/Users/spandey/AppData/Local/Temp/department-1.sql",
+		"/C/Users/spandey/AppData/Local/Temp/banner-1.sql",
+		"/C/Users/spandey/AppData/Local/Temp/scp27839/home/alchemy/sites/intranet/src/Application/LDAPBundle/Command/LDAPUserProfileImportCommand.php",
+		"/X/alchemyworx-website/signature/aw_sig_cm_ldn.jpg",
+		"/C/Users/spandey/AppData/Local/Temp/scp45856/home/alchemy/clients/alchemyworx/images/signature/aw_sig_cm.jpg",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/BannerController.php",
+		"/C/Users/spandey/AppData/Roaming/Sublime Text 2/Packages/User/SVN.errors.log",
+		"/X/sujata/sym2/sf2_intranet/src/Application/HelpDeskBundle/ApplicationHelpDeskBundle.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPMailAlias/index.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/LDAPGroup.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPMailAliasUser/new_admin.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPMailAliasUser/new.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/script/ldap-group-adduser.sh",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/LDAPMailAlias.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/script/ldap-group-add.sh",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/script/ldap-group-mod.sh",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/script/ldap-group-del.sh",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Command/UpdateUserProfile.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPGroup/edit.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPGroup/approve.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUser/signature.html.twig.mine",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/DefaultController.php.mine",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Entity/Banner.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/TestCrudBundle/Controller/Test1Controller.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/MainBundle/Resources/public/css/style.css",
+		"/X/sujata/sym2/sf2_intranet/src/Application/TestCrudBundle/Controller/DefaultController.php",
+		"/X/sujata/sym2/sf2_intranet/app/AppKernel.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/Default/index.html.twig",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/views/sidebar.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/CrudGeneratorBundle/Resources/views/Form/fields.html.twig",
+		"/X/sujata/sym2/sf2_intranet/app/config/security.yml",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Controller/DepartmentController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUserGroup/edit.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPUserGroup/new.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/config/services.xml",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Service/LDAPGroup.php",
+		"/X/sujata/sym2/sf2_intranet/app/config/parameters.yml.dist",
+		"/X/sujata/sym2/sf2_intranet/app/config/config.yml",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/FOSUserBundle/views/Security/login.html.twig",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/FOSUserBundle/views/layout.html.twig",
+		"/X/sujata/sym2/sf2_intranet/app/config/routing.yml",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Component/Authentication/Handler/LoginSuccessHandler.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Resources/config/services.xml",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/views/header.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Component/Authentication/Handler/LogoutSuccessHandler.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Controller/ResettingController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Controller/ChangePasswordController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/UserBundle/Controller/DefaultController.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/Sonata/UserBundle/Controller/ProfileController.php",
+		"/X/sujata/sym2/sf2_intranet/app/Resources/ApplicationUserBundle/views/Security/login.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Resources/views/LDAPMailAlias/show.html.twig",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Tests/Service/LDAPGroupTest.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/DependencyInjection/ApplicationLDAPExtension.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/DependencyInjection/Configuration.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Service/LDAPUser.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/LDAPBundle/Tests/Service/LDAPUserTest.php",
+		"/X/sujata/sym2/sf2_intranet/src/Application/HelpDeskBundle/Resources/config/services.xml"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"X:\\sujata\\sym2\\sf2_intranet\\src\\Application\\LDAPBundle",
+			"X:\\sujata\\sym2\\sf2_intranet",
+			"<project>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"!!';\n",
+			"saveMailAlias",
+			"enab",
+			"Mail",
+			"getUser",
+			"admin",
+			"saveMailAlias",
+			"removeMailAliasUser",
+			"Add Alias error",
+			"Add Alias error :",
+			"LDAPMailAliasService",
+			"List",
+			"                            \n",
+			"getMailAlias",
+			"();\n",
+			"ldap-group-adduser",
+			"ldap-group-mod",
+			"Alias",
+			"Subs",
+			"toString",
+			"toString(",
+			"days_",
+			"_homepage",
+			"fos",
+			"login",
+			"            $",
+			"deleteMailAlias",
+			"createFormBuilder",
+			"application_ldap_service_server",
+			"'user', 'user2', ",
+			";\n",
+			"		$",
+			"orm",
+			"doctrine",
+			"manager",
+			"sonata",
+			"sonata.admin.manager.orm",
+			"fos",
+			"SonataUserBundle",
+			"sonata",
+			"fos_user",
+			"friendsofsymfony/user-bundle",
+			"user_class",
+			"%user_class%",
+			"$mailalias",
+			"mailalias",
+			"addGroup",
+			"getGroups",
+			"fos",
+			"imports",
+			"sonata.admin",
+			"SESSION_EMAIL",
+			"fos_user_send_resetting_email",
+			"authenticateUser",
+			"fos_user_profile_show",
+			"checkaction",
+			"username",
+			"ldapuser_profile",
+			"ROLE_ALLOWED_TO_SWITCH",
+			"role_hierarchy:",
+			"admin",
+			"role",
+			"getLdapserverUser",
+			"changePa",
+			"The password for this user has already been requested within the last 24 hours",
+			"application_user.server",
+			"user_class",
+			"application_user_service_server",
+			"LDAPServer",
+			"                ",
+			"ldapser",
+			"ApplicationUserBundle",
+			"sidebar_filter",
+			"                                <",
+			"container",
+			"color",
+			"a3",
+			"{color",
+			"pdfDir",
+			"#$",
+			"Redirect",
+			"echo",
+			"pic8_40.jpg",
+			"Acq",
+			"Redirect",
+			"Competitio",
+			"music",
+			"18px",
+			"m",
+			"for",
+			"report",
+			"m21_report",
+			"#row",
+			".ie7",
+			"192",
+			".js",
+			"treats",
+			"m21",
+			"192"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 395.0,
+	"status_bar_visible": true
+}

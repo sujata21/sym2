@@ -1,0 +1,206 @@
+<?php
+
+namespace Application\LDAPBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * LDAPUserGroup
+ *
+ * @ORM\Table(name="ldap_user_group", uniqueConstraints={@ORM\UniqueConstraint(name="group_idx01", columns={"ldap_group_id", "ldap_user_id"})})
+ * @ORM\Entity(repositoryClass="Application\LDAPBundle\Entity\LDAPUserGroupRepository")
+ * @ORM\HasLifecycleCallbacks()
+ */
+class LDAPUserGroup
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="LDAPUser", inversedBy="groups")
+     * @ORM\JoinColumn(name="ldap_user_id", referencedColumnName="id",onDelete="CASCADE")
+     **/
+    private $ldapUser;
+   
+    /**
+     * @ORM\ManyToOne(targetEntity="LDAPGroup", inversedBy="users")
+     * @ORM\JoinColumn(name="ldap_group_id", referencedColumnName="id" , onDelete="CASCADE")
+     **/
+    private $ldapGroup;
+       
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updated_at;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="synchronized_at", type="datetime", nullable=true)
+     */
+    private $synchronized_at;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set updated_at
+     *
+     * @param \DateTime $updatedAt
+     * @return LDAPUserGroup
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     *  @ORM\PreUpdate
+     */
+    public function setUpdatedAtValue()
+    {
+    	$this->updated_at = new \DateTime();
+    }
+    
+    /**
+     * Get updated_at
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set created_at
+     *
+     * @param \DateTime $createdAt
+     * @return LDAPUserGroup
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+    	if(!$this->getCreatedAt())
+    	{
+    		$this->created_at = new \DateTime();
+    	}
+    }
+    
+    /**
+     * Get created_at
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    
+    /**
+     * Set ldapGroup
+     *
+     * @param \Application\LDAPBundle\Entity\LDAPGroup $ldapGroup
+     * @return LDAPUserGroup
+     */
+    public function setLdapGroup(\Application\LDAPBundle\Entity\LDAPGroup $ldapGroup = null)
+    {
+        $this->ldapGroup = $ldapGroup;
+    
+        return $this;
+    }
+
+    /**
+     * Get ldapGroup
+     *
+     * @return \Application\LDAPBundle\Entity\LDAPGroup 
+     */
+    public function getLdapGroup()
+    {
+        return $this->ldapGroup;
+    }
+
+    
+    /**
+     * Set ldapUser
+     *
+     * @param \Application\LDAPBundle\Entity\LDAPUser $ldapUser
+     * @return LDAPUserGroup
+     */
+    public function setLdapUser(\Application\LDAPBundle\Entity\LDAPUser $ldapUser = null)
+    {
+        $this->ldapUser = $ldapUser;
+    
+        return $this;
+    }
+
+    /**
+     * Get ldapUser
+     *
+     * @return \Application\LDAPBundle\Entity\LDAPUser 
+     */
+    public function getLdapUser()
+    {
+        return $this->ldapUser;
+    }
+
+    /**
+     * Set synchronized_at
+     *
+     * @param \DateTime $synchronizedAt
+     * @return LDAPUserGroup
+     */
+    public function setSynchronizedAt($synchronizedAt)
+    {
+        $this->synchronized_at = $synchronizedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get synchronized_at
+     *
+     * @return \DateTime 
+     */
+    public function getSynchronizedAt()
+    {
+        return $this->synchronized_at;
+    }
+    
+}

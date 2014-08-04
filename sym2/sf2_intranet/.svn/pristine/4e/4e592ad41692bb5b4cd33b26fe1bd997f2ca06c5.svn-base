@@ -1,0 +1,102 @@
+{
+    "name": "symfony/framework-standard-edition",
+    "license": "MIT",
+    "type": "project",
+    "description": "The \"Symfony Standard Edition\" distribution",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "require": {
+        "symfony-cmf/blog-bundle" : "1.0.0-beta7",
+        "helios-ag/fm-elfinder-bundle" : "1.x",
+        "jackalope/jackalope-doctrine-dbal" : "1.0.0",
+        "symfony-cmf/routing-bundle" : "1.1.0",
+        "friendsofsymfony/user-bundle": "v1.3.3",
+        "doctrine/orm" : ">=2.2.3,<2.4-dev",
+        "liip/imagine-bundle" : "dev-master",
+        "symfony-cmf/search-bundle" : "1.0.0",
+        "symfony-cmf/menu-bundle" : "1.0.0",
+        "doctrine/migrations" : "dev-master",
+        "symfony-cmf/create-bundle" : "1.0.0",
+        "symfony-cmf/routing-auto-bundle" : "1.0.0-alpha8",
+        "php" : ">=5.3.3",
+        "symfony-cmf/symfony-cmf" : "1.0.0",
+        "aferrandini/urlizer" : "1.0.0",
+        "symfony/monolog-bundle" : "2.3.*",
+        "whiteoctober/breadcrumbs-bundle" : "dev-master",
+        "phpcr/phpcr" : "2.1.0",
+        "doctrine/phpcr-bundle" : "1.0.0",
+        "symfony-cmf/content-bundle" : "1.0.0",
+        "doctrine/phpcr-odm" : "1.0.0",
+        "sonata-project/media-bundle" : "2.2.4",
+        "sensio/generator-bundle" : "2.3.*",
+        "azine/socialbar-bundle" : "dev-master",
+        "symfony-cmf/core-bundle" : "1.0.0",
+        "doctrine/doctrine-bundle" : "1.2.*",
+        "sonata-project/block-bundle" : "2.2.*@dev",
+        "sonata-project/admin-bundle" : "2.2.*@dev",
+        "symfony-cmf/tree-browser-bundle" : "1.0.0",
+        "symfony-cmf/block-bundle" : "1.0.0",
+        "doctrine/doctrine-fixtures-bundle" : "dev-master",
+        "symfony/swiftmailer-bundle" : "2.3.*",
+        "sonata-project/user-bundle" : "2.2.*@dev",
+        "stof/doctrine-extensions-bundle" : "1.1.*@dev",
+        "jms/serializer-bundle" : "0.12.0",
+        "jackalope/jackalope" : "1.0.0",
+        "twig/extensions" : "1.0.*",
+        "symfony-cmf/simple-cms-bundle" : "1.0.0",
+        "midgard/phpcr" : "dev-master",
+        "knplabs/knp-paginator-bundle" : "dev-master",
+        "symfony-cmf/media-bundle" : "1.0.0",
+        "sensio/distribution-bundle" : "2.3.*",
+        "symfony/symfony" : "2.3.*",
+        "sonata-project/doctrine-orm-admin-bundle" : "2.2.*@dev",
+        "doctrine/doctrine-migrations-bundle" : "dev-master",
+        "midgard/createphp" : "dev-master",
+        "symfony/assetic-bundle" : "2.3.*",
+        "incenteev/composer-parameter-handler" : "~2.0",
+        "liip/search-bundle" : "dev-master",
+        "sonata-project/doctrine-phpcr-admin-bundle" : "1.0.0",
+        "symfony-cmf/routing" : "1.1.0",
+        "phpcr/phpcr-utils" : "1.0.0",
+        "sensio/framework-extra-bundle" : "2.3.*",
+        "sonata-project/core-bundle": "~2.2@dev",
+        "doctrine/migrations": "dev-master",
+        "doctrine/doctrine-migrations-bundle": "dev-master"
+    },
+    "scripts": {
+        "post-update-cmd" : [
+            "Symfony\\Cmf\\Bundle\\CreateBundle\\Composer\\ScriptHandler::downloadCreate",
+            "Symfony\\Cmf\\Bundle\\CreateBundle\\Composer\\ScriptHandler::downloadCreateAndCkeditor",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-install-cmd" : [
+            "Symfony\\Cmf\\Bundle\\CreateBundle\\Composer\\ScriptHandler::downloadCreate",
+            "Symfony\\Cmf\\Bundle\\CreateBundle\\Composer\\ScriptHandler::downloadCreateAndCkeditor",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "stable",
+    "extra" : {
+        "branch-alias" : {
+            "dev-master" : "2.3-dev"
+        },
+        "ckeditor-repository" : "https://github.com/ckeditor/ckeditor-releases.git",
+        "ckeditor-commit" : "bba29309f93a1ace1e2e3a3bd086025975abbad0",
+        "create-directory" : "vendor/symfony-cmf/create-bundle/Symfony/Cmf/Bundle/CreateBundle/Resources/public/vendor/create",
+        "create-commit" : "4068df92699756c1efc06726abbd9610f273515a",
+        "symfony-web-dir" : "web",
+        "symfony-app-dir" : "app",
+        "create-repository" : "https://github.com/bergie/create.git",
+        "ckeditor-directory" : "vendor/symfony-cmf/create-bundle/Symfony/Cmf/Bundle/CreateBundle/Resources/public/vendor/ckeditor"
+    }
+}

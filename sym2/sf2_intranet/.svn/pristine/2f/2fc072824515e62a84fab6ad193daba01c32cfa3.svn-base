@@ -1,0 +1,97 @@
+<?php
+
+namespace Application\LDAPBundle\Command;
+
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
+use Application\LDAPBundle\Service\LDAPServer;
+
+use Application\LDAPBundle\Entity\LDAPMailAlias;
+use Application\LDAPBundle\Entity\LDAPMailAliasUser;
+
+
+class LDAPMailAliasImportCommand extends ContainerAwareCommand {
+
+	protected function configure()
+	{
+		$this
+		->setName('ldap:mailalias:import')
+		->setDescription('Import LDAP Mail Alias');
+		//->setDefinition(array(new InputArgument('owner', InputArgument::REQUIRED, 'The group owner')));
+	}
+
+	protected function execute(InputInterface $input, OutputInterface $output)
+	{
+		$em = $this->getContainer()->get('doctrine')->getEntityManager();
+				
+		$ldapMailAliasService = $this->getContainer()->get('application_ldap_mailalias_service');
+		
+		$ldapMailAliasService->initialize();
+		
+		$MailAlias = $ldapMailAliasService->getAllMailAlias();
+		
+		
+		$group_owner = $em->getRepository('ApplicationLDAPBundle:LDAPUser')->findOneByUsername('admin');	
+		$owner = $group_owner->getUserId();
+		foreach($MailAlias as $MailAlias){	
+			
+			$alias_name = trim($MailAlias['cn']).'@alchemyworx.com';
+			$alias = $em->getRepository('ApplicationLDAPBundle:LDAPMailAlias')->findByName(trim($alias_name));	
+
+			if( !is_array($alias) || (is_array($alias) && count($alias)==0)){
+							
+				$entity_alias  = new LDAPMailAlias();
+        		$entity_alias->setName($alias_name);
+        		$entity_alias->setUserId($owner);
+        		$em->persist($entity_alias);
+        		$em->flush();
+
+        		//Update the Mail Alias User
+        		if(isset($MailAlias['member'])){
+        			if(is_array($MailAlias['member'])){
+        				foreach($MailAlias['member'] as $MailUser){
+        					$this->createAliasUser($MailUser,$entity_alias->getId());
+        				}
+        			
+        			}else{
+        				$this->createAliasUser($MailAlias['member'],$entity_alias->getId());
+
+        			}
+        		}
+        		
+        	}		
+		}
+		
+	}
+	public function createAliasUser($user,$mailalias){
+		if($user != ''){
+			
+			$user_array = explode(',',$user);
+			$username = explode('=',$user_array[0]);
+			//echo $username[1];
+			$em = $this->getContainer()->get('doctrine')->getEntityManager();
+			//get ldap user object
+			$ldap_user = $em->getRepository('ApplicationLDAPBundle:LDAPUser')->findOneByUsername(trim($username[1]));
+			//echo $ldap_user->getUsername();
+			//get ldap alias object
+			$alias = $em->getRepository('ApplicationLDAPBundle:LDAPMailAlias')->find($mailalias);
+
+
+            //to check if the mailalias-user relation already exists in database
+            $entity_mail_alias_user = $em->getRepository('ApplicationLDAPBundle:LDAPMailAliasUser')->findOneBy(array('ldapMailAlias'=>$alias,'ldapUser'=>$ldap_user));
+       		if(count($entity_mail_alias_user)<1){
+				// create new record for mail alias
+				$alias_user = new LDAPMailAliasUser();
+	        	$alias_user->setLdapUser($ldap_user);
+	        	$alias_user->setLdapMailAlias($alias);
+	        	$alias_user->setSubscribe(1);
+	        	$alias_user->setStatus(0);
+	        	$em->persist($alias_user);
+	        	$em->flush();
+	        }
+		}
+	}
+}

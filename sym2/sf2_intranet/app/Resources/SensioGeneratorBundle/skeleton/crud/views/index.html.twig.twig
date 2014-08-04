@@ -1,0 +1,92 @@
+{% block extends %}
+{{ "{% extends '::layout.html.twig' %}" }}
+{% endblock extends %}
+
+{{ "{% block sidebar_filter %}" }}
+    <form action="{{ "{{ path('"~ route_name_prefix ~"') }}" }}" method="post" {{ "{{ form_enctype(filter_form) }}" }}>
+        {{ "{{ form_widget(filter_form) }}" }}
+        <p>
+            <button class="btn btn-success btn-xs" name="filter-submit" type="submit">Filter data</button>
+        </p>
+    </form>
+{{ "{% endblock %}" }}
+
+{% block body %}
+{{ "{% block body %}" }}
+
+<div class="panel panel-primary panel-list">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            {{ entity }}
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="{{ entity }}" title="{{ entity }} list page help" data-toggle="modal" data-target="#{{ entity }}"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+            <span class="pull-right">&nbsp;</span>
+            <a href="{{ "{{ path('"~ route_name_prefix ~"_new') }}" }}" class="pull-right"><span class="glyphicon glyphicon-plus-sign"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="alert alert-success alert-dismissable" style="display: none;" id="success-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div id="message-success"></div>
+        </div>
+        <div class="alert alert-danger alert-dismissable" style="display: none;" id="failure-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div id="message-fail"></div>
+        </div>
+        <table class="table table-bordered table-list">
+            <thead>
+                <tr>
+                {%- for field, metadata in fields %}
+
+                    <th{{ "{% if pagination.isSorted('" }}{{ field }}{{ "') %} {% endif %}>{{ knp_pagination_sortable(pagination, '" }}{{ field|capitalize }}{{ "', 'a." }}{{ field }}{{ "')|raw }}" }}</th>
+
+                {%- endfor %}
+
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {{ '{% for entity in pagination %}' }}
+                <tr>
+
+            {%- for field, metadata in fields %}
+                {%- if loop.first and ('show' in actions) %}
+
+                    <td><a href="{{ "{{ path('" ~ route_name_prefix ~ "_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</a></td>
+
+                {%- elseif metadata.type in ['date', 'datetime'] %}
+
+                    <td>{{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+
+                {%- else %}
+
+                    <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+
+                {%- endif %}
+
+                {%- if loop.last %}
+
+                    <td nowrap>
+                        {%- include "crud/views/others/list_actions.html.twig.twig" %}
+                    </td>
+
+                {%- endif %}
+            {%- endfor %}
+
+                </tr>
+            {{ '{% endfor %}' }}
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        {{ "{{ knp_pagination_render(pagination)|raw }}" }}
+    </div>
+</div>
+<!-- help content div -->
+<div id="{{ entity }}-div-help-content" class="help-content">
+    {{ entity }} list page help content
+</div>
+<!-- // help content div -->
+
+{{ "{% endblock %}" }}
+{% endblock body %}

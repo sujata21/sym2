@@ -1,0 +1,51 @@
+{% block extends %}
+{{ "{% extends '::layout.html.twig' %}" }}
+{% endblock extends %}
+
+{% block body %}
+{{ "{% block body %}" }}
+<div class="panel panel-primary panel-show">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            {{ entity }} - Show page
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="{{ entity }}" title="{{ entity }} show page help" data-toggle="modal" data-target="#{{ entity }}"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <table class="table-show">
+            <tbody>
+            {%- for field, metadata in fields %}
+
+                <tr>
+                    <th>{{ field|capitalize }}:</th>
+
+                {%- if metadata.type in ['date', 'datetime'] %}
+
+                    <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}' }}</td>
+
+                {%- else %}
+
+                    <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+
+                {%- endif %}
+
+                </tr>
+
+            {%- endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        {%- include "crud/views/others/show_actions.html.twig.twig" %}
+    </div>
+</div>
+<!-- help content div -->
+<div id="{{ entity }}-div-help-content" class="help-content">
+    {{ entity }} show page help content
+</div>
+<!-- // help content div -->
+
+{{ "{% endblock %}" }}
+{% endblock body %}

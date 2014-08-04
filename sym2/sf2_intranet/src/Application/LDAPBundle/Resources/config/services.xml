@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+        
+    <parameters>
+        <parameter key="security.user.provider.application.service.class">Application\LDAPBundle\Security\Core\User\LDAPUserProvider</parameter>
+        <parameter key="security.authentication.provider.application.service.class">Application\LDAPBundle\Security\Core\Authentication\Provider\LDAPAuthenticationProvider</parameter>
+        <parameter key="application.ldap.service.class">Application\LDAPBundle\Service\Service</parameter>
+        <parameter key="application.ldap.service.ldapserver.class">Application\LDAPBundle\Service\LDAPServer</parameter>
+        <parameter key="application.ldap.service.ldapuser.class">Application\LDAPBundle\Service\LDAPUser</parameter>
+        <parameter key="application.ldap.service.ldapgroup.class">Application\LDAPBundle\Service\LDAPGroup</parameter>
+        <parameter key="application.ldap.service.ldapmailalias.class">Application\LDAPBundle\Service\LDAPMailAlias</parameter>        
+    </parameters>
+ 
+    <services>
+    
+    	<service id="application_ldap_service_server" class="%application.ldap.service.ldapserver.class%">            
+        	 <argument>%application_ldap.server%</argument>
+        	 <argument>%application_ldap.port%</argument>
+        	 <argument>%application_ldap.use_tls%</argument>
+        	 <argument type="collection">
+                 <argument key="base_dn">%application_ldap.parameter.base_dn%</argument>
+                 <argument key="bind_dn">%application_ldap.parameter.bind_dn%</argument>
+                 <argument key="bind_passwd">%application_ldap.parameter.bind_passwd%</argument>
+                 <argument key="user_prefix">%application_ldap.parameter.user_prefix%</argument>
+                 <argument key="group_prefix">%application_ldap.parameter.group_prefix%</argument>
+                 <argument key="mailalias_prefix">%application_ldap.parameter.mailalias_prefix%</argument>
+                 <argument key="user_attribute">%application_ldap.parameter.user_attribute%</argument>
+                 <argument key="mail_attribute">%application_ldap.parameter.mail_attribute%</argument>
+             </argument>
+        </service>        
+        
+        <service id="application_ldap_user_service" class="%application.ldap.service.ldapuser.class%">
+             <argument type="service" id="application_ldap_service_server" />        
+        </service>
+        
+        <service id="application_ldap_group_service" class="%application.ldap.service.ldapgroup.class%">
+             <argument type="service" id="application_ldap_service_server" />        
+        </service> 
+        <service id="application_ldap_mailalias_service" class="%application.ldap.service.ldapmailalias.class%">
+             <argument type="service" id="application_ldap_service_server" />        
+        </service>
+        
+        <service id="application_ldap_service" class="%application.ldap.service.class%">
+             <argument type="service" id="doctrine.orm.entity_manager" />
+        	 <argument type="service" id="application_ldap_service_server" /> 
+        </service>        
+        
+        <service id="application_ldap_user_provider.username" class="%security.user.provider.application.service.class%">
+            <argument type="service" id="application_ldap_service" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%application_ldap.user_class%</argument>
+        </service>
+    	
+    	<service id="security.authentication_provider.application_ldap_service" class="%security.authentication.provider.application.service.class%"  public="true">
+  			<argument type="service" id="application_ldap_service" />
+  			<argument /> <!-- User Provider -->
+  			<argument type="service" id="security.user_checker" />
+  			<argument /> <!-- Provider-shared Key -->
+  			<argument type="service" id="security.encoder_factory" />
+  			<argument>%security.authentication.hide_user_not_found%</argument>
+		</service>
+		    	
+    	<service id="application.change_password.form.type" class="Application\LDAPBundle\Form\ChangePasswordFormType">
+            <tag name="form.type" alias="application_change_password" />
+            <argument>%fos_user.model.user.class%</argument>
+        </service>
+    	
+    	<service id="application_ldap.validator.user_password" class="Application\LDAPBundle\Security\Core\Validator\Constraint\UserPasswordValidator">
+    		<argument type="service" id="security.context" />
+    		<argument type="service" id="application_ldap_service" />
+    		<tag name="validator.constraint_validator" alias="ldap.user.password.validator" />
+		</service>
+    <service id="sonata.admin.department" class="Application\LDAPBundle\Admin\DepartmentAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Users" label="Department"/>
+          <argument />
+          <argument>Application\LDAPBundle\Entity\Department</argument>
+          <argument>SonataAdminBundle:CRUD</argument>          
+    </service>
+    <service id="sonata.admin.banner" class="Application\LDAPBundle\Admin\BannerAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Users" label="Banner"/>
+          <argument />
+          <argument>Application\LDAPBundle\Entity\Banner</argument>
+          <argument>SonataAdminBundle:CRUD</argument>          
+    </service>
+
+    </services>
+    
+    
+</container>

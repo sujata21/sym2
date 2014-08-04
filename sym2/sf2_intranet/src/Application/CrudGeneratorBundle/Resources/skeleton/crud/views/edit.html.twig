@@ -1,0 +1,26 @@
+{{ "{% extends '::layout.html.twig' %}" }}
+
+{{ "{% block body_span %}span9{% endblock %}" }}
+{{ "{% block sidebar %}{% endblock %}" }}
+
+{{ "{% block body %}" }}
+<h1>Edit {{ entity }}</h1>
+<div  id="form_action" class="btn_add_new" style="float: right">
+<a href="{{ "{{ path('"~ route_name_prefix ~"') }}" }}" class="btn small">
+       <i class=" icon-list"></i>List
+</a>
+</div>
+
+<form action="{{ "{{ path('"~ route_name_prefix ~"_update', { 'id': entity.id }) }}" }}" method="post" {{ "{{ form_enctype(edit_form) }}" }}>
+    {{ "{{ form_widget(edit_form) }}" }}    
+    <ul class="record_actions">    
+	    <li>
+	        <button type="submit" class="btn">Save</button>
+	    </li>
+	    <li>
+	        <a href=""{{ "{{ path('"~ route_name_prefix ~"_delete', { 'id': entity.id }) }}" }}" class="btn"><i class="icon-remove-sign"></i>Delete</a>
+	    </li>
+	</ul>
+</form>
+
+{{ "{% endblock %}" }}

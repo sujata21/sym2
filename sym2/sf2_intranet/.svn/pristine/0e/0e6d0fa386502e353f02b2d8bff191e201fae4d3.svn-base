@@ -1,0 +1,68 @@
+{% extends '::layout.html.twig' %}
+
+{% block sidebar_filter %}
+    <form action="{{ path('ldapmailaccount') }}" method="post" {{ form_enctype(filter_form) }}>
+        {{ form_widget(filter_form) }}
+        <p>
+            <button class="btn btn-success btn-xs" name="filter-submit" type="submit">Filter data</button>
+        </p>
+    </form>
+{% endblock %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-list">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Mail Accounts - list page
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="MailAccounts" title="MailAccounts list page help" data-toggle="modal" data-target="#Test3"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered table-list">
+            <thead>
+                <tr>
+                    <th{% if pagination.isSorted('a.id') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Id', 'a.id')|raw }}</th>
+                    <th{% if pagination.isSorted('a.name') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Name', 'a.name')|raw }}</th>
+                    <th{% if pagination.isSorted('a.updated_at') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Updated_at', 'a.updated_at')|raw }}</th>
+                    <th{% if pagination.isSorted('a.created_at') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Created_at', 'a.created_at')|raw }}</th>
+                    <th{% if pagination.isSorted('a.enabled') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Enabled', 'a.enabled')|raw }}</th>
+                    <th{% if pagination.isSorted('a.deleted') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Deleted', 'a.deleted')|raw }}</th>
+                    <th{% if pagination.isSorted('a.deleted_at') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Deleted_at', 'a.deleted_at')|raw }}</th>
+                    <th{% if pagination.isSorted('a.synchronized_at') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Synchronized_at', 'a.synchronized_at')|raw }}</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in pagination %}
+                <tr>
+                    <td><a href="{{ path('ldapmailaccount_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>{{ entity.name }}</td>
+                    <td>{% if entity.updatedat %}{{ entity.updatedat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if entity.createdat %}{{ entity.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ entity.enabled }}</td>
+                    <td>{{ entity.deleted }}</td>
+                    <td>{% if entity.deletedat %}{{ entity.deletedat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if entity.synchronizedat %}{{ entity.synchronizedat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td nowrap>
+                        <div style="text-align:center;">                    
+                            <a href="{{ path('ldapmailaccount_show', { 'id': entity.id }) }}" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-search"></span></a>
+                            <a href="{{ path('ldapmailaccount_edit', { 'id': entity.id }) }}" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-edit"></span></a>
+                        </div> 
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        {{ knp_pagination_render(pagination)|raw }}
+    </div>
+</div>
+<!-- help content div -->
+<div id="MailAccounts-div-help-content" class="help-content">
+    Mail Accounts list page help content
+</div>
+<!-- // help content div -->
+{% endblock %}

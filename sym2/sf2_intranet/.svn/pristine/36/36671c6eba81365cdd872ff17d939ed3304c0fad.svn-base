@@ -1,0 +1,81 @@
+{% extends '::layout.html.twig' %}
+
+{% block sidebar_filter %}
+<form action="{{ path('ldapmailalias') }}" method="post" {{ form_enctype(filter_form) }}>
+    {{ form_widget(filter_form) }}
+    <p>
+        <button class="btn btn-success btn-xs" name="filter-submit" type="submit">Filter data</button>
+    </p>
+</form>
+{% endblock %}
+
+{% block body %}
+
+
+<div id="form_action" class="btn_add_new" style="float: right">
+<a href="{{ path('ldapmailalias_new') }}" class="btn small">
+       <i class="icon-plus-sign"></i>Add New
+</a>
+</div>
+<div class="panel panel-primary panel-list">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Mail Aliases
+            <a href="#"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="alert alert-success alert-dismissable" style="display: none;" id="success-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div id="message-success"></div>
+        </div>
+        <div class="alert alert-danger alert-dismissable" style="display: none;" id="failure-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div id="message-fail"></div>
+        </div>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th{% if pagination.isSorted('a.id') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Id', 'a.id')|raw }}</th>
+            <th{% if pagination.isSorted('a.name') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Name', 'a.name')|raw }}</th>
+            <th>Edit Owner</th>
+            <th>Subscribe</th>
+            <!--<th{% if pagination.isSorted('a.deleted') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Deleted', 'a.deleted')|raw }}</th>-->
+           <!-- <th{% if pagination.isSorted('a.subscribe') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Subscribe', 'a.subscribe')|raw }}</th> -->
+
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in pagination %}
+        <tr>
+            <td><a href="{{ path('ldapmailalias_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td style="text-align:center;">{{ entity.name }}</td>
+            <td style="text-align:center;"><a href="{{ path('ldapmailaliasuser_new_admin', { 'group_id': entity.id }) }}">{{ entity.userId }}</a></td>
+            <td><div style="text-align:center;">
+                    <a href="{{ path('ldapgroup_subscribe', {'uid': app.user.id,'aliasid':entity.id}) }}">
+                        <span class="btn btn-lg glyphicon glyphicon-envelope" style="color: black;"></span>
+                    </a>
+                </div>
+            </td>
+
+          <!--  <td>{{ entity.deleted }}</td>-->
+
+            <td nowrap>
+                <div style="text-align:center;" >
+                        <a href="{{ path('ldapmailalias_show', { 'id': entity.id }) }}" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-search"></span></a>
+
+                       <!-- <a href="{{ path('ldapmailalias_edit', { 'id': entity.id }) }}" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-edit"></span></a>-->
+                                   
+                </div> 
+                            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div class="navigation">
+    {{ knp_pagination_render(pagination)|raw }}
+</div>
+</div>
+{% endblock %}

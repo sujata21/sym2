@@ -1,0 +1,71 @@
+{% extends '::layout.html.twig' %}
+
+{% block sidebar_filter %}
+    <form action="{{ path('test2') }}" method="post" {{ form_enctype(filter_form) }}>
+        {{ form_widget(filter_form) }}
+        <p>
+            <button class="btn btn-success btn-xs" name="filter-submit" type="submit">Filter data</button>
+        </p>
+    </form>
+{% endblock %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-list">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Test2
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="Test2" title="Test2 list page help" data-toggle="modal" data-target="#Test2"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+            <span class="pull-right">&nbsp;</span>
+            <a href="{{ path('test2_new') }}" class="pull-right"><span class="glyphicon glyphicon-plus-sign"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="alert alert-success alert-dismissable" style="display: none;" id="success-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div id="message-success"></div>
+        </div>
+        <div class="alert alert-danger alert-dismissable" style="display: none;" id="failure-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div id="message-fail"></div>
+        </div>
+        <table class="table table-bordered table-list">
+            <thead>
+                <tr>
+                    <th{% if pagination.isSorted('id') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Id', 'a.id')|raw }}</th>
+                    <th{% if pagination.isSorted('name') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Name', 'a.name')|raw }}</th>
+                    <th{% if pagination.isSorted('info') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Info', 'a.info')|raw }}</th>
+                    <th{% if pagination.isSorted('date') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Date', 'a.date')|raw }}</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in pagination %}
+                <tr>
+                    <td><a href="{{ path('test2_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>{{ entity.name }}</td>
+                    <td>{{ entity.info }}</td>
+                    <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td nowrap>				<div style="text-align:center;">                    
+                    <a href="{{ path('test2_show', { 'id': entity.id }) }}" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-search"></span></a>
+                    <a href="{{ path('test2_edit', { 'id': entity.id }) }}" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a href="{{ path('test2_delete', { 'id': entity.id }) }}" class="btn btn-xs btn-danger btn-delete"><span class="glyphicon glyphicon-trash"></span></a>
+                </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        {{ knp_pagination_render(pagination)|raw }}
+    </div>
+</div>
+<!-- help content div -->
+<div id="Test2-div-help-content" class="help-content">
+    Test2 list page help content
+</div>
+<!-- // help content div -->
+
+{% endblock %}

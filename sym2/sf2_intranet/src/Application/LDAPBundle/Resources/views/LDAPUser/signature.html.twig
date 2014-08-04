@@ -1,0 +1,164 @@
+
+{% if type == 1%}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--[if gte mso 15]>  <style type="text/css" media="all">  tr { font-size:1px; mso-line-height-alt:0; mso-margin-top-alt:1px; }  </style>  <![endif]-->
+    <title></title>
+</head>
+<table width="482" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td width="5"></td>
+        <td width="477">
+            <table width="477" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="font-family:arial,verdana,freesans,sans-serif;font-size:18px;line-height:21px;color:#ed1e24;">
+                        <b>{{entity.firstname ~ " " ~ entity.lastName}}</b>
+                        <span style="font-family:arial,verdana,freesans,sans-serif;font-size:14px;line-height:17px;color:#ed1e24;"> | {{entity.jobTitle}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="1" height="1" style="font-size:1px;line-height:1px;"></td>
+                </tr>
+                <tr>
+                    <td style="font-family:arial,verdana,freesans,sans-serif;font-size:12px;line-height:15px;color:#000000;">
+                        <a href="mailto:spandey@alchemyworx.com" style="text-decoration: none;color: #000000;">{{entity.email}}</a>
+                    </td>
+                </tr>
+                                    <tr>
+                        <td width="1" height="1" style="font-size:1px;line-height:1px;"></td>
+                    </tr>
+                {% set tel = entity.telephone %}
+
+                {% if (tel != '') or (tel != NULL) %}
+                    <tr>
+                        <td style="font-family:arial,verdana,freesans,sans-serif;font-size:12px;line-height:15px;color:#000000;">
+                            <b>D:</b> {{entity.telephone}}                        </td>
+                    </tr>
+                                                        <tr>
+                        <td width="1" height="1" style="font-size:1px;line-height:1px;"></td>
+                    </tr>
+                {% endif %}
+                {% set mobile = entity.mobile %}
+                {% if (mobile != '') or (mobile != NULL) %}
+                    <tr>
+                        <td style="font-family:arial,verdana,freesans,sans-serif;font-size:12px;line-height:15px;color:#000000;">
+                           <b>M:</b> {{entity.mobile}}                      </td>
+                    </tr>
+                {% endif %}
+                                    <tr>
+                    <td width="1" height="1" style="font-size:1px;line-height:1px;"></td>
+                </tr>
+               
+                {% if (entity.office == 'London, United Kingdom') %}
+                <tr>
+                    <td style="font-family:arial,verdana,freesans,sans-serif;font-size:12px;line-height:15px;color:#000000;">
+                        <b>UK:</b> 4th Floor | 1 New Oxford Street | London | WC1A 1LW
+                    </td>
+                </tr>
+                {% endif %}
+                <!--<tr>
+                    <td width="1" height="1" style="font-size:1px;line-height:1px;"></td>
+                </tr>-->
+                {% if (entity.office == 'Atlanta, United States') %}
+                <tr>
+                    <td style="font-family:arial,verdana,freesans,sans-serif;font-size:12px;line-height:15px;color:#000000;">
+                        <b>US:</b> 3355 Lenox Road | Suite 1150 | Atlanta | GA 30326
+                    </td>
+                </tr>
+                {% endif %}
+                {% if (entity.office == 'Sydney, Austrailia') %}
+                <tr>
+                    <td style="font-family:arial,verdana,freesans,sans-serif;font-size:12px;line-height:15px;color:#000000;">
+                        <b>AU:</b> Level 3 | Suite 3 | Grafton Bond Building | 201 Kent St | Sydney
+                    </td>
+                </tr>
+                {% endif %}
+                
+                <tr>
+                    <td width="1" height="15"></td>
+                </tr>
+            </table>
+        </td>
+        <!--<td width="147" valign="bottom"><a href="http://www.alchemyworx.com/index.html?utm_source=signature&utm_medium=email&utm_content=logo&utm_campaign=signature"><img src="http://www.alchemyworx.com/images/signature/logo_new.gif" border="0" width="147" height="21" style="display:block"></a></td>-->
+    </tr>
+</table>
+<table width="482" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td width="5"></td>
+        <td>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="43"><a href="https://twitter.com/AlchemyWorx" target="_blank"><img src="http://www.alchemyworx.com/images/signature/sign-social_twitter.png" border="0" width="43" height="49" style="display:block"></a></td>
+                    <td width="41"><a href="http://www.linkedin.com/company/alchemy-worx" target="_blank"><img src="http://www.alchemyworx.com/images/signature/sign-social_linkedin.png" border="0" width="41" height="49" style="display:block"></a></td>
+                    <td width="42"><a href="http://www.youtube.com/alchemyworx" target="_blank"><img src="http://www.alchemyworx.com/images/signature/sign-social_youtube.png" border="0" width="42" height="49" style="display:block"></a></td>
+                    <td width="80" height="3">&nbsp;</td>
+                    <td width="262" valign="bottom"><a href="http://www.alchemyworx.com/index.html?utm_source=signature&utm_medium=email&utm_content=logo&utm_campaign=signature"><img src="http://www.alchemyworx.com/images/signature/logo_2014.png" border="0" width="262" height="37" style="display:block"></a></td>
+                </tr>
+                <tr>
+                    <td width="1" height="3"></td>
+                </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>
+<table width="482" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <table width="482" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="482"><a href="{{banner.link}}" target="_blank"><img src="http://www.alchemyworx.com/images/signature/{{banner.name}}" border="0" width="482" height="117" style="display:block"></a></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</html>
+
+
+{% elseif type == 2 %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>Alchemy Works</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style type="text/css">
+        div, p, a, li, td { -webkit-text-size-adjust:none; }
+    </style>
+</head>
+
+<body margintop="0" marginleft="0" marginright="0" bgcolor="#ffffff">
+<table width="600" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td width="600">
+            <table width="600" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="font-family:arial,verdana,freesans,sans-serif;font-size:18px;line-height:21px;color:#ed1e24;">
+                        <b>{{entity.firstname ~ " " ~ entity.lastName}}</b>
+                    </td>
+                </tr>
+                <tr><td width="1" height="3"></td></tr>
+                <tr>
+                    <td style="font-family:arial,verdana,freesans,sans-serif;font-size:14px;line-height:17px;color:#ed1e24;">
+                        {{entity.jobTitle}}
+                    </td>
+                </tr>
+                <tr><td width="1" height="3"></td></tr>
+                <tr>
+                    <td style="font-family:arial,verdana,freesans,sans-serif;font-size:12px;line-height:15px;color:#000000;">
+                        Alchemy Worx | D: {{entity.telephone}} | M: {{entity.mobile}} | <a href="mailto:{{entity.email}}" style="text-decoration: none;color: #000000;">{{entity.email}}</a>
+                    </td>
+                </tr>
+            </table>
+
+</body>
+
+</html>
+{% else %}
+{{error}} <a href="{{ path('ldapuser_edit', { 'id': entity.id }) }}">Click here</a>
+{% endif %}
+

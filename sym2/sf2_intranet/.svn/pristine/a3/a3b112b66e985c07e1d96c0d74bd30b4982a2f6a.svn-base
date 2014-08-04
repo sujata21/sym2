@@ -1,0 +1,49 @@
+{% extends '::layout.html.twig' %}
+{% block title %}Intranet | Alchemyworx{% endblock %}
+{% block body_span %}span12{% endblock %}
+
+
+
+
+{% block body %}
+<div class="jumbotron">
+	<div class="container">
+		<h1>Hello, Alchemists!</h1>
+		<p>Welcome to  the Alchemy Worx IT Support Site</p>
+		<p>Use this site to  request help and find valuable information regarding the office network and resources.</p>
+		<p>
+			<a class="btn btn-primary btn-lg" role="button" href="/login">Login »</a>
+		</p>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<h2>Your Account</h2>
+			<p>Update your personal details.</p>
+			<p>Change your network password.</p>
+			<p>Reset your password if your have forgotten it.</p>
+			
+		</div>
+		<div class="col-md-3">
+			<h2>Email</h2>
+			<p>Get your signature.</p>
+			<p>Request access to Mail Groups.</p>
+			
+		</div>
+		<div class="col-md-3">
+			<h2>Network</h2>
+			<p>Request access to network group.</p>
+			<p>Give your access to various restricted network drives.</p>
+		</div>
+		<div class="col-md-3">
+			<h2>Help</h2>
+			<p>IT policy.</p>
+			<p>Accessing servers remotely (from home or on the road).</p>
+		</div>
+
+</div>
+<hr>
+</div>
+
+{% endblock %}

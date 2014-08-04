@@ -1,0 +1,39 @@
+<?php
+
+namespace Application\LDAPBundle\Form;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
+class LDAPUserType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('firstname')
+            ->add('lastname')
+            ->add('job_title')
+            ->add('department_id','entity',array('label'=>'Department','class'=> 'Application\LDAPBundle\Entity\Department','property'  => 'name'))
+            ->add('office')
+            ->add('telephone')
+            ->add('mobile')
+            ->add('username')
+            ->add('email')
+            ->add('enabled', 'checkbox', array( 'label'     => ' Account is enabled?',   'required'  => false,))
+            ->add('mail_account', 'checkbox', array( 'label'     => ' Account has mail account?',   'required'  => false,))            
+        ;
+    }
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'Application\LDAPBundle\Entity\LDAPUser'
+        ));
+    }
+
+    public function getName()
+    {
+        return 'Application_ldapbundle_ldapusertype';
+    }
+}

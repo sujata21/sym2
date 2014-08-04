@@ -1,0 +1,2 @@
+        <a class="btn btn-success" href="{{ "{{ path('" ~ route_name_prefix ~ "') }}" }}" class="btn"><span class="glyphicon glyphicon-list"></span> Back to list</a>
+        <button type="submit" form="newForm" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> Save</button>

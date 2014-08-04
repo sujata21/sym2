@@ -1,0 +1,71 @@
+{% extends '::layout.html.twig' %}
+
+{% block sidebar_filter %}
+    <form action="{{ path('ldapgroup') }}" method="post" {{ form_enctype(filter_form) }}>
+        {{ form_widget(filter_form) }}
+        <p>
+            <button type="submit">Filter</button>
+        </p>
+    </form>
+{% endblock %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-list">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Group List ( Click Subscribe <span class="glyphicon glyphicon-envelope" style="color: black;"></span> to join or leave the group)
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="LDAPGroup" title="LDAPGroup list page help" data-toggle="modal" data-target="#Test3"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered table-list">
+            <thead>
+                <tr>
+                    <th{% if pagination.isSorted('a.id') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Id', 'a.id')|raw }}</th>
+                    <th{% if pagination.isSorted('a.name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Name', 'a.name')|raw }}</th>
+                    <th>Mail Alias</th>
+                    <th>Edit Owner</th>
+                    <th>Subscribe</th>
+                    <!--<th{% if pagination.isSorted('a.updated_at') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Updated', 'a.updated_at')|raw }}</th>-->
+                    <th{% if pagination.isSorted('a.created_at') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Created', 'a.created_at')|raw }}</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for entity in pagination %}
+            
+                <tr>
+                    <td><a href="{{ path('ldapgroup_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>{{ entity.name }}</td>
+                    <td>{{entity.mailalias}}</td>
+                    <td style="text-align:center;"><a href="{{ path('ldapmailaliasuser_new_admin', { 'group_id': entity.ldapMailAlias.id }) }}" title="Edit owner for this group">{{ entity.userId }}</a></td>
+                    <td><div style="text-align:center;"><a href="{{ path('ldapgroup_subscribe' ,{'uid': app.user.id,'aliasid':entity.ldapMailAlias.id}) }}"><span class="btn btn-lg glyphicon glyphicon-envelope" style="color: black;" title="Click here for subscribe / unsubscribe page"></span></a></div></td>
+
+                    <!--<td>{% if entity.updatedat %}{{ entity.updatedat|date('Y-m-d H:i:s') }}{% endif %}</td>-->
+                    <td>{% if entity.createdat %}{{ entity.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td nowrap>
+                        <div style="text-align:center;">                    
+                            <a href="{{ path('ldapgroup_show', { 'id': entity.id }) }}" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-search"></span></a>
+                            {% if (app.user.id == entity.userId|capitalize) or (is_granted('ROLE_ADMIN')) %}
+                            <a href="{{ path('ldapgroup_edit', { 'id': entity.id }) }}" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-edit"></span></a>
+                            {% endif %}
+                        </div> 
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        {{ knp_pagination_render(pagination)|raw }}
+    </div>
+</div>
+<!-- help content div -->
+<div id="LDAPGroup-div-help-content" class="help-content">
+    LDAPGroup list page help content
+</div>
+<!-- // help content div -->
+{% endblock %}

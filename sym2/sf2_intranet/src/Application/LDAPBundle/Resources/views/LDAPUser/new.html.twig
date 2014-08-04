@@ -1,0 +1,31 @@
+{% extends '::layout.html.twig' %}
+
+{% form_theme form ':Form:fields.html.twig' %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-show">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            LDAPUser - creation page
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="LDAPUser" title="LDAPUser creation page help" data-toggle="modal" data-target="#Test3"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+		<form id="newForm" role="form" class="form-horizontal" action="{{ path('ldapuser_create') }}" method="post" {{ form_enctype(form) }}>
+			{{ form(form) }}
+		</form>
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-success" href="{{ path('ldapuser') }}" class="btn"><span class="glyphicon glyphicon-list"></span> Back to list</a>
+        <button type="submit" form="newForm" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> Save</button>
+    </div>
+</div>
+<!-- help content div -->
+<div id="LDAPUser-div-help-content" class="help-content">
+    LDAPUser creation page help content
+</div>
+<!-- // help content div -->
+
+{% endblock %}

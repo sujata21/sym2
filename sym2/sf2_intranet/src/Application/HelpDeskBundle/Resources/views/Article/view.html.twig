@@ -1,0 +1,105 @@
+{% extends '::layout.html.twig' %}
+
+{% block bottom_scripts %}
+    {% render controller("cmf_create.jsloader.controller:includeJSFilesAction", { "editor": "ckeditor", "_locale": app.request.locale }) %}
+{% endblock %}
+
+{% block javascripts %}
+<script>
+jQuery(document).ready(function() {
+	if (cmfCreateImageUpload) {
+        window.CKEDITOR.config.filebrowserImageUploadUrl = cmfCreateImageUpload;
+    }
+});
+</script>
+{% endblock %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-show col-md-9">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            {% if decendants == null %}
+	        	{{ article.title }}
+			{% else %}
+				Help articles
+	        {% endif %}
+        </h3>
+    </div>
+    <div class="panel-body">
+		
+		{% if decendants == null %}	
+			{% createphp article as="rdf" %}		
+		    	<select class="articleCategory form-control">
+		    		<option value="Choose category" selected>Choose category</option>
+		    		{% for articleCategory in articleCategories %}
+						<option value="{{ articleCategory.path }}">{{ articleCategory.path }}</option>
+		    		{% endfor %}
+		    	</select>
+		    	<select class="articleAccess form-control">
+		    		<option value="Choose access" selected>Choose access</option>
+		    		<option value="public">Public</option>
+		    		<option value="admin">Admin</option>
+		    	</select>
+		    	<h3 id="articleCategory" {{ createphp_attributes( rdf.category ) }}>{{ createphp_content( rdf.category ) }}</h3>
+		    	<h3 id="articleAccess" {{ createphp_attributes( rdf.access ) }}>{{ createphp_content( rdf.access ) }}</h3>
+		    	<h1 class="title" {{ createphp_attributes( rdf.title ) }}>{{ createphp_content( rdf.title ) }}</h1>
+		    	{% set url = 'http://www.alchemyworx.com'~baseUrl~article.getUrlBase %}
+			    {% if is_granted("ROLE_EDITOR") %}                
+					
+				{% endif %}
+		    	<div class="description" {{ createphp_attributes( rdf.body ) }}>{{ createphp_content( rdf.body ) }}</div>
+			{% endcreatephp %}	
+		 {% else %}
+			{% for article in pagination %}
+				
+				  	{% createphp article as="rdf" %}
+			    		{% set url = 'http://www.alchemyworx.com'~baseUrl~article.getUrlBase %}
+			    		<div class="articleItem" {{ createphp_attributes( rdf.title ) }}>
+				    		<a href="{{ baseUrl }}{{ article.getUrlBase }}">{{ createphp_content( rdf.title ) }}</a>
+							<div class="articleCategory">
+								{{ rdf.category | striptags }}
+							</div>
+				    		<div class="postSummary">
+				    			{{ createphp_content( rdf.body ) | slice(0,250) | raw | striptags }} ... <a href="{{ baseUrl }}{{ article.getUrlBase }}">Read more</a>
+				    		</div>
+				    	</div>	    		
+					{% endcreatephp %}		  	 
+		    	
+			{% endfor %}
+				
+				<div class="navigation">
+				    {# knp_pagination_render(pagination|raw) #}
+				</div>
+		    	   	
+		      	{# if is_granted("ROLE_EDITOR") %}                
+					<a href="{{ path('help-create') }}">Add Article.</a>
+				{% endif #}
+		{% endif %}
+
+    </div>
+    <div class="panel-footer">
+        {% if decendants == null %}
+        	<a class="btn btn-success" href="{{ path('help') }}"><span class="glyphicon glyphicon-list"></span> Back to list</a>
+        {% endif %}
+    </div>
+</div>
+<div class="panel panel-primary panel-show col-md-3">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Search
+        </h3>
+    </div>
+    <div class="panel-body">
+		<form id="help-search-form" action="{{ path('help-search') }}" method="post">
+			<div class="ui-widget">					
+				<input type="text" id="search_term" name="search_term" value="" class="form-control"/>
+				<button class="btn btn-success form-control">Search &raquo;</button>
+			</div>
+		</form>
+    </div>
+    <div class="panel-footer">
+        
+    </div>
+</div>    	    
+{% endblock %}

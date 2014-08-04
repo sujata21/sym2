@@ -1,0 +1,40 @@
+{% extends '::layout.html.twig' %}
+
+
+
+{% block body %}
+
+<div class="panel panel-primary panel-show">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            LDAPMailAlias - Approve page
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="LDAPMailAlias" title="LDAPMailAlias edit page help" data-toggle="modal" data-target="#Test3"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <p><b>Username :</b> {{ entity.ldapUser.Firstname }}  {{ entity.ldapUser.Lastname }}</p>
+        <p><b>Mail Alias :</b> {{entity.ldapMailAlias.name}}</p>
+        {% if(entity.subscribe == 0 )%}
+            <p><b>Request:</b> To Subscribe </p>
+            <p><b>(Click here to approve) :</b>
+            <a class="btn btn-success" href="{{ path('ldapgroup_subscribeapprove' , { 'id': entity.id ,'flag': 1,'uid':uid})}}"><span class="glyphicon glyphicon-ok"></span> Approve </a>
+        {% else %}
+            <p><b>Request:</b> To Unsubscribe </p>
+            <p><b>(Click here to approve) :</b>
+            <a class="btn btn-danger" href="{{ path('ldapgroup_subscribeapprove' , { 'id': entity.id ,'flag': 1,'uid':uid})}}"><span class="glyphicon glyphicon-remove"></span> Approve </a>
+        {% endif %}
+        </p>
+
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-success" href="{{ path('ldapgroup_subscribe') }}" class="btn"><span class="glyphicon glyphicon-list"></span> Back to list</a>
+    </div>
+</div>
+<!-- help content div -->
+<div id="LDAPMailAlias-div-help-content" class="help-content">
+    LDAPMailAlias edit page help content
+</div>
+<!-- // help content div -->
+
+{% endblock %}

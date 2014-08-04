@@ -1,0 +1,68 @@
+{% extends '::layout.html.twig' %}
+
+{% block sidebar_filter %}
+    <form action="{{ path('ldapusergroup') }}" method="post" {{ form_enctype(filter_form) }}>
+        {{ form_widget(filter_form) }}
+        <p >
+            <button class="btn btn-success btn-xs" name="filter-submit" type="submit">Filter data</button>
+        </p>
+    </form>
+{% endblock %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-list">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            User Group List
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="LDAPUserGroup" title="LDAPUserGroup list page help" data-toggle="modal" data-target="#Test3"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="alert alert-success alert-dismissable" style="display: none;" id="success-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div id="message-success"></div>
+        </div>
+        <div class="alert alert-danger alert-dismissable" style="display: none;" id="failure-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div id="message-fail"></div>
+        </div>
+        <table class="table table-bordered table-list">
+            <thead>
+                <tr>
+                    <th{% if pagination.isSorted('a.ldapUser.id') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Group User', 'a.ldapUser.id')|raw }}</th>
+                    <th{% if pagination.isSorted('a.ldapGroup.id') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Group', 'a.ldapGroup.id')|raw }}</th>
+                   
+                    <!--<th>Actions</th>-->
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in pagination %}
+               <tr>
+                    <td><a href="{{ path('ldapuser_show', { 'id': entity.ldapUser.id }) }}">
+                        {{ entity.ldapUser.firstname }} {{ entity.ldapUser.lastname }}</a></td>
+                    <td><a href="{{ path('ldapgroup_show', { 'id': entity.ldapGroup.id }) }}">{{ entity.ldapGroup.name }}</a></td>
+                                        
+                   <!-- <td nowrap>
+                        <div style="text-align:center;">                    
+                            <a href="{{ path('ldapusergroup_show', { 'id': entity.id }) }}" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-search"></span></a>
+                            <a href="{{ path('ldapusergroup_edit', { 'id': entity.id }) }}" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-edit"></span></a>
+                        </div> 
+                    </td>-->
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        {{ knp_pagination_render(pagination)|raw }}
+    </div>
+</div>
+<!-- help content div -->
+<div id="LDAPUserGroup-div-help-content" class="help-content">
+    LDAPUserGroup list page help content
+</div>
+<!-- // help content div -->
+
+{% endblock %}

@@ -1,0 +1,87 @@
+
+    /**
+{% block phpdoc_method_header %}
+     * Lists all {{ entity }} entities.
+{% endblock phpdoc_method_header %}
+     *
+{% block phpdoc_method_annotations %}
+{% if 'annotation' == format %}
+     * @Route("/", name="{{ route_name_prefix }}")
+     * @Method("GET")
+     * @Template()
+{% endif %}
+{% endblock phpdoc_method_annotations %}
+     */
+{% block method_definition %}
+    public function indexAction(Request $request)
+{% endblock method_definition %}
+    {
+{% block method_body %}
+        $em = $this->getDoctrine()->getManager();
+        
+        $entity  = new {{ entity }}();
+        $filterForm = $this->createForm(new {{ entity }}Type(), $entity);
+        
+        $qbl = $em->getRepository('{{ bundle }}:{{ entity }}')
+        ->createQueryBuilder('a');
+        
+        if ($this->get('request')->request->has('filter-submit')) {
+            
+            $params = array_values($this->getRequest()->request->all());
+            
+            //remove entries from params array that are not related with DB
+            $keysToUnset = array('_token');
+            foreach ($keysToUnset as &$keyToUnset) {
+                if (array_key_exists($keyToUnset, $params[0])) {
+                    unset($params[0][$keyToUnset]);
+                }    
+            }
+            
+            //get array containnig keys from params array to check for where/andWhere clause in query building fase
+            $arrayKeys = array_keys($params[0]);
+            //reset both arrays
+            reset($arrayKeys);
+            reset($params[0]);
+
+            foreach ($params[0] as $key => $value) {
+                if (trim($value) != '') {
+                    if (current($params[0]) == current($arrayKeys)) {
+                        $qbl->where("a.".$key." like :".$key);
+                        $qbl->setParameter($key, "%".$value."%");
+                    }else {
+                        $qbl->andWhere("a.".$key." like :".$key);
+                        $qbl->setParameter($key, "%".$value."%");
+                    }
+                }
+            }
+        }
+       
+        $query = $qbl->getQuery();
+        
+        $pageCount = $request->query->get('page-count');
+
+        if ($pageCount == null) {
+            $pageCount = 10;
+        }
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+                $query,
+                $this->get('request')->query->get('page', 1),
+                $pageCount,
+                array('distinct' => false)
+        );
+            
+        $filter_form   = $filterForm->createView();
+        $csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
+{% endblock method_body %}
+
+{% block method_return %}
+{% if 'annotation' == format %}
+        return compact('pagination', 'filter_form', 'csrfToken');
+{% else %}
+        return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:index.html.twig', compact('pagination', 'filter_form', 'csrfToken'));
+{% endif %}
+{% endblock method_return %}
+    }
+    

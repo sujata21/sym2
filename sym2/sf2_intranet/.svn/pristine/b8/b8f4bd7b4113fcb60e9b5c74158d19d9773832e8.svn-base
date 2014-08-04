@@ -1,0 +1,119 @@
+{% extends '::layout.html.twig' %}
+
+{% block sidebar_filter %}
+    <form action="{{ path('ldapuser') }}" method="post" {{ form_enctype(filter_form) }}>
+        {{ form_widget(filter_form) }}
+        <p>
+            <button class="btn btn-success btn-xs" name="filter-submit" type="submit">Filter data</button>
+        </p>
+    </form>
+{% endblock %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-list">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            User List
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="LDAPUser" title="LDAPUser list page help" data-toggle="modal" data-target="#Test3"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="alert alert-success alert-dismissable" style="display: none;" id="success-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div id="message-success"></div>
+        </div>
+        <div class="alert alert-danger alert-dismissable" style="display: none;" id="failure-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div id="message-fail"></div>
+        </div>
+        <table class="table table-bordered table-list">
+            <thead>
+                <tr>
+                   {% if is_granted('ROLE_ADMIN') %} <th>Check</th>{% endif %}
+                    <!-- <th{% if pagination.isSorted('a.id') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Id', 'a.id')|raw }}</th> -->
+                    <th{% if pagination.isSorted('a.username') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Username', 'a.username')|raw }}</th>
+                    <th{% if pagination.isSorted('a.firstname') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Firstname', 'a.firstname')|raw }}</th>
+                    <th{% if pagination.isSorted('a.lastname') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Lastname', 'a.lastname')|raw }}</th>
+                    <th{% if pagination.isSorted('a.job_title') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Job title', 'a.job_title')|raw }}</th>
+                    <th{% if pagination.isSorted('a.email') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Email', 'a.email')|raw }}</th>
+                    <!-- <th{% if pagination.isSorted('a.department') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Department', 'a.department')|raw }}</th>
+                    <th{% if pagination.isSorted('a.office') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Office', 'a.office')|raw }}</th> -->
+                    <th{% if pagination.isSorted('a.telephone') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Telephone', 'a.telephone')|raw }}</th>
+                    <!-- <th{% if pagination.isSorted('a.enabled') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Enabled', 'a.enabled')|raw }}</th>
+                    <th{% if pagination.isSorted('a.mail_account') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'E-Mail', 'a.mail_account')|raw }}</th> -->
+                    <!-- <th{% if pagination.isSorted('a.created_at') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Created_at', 'a.created_at')|raw }}</th> -->
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in pagination %}
+              <tr>
+                    {% if is_granted('ROLE_ADMIN') %} <td> <input type="checkbox" name="chkBox" value="{{ entity.id }}" id="{{ entity.id }}"></td>{% endif %}
+                    <!-- <td><a href="{{ path('ldapuser_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td> -->
+                    <td><a href="{{ path('ldapuser_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
+                    <td>{{ entity.firstname }}</td>
+                    <td>{{ entity.lastname }}</td>
+                    <td>{{ entity.jobtitle }}</td>
+                    <td><a href="mailto:{{ entity.email }}">{{ entity.email }}</a></td>
+                    <!-- <td>{{ entity.department }}</td>
+                    <td>{{ entity.office }}</td> -->
+                    <td>{{ entity.telephone }}</td>
+                    <!-- <td>{{ entity.enabled|replace({'1': 'Y', '0': 'N'}) }}</td>
+                    <td>{{ entity.mailaccount|replace({'1': 'Y', '0': 'N'}) }}</td> -->
+                    <!-- <td>{% if entity.createdat %}{{ entity.createdat|date('Y-m-d H:i:s') }}{% endif %}</td> -->
+                    <td nowrap>
+                        <div style="text-align:center;"> 
+                        {% if (app.user.username == entity.username|capitalize) or (is_granted('ROLE_ADMIN')) %}
+                            {% if days_to_expire[entity.id] < 7 %}
+                                <a href="#" style="color:red;padding-right:5px;"><span class="glyphicon glyphicon-time" title="{{days_to_expire[entity.id]}}" ></span></a>
+                            {% else %}
+                                <a href="#" style="color:black;padding-right:5px;" ><span class="glyphicon glyphicon-time" title="{{days_to_expire[entity.id]}}" ></span></a>
+                            {% endif %}
+                        {% endif %}
+
+                            <a href="{{ path('ldapuser_show', { 'id': entity.id }) }}" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-search"></span></a>
+                        {% if (app.user.username == entity.username|capitalize) or (is_granted('ROLE_ADMIN')) %}
+                            <a href="{{ path('ldapuser_edit', { 'id': entity.id }) }}" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-edit"></span></a>
+                        {% endif %}
+                        </div> 
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% if is_granted('ROLE_ADMIN') %}
+    <div class="action" >
+        <div style="cursor: pointer;float: left;"> <img src="/bundles/applicationmain/images/arrow_ltr.png" ></div>
+        <div class="row">
+            <div id="checkall" >Check All / </div>
+            &nbsp;&nbsp;<div id="uncheckall"> Uncheck All</div>
+            <div class="btn-group" style="float: left;padding-left: 20px;padding-bottom: 20px;">
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                    Action <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a  id="enable">Enable User</a></li>
+                    <li><a id="disable">Disable User</a></li>
+                    <li><a id="menable">Enable Mail Account</a></li>
+                    <li><a id="mdisable">Disable Mail Account</a></li>
+                    <li><a id="passwordUpdate">Ldap password update</a></li>
+                </ul>
+        </div>
+        </div>
+
+    </div>
+    {% endif %}
+    <div class="panel-footer">
+        {{ knp_pagination_render(pagination)|raw }}
+    </div>
+</div>
+<!-- help content div -->
+<div id="LDAPUser-div-help-content" class="help-content">
+    LDAPUser list page help content
+</div>
+<!-- // help content div -->
+
+{% endblock %}

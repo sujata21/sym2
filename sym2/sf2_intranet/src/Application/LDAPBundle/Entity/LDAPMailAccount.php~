@@ -1,0 +1,249 @@
+<?php
+
+namespace Application\LDAPBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+/**
+ * LDAPMailAccount
+ *
+ * @ORM\Table(name="ldap_mail_account")
+ * @ORM\Entity(repositoryClass="Application\LDAPBundle\Entity\LDAPMailAccountRepository")
+ */
+class LDAPMailAccount
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+    * @var string
+    *
+    * @ORM\Column(name="name", type="string", length=50)
+    */
+    private $name;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $updated_at;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     */
+    private $created_at;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="enabled", type="integer", length=1 )
+     */
+    private $enabled = 1;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="deleted", type="integer", length=1, nullable=true)
+     */
+    private $deleted = 0;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
+     */
+    private $deleted_at;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="synchronized_at", type="datetime", nullable=true)
+     */
+    private $synchronized_at;
+	
+    
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set updated_at
+     *
+     * @param \DateTime $updatedAt
+     * @return LDAPMailAccount
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated_at
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set created_at
+     *
+     * @param \DateTime $createdAt
+     * @return LDAPMailAccount
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get created_at
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param integer $enabled
+     * @return LDAPMailAccount
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return integer 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set deleted
+     *
+     * @param integer $deleted
+     * @return LDAPMailAccount
+     */
+    public function setDeleted($deleted)
+    {
+        $this->deleted = $deleted;
+    
+        return $this;
+    }
+
+    /**
+     * Get deleted
+     *
+     * @return integer 
+     */
+    public function getDeleted()
+    {
+        return $this->deleted;
+    }
+
+    /**
+     * Set deleted_at
+     *
+     * @param \DateTime $deletedAt
+     * @return LDAPMailAccount
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deleted_at = $deletedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get deleted_at
+     *
+     * @return \DateTime 
+     */
+    public function getDeletedAt()
+    {
+        return $this->deleted_at;
+    }
+
+    /**
+     * Set synchronized_at
+     *
+     * @param \DateTime $synchronizedAt
+     * @return LDAPMailAccount
+     */
+    public function setSynchronizedAt($synchronizedAt)
+    {
+        $this->synchronized_at = $synchronizedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get synchronized_at
+     *
+     * @return \DateTime 
+     */
+    public function getSynchronizedAt()
+    {
+        return $this->synchronized_at;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return LDAPMailAccount
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+}

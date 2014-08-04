@@ -1,0 +1,101 @@
+{% extends '::layout.html.twig' %}
+
+
+
+{% block body %}
+
+<div class="panel panel-primary panel-list">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            LDAPMailAlias Subscribe - list page
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="LDAPGroup" title="LDAPGroup list page help" data-toggle="modal" data-target="#Test3"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+
+    </div>
+    <div class="panel-body">
+        {% if(msg != 'NULL')%}
+        <div class="alert alert-success alert-dismissable" style="display: block;" id="success-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div id="message-success">{{msg}}</div>
+        </div>
+        {% endif %}
+        <table class="table table-bordered table-list">
+            <thead>
+                <tr>
+                    
+                    <th>Mail Alias</th>
+                    <th>Status</th>
+                    <th>Created At</th>
+                    <th>Request</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for entity in entity %}
+                <tr>
+                    <td>{{ entity.name }}</td>
+                    {% if mailalias[entity.id] is defined %}
+                        {% if mailalias[entity.id] == '1' %}
+                        {% set color = 'red' %}
+                        {% set button = 'glyphicon-remove' %}
+                        {% set title = 'Unsubscribe' %}
+                            <td>
+                                <div style="text-align:center;">
+                                    <span class="btn btn-lg glyphicon glyphicon-envelope" style="color: green;"></span>
+                                </div>
+                            </td>
+                        {% elseif mailalias[entity.id] == '0' %}
+                            {% set color = 'green' %}
+                            {% set button = 'glyphicon-ok' %}
+                            {% set title = 'Subscribe' %}
+                            <td>
+                                <div style="text-align:center;">
+                                    <span class="btn btn-lg glyphicon glyphicon-envelope" style="color: red;"></span>
+                                </div>
+                            </td>
+                        {% endif %}
+                    {% else %}
+                    {% set color = 'green' %}
+                    {% set button = 'glyphicon-ok' %}
+                    {% set title = 'Subscribe' %}
+                            <td>
+                                <div style="text-align:center;">
+                                    <span class="btn btn-lg glyphicon glyphicon-envelope" style="color: red;"></span>
+                                </div>
+                            </td>
+                    {% endif %}
+                    <td>{% if entity.createdat %}{{ entity.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>
+                        <div style="text-align:center;">
+
+                        {% if status[entity.id] is defined %}
+                        {% if status[entity.id] == 1 %}                
+                            <a href="#" class="btn btn-lg" title="Request in process">
+                                <span class="glyphicon glyphicon-ok" style="color: grey;" disabled="disabled"></span>
+                            </a>
+                            {% else %}
+                            <a href="{{ path('ldapgroup_subscriberequest', { 'alias_id': entity.id ,'user_id':app.user.id}) }}" class="btn btn-lg " title="{{title}}">
+                                <span class="glyphicon {{button}}" style="color: {{color}};"></span>
+                            </a>
+                            {% endif %}
+                        {% else %}
+                        <a href="{{ path('ldapgroup_subscriberequest', { 'alias_id': entity.id ,'user_id':app.user.id}) }}" class="btn btn-lg " title="{{title}}">
+                                <span class="glyphicon {{button}}" style="color: {{color}};"></span>
+                            </a>
+                        {% endif %}
+                        </div> 
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<!-- help content div -->
+<div id="LDAPGroup-div-help-content" class="help-content">
+    LDAPGroup list page help content
+</div>
+<!-- // help content div -->
+{% endblock %}

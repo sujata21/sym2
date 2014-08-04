@@ -1,0 +1,85 @@
+			<div class="sidebar">
+                <div class="sidebar-top-icons">
+                    <a id="searchBtn" href="#" title="Search">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </a>
+                        <a id="usersBtn" href="#" title="Users">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </a>
+                        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ALCHEMY') %}
+                        <a id="mailBtn" href="#" title="Mail">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="sidebar-bottom-icons">
+                    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ALCHEMY') %}
+                        <a href="#" title="Settings">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div id="sidebar-search">
+                <div class="sidebar-panel-header">
+                    Search
+                    <button class="close sidebar-close">&times;</button>
+                </div>
+                <div class="sidebar-panel-content">
+                    {% block sidebar_filter %}
+                        
+                    {% endblock %}
+                </div>
+            </div>
+            <div id="sidebar-users">
+                <div class="sidebar-panel-header">
+                    Users
+                    <button class="close sidebar-close">&times;</button>
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('ldapuser') }}">List</a></li>
+                        <li><a href="{{ path('ldapuser_new') }}">Create New</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-panel-header">
+                    User Groups
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('ldapusergroup') }}">List</a></li>
+                        <li><a href="{{ path('ldapusergroup_new') }}">Create New</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-panel-header">
+                    Groups
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('ldapgroup') }}">List</a></li>
+                        <li><a href="{{ path('ldapgroup_new') }}">Create New</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div id="sidebar-mail">
+                <div class="sidebar-panel-header">
+                    Mail
+                    <button class="close sidebar-close">&times;</button>
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('ldapmailaccount') }}">List</a></li>
+                        <li><a href="{{ path('ldapmailaccount_new') }}">Create New</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-panel-header">
+                    Alias
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('ldapmailalias') }}">List</a></li>
+                        <li><a href="{{ path('ldapmailalias_new') }}">Create New</a></li>
+                    </ul>
+                </div>
+            </div>

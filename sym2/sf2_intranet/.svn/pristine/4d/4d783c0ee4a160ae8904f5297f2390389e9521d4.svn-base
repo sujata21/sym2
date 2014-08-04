@@ -1,0 +1,53 @@
+{% extends '::layout.html.twig' %}
+{% block title %}Intranet | Alchemyworx{% endblock %}
+{% block body_span %}span12{% endblock %}
+
+
+
+
+{% block body %}
+<div class="jumbotron">
+	<div class="container">
+		<h1>Hello, Alchemists!</h1>
+		<p>Welcome to  the Alchemy Worx IT Support Site</p>
+		<p>Use this site to  request help and find valuable information regarding the office network and resources.</p>
+		{% if (is_granted('IS_AUTHENTICATED_FULLY'))%}
+		{% else %}
+		<p>
+			<a class="btn btn-primary btn-lg" role="button" href="/login">Login »</a>
+		</p>
+		{% endif %}
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<h2>Your Account</h2>
+
+			<p><a href="/admin/ldapuser/profile">Update your personal details</a></p>
+			<p><a href="/profile/change-password">Change your network password</a></p>
+			<p><a href="/resetting/request">Reset your password if your have forgotten it</a></p>
+			
+		</div>
+		<div class="col-md-3">
+			<h2>Email</h2>
+			<p><a href="/admin/ldapuser/profile">Get your signature</a></p>
+			<p><a href="/admin/ldapgroup/subscribe">Request access to Mail Groups</a></p>
+			
+		</div>
+		<div class="col-md-3">
+			<h2>Network</h2>
+			<p>Request access to network group.</p>
+			<p>Give your access to various restricted network drives.</p>
+		</div>
+		<div class="col-md-3">
+			<h2>Help</h2>
+			<p>IT policy.</p>
+			<p>Accessing servers remotely (from home or on the road).</p>
+		</div>
+
+</div>
+<hr>
+</div>
+
+{% endblock %}

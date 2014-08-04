@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link href="/bundles/applicationmain/jquery-ui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
+    <link href="/bundles/applicationmain/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bundles/applicationmain/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="/bundles/applicationmain/font-awesome/css/font-awesome.min.css"> -->
+    
+    <script src="{{ asset('bundles/applicationmain/jquery/jquery-1.10.2.min.js') }}"></script>
+    {# stylesheets 
+    '@ApplicationMainBundle/Resources/public/bootstrap/css/bootstrap.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+	  {% endstylesheets #}
+
+    <style type="text/css">
+      /* body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      } */
+    </style>
+    {% if is_granted("IS_AUTHENTICATED_ANONYMOUSLY") %}                
+        {% include "CmfCreateBundle::includecssfiles.html.twig" %}
+    {% endif %}
+    <link href="/bundles/applicationmain/css/style.css" rel="stylesheet">
+    {# stylesheets '@ApplicationMainBundle/Resources/public/bootstrap/css/bootstrap-theme.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+	{% endstylesheets #}
+	    	
+	
+	{# stylesheets '@ApplicationMainBundle/Resources/public/css/style.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+	{% endstylesheets #}
+	
+	{# block stylesheets %}{% endblock #}
+	
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> -->
+</head>
+
+<body>
+	
+	{# block header %}
+		{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ALCHEMY') %}
+			{% include '::header_admin.html.twig' %}            	
+		{% else %}
+			{% include '::header.html.twig' %}    
+        {% endif %}
+	{% endblock #}
+
+    <div class="well well-top">
+
+        <div class="logo">
+            <img src="/bundles/applicationmain/images/logo.png">
+        </div>
+        <div class="btn-group btn-group-md pull-right">
+            <a href="{{ path('help') }}" class="btn btn-default">Help</a>
+
+            <div class="btn-group btn-group-md">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        {{ app.user.username }}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="{{ path('ldapuser_profile') }}">Profile</a></li>
+                        <li><a href="{{ path('fos_user_change_password') }}">Change password</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                    </ul>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}" class="btn btn-default">Sign in</a>
+                {% endif %}
+            </div>
+        </div>
+
+
+        <!-- <ul class="nav navbar-nav navbar-right">         
+          <li><a href="#contact">Help</a></li>
+          {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <li class="dropdown">
+              <a href="{{ path('ldapuser_profile') }}" class="dropdown-toggle" data-toggle="dropdown">{{ app.user.username }} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="{{ path('ldapuser_profile') }}">Profile</a></li>
+                <li><a href="{{ path('fos_user_change_password') }}">Change Password</a></li>
+                <li class="divider"></li>
+                <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+              </ul>
+            </li>
+          {% else %}
+            <li><a href="{{ path('fos_user_security_login') }}">Sign in</a></li>
+          {% endif %}
+        </ul> -->
+    </div>
+	
+    <div class="main-container">
+        {% block sidebar %}
+            <div class="sidebar">
+                <div class="sidebar-top-icons">
+                    <a id="searchBtn" href="#" title="Search">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </a>
+                    
+                        <a id="usersBtn" href="#" title="Users">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </a>
+                    
+                        <a id="mailBtn" href="#" title="Mail">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                        </a>
+                        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ALCHEMY') %}
+                        <a id="helpdeskBtn" href="#" title="Helpdesk">
+                            <span class="glyphicon glyphicon-hdd"></span>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="sidebar-bottom-icons">
+                    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ALCHEMY') %}
+                        <a href="#" title="Settings">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div id="sidebar-search">
+                <div class="sidebar-panel-header">
+                    Search
+                    <button class="close sidebar-close">&times;</button>
+                </div>
+                <div class="sidebar-panel-content">
+                    {% block sidebar_filter %}
+                        
+                    {% endblock %}
+                </div>
+            </div>
+            <div id="sidebar-users">
+                <div class="sidebar-panel-header">
+                    Users
+                    <button class="close sidebar-close">&times;</button>
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('ldapuser') }}">List</a></li>
+                        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ALCHEMY') %}
+                        <li><a href="{{ path('ldapuser_new') }}">Create New</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="sidebar-panel-header">
+                    User Groups
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('ldapusergroup') }}">List</a></li>
+                        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ALCHEMY') %}
+                        <li><a href="{{ path('ldapusergroup_new') }}">Create New</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="sidebar-panel-header">
+                    Groups
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('ldapgroup') }}">List</a></li>
+                        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ALCHEMY') or is_granted('ROLE_GROUP_EDITOR') %}
+                        <li><a href="{{ path('ldapgroup_new') }}">Create New</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="sidebar-panel-header">
+                    Subscribe Mail Alias
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('ldapgroup_subscribe') }}">List</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div id="sidebar-mail">
+                <div class="sidebar-panel-header">
+                    Mail
+                    <button class="close sidebar-close">&times;</button>
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('ldapmailaccount') }}">List</a></li>
+                         {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ALCHEMY') %}
+                        <li><a href="{{ path('ldapmailaccount_new') }}">Create New</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="sidebar-panel-header">
+                    Alias
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('ldapmailalias') }}">List</a></li>
+                        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ALCHEMY') %}
+                        <li><a href="{{ path('ldapmailalias_new') }}">Create New</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="sidebar-panel-header">
+                    Mail Alias user
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('ldapmailaliasuser') }}">List</a></li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+             
+            <div id="sidebar-helpdesk">
+                <div class="sidebar-panel-header">
+                    Devices
+                    <button class="close sidebar-close">&times;</button>
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('device') }}">List</a></li>
+                        <li><a href="{{ path('device_new') }}">Create New</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-panel-header">
+                    Tickets
+                </div>
+                <div class="sidebar-panel-content">
+                    <ul>
+                        <li><a href="{{ path('ticket') }}">List</a></li>
+                        <li><a href="{{ path('ticket_new') }}">Create New</a></li>
+                    </ul>
+                </div>
+            </div>
+        {% endblock %}
+        <div class="content">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+	
+
+    {# javascripts
+	'@ApplicationMainBundle/Resources/public/js/*' %}
+  <script src="{{ asset_url }}"></script>    
+	{% endjavascripts #} 
+	{# block javascripts %}{% endblock #}
+    <div class="modal fade" id="" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
+    <script src="{{ asset('bundles/applicationmain/jquery-ui/js/jquery-ui-1.10.3.custom.min.js') }}"></script>
+    <script src="{{ asset('bundles/applicationmain/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/applicationmain/js/script.js') }}"></script>
+    <script src="{{ asset('bundles/applicationmain/js/jquery.sendkeys.js') }}"></script>
+    <script src="{{ asset('bundles/applicationmain/js/bililiteRange.js') }}"></script>
+    <script src="{{ asset('bundles/applicationhelpdesk/js/article_category.js') }}"></script>
+    {% block bottom_scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: sp_sf2_intranet
+    database_user: alchemy_sp
+    database_password: sf@w0rx
+    phpcr_backend:
+        type: doctrinedbal
+#        connection: doctrine.dbal.default_connection
+# Enable these lines to use file system caching for the storage API
+#        caches:
+#            meta: liip_doctrine_cache.ns.meta
+#            nodes: liip_doctrine_cache.ns.nodes
+    phpcr_workspace: default
+    phpcr_user: admin
+    phpcr_pass: admin
+
+    mailer_transport: smtp
+    mailer_host: mail.alchemyworx.com
+    mailer_user: helpdesk
+    mailer_password: purpl345
+
+    locale:             en
+    locales:            [en, de]
+    secret:             9d19fe2a39c8fcdc14b0e4ab3562bb74
+    
+    user_class:         Application\Sonata\UserBundle\Entity\User
+    ldap_server:        192.168.1.11
+    ldap_port:          389
+    ldap_use_tls:       false
+    ldap_base_dn:       dc=alchemyworx,dc=local
+    ldap_bind_dn:       cn=admin,dc=alchemyworx,dc=local
+    ldap_bind_passwd:   st0n3s2010
+    ldap_user_prefix:   ou=people
+    ldap_group_prefix:  ou=groups
+    ldap_mailalias_prefix:  ou=mailalias
+    ldap_user_attribute:  uid
+    ldap_mail_attribute:  mail
+
+

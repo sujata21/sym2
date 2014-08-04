@@ -1,0 +1,55 @@
+{% extends '::layout.html.twig' %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-show">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            LDAPGroup - Show page
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="LDAPGroup" title="LDAPGroup show page help" data-toggle="modal" data-target="#Test3"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <table class="record_properties">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ entity.id }}</td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ entity.name }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ entity.description }}</td>
+                </tr>
+                <tr>
+                    <th>Updated_at</th>
+                    <td>{{ entity.updatedat|date('Y-m-d H:i:s') }}</td>
+                </tr>
+                <tr>
+                    <th>Created_at</th>
+                    <td>{{ entity.createdat|date('Y-m-d H:i:s') }}</td>
+                </tr>
+                <tr>
+                    <th>Synchronized_at</th>
+                    <td>{{ entity.synchronizedat|date('Y-m-d H:i:s') }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-success" href="{{ path('ldapgroup') }}" class="btn"><span class="glyphicon glyphicon-list"></span> Back to list</a>
+        <a class="btn btn-info" href="{{ path('ldapgroup_edit', { 'id': entity.id }) }}" class="btn"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+        <a class="btn btn-danger btn-delete pull-right" href="{{ path('ldapuser_delete', { 'id': entity.id }) }}" class="btn"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+    </div>
+</div>
+<!-- help content div -->
+<div id="LDAPGroup-div-help-content" class="help-content">
+    LDAPGroup show page help content
+</div>
+<!-- // help content div -->
+
+{% endblock %}

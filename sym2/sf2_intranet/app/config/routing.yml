@@ -1,0 +1,104 @@
+application_test_crud:
+    resource: "@ApplicationTestCrudBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+home_page:
+    pattern: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        # route: /cms/routes/en
+        route: /cms/routes/home
+        permanent: true # this for 301    
+        
+home_redirect:
+    pattern: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        # route: /cms/routes/en
+        route: /cms/routes/home
+        permanent: true # this for 301        
+
+application_help_desk:
+    resource: "@ApplicationHelpDeskBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+application_main:
+    resource: "@ApplicationMainBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+alchemyworx_ldap:
+    resource: "@ApplicationLDAPBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+#fos_user_profile:
+#    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+#    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+
+
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
+
+sonata_user:
+    resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
+    prefix: /admin
+    
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+cmf_tree:
+    resource: .
+    type: 'cmf_tree'   
+
+cmf_create_rest:
+    resource: "@CmfCreateBundle/Resources/config/routing/rest.xml"
+
+cmf_create_image:
+    resource: "@CmfCreateBundle/Resources/config/routing/image.xml"
+
+cmf_media_file:
+    resource: "@CmfMediaBundle/Resources/config/routing/file.xml"
+
+cmf_media_image:
+    resource: "@CmfMediaBundle/Resources/config/routing/image.xml"
+
+block_cache:
+    resource: "@CmfBlockBundle/Resources/config/routing/cache.xml"
+    prefix: /
+
+_imagine:
+    resource: .
+    type:     imagine
+    
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+
+    
+# application_main:
+#     resource: "@ApplicationMainBundle/Controller/"
+#     type:     annotation
+#     prefix:   /

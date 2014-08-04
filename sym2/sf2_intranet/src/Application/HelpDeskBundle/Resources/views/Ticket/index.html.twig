@@ -1,0 +1,126 @@
+{% extends '::layout.html.twig' %}
+
+{% block sidebar_filter %}
+    <form action="{{ path('ticket') }}" method="post" {{ form_enctype(filter_form) }}>
+        {{ form_widget(filter_form) }}
+        <p>
+            <button class="btn btn-success btn-xs" name="filter-submit" type="submit">Filter data</button>
+        </p>
+    </form>
+{% endblock %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-list">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Tickets - list page
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="Tickets" title="Tickets list page help" data-toggle="modal" data-target="#Tickets"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered table-list">
+            <thead>
+                <tr>
+                    <th class="col-md-1">Status</th>
+                    <th{% if pagination.isSorted('a.from_email') %} {% endif %} class="col-md-1">{{ knp_pagination_sortable(pagination, 'From_email', 'a.from_email')|raw }}</th>
+                    <th{% if pagination.isSorted('a.subject') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Subject', 'a.subject')|raw }}</th>
+                    <th{% if pagination.isSorted('a.created_at') %} {% endif %} class="col-md-2">{{ knp_pagination_sortable(pagination, 'Created', 'a.created_at')|raw }}</th>
+                    <!-- <th{% if pagination.isSorted('a.updated_at') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Updated', 'a.updated_at')|raw }}</th> -->
+                    <th class="col-md-1">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in pagination %}
+                <tr>
+                    {% if entity.status == 'Open' %}
+                        {% set classValue = 'label label-danger' %}
+                        {% set status = 'O' %}
+                    {% elseif entity.status == 'Pending' %}
+                        {% set classValue = 'label label-info' %}
+                        {% set status = 'P' %}
+                    {% elseif entity.status == 'On-Hold' %}
+                        {% set classValue = 'label label-warning' %}
+                        {% set status = 'H' %}
+                    {% elseif entity.status == 'Solved' %}
+                        {% set classValue = 'label label-success' %}
+                        {% set status = 'S' %}
+                    {% else %}
+                        {% set classValue = '' %}
+                        {% set status = '' %}
+                    {% endif %}
+                    <td class="content-center"><span class="{{ classValue }}">{{ status }}</span></td>
+                    <td class="content-center">{{ entity.fromemail }}</td>
+                    <td><a id="ticket-{{ entity.id }}" class="ticket-popover" data-trigger="hover" data-ticket-id="{{ entity.id }}" data-content="test" data-html="true" title="" href="{{ path('ticket_show', { 'id': entity.id }) }}">{{ entity.subject }}</a></td>
+                    <td class="content-center"><small>{% if entity.createdat %}{{ entity.createdat|date('M d, Y H:i:s') }}{% endif %}</small></td>
+                    <!-- <td class="content-center">{% if entity.updatedat %}{{ entity.updatedat|date('M d, Y H:i:s') }}{% endif %}</small></td> -->
+                    <td nowrap>
+                        <div class="content-center">                    
+                            <a href="{{ path('ticket_show', { 'id': entity.id }) }}" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-search"></span></a>
+                        </div> 
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        {{ knp_pagination_render(pagination)|raw }}
+    </div>
+</div>
+{% for entity in pagination %}
+    <!-- tickets popover content -->
+    <div id="{{ entity.id }}" class="ticket-popover-div">
+        <div class="ticket-popover-content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {% if entity.status == 'Open' %}
+                        {% set classValue = 'label label-danger' %}
+                        {% set status = 'Open' %}
+                    {% elseif entity.status == 'Pending' %}
+                        {% set classValue = 'label label-info' %}
+                        {% set status = 'Pending' %}
+                    {% elseif entity.status == 'On-Hold' %}
+                        {% set classValue = 'label label-warning' %}
+                        {% set status = 'On-Hold' %}
+                    {% elseif entity.status == 'Solved' %}
+                        {% set classValue = 'label label-success' %}
+                        {% set status = 'Solved' %}
+                    {% else %}
+                        {% set classValue = '' %}
+                        {% set status = '' %}
+                    {% endif %}
+                    <h3 class="panel-title">
+                        <span class="{{ classValue }}">{{ status }}</span>
+                        Ticket #{{ entity.id }} <strong>{{ entity.subject }}</strong>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    {% for issue in entity.ticketIssues %}
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <strong>{{ issue.submittedBy}}</strong><br><small>{{ issue.createdat|date('M d, Y H:i:s') }}</small>
+                                </h4>
+                            </div>
+                            <div class="panel-body">
+                                {{ issue.message}}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>    
+        </div>
+        
+    </div>
+    <!-- // tickets popover content -->
+{% endfor %}
+
+<!-- help content div -->
+<div id="Tickets-div-help-content" class="help-content">
+    Tickets list page help content
+</div>
+<!-- // help content div -->
+
+{% endblock %}

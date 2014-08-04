@@ -1,0 +1,49 @@
+{% extends '::layout.html.twig' %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-show col-md-9">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Search Results
+        </h3>
+    </div>
+    <div class="panel-body">
+		<div id="artList">
+		{% for result in results %}
+			<div class="articleItem">
+				<a href="{{ result.getName() }}">{{ result.getTitle() }}</a>
+				<div class="articleCategory">
+					{{ result.category | striptags }}
+				</div>
+				<div class="postSummary">
+					{{ result.getBody() | slice(0,250) | raw | striptags }} ... <a href="{{ result.getName() }}">Read more</a>
+				</div>
+			</div>   
+		{% endfor %}
+		</div>
+    </div>
+    <div class="panel-footer">
+        	<a class="btn btn-success" href="{{ path('help') }}"><span class="glyphicon glyphicon-list"></span> Back to list</a>
+    </div>
+</div>
+<div class="panel panel-primary panel-show col-md-3">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Search
+        </h3>
+    </div>
+    <div class="panel-body">
+		<form id="help-search-form" action="{{ path('help-search') }}" method="post">
+			<div class="ui-widget">					
+				<input type="text" id="search_term" name="search_term" value="" class="form-control"/>
+				<button class="btn btn-success form-control">Search &raquo;</button>
+			</div>
+		</form>
+    </div>
+    <div class="panel-footer">
+        
+    </div>
+</div>    	   
+    	    
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends '::layout.html.twig' %}
+
+{% block sidebar_filter %}
+    <form action="{{ path('test1') }}" method="post" {{ form_enctype(filter_form) }}>
+        {{ form_widget(filter_form) }}
+        <p>
+            <button class="btn btn-success btn-xs" name="filter-submit" type="submit">Filter data</button>
+        </p>
+    </form>
+{% endblock %}
+
+{% block body -%}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Test1
+            <a href="#"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th{% if pagination.isSorted('id') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Id', 'a.id')|raw }}</th>
+                    <th{% if pagination.isSorted('name') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Name', 'a.name')|raw }}</th>
+                    <th{% if pagination.isSorted('date') %} {% endif %}>{{ knp_pagination_sortable(pagination, 'Date', 'a.date')|raw }}</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in pagination %}
+                <tr>
+                    <td><a href="{{ path('test1_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>{{ entity.name }}</td>
+                    <td>{{ entity.date }}</td>
+                    <td nowrap>				<div style="text-align:center;">                    
+                    <a href="{{ path('test1_show', { 'id': entity.id }) }}" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-search"></span></a>
+                    <a href="{{ path('test1_edit', { 'id': entity.id }) }}" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a href="{{ path('test1_delete', { 'id': entity.id }) }}" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        {{ knp_pagination_render(pagination)|raw }}
+    </div>
+</div>
+{% endblock %}

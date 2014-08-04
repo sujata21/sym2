@@ -1,0 +1,477 @@
+<?php
+
+namespace Application\LDAPBundle\Controller;
+
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Bundle\SwiftmailerBundle\Swiftmailer;
+use Symfony\Component\Config\FileLocator;
+use Application\LDAPBundle\Entity\LDAPGroup;
+use Application\LDAPBundle\Entity\LDAPMailAliasUser;
+use Application\LDAPBundle\Entity\LDAPMailAlias;
+use Application\LDAPBundle\Form\LDAPGroupType;
+use Application\LDAPBundle\Form\Filter\LDAPGroupType as LDAPGroupFilterType;
+use Application\LDAPBundle\Service\LDAPServer as LDAPServer;
+
+use Application\LDAPBundle\Service\LDAPMailAlias as LDAPMailAliasService;
+
+
+/**
+ * LDAPGroup controller.
+ *
+ * @Route("/admin/ldapgroup")
+ */
+class LDAPGroupController extends Controller
+{
+	/**
+	 * Lists all LDAPGroup entities.
+	 *
+	 * @Route("/", name="ldapgroup")
+	 * @Template()
+	 */
+	public function indexAction(Request $request)
+	{
+
+		$em = $this->getDoctrine()->getManager();
+		$entity  = new LDAPGroup();
+		$filterForm = $this->createForm(new LDAPGroupFilterType(), $entity);
+
+		$qbl = $em->getRepository('ApplicationLDAPBundle:LDAPGroup')->createQueryBuilder('a');
+		if(is_object($request) && $request->isMethod('POST')){
+			$filterForm->bind($request);
+			$client = $filterForm->getData();
+			if($client->getName() != ""){
+                $qbl->andwhere("a.name like :name");
+                $qbl->setParameter('name', $client->getName().'%');
+            }
+		}
+			
+		$query = $qbl->getQuery();
+
+		$pageCount = $request->query->get('page-count');
+
+		if ($pageCount == null) {
+			$pageCount = 50;
+		}		
+
+		$paginator = $this->get('knp_paginator');
+		$pagination = $paginator->paginate(
+				$query,
+				$this->get('request')->query->get('page', 1),
+				$pageCount,
+				array('distinct' => false)
+		);
+
+			
+		$filter_form   = $filterForm->createView();
+		$csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
+
+
+		return compact('pagination', 'filter_form', 'csrfToken');
+			
+	}
+
+	/**
+	 * Finds and displays a LDAPGroup entity.
+	 *
+	 * @Route("/{id}/show", name="ldapgroup_show")
+	 * @Template()
+	 */
+	public function showAction($id)
+	{
+		$em = $this->getDoctrine()->getManager();
+
+		$entity = $em->getRepository('ApplicationLDAPBundle:LDAPGroup')->find($id);
+
+		if (!$entity) {
+			throw $this->createNotFoundException('Unable to find LDAPGroup entity.');
+		}
+
+		$deleteForm = $this->createDeleteForm($id);
+
+		return array(
+				'entity'      => $entity,
+				'delete_form' => $deleteForm->createView(),
+		);
+	}
+
+	/**
+	 * Displays a form to create a new LDAPGroup entity.
+	 *
+	 * @Route("/new", name="ldapgroup_new")
+	 * @Template()
+	 */
+	public function newAction()
+	{
+		$em = $this->getDoctrine()->getManager();
+		$entity = new LDAPGroup();
+		$form   = $this->createForm(new LDAPGroupType($em), $entity);
+		$ldapGroupService = $this->get('application_ldap_group_service');
+		$ldapGroupService->initialize();
+		$groups = $ldapGroupService->getGroups();
+		
+			
+		return array(
+				'entity' => $entity,
+				'form'   => $form->createView(),
+		);
+	}
+
+	/**
+	 * Creates a new LDAPGroup entity.
+	 *
+	 * @Route("/create", name="ldapgroup_create")
+	 * @Method("POST")
+	 * @Template("ApplicationLDAPBundle:LDAPGroup:new.html.twig")
+	 */
+	public function createAction(Request $request)
+	{
+		$em = $this->getDoctrine()->getManager();
+		$entity  = new LDAPGroup();
+		$form = $this->createForm(new LDAPGroupType(), $entity);
+		$form->bind($request);
+      //  var_dump($entity); die();
+        $entity_alias  = new LDAPMailAlias();
+        $mail_alias_name =str_replace(' ','_',strtolower($entity->getMailAlias()));
+        $entity_alias->setName($mail_alias_name); //die();
+        $entity_alias->setUserId($this->getUser());
+        $em->persist($entity_alias);
+        $em->flush();
+        //add mail alias to Ldap 
+        	$alias_name = explode('@', $entity_alias->getName());
+            $ldapMailAliasService = $this->get('application_ldap_mailalias_service');
+            $ldapMailAliasService->initialize();
+            $MailAlias = array( 'name'      => $alias_name[0]
+                      , 'description'       => $alias_name[0].' mail group'
+                      , 'objectclass'       => 'groupOfNames'
+                      , 'member'            =>  ''
+        );
+      
+        $result_mailAlias = $ldapMailAliasService->addMailAlias($MailAlias);
+
+      //$entity_alias->getId();
+		if ($form->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$entity->setMailAlias($mail_alias_name);
+          	$entity->setLdapMailAlias($entity_alias);
+            $entity->setUserId($this->getUser());
+            $grp_name = str_replace(' ','_',strtolower($entity->getName()));
+			$em->persist($entity);
+			$em->flush();
+
+			//echo __DIR__ . '/../../LDAPBundle/Resources/script';
+			$fileLocator = new FileLocator ( __DIR__ . '/../../LDAPBundle/Resources/script' );
+			$script = $fileLocator->locate ( 'ldap-group-add.sh' );
+			$cmd = $script." \"$grp_name\"";
+			$result = exec($cmd);
+			
+			return $this->redirect($this->generateUrl('ldapgroup_show', array('id' => $entity->getId())));
+		}
+
+		return array(
+				'entity' => $entity,
+				'form'   => $form->createView(),
+		);
+	}
+
+	/**
+	 * Displays a form to edit an existing LDAPGroup entity.
+	 *
+	 * @Route("/{id}/edit", name="ldapgroup_edit")
+	 * @Template()
+	 */
+	public function editAction($id)
+	{
+		$em = $this->getDoctrine()->getManager();
+
+		$entity = $em->getRepository('ApplicationLDAPBundle:LDAPGroup')->find($id);
+
+		if (!$entity) {
+			throw $this->createNotFoundException('Unable to find LDAPGroup entity.');
+		}
+
+		$editForm = $this->createForm(new LDAPGroupType(), $entity);
+		$deleteForm = $this->createDeleteForm($id);
+
+		return array(
+				'entity'      => $entity,
+				'edit_form'   => $editForm->createView(),
+				'delete_form' => $deleteForm->createView(),
+		);
+	}
+	
+	/**
+	 * Edits an existing LDAPGroup entity.
+	 *
+	 * @Route("/{id}/update", name="ldapgroup_update")
+	 * @Method("POST")
+	 * @Template("ApplicationLDAPBundle:LDAPGroup:edit.html.twig")
+	 */
+	public function updateAction(Request $request, $id)
+	{
+		$em = $this->getDoctrine()->getManager();
+
+		$entity = $em->getRepository('ApplicationLDAPBundle:LDAPGroup')->find($id);
+		$old_grpname = $entity->getName();
+		$old_mail_alias = $entity->getMailAlias();
+		$old_ldap_mail_alias = $entity->getLdapMailAlias();
+
+		if (!$entity) {
+			throw $this->createNotFoundException('Unable to find LDAPGroup entity.');
+		}
+
+		$deleteForm = $this->createDeleteForm($id);
+		$editForm = $this->createForm(new LDAPGroupType(), $entity);
+
+		if ($request->isMethod('POST')) {
+				
+			$editForm->bind($request);
+				
+			if ($editForm->isValid()) {
+				$grp_newname = $entity->getName();
+				$entity->setMailAlias($old_mail_alias);
+				$entity->setLdapMailAlias($old_ldap_mail_alias);
+				$em->persist($entity);
+				$em->flush();
+				$fileLocator = new FileLocator ( __DIR__ . '/../../LDAPBundle/Resources/script' );
+				$script = $fileLocator->locate ( 'ldap-group-mod.sh' );
+				$cmd = $script." \"$old_grpname\" \"$grp_newname\"";
+				$result = exec($cmd);
+				return $this->redirect($this->generateUrl('ldapgroup_edit', array('id' => $id)));
+				
+			}
+				
+		}
+
+		return array(
+				'entity'      => $entity,
+				'edit_form'   => $editForm->createView(),
+				'delete_form' => $deleteForm->createView(),
+		);
+	}
+    /**
+     * Lists all LDAPGroup entities.
+     *
+     * @Route("/subscribe/{uid}/{aliasid}/{msg}", name="ldapgroup_subscribe")
+     * @Template()
+     */
+    public function subscribeAction($uid='NULL',$aliasid='NULL',$msg='NULL'){
+    	
+        if($uid != 'NULL')
+            $user_id = $uid;
+        else
+        	$user_id = $this->getUser()->getId();
+
+        $em = $this->getDoctrine()->getManager();
+        $entity_user = $em->getRepository('ApplicationLDAPBundle:LDAPUser')->findOneBy(array('user_id'=>$user_id));
+
+        $entity_alias = $em->getRepository('ApplicationLDAPBundle:LDAPMailAliasUser')->findBy(array('ldapUser' => $entity_user));
+        //var_dump(count($entity_alias));
+        if(count($entity_alias)>0){
+            foreach($entity_alias as $entity_alias){
+                $mailalias[$entity_alias->getLdapMailAlias()->getId()] =  $entity_alias->getSubscribe();
+                $status[$entity_alias->getLdapMailAlias()->getId()] =  $entity_alias->getStatus();
+            }
+        }else{
+            $mailalias[] = 'NULL';
+            $status[] = 'NULL';
+        }
+        //var_dump($status); //die();
+        
+        if($aliasid == 'NULL'){
+        	$entity = $em->getRepository('ApplicationLDAPBundle:LDAPMailAlias')->findAll();
+        }else{
+        	//echo $id =  $aliasid;
+        	$entity = $em->getRepository('ApplicationLDAPBundle:LDAPMailAlias')->findBy(array('id' => $aliasid));
+        	//echo $entity->getName();
+        	//die();
+        }
+       // var_dump($entity);
+
+        
+
+        return array(
+            'entity'      => $entity,
+            'mailalias'   => $mailalias,
+            'msg'         =>$msg,
+            'status'	  =>$status,
+           // 'aliasid'	  =>$aliasid
+           // 'delete_form' => $deleteForm->createView(),
+        );
+    }
+    /**
+     * Lists all LDAPGroup entities.
+     *
+     * @Route("/subscriberequest/{alias_id}/{user_id}", name="ldapgroup_subscriberequest")
+     * @Template()
+     */
+    public function subscriberequestAction($alias_id,$user_id){
+
+        $em = $this->getDoctrine()->getManager();
+        $entity_user = $em->getRepository('ApplicationLDAPBundle:LDAPUser')->findOneBy(array('user_id'=>$user_id));
+        $entity_alias = $em->getRepository('ApplicationLDAPBundle:LDAPMailAlias')->find($alias_id);
+        
+        //to get the group owner email address to send request generated
+        $To_email = $entity_alias->getUserId()->getEmail(); //die();
+
+        $entity_group = $em->getRepository('ApplicationLDAPBundle:LDAPGroup')->findOneBy(array('ldapMailAlias'=>$entity_alias));
+       
+        //to check if the mailalias-user relation already exists in database
+        $entity_mail_alias_user = $em->getRepository('ApplicationLDAPBundle:LDAPMailAliasUser')->findOneBy(array('ldapMailAlias'=>$entity_alias,'ldapUser'=>$entity_user));
+
+ 	//echo $entity_mail_alias_user->getStatus();
+       // $id = $entity_mail_alias_user->getId();
+        if(count($entity_mail_alias_user)<1){
+        	//echo 'test';
+            $entity  = new LDAPMailAliasUser();
+            $entity->setLdapMailAlias($entity_alias);
+            $entity->setLdapUser($entity_user);
+            $entity->setSubscribe(0);
+            $entity->setStatus('1');
+            $em->persist($entity);
+            $em->flush();
+            $id= $entity->getId();
+        }else{
+            //echo 'sdf';
+            //var_dump($entity_mail_alias_user->getSubscribe());
+            $id = $entity_mail_alias_user->getId();
+            //if($entity_mail_alias_user->getSubscribe() == 1 ){
+            	//echo 'test1';
+                
+                //$entity_mail_alias_user->setSubscribe(0); 
+                $entity_mail_alias_user->setStatus('1');
+                $em->persist($entity_mail_alias_user);
+                $em->flush();
+           // }
+        }
+       // echo $entity_mail_alias_user->getStatus();
+       // die();
+
+            $mailer = $this->get('mailer');
+            $to = $To_email;
+            //$to = 'spandey@alchemyworx.com'; //Please comment this before making live
+            $subject = "Group Subscription Request";
+            $body = "Please click on below link to approve/refuse the request from ".$this->getUser()->getUsername()." To Join Group ".$entity_alias->getName()
+            ." http://intranet2.alchemyworx.local/admin/ldapgroup/subscribeapprove/".$id."/0/".$this->getUser()->getId()."
+            This is an automated alert. Do not reply to this message";
+            //var_dump(class_exists('Swift_Message'));
+            $message = \Swift_Message::newInstance()
+                ->setSubject($subject)
+                ->setFrom(array('no-reply@alchemyworx.com'))
+                ->setTo($to)
+                ->setBody($body)
+            ;
+            $mailer->send($message);
+
+            $spool = $mailer->getTransport()->getSpool();
+            $transport = $this->get('swiftmailer.transport.real');
+
+            $spool->flushQueue($transport);
+            //echo 'send'; die();
+       return $this->redirect($this->generateUrl('ldapgroup_subscribe', array('uid'=>$user_id,'aliasid'=>$alias_id ,'msg'=>'Success!..Request sent to the group owner!')));
+    }
+    /**
+     * Lists all LDAPGroup entities.
+     *
+     * @Route("/subscribeapprove/{id}/{flag}/{uid}", name="ldapgroup_subscribeapprove")
+     * @Template("ApplicationLDAPBundle:LDAPGroup:approve.html.twig")
+     */
+    public function subscribeapproveAction($id,$flag,$uid){
+
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('ApplicationLDAPBundle:LDAPMailAliasUser')->find($id);
+        $alias_name = explode('@', $entity->getLdapMailAlias()->getName());
+        $user_name  =  $entity->getLdapUser()->getUsername();
+        $alias_id = $entity->getLdapMailAlias()->getId();
+        
+        //var_dump($result);
+        if($flag == 1){
+            if($entity->getSubscribe() == 1){
+                $entity->setSubscribe(0);
+            }else{
+            	
+                $entity->setSubscribe(1);
+            }
+        $entity->setStatus(0);
+        $entity->setUpdatedAt(new \DateTime());
+        $em->persist($entity);
+        if($entity->getSubscribe() == 1){
+        		//Add user to Ldap
+
+        		$ldapMailAliasService = $this->get('application_ldap_mailalias_service');
+        		$ldapMailAliasService->initialize();
+        		$result = $ldapMailAliasService->saveMailAliasUser($alias_name[0],$user_name);
+        		$option = '-m';
+        		$fileLocator = new FileLocator ( __DIR__ . '/../../LDAPBundle/Resources/script' );
+            	$script = $fileLocator->locate ( 'ldap-group-adduser.sh' );
+            	$cmd = $script." \"$user_name\" \"$alias_name[0]\" \"$option\"";
+            	$result = exec($cmd);
+        	}else{
+        		//Remove user from Ldap
+        		$ldapMailAliasService = $this->get('application_ldap_mailalias_service');
+        		$ldapMailAliasService->initialize();
+        		$result = $ldapMailAliasService->removeMailAliasUser($alias_name[0],$user_name);
+        		$option = '-x';
+        		$fileLocator = new FileLocator ( __DIR__ . '/../../LDAPBundle/Resources/script' );
+            	$script = $fileLocator->locate ( 'ldap-group-adduser.sh' );
+            	$cmd = $script." \"$user_name\" \"$alias_name[0]\" \"$option\"";
+            	$result = exec($cmd);
+        	}
+
+        $em->flush();
+        
+        return $this->redirect($this->generateUrl('ldapgroup_subscribe', array('uid'=>$uid,'aliasid'=>$alias_id ,'msg'=>'Success!..Request Approved!')));
+        }else{
+            return array(
+                'entity'      => $entity,
+                'uid' =>$uid,
+            );
+        }
+    }
+	/**
+	 * Deletes a LDAPGroup entity.
+	 *
+	 * @Route("/{id}/delete", name="ldapgroup_delete")
+	 * @Method("GET")
+	 */
+	public function deleteAction(Request $request, $id)
+	{
+		$form = $this->createDeleteForm($id);
+		$form->bind($request);
+
+		if ($form->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$entity = $em->getRepository('ApplicationLDAPBundle:LDAPGroup')->find($id);
+
+			if (!$entity) {
+				throw $this->createNotFoundException('Unable to find LDAPGroup entity.');
+			}
+			 $grp_name = $entity->getName();
+			
+			//die();
+			
+			$em->remove($entity);
+			$em->flush();
+			
+			$fileLocator = new FileLocator ( __DIR__ . '/../../LDAPBundle/Resources/script' );
+			$script = $fileLocator->locate ( 'ldap-group-del.sh' );
+			$cmd = $script." \"$grp_name\"";
+			$result = exec($cmd);
+		}
+
+		return $this->redirect($this->generateUrl('ldapgroup'));
+	}
+
+	private function createDeleteForm($id)
+	{
+		//echo 'sdf'; die();
+		return $this->createFormBuilder(array('id' => $id))
+		->add('id', 'hidden')
+		->getForm()
+		;
+	}
+}

@@ -1,0 +1,8 @@
+<ul class="articleCategory">
+	{% for category in categories %}
+		<li data-id="{{ category.id }}">
+			<span class="glyphicon glyphicon-folder-close category-icon-close"></span>
+			<a href="{{ path('get_article_categories') }}" data-id="{{ category.id }}" data-path="{{ category.path }}" data-art-count="" class="catPos">{{ category.name }}</a>
+		</li>
+	{% endfor %}
+</ul>

@@ -1,0 +1,39 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}Mail Accounts{% endblock %}
+{% block body_span %}span12{% endblock %}
+{% block sidebar %}{% endblock %}
+
+{% block javascripts %}
+        {% javascripts '@ApplicationMainBundle/Resources/public/js/login.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+{% endblock %}
+
+
+{% block body %}
+
+<table class="table table-bordered">
+    <tr>   
+        <td colspan="3"><h2 class="op-orange f20">Login</h2></td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" id="_username" name="_username" value="" />
+        </td>
+        <td>   
+            <input type="password" id="_password" name="_password" value="" />
+        </td>   
+        <td>   
+            <a  id="login" href="#" class="btn btn-success"/>{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</a>
+        </td>
+    </tr>       
+</table>
+
+<form id="_login_form" action="{{ path("fos_user_security_check") }}" method="post">
+         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />      
+         <input type="hidden" id="username" name="_username" value=""  />   
+         <input type="hidden" id="password" name="_password"  value="" />   
+</form>
+
+{% endblock %}

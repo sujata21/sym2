@@ -1,0 +1,122 @@
+{% extends '::layout.html.twig' %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-show">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            LDAPUser - Show page
+            <!-- add help content to bottom help div -->
+           
+            <a id="helpBtn" href="#" data-module-id="LDAPUser" title="LDAPUser show page help" data-toggle="modal" data-target="#Test3"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="col-lg-4">
+        <table class="table-show">
+            <tbody>
+                <tr>
+                    <th>Id:</th>
+                    <td>{{ entity.id }}</td>
+                </tr>
+                <tr>
+                    <th>Username:</th>
+                    <td>{{ entity.username }}</td>
+                </tr>
+                <tr>
+                    <th>Firstname:</th>
+                    <td>{{ entity.firstname }}</td>
+                </tr>
+                <tr>
+                    <th>Lastname:</th>
+                    <td>{{ entity.lastname }}</td>
+                </tr>
+                <tr>
+                    <th>Job_title:</th>
+                    <td>{{ entity.jobtitle }}</td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td>{{ entity.email }}</td>
+                </tr>
+                <tr>
+                    <th>Department:</th>
+                    <td>{{ entity.department }}</td>
+                </tr>
+                <tr>
+                    <th>Office:</th>
+                    <td>{{ entity.office }}</td>
+                </tr>
+                <tr>
+                    <th>Telephone:</th>
+                    <td>{{ entity.telephone }}</td>
+                </tr>
+                <tr>
+                    <th>Enabled:</th>
+                    <td>{{ entity.enabled|replace({'1': 'Y', '0': 'N'}) }}</td>
+                </tr>
+                <tr>
+                    <th>Mail_account:</th>
+                    <td>{{ entity.mailaccount|replace({'1': 'Y', '0': 'N'}) }}</td>
+                </tr>
+                <tr>
+                    <th>Deleted:</th>
+                    <td>{{ entity.deleted }}</td>
+                </tr>
+                <tr>
+                    <th>Deleted_at:</th>
+                    <td>{{ entity.deletedat|date('Y-m-d H:i:s') }}</td>
+                </tr>
+                <tr>
+                    <th>Synchronized_at:</th>
+                    <td>{{ entity.synchronizedat|date('Y-m-d H:i:s') }}</td>
+                </tr>
+                <tr>
+                    <th>Updated_at:</th>
+                    <td>{{ entity.updatedat|date('Y-m-d H:i:s') }}</td>
+                </tr>
+                <tr>
+                    <th>Created_at:</th>
+                    <td>{{ entity.createdat|date('Y-m-d H:i:s') }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% if (app.user.username == entity.username|capitalize) or (is_granted('ROLE_ADMIN')) %}
+    <div class="col-lg-6">
+         <div class="btn-group" >
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                   Profile Action <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" style="background-color:white;">
+                    <li><a  href="/profile/change-password">Change Password</a></li>
+                    <li><a href="/signature/1/{{ entity.id }}" target="_blank">Signature</a></li>
+                    <li><a href="/signature/2/{{ entity.id }}" target="_blank">Reply Signature</a></li>
+                </ul>
+        </div>
+    </div>
+    {% endif %}
+    </div>
+    <div class="panel-footer">
+        {% if is_granted('ROLE_ADMIN') %}
+        <a class="btn btn-success" href="?_switch_user={{ entity.username }}" class="btn"><span class="glyphicon glyphicon-list"></span> Switch User</a>
+        {% endif %}
+        <a class="btn btn-success" href="{{ path('ldapuser') }}" class="btn"><span class="glyphicon glyphicon-list"></span> Back to list</a>
+        {% if (app.user.username == entity.username|capitalize) or (is_granted('ROLE_ADMIN')) %}
+        <a class="btn btn-info" href="{{ path('ldapuser_edit', { 'id': entity.id }) }}" class="btn"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+        {% endif %}
+        <!--<a class="btn btn-danger btn-delete pull-right" href="{{ path('ldapuser_delete', { 'id': entity.id }) }}" class="btn"><span class="glyphicon glyphicon-trash"></span> Delete</a>-->
+        {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+            <a href="?_switch_user=_exit">EXIT</a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- help content div -->
+<div id="LDAPUser-div-help-content" class="help-content">
+    LDAPUser show page help content
+</div>
+<!-- // help content div -->
+
+{% endblock %}

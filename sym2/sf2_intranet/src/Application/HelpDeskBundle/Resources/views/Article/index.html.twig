@@ -1,0 +1,146 @@
+{% extends '::layout.html.twig' %}
+
+{% block body %}
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$(document).on('click', '.catPos', function(event) {
+		event.preventDefault();
+		
+		var parent = $(this).attr('data-id');
+		var path = $(this).attr('data-path');
+		var $this = $(this);//reference for this
+		var closestLi = $(this).closest('li');
+		
+		if (closestLi.hasClass('open')) {//close category
+			
+			closestLi.find('ul').remove()
+			closestLi.find('span.artCount').remove();
+			closestLi.find('span').first()
+				.toggleClass('glyphicon-folder-open glyphicon-folder-close')
+				.toggleClass('category-icon-open category-icon-close');
+
+		} else{//open category
+			
+			$(this).append('<img src="/bundles/applicationmain/images/load16.gif">');
+
+			$.get('{{ path('get_article_categories') }}?parent=' + parent + '&path=' + path, function(data) {
+				$this.closest('li').find('ul').remove();
+				if (data) {
+					$this.find('img').remove();
+					$this.closest('li')
+						.append('<span class="artCount">' + data.articlesCount + '</span>')
+						.append(data.html)
+						.addClass('open')
+						.find('span').first()
+							.toggleClass('glyphicon-folder-close glyphicon-folder-open')
+							.toggleClass('category-icon-close category-icon-open');
+				};
+
+				if (data.articlesCount > 0) {
+					$('.article-list').prepend('<div class="loaderDiv"><img src="/bundles/applicationmain/images/load128.gif"></div>');
+					$.post('{{ path('help-search') }}', { search_path: path}, function(data) {
+						$('.article-list').html($(data).find('div#artList').html());
+						$('.article-list').find('div.loaderDiv').remove();
+					});
+				};
+			});
+
+		};
+		closestLi.toggleClass('open');
+	});
+
+	$(document).on('click', '.btn-category-refresh', function(event) {
+		event.preventDefault();
+		var $this = $(this);//reference for this
+		$(this).closest('div').append('<img src="/bundles/applicationmain/images/load32.gif">');
+		$.get('{{ path('get_article_categories') }}', function(data) {
+			$('.categoryTree').html(data.html)
+				.find('ul').first().addClass('mainUl');
+				$this.closest('div').find('img').remove();
+		});
+	});
+
+	$(document).on('click', '.help-search-submit', function(event) {
+		event.preventDefault();
+		$('.article-list').prepend('<div class="loaderDiv"><img src="/bundles/applicationmain/images/load128.gif"></div>');
+		/*$.post('{{ path('help-search') }}', $('#help-search-form').serialize(), function(data) {
+			$('.article-list').html(data);
+			$('.article-list').find('div.loaderDiv').remove();
+		});*/
+		$.post('{{ path('help-search') }}', $('#help-search-form').serialize(), function(data) {
+			$('.article-list').html($(data).find('div#artList').html());
+			$('.article-list').find('div.loaderDiv').remove();
+		});
+	});
+
+});
+</script>
+<div class="panel panel-primary panel-show col-md-2">
+	<div class="panel-heading">
+        <h3 class="panel-title">
+            Categories
+        </h3>
+    </div>
+    <div class="panel-body categoryTree">
+		<ul class="articleCategory mainUl">
+			{% for category in categories %}
+				<li>
+					<span class="glyphicon glyphicon-folder-close category-icon-close"></span>
+					<a href="{{ path('get_article_categories') }}" data-id="{{ category.id }}" data-path="{{ category.path }}" class="catPos">{{ category.name }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="panel-footer">
+		<button class="btn btn-success btn-category-refresh">Refresh</button>
+	</div>
+</div>
+<div class="panel panel-primary panel-show col-md-8">
+	<div class="panel-heading">
+        <h3 class="panel-title">
+            Articles
+			{% if is_granted("ROLE_ADMIN") %}
+            	<span id="add-new-article" class="glyphicon glyphicon-plus-sign pull-right" style="cursor: pointer;" data-href="{{ baseUrl }}"></span>
+            {% endif %}
+        </h3>
+    </div>
+	<div class="panel-body article-list">
+		{% for article in pagination %}
+			{% set url = 'http://www.alchemyworx.com'~baseUrl~article.getUrlBase %}
+			<div class="articleItem" {{ article.title }}>
+	    		<a href="{{ baseUrl }}{{ article.getUrlBase }}">{{ article.title }}</a>
+				<div class="articleCategory">
+					{{ article.category | striptags }}
+				</div>
+	    		<div class="postSummary">
+	    			{{ article.body | slice(0,250) | raw | striptags }} ... <a href="{{ baseUrl }}{{ article.getUrlBase }}">Read more</a>
+	    		</div>
+	    	</div>	    		
+		{% endfor %}
+	</div>
+	<div class="panel-footer"></div>
+</div>
+<div class="panel panel-primary panel-show col-md-2">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Search
+        </h3>
+    </div>
+    <div class="panel-body">
+		<form id="help-search-form" action="{{ path('help-search') }}" method="post">
+			<div class="ui-widget">					
+				<input type="text" id="search_term" name="search_term" value="" class="form-control"/>
+				<button class="btn btn-success form-control help-search-submit">Search &raquo;</button>
+			</div>
+		</form>
+    </div>
+    <div class="panel-footer"></div>
+</div>
+{% if is_granted("ROLE_ADMIN") %}
+    <div id="add-article-dialog" style="display: none;" title="Add new article">
+		Title:
+		<input type="text" id="article-title" class="form-control">
+	</div>
+{% endif %}
+{% endblock %}

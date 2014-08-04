@@ -1,0 +1,44 @@
+{% extends '::layout.html.twig' %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-show">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            LDAPUserGroup - Show page
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="LDAPUserGroup" title="LDAPUserGroup show page help" data-toggle="modal" data-target="#Test3"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Group User</th>
+                <td>{{ entity.ldapUser.firstname }} {{ entity.ldapUser.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Group name</th>
+                <td>{{entity.ldapGroup.name}}</td>
+            </tr>
+           
+        </tbody>
+    </table>
+</div>
+    <div class="panel-footer">
+        <a class="btn btn-success" href="{{ path('ldapusergroup') }}" class="btn"><span class="glyphicon glyphicon-list"></span> Back to list</a>
+       <a class="btn btn-info" href="{{ path('ldapusergroup_new') }}" class="btn"><span class="glyphicon glyphicon-edit"></span> Create New</a>
+       <!-- <a class="btn btn-danger btn-delete pull-right" href="{{ path('ldapusergroup_delete', { 'id': entity.id }) }}" class="btn"><span class="glyphicon glyphicon-trash"></span> Delete</a>-->
+    </div>
+</div>
+<!-- help content div -->
+<div id="LDAPUserGroup-div-help-content" class="help-content">
+    LDAPUserGroup show page help content
+</div>
+<!-- // help content div -->
+
+{% endblock %}

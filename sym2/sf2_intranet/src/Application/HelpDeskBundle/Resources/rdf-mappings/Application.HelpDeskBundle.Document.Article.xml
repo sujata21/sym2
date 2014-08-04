@@ -1,0 +1,9 @@
+<type typeof="schema:Event" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:sioc="http://rdfs.org/sioc/ns#">
+    <children>
+        <property property="dcterms:type" identifier="category" tag-name="h3"/>
+        <property property="dcterms:type1" identifier="access" tag-name="h3"/>
+        <property property="dcterms:title" identifier="title" tag-name="h1"/>
+        <property property="sioc:content" identifier="body" />
+    </children>
+</type>
+

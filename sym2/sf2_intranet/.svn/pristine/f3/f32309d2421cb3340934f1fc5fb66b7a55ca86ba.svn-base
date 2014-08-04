@@ -1,0 +1,119 @@
+{% extends '::layout.html.twig' %}
+
+{% form_theme form ':Form:fields.html.twig' %}
+
+{% form_theme form _self %}
+
+{% block form_label %}
+{% spaceless %}
+    {% if not compound %}
+        {% set label_attr = label_attr|merge({'for': id, 'class': 'col-md-3 control-label'}) %}
+    {% endif %}
+    {% if required %}
+        {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' col-md-3 control-label required')|trim}) %}
+    {% endif %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+    <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans({}, translation_domain) }}</label>
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block form_row %}
+{% spaceless %}
+    <div class="form-group {% if errors %}error{% endif %}">
+        {{ form_label(form) }}
+        <div class="col-md-6 div-form-field">
+            {{ form_widget(form) }}
+            {{ form_errors(form) }}
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
+
+{% block form_widget_simple %}
+{% spaceless %}
+    {% set type = type|default('text') %}
+        <input class="form-control" type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{% endspaceless %}
+{% endblock form_widget_simple %}
+
+{% block _Application_ldapbundle_ldapgrouptype_users_widget %}
+{% spaceless %}
+    {% if required and empty_value is none and not empty_value_in_choices %}
+        {% set required = false %}
+    {% endif %}
+    <div class="controls col-md-6 div-form-field">
+        <select class="form-control" {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+            {% if empty_value is not none %}
+                <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ empty_value|trans({}, translation_domain) }}</option>
+            {% endif %}
+            {% if preferred_choices|length > 0 %}
+                {% set options = preferred_choices %}
+                {{ block('choice_widget_options') }}
+                {% if choices|length > 0 and separator is not none %}
+                    <option disabled="disabled">{{ separator }}</option>
+                {% endif %}
+            {% endif %}
+            {% set options = choices %}
+            {{ block('choice_widget_options') }}
+        </select>
+        <div class="col-md-6 select-buttons">
+            <button class="btn btn-xs btn-success btn-add-user" type="button"><span class="glyphicon glyphicon-arrow-down"></span></button>
+            <button class="btn btn-xs btn-danger btn-remove-user" type="button"><span class="glyphicon glyphicon-arrow-up"></span></button>
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock %}
+
+{% block _Application_ldapbundle_ldapgrouptype_selected_users_widget %}
+{% spaceless %}
+    {% if required and empty_value is none and not empty_value_in_choices %}
+        {% set required = false %}
+    {% endif %}
+    <div class="controls col-md-6 div-form-field">
+        <select class="form-control" {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+            {% if empty_value is not none %}
+                <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ empty_value|trans({}, translation_domain) }}</option>
+            {% endif %}
+            {% if preferred_choices|length > 0 %}
+                {% set options = preferred_choices %}
+                {{ block('choice_widget_options') }}
+                {% if choices|length > 0 and separator is not none %}
+                    <option disabled="disabled">{{ separator }}</option>
+                {% endif %}
+            {% endif %}
+            {% set options = choices %}
+            {{ block('choice_widget_options') }}
+        </select>
+    </div>
+{% endspaceless %}
+{% endblock %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-show">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            LDAPGroup - creation page
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="LDAPGroup" title="LDAPGroup creation page help" data-toggle="modal" data-target="#Test3"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+		<form id="newForm" role="form" class="form-horizontal" action="{{ path('ldapgroup_create') }}" method="post" {{ form_enctype(form) }}>
+		    {{ form(form) }}
+		</form>
+	</div>
+    <div class="panel-footer">
+        <a class="btn btn-success" href="{{ path('ldapgroup') }}" class="btn"><span class="glyphicon glyphicon-list"></span> Back to list</a>
+        <button type="submit" form="newForm" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> Save</button>
+    </div>
+</div>
+<!-- help content div -->
+<div id="LDAPGroup-div-help-content" class="help-content">
+    LDAPGroup creation page help content
+</div>
+<!-- // help content div -->
+
+{% endblock %}

@@ -1,0 +1,579 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: @CmfBlogBundle/Resources/config/routing/autoroute_default.yml }
+
+
+framework:
+    #esi:             ~
+    translator:      { fallback: %locale% }
+    secret:          %secret%
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_proxies: ~
+    session:         ~
+    fragments:       ~
+    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    bundles:        [ CmfCreateBundle, FMElfinderBundle, ApplicationMainBundle, ApplicationHelpDeskBundle,ApplicationUserBundle ]
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        #closure:
+        #    jar: %kernel.root_dir%/Resources/java/compiler.jar
+        #yui_css:
+        #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   %database_driver%
+        host:     %database_host%
+        port:     %database_port%
+        dbname:   %database_name%
+        user:     %database_user%
+        password: %database_password%
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: %kernel.root_dir%/data/data.db3
+        # path:     %database_path%
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    spool:     { type: memory }
+
+
+stof_doctrine_extensions:        
+        default_locale: "%locale%"
+        translation_fallback: true
+        orm:
+            default:
+              timestampable: true
+              translatable: true
+              sluggable: true
+              loggable: true
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: %user_class%
+
+    group:
+        group_class: Application\Sonata\UserBundle\Entity\Group
+    service:
+        mailer: fos_user.mailer.twig_swift    
+    registration:
+        form:
+            type: application_user_registration       
+        confirmation:
+            enabled:    true
+            from_email:
+                address:        registration@alchemyworx.com
+                sender_name:    Alchemyworx Registration
+    change_password:
+        form:
+            handler: application_user.form.handler.changepassword
+    resetting:
+        form:
+            handler: application_user.form.handler.resetting
+        email:
+            #template: FOSUserBundle:Resetting:request.html.twig
+            from_email:
+                address:        resetting@alchemyworx.com
+                sender_name:    Alchemyworx Resetting
+        
+
+sonata_user:
+    table:
+       user_group: user_group
+    class:
+        user: Application\Sonata\UserBundle\Entity\User
+        group: Application\Sonata\UserBundle\Entity\Group   
+    admin:
+        user:
+            class: Application\Sonata\UserBundle\Admin\Entity\UserAdmin
+        group:
+            class: Application\Sonata\UserBundle\Admin\Entity\GroupAdmin    
+
+sonata_admin:
+    title: Alchemy Worx Admin
+    templates:
+        # default global templates
+        layout:  SonataAdminBundle::standard_layout.html.twig
+        ajax:    SonataAdminBundle::ajax_layout.html.twig
+    dashboard:
+        blocks:
+            # display a dashboard block
+            - { position: left, type: sonata.admin.block.admin_list }
+            - { position: right, type: sonata_admin_doctrine_phpcr.tree_block }
+    extensions:
+        cmf_core.admin_extension.publish_workflow.time_period:
+            implements:
+                - Symfony\Cmf\Bundle\CoreBundle\PublishWorkflow\PublishTimePeriodInterface
+        cmf_core.admin_extension.publish_workflow.publishable:
+            implements:
+                - Symfony\Cmf\Bundle\CoreBundle\PublishWorkflow\PublishableInterface        
+        cmf_menu.admin_extension.menu_node_referrers:
+            implements:
+                - Symfony\Cmf\Bundle\MenuBundle\Model\MenuNodeReferrersInterface
+        cmf_routing.admin_extension.route_referrers:
+            implements:
+                - Symfony\Cmf\Component\Routing\RouteReferrersInterface
+
+sonata_block: 
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+
+        sonata.block.service.text:
+        sonata.block.service.action:
+        sonata.block.service.rss:
+        sonata_admin_doctrine_phpcr.tree_block:
+            settings:
+                id: '/cms'
+            contexts:   [admin]
+    blocks_by_class:
+        Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\RssBlock:
+            cache: cmf.block.cache.js_async
+
+sonata_admin:
+    title: Alchemy Worx Admin
+    templates:
+        # default global templates
+        layout:  SonataAdminBundle::standard_layout.html.twig
+        ajax:    SonataAdminBundle::ajax_layout.html.twig
+    dashboard:
+        blocks:
+            # display a dashboard block
+            - { position: left, type: sonata.admin.block.admin_list }
+            - { position: right, type: sonata_admin_doctrine_phpcr.tree_block }
+    extensions:
+        cmf_core.admin_extension.publish_workflow.time_period:
+            implements:
+                - Symfony\Cmf\Bundle\CoreBundle\PublishWorkflow\PublishTimePeriodInterface
+        cmf_core.admin_extension.publish_workflow.publishable:
+            implements:
+                - Symfony\Cmf\Bundle\CoreBundle\PublishWorkflow\PublishableInterface        
+        cmf_menu.admin_extension.menu_node_referrers:
+            implements:
+                - Symfony\Cmf\Bundle\MenuBundle\Model\MenuNodeReferrersInterface
+        cmf_routing.admin_extension.route_referrers:
+            implements:
+                - Symfony\Cmf\Component\Routing\RouteReferrersInterface
+
+sonata_doctrine_orm_admin:
+    # default value is null, so doctrine uses the value defined in the configuration
+    entity_manager: ~
+ 
+    templates:
+        form:
+            - SonataDoctrineORMAdminBundle:Form:form_admin_fields.html.twig
+        filter:
+            - SonataDoctrineORMAdminBundle:Form:filter_admin_fields.html.twig
+        types:
+            list:
+                array:      SonataAdminBundle:CRUD:list_array.html.twig
+                boolean:    SonataAdminBundle:CRUD:list_boolean.html.twig
+                date:       SonataAdminBundle:CRUD:list_date.html.twig
+                time:       SonataAdminBundle:CRUD:list_time.html.twig
+                datetime:   SonataAdminBundle:CRUD:list_datetime.html.twig
+                text:       SonataAdminBundle:CRUD:base_list_field.html.twig
+                trans:      SonataAdminBundle:CRUD:list_trans.html.twig
+                string:     SonataAdminBundle:CRUD:base_list_field.html.twig
+                smallint:   SonataAdminBundle:CRUD:base_list_field.html.twig
+                bigint:     SonataAdminBundle:CRUD:base_list_field.html.twig
+                integer:    SonataAdminBundle:CRUD:base_list_field.html.twig
+                decimal:    SonataAdminBundle:CRUD:base_list_field.html.twig
+                identifier: SonataAdminBundle:CRUD:base_list_field.html.twig
+ 
+            show:
+                array:      SonataAdminBundle:CRUD:show_array.html.twig
+                boolean:    SonataAdminBundle:CRUD:show_boolean.html.twig
+                date:       SonataAdminBundle:CRUD:show_date.html.twig
+                time:       SonataAdminBundle:CRUD:show_time.html.twig
+                datetime:   SonataAdminBundle:CRUD:show_datetime.html.twig
+                text:       SonataAdminBundle:CRUD:base_show_field.html.twig
+                trans:      SonataAdminBundle:CRUD:show_trans.html.twig
+                string:     SonataAdminBundle:CRUD:base_show_field.html.twig
+                smallint:   SonataAdminBundle:CRUD:base_show_field.html.twig
+                bigint:     SonataAdminBundle:CRUD:base_show_field.html.twig
+                integer:    SonataAdminBundle:CRUD:base_show_field.html.twig
+                decimal:    SonataAdminBundle:CRUD:base_show_field.html.twig
+
+# cmf configuration
+doctrine_phpcr:
+    # configure the PHPCR session
+    session:
+        backend: %phpcr_backend%
+        workspace: %phpcr_workspace%
+        username: %phpcr_user%
+        password: %phpcr_pass%
+    # enable the ODM layer
+    odm:
+        configuration_id:     ~
+        auto_mapping: true
+        mappings:
+            DoctrinePHPCRBundle:
+                mapping:              true
+                type:                 ~
+                dir:                  ~
+                alias:                ~
+                prefix:               ~
+                is_bundle:            ~
+        auto_generate_proxy_classes: %kernel.debug%
+        proxy_dir:            %kernel.cache_dir%/doctrine/orm/Proxies
+        proxy_namespace:      PHPCRProxies
+        locales:
+            en:                
+                - de
+            de:               
+                - en
+        metadata_cache_driver:
+            type:                 array
+            host:                 ~
+            port:                 ~
+            instance_class:       ~
+            class:                ~
+            id:                   ~     
+
+sonata_doctrine_phpcr_admin:
+    document_tree_defaults: [locale]
+    document_tree:
+        Doctrine\ODM\PHPCR\Document\Generic:
+            valid_children:
+                - all
+        Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page:
+            valid_children:
+                - all
+        Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\Route:
+             valid_children:
+                - Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\Route
+                - Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute
+        Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute:
+            valid_children: []
+        Symfony\Cmf\Bundle\MenuBundle\Doctrine\Phpcr\MenuNode:
+            valid_children:
+            - Symfony\Cmf\Bundle\MenuBundle\Doctrine\Phpcr\MenuNode
+
+# sonata_doctrine_phpcr_admin:
+#     document_tree:
+#         Doctrine\ODM\PHPCR\Document\Generic:
+#             valid_children:
+#                 - all
+#         Symfony\Cmf\Bundle\SimpleCmsBundle\Document\Page:
+#             valid_children:
+#                 - all
+#         Symfony\Cmf\Bundle\RoutingBundle\Document\Route:
+#             valid_children:
+#                 - Symfony\Cmf\Bundle\RoutingBundle\Document\Route
+#                 - Symfony\Cmf\Bundle\RoutingBundle\Document\RedirectRoute
+#         Symfony\Cmf\Bundle\RoutingBundle\Document\RedirectRoute:
+#             valid_children:
+#                 - all
+#         Symfony\Cmf\Bundle\MenuBundle\Document\MenuNode:
+#             valid_children:
+#                 - Symfony\Cmf\Bundle\MenuBundle\Document\MenuNode
+#                 - Symfony\Cmf\Bundle\MenuBundle\Document\MultilangMenuNode
+#         Symfony\Cmf\Bundle\MenuBundle\Document\MultilangMenuNode:
+#             valid_children:
+#                 - Symfony\Cmf\Bundle\MenuBundle\Document\MenuNode
+#                 - Symfony\Cmf\Bundle\MenuBundle\Document\MultilangMenuNode
+
+# sonata_doctrine_phpcr_admin:
+#     templates:
+#         form:
+
+#             # Default:
+#             - SonataDoctrinePHPCRAdminBundle:Form:form_admin_fields.html.twig
+#         filter:
+
+#             # Default:
+#             - SonataDoctrinePHPCRAdminBundle:Form:filter_admin_fields.html.twig
+#         types:
+#             list:
+
+#                 # Prototype
+#                 name: SonataAdminBundle:CRUD:list.html.twig
+#     document_tree:
+#         # Prototype
+#         class: # name of the class
+#             # class names of valid children, manage tree operations for them and hide other children
+#             valid_children:       []
+#             image:
+
+cmf_core:
+    multilang:
+        locales: %locales%
+    persistence:
+        phpcr:
+            enabled:              true
+            basepath:             /cms
+            manager_registry:     doctrine_phpcr
+            manager_name:         ~
+            use_sonata_admin:     auto
+
+cmf_content:
+    persistence:
+        phpcr:
+            enabled:              true       
+            content_basepath:     /cms/content
+            use_sonata_admin:     true    
+
+cmf_routing:
+    chain:
+        routers_by_id:
+            cmf_routing.dynamic_router: 200
+            router.default: 150
+    dynamic:
+        controllers_by_type:
+            demo_type: sandbox_main.controller:typeAction
+        controllers_by_class:
+            Sandbox\MainBundle\Document\DemoClassContent: sandbox_main.controller:classAction
+            Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute:  cmf_routing.redirect_controller:redirectAction
+            Symfony\Cmf\Bundle\BlogBundle\Document\Blog: cmf_blog.blog_controller:listAction
+            Symfony\Cmf\Bundle\BlogBundle\Document\Post: cmf_blog.blog_controller:viewPostAction
+
+        templates_by_class:
+            Symfony\Cmf\Bundle\ContentBundle\Doctrine\Phpcr\StaticContent: SandboxMainBundle:MultilangStaticContent:index.html.twig
+
+cmf_menu:
+    persistence:
+        phpcr:
+            enabled:              true
+            menu_basepath:        /cms/menu
+            content_basepath:     ~
+            manager_name:         ~
+            menu_document_class:  Symfony\Cmf\Bundle\MenuBundle\Doctrine\Phpcr\Menu
+            node_document_class:  Symfony\Cmf\Bundle\MenuBundle\Doctrine\Phpcr\MenuNode
+            use_sonata_admin:     true
+            menu_admin_class:     Symfony\Cmf\Bundle\MenuBundle\Admin\MenuAdmin
+            node_admin_class:     Symfony\Cmf\Bundle\MenuBundle\Admin\MenuNodeAdmin
+            admin_recursive_breadcrumbs:  true
+
+cmf_create:
+#    object_mapper_service_id: ~
+    plain_text_types: ['dcterms:title', 'dcterms:type', , 'dcterms:type1']    
+    editor_base_path: /bundles/cmfcreate/vendor/ckeditor/
+    rdf_config_dirs:
+        - "%kernel.root_dir%/Resources/rdf-mappings"        
+    map:
+        '<http://rdfs.org/sioc/ns#Post>': 'Symfony\Cmf\Bundle\MultilangContentBundle\Document\MultilangStaticContent'        
+        '<http://schema.org/Event>': 'Application\HelpDeskBundle\Document\Article'
+#    image:
+#        model_class: Symfony\Cmf\Bundle\CreateBundle\Document\Image
+#        controller_class: Symfony\Cmf\Bundle\CreateBundle\Controller\PHPCRImageController
+#        static_basepath: '/cms/content/static'
+    #role: IS_AUTHENTICATED_ANONYMOUSLY
+    role: ROLE_EDITOR
+    persistence:
+        phpcr:
+            enabled:       true
+            manager_name:         ~
+            image:
+                enabled:          true                
+                controller_class: Symfony\Cmf\Bundle\CreateBundle\Controller\ImageController
+                basepath:         /cms/media
+
+cmf_simple_cms:
+    persistence:
+        phpcr:
+            enabled:              ~
+            basepath:             /cms/simple
+            manager_registry:     doctrine_phpcr
+            manager_name:         ~
+            document_class:       Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page
+            use_sonata_admin:     true
+            sonata_admin:
+                sort:                 false
+    multilang:
+        locales: [en]    
+    use_menu:             auto
+    routing:
+        templates_by_class:
+            Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page:  CmfSimpleCmsBundle:Page:index.html.twig        
+        generic_controller:   cmf_content.controller:indexAction
+        content_repository_id:  cmf_routing.content_repository
+        uri_filter_regexp:
+
+cmf_tree_browser:
+    persistence:
+        phpcr:
+            enabled: true
+            session_name: default
+
+cmf_blog:
+    use_sonata_admin:     auto            
+    blog_basepath:        /cms/content/blog
+    class:
+        blog_admin: Symfony\Cmf\Bundle\BlogBundle\Admin\BlogAdmin
+        post_admin: Symfony\Cmf\Bundle\BlogBundle\Admin\PostAdmin
+        blog: Symfony\Cmf\Bundle\BlogBundle\Document\Blog
+        post: Symfony\Cmf\Bundle\BlogBundle\Document\Post
+
+cmf_block:
+    persistence:
+        phpcr:
+            enabled: true
+            block_basepath: /cms/content
+            manager_name: ~
+            string_document_class: Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\StringBlock
+            simple_document_class: Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\SimpleBlock
+            container_document_class: Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\ContainerBlock
+            reference_document_class: Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\ReferenceBlock
+            action_document_class: Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\ActionBlock
+            slideshow_document_class: Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\SlideshowBlock
+            imagine_document_class: Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\ImagineBlock
+            use_sonata_admin: auto
+            string_admin_class: Symfony\Cmf\Bundle\BlockBundle\Admin\StringBlockAdmin
+            simple_admin_class: Symfony\Cmf\Bundle\BlockBundle\Admin\SimpleBlockAdmin
+            container_admin_class: Symfony\Cmf\Bundle\BlockBundle\Admin\ContainerBlockAdmin
+            reference_admin_class: Symfony\Cmf\Bundle\BlockBundle\Admin\ReferenceBlockAdmin
+            action_admin_class: Symfony\Cmf\Bundle\BlockBundle\Admin\ActionBlockAdmin
+            slideshow_admin_class: Symfony\Cmf\Bundle\BlockBundle\Admin\Imagine\SlideshowBlockAdmin
+            imagine_admin_class: Symfony\Cmf\Bundle\BlockBundle\Admin\Imagine\ImagineBlockAdmin
+
+liip_imagine:
+    filter_sets:
+        # define the filter to be used with the image preview
+        image_upload_thumbnail:
+            data_loader: cmf_media_doctrine_phpcr
+            filters:
+                thumbnail: { size: [100, 100], mode: outbound }
+
+        # default filter to be used for elfinder thumbnails
+        elfinder_thumbnail:
+            data_loader: cmf_media_doctrine_phpcr
+            quality: 85
+            filters:
+                thumbnail: { size: [48, 48], mode: inset }
+
+        cmf_block:
+            data_loader: cmf_media_doctrine_phpcr
+            quality: 85
+            filters:
+                thumbnail: { size: [50, 50], mode: outbound }
+
+cmf_media:
+    upload_file_role:        ROLE_CAN_UPLOAD_FILE
+    use_jms_serializer:      auto
+    use_elfinder:            auto
+    use_imagine:             auto
+
+fm_elfinder:
+    locale: %locale%
+    editor: ckeditor
+    connector:
+        roots:
+            media:
+                driver: cmf_media.adapter.elfinder.phpcr_driver
+                path: %cmf_media.persistence.phpcr.media_basepath%
+                upload_allow: ['all']
+                upload_max_size: 10M
+
+liip_search:
+    restrict_by_language: true;
+
+cmf_search:
+    show_paging:          true
+    persistence:
+        phpcr:
+            enabled:              true
+            search_basepath:      /cms/content
+            manager_registry:     doctrine_phpcr
+            manager_name:         ~
+            translation_strategy: ~
+            search_fields:
+                title: title
+                summary: body
+
+fos_js_routing:
+    routes_to_expose:
+        - admin_bundle_menu_menunode_*
+        - admin_bundle_menu_multilangmenunode_*
+        - admin_bundle_content_multilangstaticcontent_*
+        - admin_bundle_block_simpleblock_*
+        - admin_bundle_block_containerblock_*
+        - admin_bundle_block_referenceblock_*
+        - admin_bundle_block_actionblock_*
+        - admin_bundle_blog_blog_*
+        - admin_bundle_blog_post_*
+        - symfony_cmf_routing_route_admin_*
+        - admin_bundle_simplecms_page_*
+        - symfony_cmf_tree_browser.phpcr_children
+        - symfony_cmf_tree_browser.phpcr_move
+        - sonata.admin.doctrine_phpcr.phpcrodm_children
+        - sonata.admin.doctrine_phpcr.phpcrodm_move
+        - cmf_create_put_document_base
+        - cmf_create_post_document
+        - cmf_create_put_document
+
+knp_menu:
+    twig: true
+
+fos_rest:
+    view:
+        formats:
+            json: true
+
+application_ldap: 
+    user_class: %user_class%
+    server: %ldap_server%
+    port:   %ldap_port%
+    use_tls: %ldap_use_tls%
+    parameters:
+        base_dn: %ldap_base_dn%  
+        bind_dn: %ldap_bind_dn%
+        bind_passwd: %ldap_bind_passwd%
+        user_prefix: %ldap_user_prefix%
+        group_prefix: %ldap_group_prefix%
+        user_attribute: %ldap_user_attribute%
+        mail_attribute: %ldap_mail_attribute%
+
+knp_paginator:
+    page_range: 10                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+#        pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
+        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig     # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+
+#liip_vie:
+#    phpcr_odm: true
+#    map:
+#        '<http://rdfs.org/sioc/ns#Post>': 'Sandbox\MainBundle\Document\EditableStaticContent'
+#    #use_coffee: %liip_vie.use_coffee%
+#    # TODO: these settings should come from the corresponding bundles, not be duplicated
+#    base_path: /cms/routes
+#    cms_path: /cms/content/static

@@ -1,0 +1,25 @@
+{% extends "::layout.html.twig" %}
+
+{% block stylesheets %}
+	{% include "SymfonyCmfCreateBundle::includecssfiles.html.twig" %}
+{% endblock %}
+
+{% block javascripts %}
+	{% render controller("symfony_cmf_create.jsloader.controller:includeJSFilesAction", {'_locale': app.request.locale}) %}
+{% endblock %}
+
+{% block title %}{{ cmfMainContent.title|striptags }}{% endblock %}
+
+{% block body %}
+	
+
+    {% createphp cmfMainContent as="rdf" %}
+    {{ rdf|raw }}
+    {% endcreatephp %}
+
+	{{ sonata_block_render({'name': '/cms/content/block/simpleblocktest'}) }}
+	{#{ sonata_block_render({'name': '/cms/content/block/users'}) }#}
+	{{ knp_menu_render('menu1') }}
+{% endblock %}
+
+

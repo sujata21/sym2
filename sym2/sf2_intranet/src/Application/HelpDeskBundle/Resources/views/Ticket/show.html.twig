@@ -1,0 +1,137 @@
+{% extends '::layout.html.twig' %}
+
+{% form_theme edit_form ':Form:fields.html.twig' %}
+
+{% form_theme edit_form _self %}
+
+{% block form_row %}
+{% spaceless %}
+    <div class="form-group {% if errors %}error{% endif %}">
+        {{ form_label(form) }}
+        <div class="div-form-field">
+            {{ form_widget(form) }}
+            {{ form_errors(form) }}
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
+
+{% block radio_widget %}
+{% spaceless %}
+    <div class="col-md-1 radio radio-group">
+        {% set labelName = label|trans({}, translation_domain) %}
+        {% if labelName == 'Open' %}
+            {% set classValue = 'label label-danger' %}
+        {% elseif labelName == 'Pending' %}
+            {% set classValue = 'label label-info' %}
+        {% elseif labelName == 'On-Hold' %}
+            {% set classValue = 'label label-warning' %}
+        {% elseif labelName == 'Solved' %}
+            {% set classValue = 'label label-success' %}
+        {% else %}
+            {% set classValue = '' %}
+        {% endif %}
+        <label class="{{classValue}}"{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+            {{ labelName }}
+            <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        </label>
+    </div>
+{% endspaceless %}
+{% endblock radio_widget %}
+
+{% block form_label %}
+{% spaceless %}
+    {% if not compound %}
+        {% set label_attr = label_attr|merge({'for': id, 'class': ''}) %}
+    {% endif %}
+    {% if required %}
+        {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' col-md-3 control-label required')|trim}) %}
+    {% endif %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block body %}
+
+<div class="panel panel-primary panel-show">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Ticket - Show page
+            <!-- add help content to bottom help div -->
+            <a id="helpBtn" href="#" data-module-id="Ticket" title="Ticket show page help" data-toggle="modal" data-target="#Ticket"><span class="glyphicon glyphicon-question-sign pull-right"></span></a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="ticket-summary-div col-md-12">
+            <div class="ticket-summary col-md-5">
+                <table class="table table-condensed table-ticket-summary">
+                    <tbody>
+                        <tr>
+                            <td class="td-header">From:</td>
+                            <td>{{ entity.fromemail }}</td>
+                        </tr>
+                        <tr>
+                            <td class="td-header">Subject:</td>
+                            <td>{{ entity.subject }}</td>
+                        </tr>
+                        <tr>
+                            <td class="td-header">Date:</td>
+                            <td>{{ entity.createdat|date('M d, Y H:i:s') }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ticket-message-form col-md-7">
+                <form id="editForm" action="{{ path('ticket_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><button id="btn-ticket-message" class="btn btn-info btn-xs" href="#ticket-message" data-toggle="tab" data-info="your comment is sent to the ticket requester">Message</button></li>
+                        <li><button id="btn-ticket-note" class="btn btn-warning btn-xs" href="#ticket-note" data-toggle="tab" data-info="your comment is visible to agents only">Note</button></li>
+                        <li><p id="ticket-btn-comment">your comment is sent to the ticket requester</p></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="ticket-message">
+                            {{ form_widget(edit_form.ticketIssue.message, { 'attr': {'class': 'form-control'} }) }}
+                        </div>
+                        <div class="tab-pane" id="ticket-note">
+                            {{ form_widget(edit_form.ticketIssue.note, { 'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div>
+                        {{ form_widget(edit_form.status) }}
+                    </div>
+                </form>
+            </div>    
+        </div>
+        
+        <div class="ticket-issues panel-group col-md-12">
+            {% for issue in entity.ticketIssues %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <strong>{{ issue.submittedBy}}</strong><br><small>{{ issue.createdat|date('M d, Y H:i:s') }}</small>
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        {{ issue.message}}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-success" href="{{ path('ticket') }}"><span class="glyphicon glyphicon-list"></span> Back to list</a>
+        <button class="btn btn-info" form="editForm" href="{{ path('ticket_edit', { 'id': entity.id }) }}" class="btn"><span class="glyphicon glyphicon-edit"></span> Save</button>
+        <a class="btn btn-danger pull-right" href="{{ path('ticket_close', { 'id': entity.id }) }}" class="btn"><span class="glyphicon glyphicon-ban-circle"></span> Close</a>
+    </div>
+</div>
+<!-- help content div -->
+<div id="Ticket-div-help-content" class="help-content">
+    Ticket show page help content
+</div>
+<!-- // help content div -->
+
+{% endblock %}

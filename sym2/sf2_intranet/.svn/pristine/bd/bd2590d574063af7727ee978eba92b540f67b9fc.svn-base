@@ -1,0 +1,82 @@
+{{ "{% extends '::layout.html.twig' %}" }}
+
+{{ "{% block body_span %}span12{% endblock %}" }}
+{{ "{% block sidebar %}{% endblock %}" }}
+
+{{ "{% block body %}" }}
+
+<h1>{{ entity }} list</h1>
+{% if 'new' in actions %}
+<div id="form_action" class="btn_add_new" style="float: right">
+<a href="{{ "{{ path('"~ route_name_prefix ~"_new') }}" }}" class="btn small">
+       <i class="icon-plus-sign"></i>Add New
+</a>
+</div>
+{% endif %}
+
+
+<div class="filter_form" style="span12 float: left">
+	<span class="filter_form_legend"><i class="icon-chevron-down"></i>Filter</span>
+	<div class="filter_form_container inactive">
+		<form action="{{ "{{ path('"~ route_name_prefix ~"') }}" }}" method="post" {{ "{{ form_enctype(filter_form) }}" }}>
+	    	{{ "{{ form_widget(filter_form) }}" }}
+	    	<p>
+	        	<button type="submit">Filter</button>
+	    	</p>
+		</form>
+	</div>
+</div>
+
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+        {%- for field, metadata in fields %}
+
+            <th{{ "{% if pagination.isSorted('a." }}{{ field }}{{ "') %} {% endif %}>{{ knp_pagination_sortable(pagination, '" }}{{ field|capitalize }}{{ "', 'a." }}{{ field }}{{ "')|raw }}" }}</th>
+            
+
+        {%- endfor %}
+
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{ '{% for entity in pagination %}' }}
+        <tr>
+
+    {%- for field, metadata in fields %}
+        {%- if loop.first and ('show' in actions) %}
+
+            <td><a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</a></td>
+
+        {%- elseif metadata.type in ['date', 'datetime'] %}
+
+            <td>{{ '{% if entity.'~ field|replace({'_': ''}) ~' %}{{ entity.'~ field|replace({'_': ''}) ~'|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+
+        {%- else %}
+
+            <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</td>
+
+        {%- endif %}
+
+        {%- if loop.last %}
+
+            <td nowrap>
+                {%- include "views/others/actions.html.twig" %}
+            </td>
+
+        {%- endif %}
+    {%- endfor %}
+
+        </tr>
+    {{ '{% endfor %}' }}
+    </tbody>
+</table>
+
+{# display navigation #}
+<div class="navigation">
+    {{ "{{ knp_pagination_render(pagination)|raw }}" }}
+</div>
+
+{{ "{% endblock %}" }}
